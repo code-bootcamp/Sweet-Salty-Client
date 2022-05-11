@@ -1,9 +1,11 @@
 import * as S from "./Login.styled";
 
-export default function LoginPresenterPage() {
+export default function LoginPresenterPage(props) {
   return (
     <>
-      <S.TestDiv>이곳은 로그인페이지입니다.</S.TestDiv>
+      <S.TestDiv>
+        <div>여기는 로그인 페이지</div>
+      </S.TestDiv>
     </>
   );
 }

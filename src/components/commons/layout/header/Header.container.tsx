@@ -1,7 +1,7 @@
-import LayoutHeaderUI from "./Header.presenter";
+import LayoutHeaderPresenter from "./Header.presenter";
 
 // import { } from "./Header.queries";
 
 export default function LayoutHeader() {
-  return <LayoutHeaderUI />;
+  return <LayoutHeaderPresenter />;
 }

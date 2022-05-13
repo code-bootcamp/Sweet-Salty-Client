@@ -17,7 +17,7 @@ export const HeaderLogo = styled.div`
   height: 44px;
   background: #dbdbdb;
 `;
-export const HeaderRightBox = styled.div`
+export const HeaderMiddleBox = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -34,11 +34,26 @@ export const HeaderMenu = styled.div`
   font-weight: 700;
   margin: 0 20px;
   cursor: pointer;
+  &: hover {
+    border-bottom: 8px solid #ffa230;
+  }
 `;
-export const HeaderToggleBox = styled.div`
-  width: 40px;
-  height: 40px;
-  background: #ffa230;
+export const HeaderRightBox = styled.div`
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+`;
+export const HeaderLogin = styled.div`
+  font-size: 16px;
+  font-weight: 700;
+  margin: 0 20px;
   cursor: pointer;
-  border-radius: 50%;
+  color: #7b7b7b;
+`;
+export const HeaderSignup = styled.div`
+  font-size: 16px;
+  font-weight: 700;
+  margin: 0 20px;
+  cursor: pointer;
+  color: #7b7b7b;
 `;

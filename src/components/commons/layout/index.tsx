@@ -2,6 +2,7 @@ import styled from "@emotion/styled";
 import { ReactNode } from "react";
 import LayoutHeader from "./header/Header.container";
 import LayoutBanner from "./banner/Banner.container";
+import SearchBarPage from "./searchbar/SearchBar.container";
 import LayoutFooter from "./footer/Footer.container";
 
 const Wrapper = styled.div``;
@@ -55,6 +56,8 @@ export default function Layout(props: ILayoutProps) {
         <LayoutHeader />
 
         <LayoutBanner />
+
+        <SearchBarPage />
 
         <Body>
           <Circle1></Circle1>

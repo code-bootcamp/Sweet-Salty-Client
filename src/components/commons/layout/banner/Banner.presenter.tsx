@@ -3,7 +3,7 @@ import styled from "@emotion/styled";
 import Slider from "react-slick";
 
 const Slick = styled(Slider)`
-  width: 60%;
+  width: 1120px;
   height: 100%;
   display: flex;
   align-items: center;

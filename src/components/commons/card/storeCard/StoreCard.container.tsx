@@ -1,6 +1,5 @@
-export default function StoreCardContainerPage(){
+import StoreCardPresenterPage from "./StoreCard.presenter";
 
-    return(
-        
-    )
+export default function StoreCardContainerPage() {
+  return <StoreCardPresenterPage />;
 }

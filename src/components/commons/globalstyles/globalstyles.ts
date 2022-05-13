@@ -1,6 +1,5 @@
 import { css } from "@emotion/react";
 
-
 export const globalstyles = css`
   * {
     margin: 0px;
@@ -10,8 +9,10 @@ export const globalstyles = css`
   }
 
 
+
 @font-face {
   font-family:"pretendard";
   src: url("/font/PretendardVariable.woff2");
 }
 `;
+

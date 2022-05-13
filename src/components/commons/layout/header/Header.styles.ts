@@ -34,7 +34,7 @@ export const HeaderMenu = styled.div`
   font-weight: 700;
   margin: 0 20px;
   cursor: pointer;
-  &: hover {
+  &:hover {
     border-bottom: 8px solid #ffa230;
   }
 `;

@@ -1,9 +1,9 @@
-import StoreItem from "../../src/components/commons/card/storeCard/StoreCard.presenter";
+import StoreCardContainerPage from "../../src/components/commons/card/storeCard/StoreCard.container";
 
 export default function Test() {
   return (
     <>
-      <StoreItem />
+      <StoreCardContainerPage />
     </>
   );
 }

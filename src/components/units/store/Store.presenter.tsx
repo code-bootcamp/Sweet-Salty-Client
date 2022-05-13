@@ -1,3 +1,4 @@
+import StoreCardContainerPage from "../../commons/card/storeCard/StoreCard.container";
 import * as S from "./Store.styled";
 
 export default function StorePresenterPage() {
@@ -15,21 +16,25 @@ export default function StorePresenterPage() {
         {/* 메인페이지 */}
         <S.MainContentsSection>
           {/* 상단 태그선택 공통컴포넌트로 작업할 거 */}
-          <div></div>
+          <div>여기는 상단태그 선택하는 공통컨포넌트가 들어갈 자리입니다.</div>
           {/* 실시간 TOP3 */}
-          <div>
-            <div>
-              <div>실시간</div>
-              <div>TOP 3</div>
-            </div>
-            <div></div>
-          </div>
+          <S.BestContentsSection>
+            <S.BestContentsTitleArticle>
+              <S.BestContentsTopArticle>실시간</S.BestContentsTopArticle>
+              <S.BestContentsBottomArticle>TOP 3</S.BestContentsBottomArticle>
+            </S.BestContentsTitleArticle>
+            <S.BestContentsArticleTest>
+              <StoreCardContainerPage />
+              <StoreCardContainerPage />
+              <StoreCardContainerPage />
+            </S.BestContentsArticleTest>
+          </S.BestContentsSection>
           {/* 상품목록들 무한스크롤 */}
-          <div></div>
-          {/* 위로 올라가기 버튼 */}
           <div></div>
         </S.MainContentsSection>
       </S.Main>
+      {/* 위로 올라가기 버튼 */}
+      <div>하이</div>
     </S.Page>
   );
 }

@@ -1,8 +1,6 @@
 import styled from "@emotion/styled";
 
 export const FooterWrapper = styled.div`
-  position: absolute;
-  bottom: 0;
   width: 100%;
   background: #fff;
 `;

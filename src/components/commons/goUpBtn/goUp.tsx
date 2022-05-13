@@ -1,6 +1,12 @@
 import styled from '@emotion/styled';
 import ArrowUpwardRoundedIcon from '@material-ui/icons/ArrowUpwardRounded';
 
+const Arrow = styled(ArrowUpwardRoundedIcon)`
+&&{transition: all 0.1s linear;}
+:hover{
+    transform: scale(1.2);
+}
+`;
 
 const ArrowDiv = styled.div`
 align-items: center;
@@ -11,12 +17,7 @@ height: 52px;
 justify-content:center;
 width: 52px;
 `;
-const Arrow = styled(ArrowUpwardRoundedIcon)`
-&&{transition: all 0.1s linear;}
-:hover{
-    transform: scale(1.2);
-}
-`;
+
 
 export default function GoUpBtn(){
 return(

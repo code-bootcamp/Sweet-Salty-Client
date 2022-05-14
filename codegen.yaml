@@ -1,7 +1,0 @@
-schema: https://project08.site/graphql
-generates:
-  ./src/commons/types/generated/types.ts:
-    plugins:
-      - typescript
-    config:
-      typesPrefix: I

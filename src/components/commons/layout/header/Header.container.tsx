@@ -22,6 +22,7 @@ export default function LayoutHeader() {
   };
 
   const onClickReview = () => {
+    setIsClick((prev) => !prev);
     router.push("/reviews/reviewlist");
   };
 

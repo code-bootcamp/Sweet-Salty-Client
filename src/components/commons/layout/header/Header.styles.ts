@@ -33,7 +33,7 @@ export const HeaderMenu = styled.div`
   margin: 0 20px;
   cursor: pointer;
   transition: 0.2s;
-  &: hover {
+  &:hover {
     border-bottom: 8px solid #ffa230;
   }
   border-bottom: ${(props: any) =>
@@ -93,9 +93,10 @@ export const UserProfileBox = styled.div`
 export const ArrowBox = styled.div`
   width: 0px;
   height: 0px;
-  border-left: 20px solid transparent;
-  border-right: 20px solid transparent;
+  border-left: 13px solid transparent;
+  border-right: 13px solid transparent;
   border-bottom: 20px solid #fff;
+  z-index: 0;
 `;
 export const UserProfile = styled.div`
   width: 180px;

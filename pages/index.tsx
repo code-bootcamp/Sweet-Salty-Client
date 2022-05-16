@@ -1,9 +1,7 @@
-// 렌딩페이지
+// 메인 페이지 - 김치훈
 
-export default function Home() {
-  return (
-    <div>
-      <div>8조 main페이지</div>
-    </div>
-  );
+import MainPageList from "../src/components/units/mainpage/Mainpage.container";
+
+export default function MainPage() {
+  return <MainPageList />;
 }

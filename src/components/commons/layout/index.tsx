@@ -4,7 +4,6 @@ import styled from "@emotion/styled";
 import { ReactNode } from "react";
 import LayoutHeader from "./header/Header.container";
 import LayoutBanner from "./banner/Banner.container";
-import SearchBarPage from "./searchbar/SearchBar.container";
 import LayoutFooter from "./footer/Footer.container";
 import { useRouter } from "next/router";
 
@@ -40,8 +39,6 @@ export default function Layout(props: ILayoutProps) {
       <LayoutHeader />
 
       {!isLoginPage && !isReviewDetail && !isReviewList && <LayoutBanner />}
-
-      {!isLoginPage && !isReviewDetail && <SearchBarPage />}
 
       <Body>{props.children}</Body>
 

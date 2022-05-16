@@ -4,11 +4,9 @@ import styled from "@emotion/styled";
 import { SearchOutlined, EditOutlined } from "@ant-design/icons";
 
 export const Wrapper = styled.div`
-  margin: 0 auto;
   width: 1338px;
   display: flex;
   justify-content: ${(props: any) => (props.isReviewList ? "end" : "center")};
-  padding: 40px 0;
   background: #f3f3f3;
 `;
 

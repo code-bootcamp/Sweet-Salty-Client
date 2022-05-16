@@ -81,8 +81,6 @@ export const Photo = styled.div`
   border-radius: 50%;
   background: linear-gradient(#ff6e30, #ffa230);
   cursor: pointer;
-  background: url("./images/user-solid-24.png");
-  background-size: contain;
 `;
 export const UserProfileBox = styled.div`
   position: absolute;

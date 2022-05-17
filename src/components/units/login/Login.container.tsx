@@ -39,7 +39,6 @@ const onClickLogin = async (data: OperationVariables | undefined) => {
     // setAccessToken(accessToken);
 // console.log(accessToken);
 
-alert(`${loggedInData?.fetchUserLoggedIn.userNickname}님 환영합니다.`);
 router.push("/");
 console.log(result, loggedInData)
   } catch (error : any) {

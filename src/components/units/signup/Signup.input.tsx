@@ -1,5 +1,5 @@
 import styled from "@emotion/styled";
-import { KeyboardEventHandler } from "react";
+import { ChangeEventHandler, KeyboardEventHandler } from "react";
 import { UseFormRegisterReturn } from "react-hook-form";
 
 export const Input = styled.input`
@@ -13,6 +13,7 @@ border-radius: 5px;
 `;
 
 interface IProps {
+  onChange?: ChangeEventHandler<HTMLInputElement> | undefined;
   placeholder?: string | undefined;
   defaultValue?: string;
   onKeyUp?: KeyboardEventHandler<HTMLInputElement> | undefined;
@@ -28,6 +29,7 @@ export default function SignupInput(props: IProps) {
       placeholder={props.placeholder}
       defaultValue={props.defaultValue || ""}
       onKeyUp={props.onKeyUp}
+      onChange={props.onChange}
     />
   );
 }

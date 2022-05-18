@@ -1,9 +1,8 @@
 // 여기는 로그인 페이지 입니다.
 import {useRouter} from "next/router";
 import LoginPresenterPage from "./Login.presenter";
-// import { accessTokenState } from "../../../commons/store";
-// import { useRecoilState } from "recoil";
-// 리코일, 글로벌스테이트 적용 후 주석해제
+import { useRecoilState } from "recoil";
+import { accessTokenState } from "../../commons/store";
 import {  OperationVariables, useMutation, useQuery } from "@apollo/client";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
@@ -19,14 +18,14 @@ const schema =yup.object({
 })
 
 export default function LoginContainerPage() {
-  // const [, setAccessToken] = useRecoilState(accessTokenState);
+  const [, setAccessToken] = useRecoilState(accessTokenState);
   const router = useRouter();
   const {data : loggedInData} = useQuery(FETCH_USER_LOGGED_IN);
-const [login] = useMutation(LOGIN);
-const { register, handleSubmit, formState } = useForm({
-  resolver: yupResolver(schema),
-  mode: "onChange",
-});
+  const [login] = useMutation(LOGIN);
+  const { register, handleSubmit, formState } = useForm({
+    resolver: yupResolver(schema),
+    mode: "onChange",
+    });
 const onClickLogin = async (data: OperationVariables | undefined) => {
   // 로그인하기
   try {
@@ -35,9 +34,9 @@ const onClickLogin = async (data: OperationVariables | undefined) => {
         ...data,
       },
     });
-    // const accessToken = result.data.login.accessToken;
-    // setAccessToken(accessToken);
-// console.log(accessToken);
+    const accessToken = result.data.login.accessToken;
+    setAccessToken(accessToken);
+console.log(accessToken);
 
 router.push("/");
 console.log(result, loggedInData)
@@ -45,6 +44,9 @@ console.log(result, loggedInData)
     alert(error.message);
   }
 };
+
+
+
 const onClickSignUp =()=>{
   router.push("/signup");
 }

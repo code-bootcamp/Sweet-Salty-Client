@@ -1,8 +1,8 @@
 import * as S from "./Store.styled";
 import TopButton from "../../commons/topbutton";
-import FilterPresenter from "../../commons/filter/filter.presenter";
 import SearchBarPage from "../../commons/searchbar/SearchBar.container";
 import StoreItem from "../../commons/card/StoreCard/StoreItem.presenter";
+import FilterContainer from "../../commons/filter/filter.container";
 
 export default function StorePresenterPage() {
   return (
@@ -20,7 +20,7 @@ export default function StorePresenterPage() {
         <S.ContentsSection>
           {/* 필터 */}
           <div>
-            <FilterPresenter />
+            <FilterContainer />
           </div>
           {/* 베스트게시글 */}
           <S.BestContentsSection>

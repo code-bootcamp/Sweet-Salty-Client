@@ -4,7 +4,6 @@ import styled from "@emotion/styled";
 import { useRouter } from "next/router";
 
 const TopBox = styled.div`
-  margin: 100px auto;
   width: 52px;
   height: 52px;
   text-align: center;

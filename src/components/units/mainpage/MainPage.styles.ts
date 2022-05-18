@@ -8,11 +8,8 @@ export const MainPageWrapper = styled.div`
   flex-direction: column;
   align-items: center;
 `;
-export const SearchbarBox = styled.div`
-  padding: 46px 0;
-`
 export const MainPageOutBox = styled.div`
-  margin: 0 auto 40px auto;
+  margin: 40px auto 40px auto;
   width: 1120px;
 `;
 export const ReviewMenuBox = styled.div`

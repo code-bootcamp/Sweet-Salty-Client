@@ -12,14 +12,15 @@ export const Title = styled.div`
   font-weight: 700;
   font-size: 40px;
   padding: 100px 0;
-`
-export const CommonReviewOutBox = styled.div`
-margin: 0 auto 40px auto;
-width: 1338px;
 `;
+export const CommonReviewOutBox = styled.div`
+  /* margin: 0 auto 40px auto; */
+  width: 1338px;
+`;
+
 export const SearchbarBox = styled.div`
   padding-bottom: 46px;
-`
+`;
 export const ReviewMenuBox = styled.div`
   margin: 0 auto;
   width: 1338px;
@@ -62,8 +63,8 @@ export const TopThreeBox = styled.div`
   justify-content: space-between;
 `;
 export const TopThreeTitle = styled.div`
-  font-size: 28px;
-  font-weight: 700;
+  display: flex;
+  flex-direction: column;
   cursor: default;
   color: #ff9a31;
 `;
@@ -71,6 +72,11 @@ export const TopDiv = styled.div`
   font-size: 20px;
   font-weight: 700;
   cursor: default;
+`;
+
+export const BottomDiv = styled.div`
+  font-size: 30px;
+  font-weight: 800;
 `;
 
 export const ReviewSection = styled.div`

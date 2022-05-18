@@ -12,6 +12,7 @@ export const Main = styled.div`
   display: flex;
   flex-direction: column;
   width: 1338px;
+  border: 1px solid red;
 `;
 
 export const TitleSection = styled.div`

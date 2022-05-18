@@ -1,3 +1,5 @@
+// 공지사항 Detail Container --- 김치훈
+
 import { useRouter } from "next/router";
 import NoticeDetailPresenter from "./NoticeDetail.presenter";
 

@@ -1,3 +1,4 @@
+// 공지사항 Detail Presenter --- 김치훈
 
 import Hits from "../../../commons/hits"
 import TopButton from "../../../commons/topbutton"

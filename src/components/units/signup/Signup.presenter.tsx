@@ -38,9 +38,14 @@ export default function SignUpPresenterPage(props) {
       <SignupInput
       type="text"
       placeholder="전화번호를 입력해주세요."
-      register={props.register("userPhone")}
+      onChange={props.onChangePhoneNumber}
+      // register={props.register("userPhone")}
       />
       <S.ErrorTxt>{props.formState.errors.userPhone?.message}</S.ErrorTxt>
+      <button type="button" onClick={props.onClickGetNumber}>전화번호인증</button>
+      <SignupInput type="text" placeholder="인증번호를 입력하세요." onChange={props.onChangeSerialNumber}></SignupInput>
+      <button type="button" onClick={props.onClickCheckNumber}>인증확인</button>
+    
       <S.SubmitBtn type="submit">회원가입</S.SubmitBtn>
       <S.CancleBtn type="button" onClick={props.onClickBack}>취소</S.CancleBtn>
           <S.GoLoginTxt>이미 아이디가 있으신가요? <S.GoLoginA href="/login">로그인</S.GoLoginA></S.GoLoginTxt>

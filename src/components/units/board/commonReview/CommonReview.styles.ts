@@ -4,11 +4,22 @@ import styled from "@emotion/styled";
 
 export const CommonReviewWrapper = styled.div`
   width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 `;
+export const Title = styled.div`
+  font-weight: 700;
+  font-size: 40px;
+  padding: 100px 0;
+`
 export const CommonReviewOutBox = styled.div`
-  margin: 0 auto 40px auto;
-  width: 1338px;
+margin: 0 auto 40px auto;
+width: 1338px;
 `;
+export const SearchbarBox = styled.div`
+  padding-bottom: 46px;
+`
 export const ReviewMenuBox = styled.div`
   margin: 0 auto;
   width: 1338px;

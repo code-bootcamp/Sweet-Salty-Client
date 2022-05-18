@@ -3,11 +3,16 @@
 import FilterContainer from "../../../commons/filter/filter.container";
 import TopButton from "../../../commons/topbutton";
 import * as S from "./CommonReview.styles";
+import SearchBarPage from "../../../commons/searchbar/SearchBar.container"
 
 export default function CommonReviewPresenterPage(props: any) {
   return (
     <S.CommonReviewWrapper>
+      <S.Title>단짠 게시판</S.Title>
       <S.CommonReviewOutBox>
+        <S.SearchbarBox>
+        <SearchBarPage />
+        </S.SearchbarBox>
         <S.ReviewMenuBox>
           <S.ReviewMenu onClick={props.onClickCommonReview}>
             단짠 리뷰

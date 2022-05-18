@@ -97,3 +97,7 @@ export const ReviewList = styled.div`
   flex-wrap: wrap;
   justify-content: space-between;
 `;
+
+export const TopButtonArticle = styled.div`
+  padding: 50px 0px;
+`;

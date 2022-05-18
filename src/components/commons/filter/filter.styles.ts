@@ -2,6 +2,10 @@
 
 import styled from "@emotion/styled";
 
+interface IRegisterButton {
+  menuIsClick: boolean;
+}
+
 export const Wrapper = styled.div`
   width: 1290px;
   padding: 20px;
@@ -88,13 +92,16 @@ export const OpenTagBox = styled.div`
   flex-wrap: wrap;
 `;
 export const OpenTag = styled.div`
-  margin: 0px 5px 5px 0;
+  margin: 0px 20px 0px 0px;
   padding: 7px 20px;
   border-radius: 50px;
   color: #7b7b7b;
   font-weight: 700;
   font-size: 16px;
   border: 2px solid #dbdbdb;
+
+  background-color: ${(props: IRegisterButton) =>
+    props.menuIsClick ? "black" : "red"};
 `;
 export const ButtonBox = styled.div`
   margin: 30px 0;

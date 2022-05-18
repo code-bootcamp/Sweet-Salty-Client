@@ -34,6 +34,7 @@ export default function CommonReviewPresenterPage(props: any) {
             </S.TopThreeTitle>
 
             <S.ReviewSection>
+              {/* 베스트리뷰3개 */}
               <BestReviewItemContainerPage />
             </S.ReviewSection>
           </S.TopThreeBox>
@@ -41,12 +42,14 @@ export default function CommonReviewPresenterPage(props: any) {
           <S.CommonReviewHr />
 
           <S.ReviewList>
+            {/* 리뷰리스트 */}
             <CommonReviewItemContainerPage />
           </S.ReviewList>
         </S.CommonReviewInnerBox>
       </S.CommonReviewOutBox>
-
-      <TopButton />
+      <S.TopButtonArticle>
+        <TopButton />
+      </S.TopButtonArticle>
     </S.CommonReviewWrapper>
   );
 }

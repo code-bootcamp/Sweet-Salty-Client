@@ -1,15 +1,11 @@
 // Mainpage 메인페이지 presenter - 김치훈
 
-import SearchBarPage from "../../commons/searchbar/SearchBar.container";
 import TopButton from "../../commons/topbutton";
 import * as S from "./MainPage.styles";
 
 export default function MainpagePresenter(props: any) {
   return (
     <S.MainPageWrapper>
-    <S.SearchbarBox>
-      <SearchBarPage />
-    </S.SearchbarBox>
       <S.MainPageOutBox>
         <S.ReviewMenuBox>
           <S.ReviewMenu>단짠 리뷰</S.ReviewMenu>

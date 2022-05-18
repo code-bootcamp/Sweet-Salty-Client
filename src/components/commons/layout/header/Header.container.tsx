@@ -16,10 +16,11 @@ export default function LayoutHeader() {
     router.push("/");
   };
   const onClickNotice = () => {
-    router.push("/notice");
+    router.push("/notice/list");
   };
-  const NoticePage = ["/notice"];
+  const NoticePage = ["/notice/list"];
   const isNoticePage = NoticePage.includes(router.asPath);
+
   const onClickLogin = () => {
     router.push("/login");
   };

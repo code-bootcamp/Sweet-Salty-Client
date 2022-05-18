@@ -14,7 +14,6 @@ export default function LayoutHeaderPresenter(props: any) {
           </S.ReviewMenu>
           <S.StoreMenu>단짠 스토어</S.StoreMenu>
           <S.NoticeMenu isNoticePage={props.isNoticePage} onClick={props.onClickNotice}>공지사항</S.NoticeMenu>
-          <S.QuestionMenu>자주하는 질문</S.QuestionMenu>
         </S.HeaderMenuBox>
 
         {/* <S.HeaderNonMembersRightBox>

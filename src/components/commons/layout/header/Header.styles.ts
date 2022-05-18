@@ -27,10 +27,24 @@ export const HeaderMenuBox = styled.div`
   align-items: center;
 `;
 
-export const HeaderMenu = styled.div`
+export const IntroductionMenu = styled.div`
+  font-size: 18px;
+  font-weight: 500;
+  margin: 0 20px;
+  cursor: pointer;
+  transition: 0.2s;
+  &:hover {
+    border-bottom: 8px solid #ffa230;
+    font-weight: 900;
+  }
+  &:active {
+    font-size: 18.5px;
+  }
+`;
+export const ReviewMenu = styled.div`
   font-size: 18px;
   font-weight: ${(props: any) =>
-    props.isPage ? "900" : "500"};
+    props.isReviewPage ? "900" : "500"};
   margin: 0 20px;
   cursor: pointer;
   transition: 0.2s;
@@ -42,8 +56,54 @@ export const HeaderMenu = styled.div`
     font-size: 18.5px;
   }
   border-bottom: ${(props: any) =>
-    props.isPage ? "8px solid #ffa230" : "none"};
+    props.isReviewPage ? "8px solid #ffa230" : "none"};
 `;
+export const StoreMenu = styled.div`
+  font-size: 18px;
+  font-weight: 500;
+  margin: 0 20px;
+  cursor: pointer;
+  transition: 0.2s;
+  &:hover {
+    border-bottom: 8px solid #ffa230;
+    font-weight: 900;
+  }
+  &:active {
+    font-size: 18.5px;
+  }
+`;
+export const NoticeMenu = styled.div`
+  font-size: 18px;
+  font-weight: ${(props: any) =>
+    props.isNoticePage ? "900" : "500"};
+  margin: 0 20px;
+  cursor: pointer;
+  transition: 0.2s;
+  &:hover {
+    border-bottom: 8px solid #ffa230;
+    font-weight: 900;
+  }
+  &:active {
+    font-size: 18.5px;
+  }
+  border-bottom: ${(props: any) =>
+    props.isNoticePage ? "8px solid #ffa230" : "none"};
+`;
+export const QuestionMenu = styled.div`
+  font-size: 18px;
+  font-weight: 500;
+  margin: 0 20px;
+  cursor: pointer;
+  transition: 0.2s;
+  &:hover {
+    border-bottom: 8px solid #ffa230;
+    font-weight: 900;
+  }
+  &:active {
+    font-size: 18.5px;
+  }
+`;
+
 export const HeaderNonMembersRightBox = styled.div`
   display: flex;
   justify-content: space-around;

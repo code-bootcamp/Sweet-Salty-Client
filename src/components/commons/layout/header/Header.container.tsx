@@ -8,31 +8,38 @@ export default function LayoutHeader() {
   const router = useRouter();
   const [isClick, setIsClick] = useState(false);
 
-  const Page = ["/reviews/reviewlist"];
-  const isPage = Page.includes(router.asPath);
-
+  
   const onClickPhoto = () => {
     setIsClick((prev) => !prev);
   };
   const onClickHome = () => {
     router.push("/");
   };
+  const onClickNotice = () => {
+    router.push("/notice");
+  };
+  const NoticePage = ["/notice"];
+  const isNoticePage = NoticePage.includes(router.asPath);
   const onClickLogin = () => {
     router.push("/login");
   };
-
+  
   const onClickReview = () => {
     router.push("/reviews/reviewlist");
   };
+  const ReviewPage = ["/reviews/reviewlist"];
+  const isReviewPage = ReviewPage.includes(router.asPath);
 
   return (
     <LayoutHeaderPresenter
-      onClickReview={onClickReview}
-      onClickPhoto={onClickPhoto}
       onClickHome={onClickHome}
+      onClickReview={onClickReview}
+      onClickNotice={onClickNotice}
+      onClickPhoto={onClickPhoto}
       onClickLogin={onClickLogin}
       isClick={isClick}
-      isPage={isPage}
+      isReviewPage={isReviewPage}
+      isNoticePage={isNoticePage}
     />
   );
 }

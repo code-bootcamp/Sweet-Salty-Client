@@ -8,13 +8,13 @@ export default function LayoutHeaderPresenter(props: any) {
       <S.HeaderBox>
         <S.HeaderLogo onClick={props.onClickHome}></S.HeaderLogo>
         <S.HeaderMenuBox>
-          <S.HeaderMenu>단짠 맛집 소개</S.HeaderMenu>
-          <S.HeaderMenu isPage={props.isPage} onClick={props.onClickReview}>
+          <S.IntroductionMenu>단짠 맛집 소개</S.IntroductionMenu>
+          <S.ReviewMenu isReviewPage={props.isReviewPage} onClick={props.onClickReview}>
             단짠 게시판
-          </S.HeaderMenu>
-          <S.HeaderMenu>단짠 스토어</S.HeaderMenu>
-          <S.HeaderMenu>공지사항</S.HeaderMenu>
-          <S.HeaderMenu>자주하는 질문</S.HeaderMenu>
+          </S.ReviewMenu>
+          <S.StoreMenu>단짠 스토어</S.StoreMenu>
+          <S.NoticeMenu isNoticePage={props.isNoticePage} onClick={props.onClickNotice}>공지사항</S.NoticeMenu>
+          <S.QuestionMenu>자주하는 질문</S.QuestionMenu>
         </S.HeaderMenuBox>
 
         {/* <S.HeaderNonMembersRightBox>

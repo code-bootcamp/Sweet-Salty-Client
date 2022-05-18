@@ -29,7 +29,8 @@ export const HeaderMenuBox = styled.div`
 
 export const HeaderMenu = styled.div`
   font-size: 18px;
-  font-weight: 500;
+  font-weight: ${(props: any) =>
+    props.isPage ? "900" : "500"};
   margin: 0 20px;
   cursor: pointer;
   transition: 0.2s;

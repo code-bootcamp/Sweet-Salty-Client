@@ -6,7 +6,7 @@ import { SearchOutlined, EditOutlined } from "@ant-design/icons";
 export const Wrapper = styled.div`
   width: 1338px;
   display: flex;
-  justify-content: ${(props: any) => (props.isReviewList ? "end" : "center")};
+  justify-content: ${(props: any) => (props.isReviewList || props.isNoticeList ? "end" : "center")};
   background: #f3f3f3;
 `;
 

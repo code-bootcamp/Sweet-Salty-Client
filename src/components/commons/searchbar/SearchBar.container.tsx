@@ -9,14 +9,24 @@ export default function SearchBarPage() {
   const ReviewList = ["/reviews/reviewlist"];
   const isReviewList = ReviewList.includes(router.asPath);
 
+
+  const NoticeList = ["/notice/list"];
+  const isNoticeList = NoticeList.includes(router.asPath);
+
   const onClickReviewDetail = () => {
     router.push("/reviews/reviewdetail");
+  };
+
+  const onClickNoticeList = () => {
+    router.push("/notice/reviewrite");
   };
 
   return (
     <SearchBarPresenter
       isReviewList={isReviewList}
+      isNoticeList={isNoticeList}
       onClickReviewDetail={onClickReviewDetail}
+      onClickNoticeList={onClickNoticeList}
     />
   );
 }

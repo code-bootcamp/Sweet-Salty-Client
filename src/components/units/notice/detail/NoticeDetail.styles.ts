@@ -130,4 +130,7 @@ export const ListButton = styled.div`
     color: #ff9a31;
   }
 `
+export const TopButtonBox = styled.div`
+  padding: 50px 0;
+`
 

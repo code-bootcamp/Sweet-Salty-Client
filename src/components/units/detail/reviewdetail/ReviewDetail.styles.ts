@@ -244,3 +244,7 @@ export const CommentCreatAt = styled.span`
   font-size: 12px;
   color: #676767;
 `;
+
+export const TopButtonBox = styled.div`
+  padding: 50px 0;
+`

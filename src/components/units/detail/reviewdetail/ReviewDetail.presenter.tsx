@@ -98,7 +98,10 @@ export default function ReviewDetailPresenter(props: any) {
           </S.CommentList>
         </S.CommentBox>
       </S.ReviewBox>
+
+      <S.TopButtonBox>
       <TopButton />
+      </S.TopButtonBox>
     </S.Wrapper>
   );
 }

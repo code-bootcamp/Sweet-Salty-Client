@@ -2,6 +2,7 @@ import * as S from "./Store.styled";
 import TopButton from "../../commons/topbutton";
 import FilterPresenter from "../../commons/filter/filter.presenter";
 import SearchBarPage from "../../commons/searchbar/SearchBar.container";
+import StoreItem from "../../commons/card/StoreCard/StoreItem.presenter";
 
 export default function StorePresenterPage() {
   return (
@@ -29,7 +30,7 @@ export default function StorePresenterPage() {
               <S.BestContentsTitleBottom>TOP 3</S.BestContentsTitleBottom>
             </S.BestContentsTitleArticle>
             {/* 베스트게시글 */}
-            <div>베스트게시글</div>
+            <StoreItem />
             <div>베스트게시글</div>
             <div>베스트게시글</div>
           </S.BestContentsSection>

@@ -2,7 +2,7 @@
 
 import * as S from "./filter.styles";
 import MenuFilterPage from "./MenuFilter/MenuFilter";
-import MoodFilterPage from "./MoodFilter/MenuFilter";
+import MoodFilterPage from "./MoodFilter/MoodFilter";
 
 export default function FilterPresenter(props: any) {
   return (
@@ -33,7 +33,7 @@ export default function FilterPresenter(props: any) {
               {/* filter open 태그 올리는 곳 */}
 
               {props.menuData?.fetchTags.map((el, i) => (
-                <MenuFilterPage key={i} el={el} />
+                <MenuFilterPage key={i} el={el} {...el} />
               ))}
             </S.OpenTagBox>
           </S.OpenFilterBox>

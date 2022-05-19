@@ -1,7 +1,7 @@
 import styled from "@emotion/styled";
 
 interface IRegisterButton {
-  menuIsClick: boolean;
+  aaa: boolean;
 }
 
 export const OpenTag = styled.div`
@@ -12,11 +12,17 @@ export const OpenTag = styled.div`
   font-weight: 700;
   font-size: 16px;
   border: 2px solid #dbdbdb;
-
-  border-color: ${(props: IRegisterButton) =>
-    props.menuIsClick ? "#FFA230" : "#D8D8D8"};
 `;
 
-export const RadioButton = styled.input`
+export const RadioLabel = styled.label`
+  display: inline-block;
+
+  border-radius: 20px;
+`;
+
+export const RadioInput = styled.input`
   display: none;
+  &:checked + ${OpenTag} {
+    background-color: red;
+  }
 `;

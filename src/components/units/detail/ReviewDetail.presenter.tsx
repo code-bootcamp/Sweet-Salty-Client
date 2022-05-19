@@ -1,4 +1,4 @@
-// 리뷰 상세보기 Presenter  - 김치훈
+// 일반 리뷰 상세보기 Presenter  - 김치훈
 
 import Hits from "../../commons/hits";
 import LikeButton from "../../commons/like";
@@ -65,7 +65,7 @@ export default function ReviewDetailPresenter(props: any) {
         </S.Tags>
 
         <S.Buttons>
-          <S.Button>목록으로</S.Button>
+          <S.Button onClick={props.onClickCommonReviewList}>목록으로</S.Button>
           <S.Button>수정하기</S.Button>
           <S.Button>삭제하기</S.Button>
         </S.Buttons>

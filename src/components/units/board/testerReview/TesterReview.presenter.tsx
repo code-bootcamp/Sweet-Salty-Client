@@ -1,9 +1,25 @@
+import ReviewMenuPage from "../../../commons/reviewMenu";
+import SearchBarPage from "../../../commons/searchbar/SearchBar.container";
+import TopButton from "../../../commons/topbutton";
 import * as S from "./TesterReview.styled";
 
-export default function TesterReviewPresenterPage() {
+export default function TesterReviewPresenterPage(props: any) {
   return (
-    <>
-      <S.TestDiv>이곳은 시식단리뷰페이지입니다.</S.TestDiv>
-    </>
+    <S.CommonReviewWrapper>
+    <S.Title>시식단 게시판</S.Title>
+    <S.CommonReviewOutBox>
+      <S.SearchbarBox>
+        <SearchBarPage />
+      </S.SearchbarBox>
+      
+      <ReviewMenuPage />
+
+      <S.CommonReviewInnerBox>
+      </S.CommonReviewInnerBox>
+    </S.CommonReviewOutBox>
+    <S.TopButtonArticle>
+      <TopButton />
+    </S.TopButtonArticle>
+  </S.CommonReviewWrapper>
   );
 }

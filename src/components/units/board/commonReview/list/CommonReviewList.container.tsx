@@ -1,4 +1,4 @@
-// 일반리뷰페이지 container
+// 일반리뷰 List 페이지 container
 
 import { useQuery } from "@apollo/client";
 import CommonReviewPresenterPage from "./CommonReviewList.presenter";

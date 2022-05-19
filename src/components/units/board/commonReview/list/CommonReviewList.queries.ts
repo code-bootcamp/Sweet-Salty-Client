@@ -1,4 +1,4 @@
-// 일반리뷰페이지 queries
+// 일반리뷰 List 페이지 queries
 
 import { gql } from "@apollo/client";
 

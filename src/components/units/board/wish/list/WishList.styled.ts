@@ -1,4 +1,4 @@
-// 가주세요! 페이지 styles === 김치훈
+// 여기는 가주세요 List styles 입니다.
 
 import styled from "@emotion/styled";
 

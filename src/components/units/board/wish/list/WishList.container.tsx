@@ -1,4 +1,4 @@
-// 여기는 가주세요 Container 입니다.
+// 여기는 가주세요 List Container 입니다.
 
 import WishPresenterPage from "./WishList.presenter";
 

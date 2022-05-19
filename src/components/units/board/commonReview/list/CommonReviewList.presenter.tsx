@@ -1,4 +1,4 @@
-// 일반리뷰페이지 presenter
+// 일반리뷰 List 페이지 presenter
 
 import * as S from "./CommonReviewList.styles";
 import InfiniteScroll from "react-infinite-scroller";

@@ -1,4 +1,4 @@
-// 일반 리뷰 상세보기 Presenter  - 김치훈
+// 일반리뷰 상세보기 Presenter  - 김치훈
 
 import Hits from "../../../../commons/hits";
 import LikeButton from "../../../../commons/like";

@@ -87,7 +87,7 @@ export default function CommonReviewWritePresenter(props:any){
 
         <S.ButtonBox>
           <S.Button onClick={props.onClickReviewDetail}>등록하기</S.Button>
-          <S.Button onClick={props.onClickCancel}>최소하기</S.Button>
+          <S.Button onClick={props.onClickBack}>최소하기</S.Button>
         </S.ButtonBox>
 
       </S.Section>

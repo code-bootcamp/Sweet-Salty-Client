@@ -9,14 +9,14 @@ export default function CommonReviewWriteContainer(){
   const onClickReviewDetail =() =>{
     router.push("/reviews/commonReview/detail")
   }
-  const onClickCancel =() =>{
-    router.push("/reviews/commonReview/list")
+  const onClickBack = ()=>{
+    router.back()
   }
 
   return (
   <CommonReviewWritePresenter
     onClickReviewDetail={onClickReviewDetail}
-    onClickCancel={onClickCancel}
+    onClickBack={onClickBack}
   />
   )
 }

@@ -1,8 +1,8 @@
-// 일반리뷰페이지 container
+// 일반리뷰 List 페이지 container
 
 import { useQuery } from "@apollo/client";
-import CommonReviewPresenterPage from "./CommonReview.presenter";
-import { FETCH_BOARDS } from "./CommonReview.queries";
+import CommonReviewPresenterPage from "./CommonReviewList.presenter";
+import { FETCH_BOARDS } from "./CommonReviewList.queries";
 
 export default function CommonReviewContainerPage() {
   const { data: fetchBoardsData, fetchMore } = useQuery(FETCH_BOARDS);

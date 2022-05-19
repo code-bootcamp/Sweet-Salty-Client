@@ -1,14 +1,13 @@
-// 일반리뷰페이지 presenter
+// 일반리뷰 List 페이지 presenter
 
-import FilterContainer from "../../../commons/filter/filter.container";
-import TopButton from "../../../commons/topbutton";
-import * as S from "./CommonReview.styles";
-import SearchBarPage from "../../../commons/searchbar/SearchBar.container";
-import BestReviewItemContainerPage from "../../../commons/card/BestReviewCard/BestReviewItem.container";
-import CommonReviewItemContainerPage from "../../../commons/card/ReviewCard/ReviewItem.container";
-
+import * as S from "./CommonReviewList.styles";
 import InfiniteScroll from "react-infinite-scroller";
-import ReviewMenuPage from "../../../commons/reviewMenu";
+import ReviewMenuPage from "../../../../commons/reviewMenu";
+import SearchBarPage from "../../../../commons/searchbar/SearchBar.container";
+import FilterContainer from "../../../../commons/filter/filter.container";
+import BestReviewItemContainerPage from "../../../../commons/card/BestReviewCard/BestReviewItem.container";
+import CommonReviewItemContainerPage from "../../../../commons/card/ReviewCard/ReviewItem.container";
+import TopButton from "../../../../commons/topbutton";
 
 export default function CommonReviewPresenterPage(props: any) {
   return (
@@ -48,7 +47,7 @@ export default function CommonReviewPresenterPage(props: any) {
               useWindow={false}
             >
               <S.ReviewList>
-                {props.fetchBoardsData?.fetchBoards.map((el) => (
+                {props.fetchBoardsData?.fetchBoards.map((el: any) => (
                   <CommonReviewItemContainerPage key={el.boardId} el={el} />
                 ))}
               </S.ReviewList>

@@ -1,7 +1,9 @@
-import ReviewMenuPage from "../../../commons/reviewMenu";
-import SearchBarPage from "../../../commons/searchbar/SearchBar.container";
-import TopButton from "../../../commons/topbutton";
-import * as S from "./Wish.styled";
+// 여기는 가주세요 List Presenter 입니다.
+
+import ReviewMenuPage from "../../../../commons/reviewMenu";
+import SearchBarPage from "../../../../commons/searchbar/SearchBar.container";
+import TopButton from "../../../../commons/topbutton";
+import * as S from "./WishList.styled";
 
 export default function WishPresenterPage() {
   return (

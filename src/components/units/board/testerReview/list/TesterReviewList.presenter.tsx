@@ -1,7 +1,10 @@
-import ReviewMenuPage from "../../../commons/reviewMenu";
-import SearchBarPage from "../../../commons/searchbar/SearchBar.container";
-import TopButton from "../../../commons/topbutton";
-import * as S from "./TesterReview.styled";
+// 여기는 시식단 리뷰 List Presenter 입니다.
+
+
+import ReviewMenuPage from "../../../../commons/reviewMenu";
+import SearchBarPage from "../../../../commons/searchbar/SearchBar.container";
+import TopButton from "../../../../commons/topbutton";
+import * as S from "./TesterReviewList.styled";
 
 export default function TesterReviewPresenterPage(props: any) {
   return (

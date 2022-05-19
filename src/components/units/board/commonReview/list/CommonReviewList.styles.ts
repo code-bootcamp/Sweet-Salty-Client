@@ -1,4 +1,4 @@
-// 일반리뷰페이지 styles === 김치훈
+// 일반리뷰 List 페이지 styles === 김치훈
 
 import styled from "@emotion/styled";
 

@@ -8,7 +8,7 @@ export default function CommonReviewWritePresenter(props:any){
 
   return (
   <S.Wrapper>
-    <S.Title>단짠 게시판 글 목록</S.Title>
+    <S.Title>단짠 게시판 글 등록</S.Title>
 
     
     <S.ReviewWriteBox>
@@ -106,7 +106,7 @@ export default function CommonReviewWritePresenter(props:any){
 
         <S.ButtonBox>
           <S.Button>등록하기</S.Button>
-          <S.Button>최소하기</S.Button>
+          <S.Button onClick={props.onClickCancel}>최소하기</S.Button>
         </S.ButtonBox>
 
       </S.Section>

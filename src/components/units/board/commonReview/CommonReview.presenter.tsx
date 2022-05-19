@@ -18,7 +18,7 @@ export default function CommonReviewPresenterPage(props: any) {
           <SearchBarPage />
         </S.SearchbarBox>
         <S.ReviewMenuBox>
-          <S.ReviewMenu onClick={props.onClickCommonReview}>
+          <S.ReviewMenu onClick={props.onClickCommonReviewList}>
             단짠 리뷰
           </S.ReviewMenu>
           <S.ReviewMenu>시식단 리뷰</S.ReviewMenu>

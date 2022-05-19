@@ -9,32 +9,4 @@ export default function CommonReviewContainerPage() {
   const { data: fetchBoardsData, fetchMore } = useQuery(FETCH_BOARDS);
   const router = useRouter();
 
-  // 무한스크롤
-  const loadMore = () => {
-    if (!fetchBoardsData) return;
-    fetchMore({
-      variables: {
-        page: Math.ceil(fetchBoardsData.fetchBoards.length / 10) + 1,
-      },
-      updateQuery: (prev, { fetchMoreResult }) => {
-        if (!fetchMoreResult?.fetchBoards)
-          return { fetchBoards: [...prev.fetchBoards] };
-        return {
-          fetchBoards: [...prev.fetchBoards, ...fetchMoreResult?.fetchBoards],
-        };
-      },
-    });
-  };
 
-  const onClickCommonReview = () => {
-    router.push("/reviews/reviewlist");
-  };
-
-  return (
-    <CommonReviewPresenterPage
-      loadMore={loadMore}
-      fetchBoardsData={fetchBoardsData}
-      onClickCommonReview={onClickCommonReview}
-    />
-  );
-}

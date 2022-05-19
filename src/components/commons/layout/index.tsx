@@ -20,8 +20,12 @@ export default function Layout(props: ILayoutProps) {
   const router = useRouter();
   // const MainPage = ["/"];
   const LoginPage = ["/login"];
-  const ReviewDetail = ["/reviews/reviewdetail"];
-  const ReviewList = ["/reviews/reviewlist"];
+  const ReviewDetail = ["/reviews/detail"];
+  const ReviewList = ["/reviews/list"];
+  const ReviewWrite = ["/reviews/write"];
+  const NoticeList = ["/notice/list"];
+  const NoticeDetail = ["/notice/detail"];
+  const NoticeWrite = ["/notice/write"];
   // const JoinPage = ["/join"];
   // const MarketDetail = [`/markets/${router.query.useditemId}`];
   // const MarketEdit = [`/markets/${router.query.useditemId}/edit`];
@@ -31,14 +35,22 @@ export default function Layout(props: ILayoutProps) {
   const isLoginPage = LoginPage.includes(router.pathname);
   const isReviewDetail = ReviewDetail.includes(router.asPath);
   const isReviewList = ReviewList.includes(router.asPath);
-  // const isJoinPage = JoinPage.includes(router.asPath);
-  // const isMarketDetail = MarketDetail.includes(router.asPath);
-  // const isMarketEdit = MarketEdit.includes(router.asPath);
+  const isReviewWrite = ReviewWrite.includes(router.asPath);
+  const isNoticeList = NoticeList.includes(router.asPath);
+  const isNoticeDetail = NoticeDetail.includes(router.asPath);
+  const isNoticeWrite = NoticeWrite.includes(router.asPath);
   return (
     <Wrapper>
       <LayoutHeader />
 
-      {!isLoginPage && !isReviewDetail && !isReviewList && <LayoutBanner />}
+      {!isLoginPage && 
+      !isReviewDetail && 
+      !isReviewList && 
+      !isReviewWrite &&
+      !isNoticeList && 
+      !isNoticeDetail && 
+      !isNoticeWrite &&
+      <LayoutBanner />}
 
       <Body>{props.children}</Body>
 

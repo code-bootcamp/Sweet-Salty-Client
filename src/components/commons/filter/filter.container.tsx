@@ -2,16 +2,12 @@
 
 import { useQuery } from "@apollo/client";
 import { useState } from "react";
-import { useRecoilState } from "recoil";
-import { searchMenuTags, searchMoodTags } from "../store";
+
 import FilterPresenter from "./filter.presenter";
 import { FETCH_TAGS } from "./filter.queries";
 
 export default function FilterContainer() {
   const [isOpen, setIsOpen] = useState(true);
-  const [menutags, setMenuTags] = useRecoilState(searchMenuTags);
-  const [moodtags, setMoodTags] = useRecoilState(searchMoodTags);
-  // tag 불러오는 query
 
   const { data: menuData } = useQuery(FETCH_TAGS, {
     variables: { refName: "MENU" },
@@ -23,9 +19,6 @@ export default function FilterContainer() {
   const onClickFilterOpen = () => {
     setIsOpen((prev) => !prev);
   };
-
-  console.log(menutags);
-  console.log(moodtags);
 
   return (
     <FilterPresenter

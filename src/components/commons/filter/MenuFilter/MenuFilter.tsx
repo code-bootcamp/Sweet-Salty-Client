@@ -4,17 +4,29 @@ import { useRecoilState } from "recoil";
 import { searchMenuTags } from "../../store";
 
 export default function MenuFilterPage(props) {
-  const [menuIsClick, setMenuIsClick] = useState(false);
   const [menutags, setMenuTags] = useRecoilState(searchMenuTags);
-  const onClickIsClick = () => {
-    setMenuIsClick(!menuIsClick);
-    setMenuTags(props.el.boardTagName);
+  // const [aaa, setAaa] = useState(false);
+
+  const onClickIsClick = (event) => {
+    setMenuTags(event.target.value);
+
+    // setAaa(event.target.checked);
   };
 
+  console.log(menutags);
+
   return (
-    <div onClick={onClickIsClick} menuIsClick={menuIsClick}>
-      <S.RadioButton type="radio" name="menu" />
-      <label>{props.el.boardTagName}</label>
-    </div>
+    <S.OpenTag>
+      <S.RadioInput
+        id={props.el.boardTagName}
+        onClick={onClickIsClick}
+        type="radio"
+        name="menu"
+        value={props.el.boardTagName}
+      />
+      <S.RadioLabel htmlFor={props.el.boardTagName}>
+        {props.el.boardTagName}
+      </S.RadioLabel>
+    </S.OpenTag>
   );
 }

@@ -26,9 +26,9 @@ export default function LayoutHeader() {
   };
   
   const onClickReview = () => {
-    router.push("/reviews/reviewlist");
+    router.push("/reviews/list");
   };
-  const ReviewPage = ["/reviews/reviewlist"];
+  const ReviewPage = ["/reviews/list"];
   const isReviewPage = ReviewPage.includes(router.asPath);
 
   return (

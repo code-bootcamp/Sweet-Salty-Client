@@ -6,10 +6,10 @@ import CommonReviewPresenterPage from "./CommonReview.presenter";
 export default function CommonReviewContainerPage() {
   const router = useRouter();
 
-  const onClickCommonReview = () => {
-    router.push("/reviews/reviewlist");
+  const onClickCommonReviewList = () => {
+    router.push("/reviews/list");
   };
   return (
-    <CommonReviewPresenterPage onClickCommonReview={onClickCommonReview} />
+    <CommonReviewPresenterPage onClickCommonReviewList={onClickCommonReviewList} />
   );
 }

@@ -3,7 +3,6 @@ import styled from "@emotion/styled";
 interface IRegisterButton {
   aaa: boolean;
 }
-
 export const OpenTag = styled.div`
   margin: 0px 20px 0px 0px;
   padding: 7px 20px;
@@ -15,14 +14,19 @@ export const OpenTag = styled.div`
 `;
 
 export const RadioLabel = styled.label`
-  display: inline-block;
-
+  display: block;
   border-radius: 20px;
+  border: 11px solid red;
+  &:checked {
+    display: none;
+  }
 `;
 
 export const RadioInput = styled.input`
-  display: none;
-  &:checked + ${OpenTag} {
-    background-color: red;
+  display: block;
+  background-color: red;
+  &:checked {
+    display: block;
+    border: 11px solid red;
   }
 `;

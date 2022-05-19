@@ -32,8 +32,8 @@ export default function FilterPresenter(props: any) {
             <S.OpenTagBox>
               {/* filter open 태그 올리는 곳 */}
 
-              {props.menuData?.fetchTags.map((el, i) => (
-                <MenuFilterPage key={i} el={el} {...el} />
+              {props.menuData?.fetchTags.map((el, index) => (
+                <MenuFilterPage key={index} el={el} />
               ))}
             </S.OpenTagBox>
           </S.OpenFilterBox>

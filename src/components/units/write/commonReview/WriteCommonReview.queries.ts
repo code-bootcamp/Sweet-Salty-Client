@@ -14,3 +14,11 @@ mutation updateBoard($boardId:String! ,$updateBoardInput: UpdateBoardInput)
     boardId
 }}
 `;
+
+export const FETCH_TAGS = gql`
+query fetchTags($refName: String!){
+    fetchTags(refName : $refName){
+        boardTagName
+    }
+}
+`;

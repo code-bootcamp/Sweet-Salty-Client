@@ -13,8 +13,10 @@ export const OpenTag = styled.div`
   font-size: 16px;
   border: 2px solid #dbdbdb;
 
-  color: ${(props: IRegisterButton) =>
-    props.menuIsClick ? "#FFA230" : "#D8D8D8"};
   border-color: ${(props: IRegisterButton) =>
     props.menuIsClick ? "#FFA230" : "#D8D8D8"};
+`;
+
+export const MenuInput = styled.input`
+  display: none;
 `;

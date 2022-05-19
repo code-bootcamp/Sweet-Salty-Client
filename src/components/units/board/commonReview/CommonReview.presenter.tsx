@@ -7,6 +7,8 @@ import SearchBarPage from "../../../commons/searchbar/SearchBar.container";
 import BestReviewItemContainerPage from "../../../commons/card/BestReviewCard/BestReviewItem.container";
 import CommonReviewItemContainerPage from "../../../commons/card/ReviewCard/ReviewItem.container";
 
+import InfiniteScroll from "react-infinite-scroller";
+
 export default function CommonReviewPresenterPage(props: any) {
   return (
     <S.CommonReviewWrapper>
@@ -41,10 +43,21 @@ export default function CommonReviewPresenterPage(props: any) {
 
           <S.CommonReviewHr />
 
-          <S.ReviewList>
-            {/* 리뷰리스트 */}
-            <CommonReviewItemContainerPage />
-          </S.ReviewList>
+          {/* 리뷰리스트 */}
+          <div style={{ height: "700px", overflow: "auto" }}>
+            <InfiniteScroll
+              pageStart={0}
+              loadMore={props.loadMore}
+              hasMore={true}
+              useWindow={false}
+            >
+              <S.ReviewList>
+                {props.fetchBoardsData?.fetchBoards.map((el) => (
+                  <CommonReviewItemContainerPage key={el.boardId} el={el} />
+                ))}
+              </S.ReviewList>
+            </InfiniteScroll>
+          </div>
         </S.CommonReviewInnerBox>
       </S.CommonReviewOutBox>
       <S.TopButtonArticle>

@@ -1,4 +1,4 @@
-// 여기는 가주세요리뷰 페이지 입니다.
+// 여기는 가주세요리뷰 페이지(가봤어요!) 입니다.
 
 import WishReviewPresenterPage from "./WishReview.presenter";
 

@@ -1,25 +1,22 @@
 // 일반리뷰 등록 Container --- 김치훈
 
-import { useState } from "react";
+import { useRouter } from "next/router";
 import CommonReviewWritePresenter from "./CommonReviewWrite.presenter";
 
 export default function CommonReviewWriteContainer(){
+  const router = useRouter()
 
-
-
-  // 이미지
-  const [fileUrls, setFileUrls] = useState(["", "", "", ""]);
-
-  const onChangeFileUrls = (fileUrl:any, index:any) => {
-    const newFileUrls = [...fileUrls];
-    newFileUrls[index] = fileUrl;
-    setFileUrls(newFileUrls);
-  };
+  const onClickReviewDetail =() =>{
+    router.push("/reviews/commonReview/detail")
+  }
+  const onClickCancel =() =>{
+    router.push("/reviews/commonReview/list")
+  }
 
   return (
   <CommonReviewWritePresenter
-    fileUrls={fileUrls}
-    onChangeFileUrls={onChangeFileUrls}
+    onClickReviewDetail={onClickReviewDetail}
+    onClickCancel={onClickCancel}
   />
   )
 }

@@ -21,31 +21,6 @@ export const CommonReviewOutBox = styled.div`
 export const SearchbarBox = styled.div`
   padding-bottom: 46px;
 `;
-export const ReviewMenuBox = styled.div`
-  margin: 0 auto;
-  width: 1338px;
-  height: 50px;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-`;
-export const ReviewMenu = styled.div`
-  width: 320px;
-  height: 50px;
-  text-align: center;
-  line-height: 50px;
-  border-radius: 20px 20px 0 0;
-  font-weight: 700;
-  font-size: 20px;
-  color: #7b7b7b;
-  background: #fff;
-  cursor: pointer;
-  transition: 0.2s;
-  &:hover {
-    background: linear-gradient(#ff6e30, #ffa230);
-    color: #fff;
-  }
-`;
 
 export const CommonReviewInnerBox = styled.div`
   margin: 0 auto;

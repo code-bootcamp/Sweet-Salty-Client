@@ -6,14 +6,20 @@ import SearchBarPresenter from "./SearchBar.presenter";
 export default function SearchBarPage() {
   const router = useRouter();
 
-  const ReviewList = ["/reviews/list"];
-  const isReviewList = ReviewList.includes(router.asPath);
+  const CommonReviewList = ["/reviews/commonReview/list"];
+  const isCommonReviewList = CommonReviewList.includes(router.asPath);
+  
+  const TesterReview = ["/reviews/testerReview/list"];
+  const isTesterReview = TesterReview.includes(router.asPath);
+  
+  const WishList = ["/reviews/wish/list"];
+  const isWishList = WishList.includes(router.asPath);
 
   const NoticeList = ["/notice/list"];
   const isNoticeList = NoticeList.includes(router.asPath);
 
   const onClickReviewDetail = () => {
-    router.push("/reviews/write");
+    router.push("/reviews/commonReview/write");
   };
 
   const onClickNoticeList = () => {
@@ -22,7 +28,9 @@ export default function SearchBarPage() {
 
   return (
     <SearchBarPresenter
-      isReviewList={isReviewList}
+      isCommonReviewList={isCommonReviewList}
+      isTesterReview={isTesterReview}
+      isWishList={isWishList}
       isNoticeList={isNoticeList}
       onClickReviewDetail={onClickReviewDetail}
       onClickNoticeList={onClickNoticeList}

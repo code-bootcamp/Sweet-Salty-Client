@@ -21,7 +21,6 @@ export const Title = styled.div`
 export const ReviewWriteBox = styled.div`
   padding: 40px;
   width: 1000px;
-  height: 1457px;
   background: #fff;
   border-radius: 20px;
 `;
@@ -49,10 +48,10 @@ export const WriteTitle = styled.div`
   font-weight: 700;
 `;
 export const Map = styled.div`
-width: 445px;
-  height: 720px;
+  width: 445px;
+  height: 515px;
   text-align: center;
-  line-height: 703px;
+  line-height: 515px;
   background: #999;
   border-radius: 20px;
   `
@@ -97,19 +96,6 @@ export const Category = styled.div`
   outline-color: #676767;
   ::placeholder {color: #dbdbdb;}
   `
-  export const TextAreaBox = styled.textarea`
-  padding: 12px 16px;
-  max-width: 445px;
-  min-width: 445px;
-  max-height: 144px;
-  border: 2px solid #dadada;
-  border-radius: 10px;
-  color: #676767;
-  font-size: 14px;
-  font-weight: 700;
-  outline-color: #676767;
-  ::placeholder {color: #dbdbdb;}
-  `
   
   export const Section = styled.div`
     display: flex;
@@ -143,11 +129,19 @@ export const Category = styled.div`
       border: 2px solid #FF9A31;
     }
   `
-
-  export const ImageBox = styled.div`
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
+  export const TextAreaBox = styled.textarea`
+    padding: 12px 16px;
+    max-width: 920px;
+    min-width: 920px;
+    height: 492px;
+    max-height: 492px;
+    border: 2px solid #dadada;
+    border-radius: 10px;
+    color: #676767;
+    font-size: 14px;
+    font-weight: 700;
+    outline-color: #676767;
+    ::placeholder {color: #dbdbdb;}
   `
 
   export const ButtonBox = styled.div`

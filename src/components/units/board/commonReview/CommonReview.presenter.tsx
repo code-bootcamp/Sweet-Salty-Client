@@ -1,4 +1,4 @@
-// 일반리뷰페이지 presenter === 김치훈
+// 일반리뷰페이지 presenter
 
 import FilterContainer from "../../../commons/filter/filter.container";
 import TopButton from "../../../commons/topbutton";
@@ -8,6 +8,7 @@ import BestReviewItemContainerPage from "../../../commons/card/BestReviewCard/Be
 import CommonReviewItemContainerPage from "../../../commons/card/ReviewCard/ReviewItem.container";
 
 import InfiniteScroll from "react-infinite-scroller";
+import ReviewMenuPage from "../../../commons/reviewMenu";
 
 export default function CommonReviewPresenterPage(props: any) {
   return (
@@ -17,13 +18,8 @@ export default function CommonReviewPresenterPage(props: any) {
         <S.SearchbarBox>
           <SearchBarPage />
         </S.SearchbarBox>
-        <S.ReviewMenuBox>
-          <S.ReviewMenu onClick={props.onClickCommonReviewList}>
-            단짠 리뷰
-          </S.ReviewMenu>
-          <S.ReviewMenu>시식단 리뷰</S.ReviewMenu>
-          <S.ReviewMenu>가주세요!</S.ReviewMenu>
-        </S.ReviewMenuBox>
+        
+        <ReviewMenuPage />
 
         <S.CommonReviewInnerBox>
           {/* filter 공동컴포넌트 */}

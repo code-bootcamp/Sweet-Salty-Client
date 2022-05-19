@@ -18,11 +18,10 @@ interface ILayoutProps {
 
 export default function Layout(props: ILayoutProps) {
   const router = useRouter();
-  // const MainPage = ["/"];
   const LoginPage = ["/login"];
-  const ReviewDetail = ["/reviews/detail"];
-  const ReviewList = ["/reviews/list"];
-  const ReviewWrite = ["/reviews/write"];
+  const ReviewDetail = ["/reviews/commonReview/detail"];
+  const ReviewList = ["/reviews/commonReview/list"];
+  const ReviewWrite = ["/reviews/commonReview/write"];
   const NoticeList = ["/notice/list"];
   const NoticeDetail = ["/notice/detail"];
   const NoticeWrite = ["/notice/write"];

@@ -1,14 +1,12 @@
 // 일반리뷰 등록 Presenter --- 김치훈
 
-import Uploads01 from "../../commons/uploads/01/Uploads01.containder"
 import * as S from "./CommonReviewWrite.styles"
-import { v4 as uuidv4 } from "uuid";
 
 export default function CommonReviewWritePresenter(props:any){
 
   return (
   <S.Wrapper>
-    <S.Title>단짠 게시판 글 목록</S.Title>
+    <S.Title>단짠 게시판 글 등록</S.Title>
 
     
     <S.ReviewWriteBox>
@@ -26,18 +24,17 @@ export default function CommonReviewWritePresenter(props:any){
             <S.Category>단짠리뷰</S.Category>
             <S.Category>시식단 리뷰</S.Category>
             <S.Category>가주세요!</S.Category>
-            <S.Category>가봤어요!</S.Category>
           </S.CategoryBox>
 
           <S.RightBoxHr/>
 
           <S.WriteTitle>한 줄 리뷰</S.WriteTitle>
-          <S.InputBox type="text" placeholder="40자 이내로 작성하세요." maxLength="40"/>
+          <S.InputBox type="text" placeholder="20자 이내로 작성하세요." maxLength="20"/>
 
           <S.RightBoxHr/>
 
           <S.WriteTitle>메뉴명</S.WriteTitle>
-          <S.InputBox type="text" placeholder="40자 이내로 작성하세요." maxLength="40" />
+          <S.InputBox type="text" placeholder="20자 이내로 작성하세요." maxLength="20" />
 
           <S.RightBoxHr/>
 
@@ -48,12 +45,6 @@ export default function CommonReviewWritePresenter(props:any){
 
           <S.WriteTitle style={{color: "red"}}>단점</S.WriteTitle>
           <S.InputBox type="text" placeholder="30자 이내로 작성하세요." maxLength="30" />
-
-          <S.RightBoxHr/>
-
-          <S.WriteTitle>내용</S.WriteTitle>
-          <S.TextAreaBox type="text" placeholder="200자 이내로 작성하세요." maxLength="200" />
-
 
         </S.RightBox>
       </S.Header>
@@ -91,22 +82,12 @@ export default function CommonReviewWritePresenter(props:any){
 
         <S.SectionHr/>
 
-          <S.WriteTitle>이미지 등록<S.Span>(이미지는 최대 4개까지 등록 가능합니다.)</S.Span></S.WriteTitle>
-
-        <S.ImageBox>
-          {props.fileUrls.map((el, index) => (
-            <Uploads01
-              key={uuidv4()}
-              index={index}
-              fileUrl={el}
-              onChangeFileUrls={props.onChangeFileUrls}
-            />
-          ))}
-        </S.ImageBox>
+        <S.WriteTitle>내용</S.WriteTitle>
+        <S.TextAreaBox type="text" placeholder="200자 이내로 작성하세요." maxLength="200" />
 
         <S.ButtonBox>
-          <S.Button>등록하기</S.Button>
-          <S.Button>최소하기</S.Button>
+          <S.Button onClick={props.onClickReviewDetail}>등록하기</S.Button>
+          <S.Button onClick={props.onClickCancel}>최소하기</S.Button>
         </S.ButtonBox>
 
       </S.Section>

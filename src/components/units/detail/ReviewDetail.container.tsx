@@ -1,7 +1,16 @@
 // 리뷰 상세보기 Container  - 김치훈
 
+import { useRouter } from "next/router";
 import ReviewDetailPresenter from "./ReviewDetail.presenter";
 
 export default function ReviewDetailContainer() {
-  return <ReviewDetailPresenter />;
+  const router = useRouter()
+
+  const onClickCommonReviewList = ()=>{
+    router.push("/reviews/commonReview/list")
+  }
+
+  return <ReviewDetailPresenter 
+  onClickCommonReviewList={onClickCommonReviewList}
+  />;
 }

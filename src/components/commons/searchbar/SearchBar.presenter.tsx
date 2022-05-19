@@ -4,7 +4,12 @@ import * as S from "./SearchBar.styles";
 
 export default function SearchBarPresenter(props: any) {
   return (
-    <S.Wrapper isReviewList={props.isReviewList} isNoticeList={props.isNoticeList}>
+    <S.Wrapper 
+    isCommonReviewList={props.isCommonReviewList} 
+    isTesterReview={props.isTesterReview} 
+    isWishList={props.isWishList} 
+    isNoticeList={props.isNoticeList}
+    >
       <S.SearchBox>
         <S.SearchInnerBox>
           <S.SearchBar
@@ -15,11 +20,27 @@ export default function SearchBarPresenter(props: any) {
         </S.SearchInnerBox>
       </S.SearchBox>
 
-      {props.isReviewList && (
+      {props.isCommonReviewList && (
         <S.ReviewWriteBox>
           <S.ReviewWrite onClick={props.onClickReviewDetail}>
             <S.WriteIcon />
             단짠 리뷰 작성하기
+          </S.ReviewWrite>
+        </S.ReviewWriteBox>
+      )}
+      {props.isTesterReview && (
+        <S.ReviewWriteBox>
+          <S.ReviewWrite onClick={props.onClickNoticeList}>
+            <S.WriteIcon />
+              시식단 리뷰 작성하기
+          </S.ReviewWrite>
+        </S.ReviewWriteBox>
+      )}
+      {props.isWishList && (
+        <S.ReviewWriteBox>
+          <S.ReviewWrite onClick={props.onClickNoticeList}>
+            <S.WriteIcon />
+              가주세요! 작성하기
           </S.ReviewWrite>
         </S.ReviewWriteBox>
       )}

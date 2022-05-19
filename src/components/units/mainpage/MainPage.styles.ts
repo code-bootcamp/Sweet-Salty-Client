@@ -9,7 +9,7 @@ export const MainPageWrapper = styled.div`
   align-items: center;
 `;
 export const MainPageOutBox = styled.div`
-  margin: 40px auto 40px auto;
+  margin: 40px auto 0 auto;
   width: 1120px;
 `;
 export const ReviewMenuBox = styled.div`
@@ -120,4 +120,9 @@ export const P = styled.div`
 `;
 export const Signup = styled.div`
   cursor: pointer;
+`;
+
+
+export const TopButtonBox = styled.div`
+  padding: 50px 0;
 `;

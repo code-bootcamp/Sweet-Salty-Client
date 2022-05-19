@@ -1,8 +1,8 @@
 // 리뷰 상세보기 Presenter  - 김치훈
 
-import Hits from "../../../commons/hits";
-import LikeButton from "../../../commons/like";
-import TopButton from "../../../commons/topbutton";
+import Hits from "../../commons/hits";
+import LikeButton from "../../commons/like";
+import TopButton from "../../commons/topbutton";
 import * as S from "./ReviewDetail.styles";
 
 export default function ReviewDetailPresenter(props: any) {
@@ -98,7 +98,10 @@ export default function ReviewDetailPresenter(props: any) {
           </S.CommentList>
         </S.CommentBox>
       </S.ReviewBox>
-      <TopButton />
+
+      <S.TopButtonBox>
+        <TopButton />
+      </S.TopButtonBox>
     </S.Wrapper>
   );
 }

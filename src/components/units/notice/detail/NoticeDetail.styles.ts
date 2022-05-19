@@ -1,3 +1,4 @@
+// 공지사항 Detail Styles --- 김치훈
 
 import styled from "@emotion/styled";
 import { RightOutlined } from "@ant-design/icons"
@@ -129,5 +130,8 @@ export const ListButton = styled.div`
     border: 2px solid #ff9a31;
     color: #ff9a31;
   }
+`
+export const TopButtonBox = styled.div`
+  padding: 50px 0;
 `
 

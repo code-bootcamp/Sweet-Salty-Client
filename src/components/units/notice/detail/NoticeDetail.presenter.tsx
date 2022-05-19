@@ -1,9 +1,10 @@
+// 공지사항 Detail Presenter --- 김치훈
 
 import Hits from "../../../commons/hits"
 import TopButton from "../../../commons/topbutton"
 import * as S from "./NoticeDetail.styles"
 
-export default function NoticeDetailPresenter(){
+export default function NoticeDetailPresenter(props: any){
 
 
   return (
@@ -50,12 +51,13 @@ export default function NoticeDetailPresenter(){
       <S.NoticeDetailHr/>
 
       <S.ListButtonBox>
-        <S.ListButton>목록으로</S.ListButton>
+        <S.ListButton onClick={props.onClickNoticeList}>목록으로</S.ListButton>
       </S.ListButtonBox>
     </S.NoticeDetail>
 
-    <TopButton/>
-
+    <S.TopButtonBox>
+      <TopButton/>
+    </S.TopButtonBox>
   </S.Wrapper>
   )
 }

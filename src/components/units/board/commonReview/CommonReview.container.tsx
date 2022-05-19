@@ -1,13 +1,11 @@
-// 일반리뷰페이지 container === 김치훈
+// 일반리뷰페이지 container
 
 import { useQuery } from "@apollo/client";
-import { useRouter } from "next/router";
 import CommonReviewPresenterPage from "./CommonReview.presenter";
 import { FETCH_BOARDS } from "./CommonReview.queries";
 
 export default function CommonReviewContainerPage() {
   const { data: fetchBoardsData, fetchMore } = useQuery(FETCH_BOARDS);
-  const router = useRouter();
 
   // 무한스크롤
   const loadMore = () => {
@@ -26,15 +24,11 @@ export default function CommonReviewContainerPage() {
     });
   };
 
-  const onClickCommonReview = () => {
-    router.push("/reviews/reviewlist");
-  };
 
   return (
     <CommonReviewPresenterPage
       loadMore={loadMore}
       fetchBoardsData={fetchBoardsData}
-      onClickCommonReview={onClickCommonReview}
     />
   );
 }

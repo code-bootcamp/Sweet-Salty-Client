@@ -65,7 +65,9 @@ export default function MainpagePresenter(props: any) {
         </S.MainPageInnerBox>
       </S.MainPageOutBox>
 
-      <TopButton />
+      <S.TopButtonBox>
+        <TopButton />
+      </S.TopButtonBox>
     </S.MainPageWrapper>
   );
 }

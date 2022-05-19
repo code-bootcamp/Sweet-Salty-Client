@@ -2,6 +2,7 @@
 
 import CommonReviewWriteContainer from "../../../src/components/units/write/CommonReviewWrite.container";
 
+
 export default function CommonReviewWritePage(){
     return <CommonReviewWriteContainer/>
 }

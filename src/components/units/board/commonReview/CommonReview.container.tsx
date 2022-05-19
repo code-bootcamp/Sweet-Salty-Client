@@ -8,7 +8,6 @@ import { FETCH_BOARDS } from "./CommonReview.queries";
 export default function CommonReviewContainerPage() {
   const { data: fetchBoardsData, fetchMore } = useQuery(FETCH_BOARDS);
   const router = useRouter();
-  console.log(fetchBoardsData);
 
   // 무한스크롤
   const loadMore = () => {

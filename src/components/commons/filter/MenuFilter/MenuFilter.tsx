@@ -10,9 +10,11 @@ export default function MenuFilterPage(props) {
     setMenuIsClick(!menuIsClick);
     setMenuTags(props.el.boardTagName);
   };
+
   return (
     <S.OpenTag onClick={onClickIsClick} menuIsClick={menuIsClick}>
-      {props.el.boardTagName}
+      <S.MenuInput type="radio" name="menu" value={props.el.boardTagName} />
+      {/* {props.el.boardTagName} */}
     </S.OpenTag>
   );
 }

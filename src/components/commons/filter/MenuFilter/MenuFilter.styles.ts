@@ -17,6 +17,6 @@ export const OpenTag = styled.div`
     props.menuIsClick ? "#FFA230" : "#D8D8D8"};
 `;
 
-export const MenuInput = styled.input`
+export const RadioButton = styled.input`
   display: none;
 `;

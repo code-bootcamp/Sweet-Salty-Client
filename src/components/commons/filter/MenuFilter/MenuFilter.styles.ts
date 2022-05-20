@@ -1,32 +1,47 @@
 import styled from "@emotion/styled";
 
-interface IRegisterButton {
-  aaa: boolean;
-}
 export const OpenTag = styled.div`
+  display: flex;
   margin: 0px 20px 0px 0px;
-  padding: 7px 20px;
-  border-radius: 50px;
-  color: #7b7b7b;
   font-weight: 700;
   font-size: 16px;
-  border: 2px solid #dbdbdb;
-`;
 
-export const RadioLabel = styled.label`
-  display: block;
-  border-radius: 20px;
-  border: 11px solid red;
-  &:checked {
+  // 체크박스 인풋은 숨김처리
+  .checkbox input {
     display: none;
   }
-`;
 
-export const RadioInput = styled.input`
-  display: block;
-  background-color: red;
-  &:checked {
-    display: block;
-    border: 11px solid red;
+  .checkbox {
+    display: flex;
+    margin-right: 30px;
+  }
+
+  .checkbox_text {
+    display: flex;
+    margin-left: 10px;
+    font-size: 16px;
+    color: #d8d8d8;
+    padding: 7px 20px;
+    border-radius: 50px;
+    border: 2px solid #dbdbdb;
+    cursor: pointer;
+  }
+
+  // 체크박스 테두리
+  .checkbox_icon {
+    display: flex;
+    background-color: transparent;
+    width: 20px;
+    height: 20px;
+    border: 1px solid #cacaca;
+    border-radius: 2px;
+    position: relative;
+    cursor: pointer;
+  }
+
+  // 체크되었을 때 설정
+  .checkbox input:checked + .checkbox_text {
+    border: 2px solid #ffa230;
+    color: #ffa230;
   }
 `;

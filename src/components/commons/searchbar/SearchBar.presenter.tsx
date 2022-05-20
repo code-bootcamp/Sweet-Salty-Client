@@ -38,7 +38,7 @@ export default function SearchBarPresenter(props: any) {
       )}
       {props.isWishList && (
         <S.ReviewWriteBox>
-          <S.ReviewWrite onClick={props.onClickReviewDetail}>
+          <S.ReviewWrite onClick={props.onClickWishDetail}>
             <S.WriteIcon />
               가주세요! 작성하기
           </S.ReviewWrite>

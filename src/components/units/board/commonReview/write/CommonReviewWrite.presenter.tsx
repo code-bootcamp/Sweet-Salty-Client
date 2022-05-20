@@ -23,7 +23,6 @@ export default function CommonReviewWritePresenter(props:any){
           <S.CategoryBox>
             <S.Category>단짠리뷰</S.Category>
             <S.Category>시식단 리뷰</S.Category>
-            <S.Category>가주세요!</S.Category>
           </S.CategoryBox>
 
           <S.RightBoxHr/>

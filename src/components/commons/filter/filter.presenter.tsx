@@ -21,7 +21,7 @@ export default function FilterPresenter(props: any) {
           </S.FilterBox>
           <S.FilerIcon
             onClick={props.onClickFilterOpen}
-            src="../images/filter.png"
+            src="/images/filter.png"
           />
         </S.Wrapper>
       ) : (
@@ -31,10 +31,10 @@ export default function FilterPresenter(props: any) {
             <S.FilterTitle>메뉴</S.FilterTitle>
             <S.OpenTagBox>
               {/* filter open 태그 올리는 곳 */}
-
-              {props.menuData?.fetchTags.map((el, index) => (
-                <MenuFilterPage key={index} el={el} />
-              ))}
+              <MenuFilterPage
+                menuHashTag={props.menuHashTag}
+                setMenuHashTag={props.setMenuHashTag}
+              />
             </S.OpenTagBox>
           </S.OpenFilterBox>
 
@@ -44,9 +44,10 @@ export default function FilterPresenter(props: any) {
             <S.FilterTitle>분위기</S.FilterTitle>
             <S.OpenTagBox>
               {/* filter open 태그 올리는 곳 */}
-              {props.moodData?.fetchTags.map((el, i) => (
-                <MoodFilterPage key={i} el={el} />
-              ))}
+              <MoodFilterPage
+                moodHashTag={props.moodHashTag}
+                setMoodHashTag={props.setMoodHashTag}
+              />
             </S.OpenTagBox>
           </S.OpenFilterBox>
 

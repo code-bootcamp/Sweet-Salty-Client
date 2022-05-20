@@ -1,20 +1,42 @@
 import styled from "@emotion/styled";
 
-interface IRegisterButton {
-  menuIsClick: boolean;
-}
-
 export const OpenTag = styled.div`
-  margin: 0px 20px 0px 0px;
-  padding: 7px 20px;
-  border-radius: 50px;
-  color: #7b7b7b;
+  display: flex;
+  flex-wrap: wrap;
   font-weight: 700;
   font-size: 16px;
-  border: 2px solid #dbdbdb;
 
-  color: ${(props: IRegisterButton) =>
-    props.menuIsClick ? "#FFA230" : "#D8D8D8"};
-  border-color: ${(props: IRegisterButton) =>
-    props.menuIsClick ? "#FFA230" : "#D8D8D8"};
+  // 체크박스 인풋은 숨김처리
+  .checkbox input {
+    display: none;
+  }
+  .checkbox {
+    display: flex;
+    margin: 0px 30px 10px 0px;
+  }
+  .checkbox_text {
+    display: flex;
+    margin-left: 10px;
+    font-size: 16px;
+    color: #d8d8d8;
+    padding: 7px 20px;
+    border-radius: 50px;
+    border: 2px solid #dbdbdb;
+    cursor: pointer;
+  }
+  .checkbox_icon {
+    display: flex;
+    background-color: transparent;
+    width: 20px;
+    height: 20px;
+    border: 1px solid #cacaca;
+    border-radius: 2px;
+    position: relative;
+    cursor: pointer;
+  }
+  // 체크되었을 때 설정
+  .checkbox input:checked + .checkbox_text {
+    border: 2px solid #ffa230;
+    color: #ffa230;
+  }
 `;

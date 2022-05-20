@@ -1,12 +1,7 @@
 import * as S from "./MenuFilter.styles";
 import { useState } from "react";
-import { useRecoilState } from "recoil";
-import { searchMenuTags } from "../../store";
-import { Radio } from "antd";
 
 export default function MenuFilterPage(props) {
-  // console.log(props);
-
   const [isSelect, setIsSelect] = useState([
     { key: "0", value: "비건", checked: false, index: 0 },
     { key: "1", value: "아시안푸드", checked: false, index: 1 },
@@ -22,24 +17,8 @@ export default function MenuFilterPage(props) {
       return { ...el, checked: idx === Number(event.target.id) };
     });
     setIsSelect(temp);
-    props.setHashTag(el.value);
+    props.setMenuHashTag([el.value]);
   };
-  console.log(props.hashTag);
-  const [menutags, setMenuTags] = useRecoilState(searchMenuTags);
-
-  const onClickIsClick = (event) => {
-    setMenuTags(event.target.value);
-
-    if (event.target.checked) {
-      setAaa(event.target.value);
-    }
-  };
-
-  function onChange(e) {
-    console.log(e);
-  }
-
-  // console.log(menutags);
 
   return (
     <S.OpenTag>

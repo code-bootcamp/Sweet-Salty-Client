@@ -2,7 +2,7 @@ import styled from "@emotion/styled";
 
 export const OpenTag = styled.div`
   display: flex;
-  margin: 0px 20px 0px 0px;
+  flex-wrap: wrap;
   font-weight: 700;
   font-size: 16px;
 

@@ -1,7 +1,7 @@
-// 여기는 가주세요리뷰 페이지(가봤어요!) 입니다.
+// 가봤어요! List Container --- 김치훈
 
-import WishReviewPresenterPage from "./WishReviewList.presenter";
+import WishReviewListPresenterPage from "./WishReviewList.presenter";
 
-export default function WishReviewContainerPage() {
-  return <WishReviewPresenterPage />;
+export default function WishReviewListContainerPage() {
+  return <WishReviewListPresenterPage />;
 }

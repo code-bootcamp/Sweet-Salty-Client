@@ -21,6 +21,9 @@ export default function SearchBarPage() {
   const onClickReviewDetail = () => {
     router.push("/reviews/commonReview/write");
   };
+  const onClickWishDetail = () => {
+    router.push("/reviews/wish/write");
+  };
 
   const onClickNoticeList = () => {
     router.push("/notice/write");
@@ -33,6 +36,7 @@ export default function SearchBarPage() {
       isWishList={isWishList}
       isNoticeList={isNoticeList}
       onClickReviewDetail={onClickReviewDetail}
+      onClickWishDetail={onClickWishDetail}
       onClickNoticeList={onClickNoticeList}
     />
   );

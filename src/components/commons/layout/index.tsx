@@ -18,37 +18,51 @@ interface ILayoutProps {
 
 export default function Layout(props: ILayoutProps) {
   const router = useRouter();
-  const LoginPage = ["/login"];
-  const ReviewDetail = ["/reviews/commonReview/detail"];
-  const ReviewList = ["/reviews/commonReview/list"];
-  const ReviewWrite = ["/reviews/commonReview/write"];
-  const NoticeList = ["/notice/list"];
-  const NoticeDetail = ["/notice/detail"];
-  const NoticeWrite = ["/notice/write"];
-  // const JoinPage = ["/join"];
-  // const MarketDetail = [`/markets/${router.query.useditemId}`];
-  // const MarketEdit = [`/markets/${router.query.useditemId}/edit`];
-  // const Mypage = ["/mypage"];
+  
+  const MainPage = ["/"];
 
-  // const isMainPage = MainPage.includes(router.asPath);
-  const isLoginPage = LoginPage.includes(router.pathname);
-  const isReviewDetail = ReviewDetail.includes(router.asPath);
-  const isReviewList = ReviewList.includes(router.asPath);
-  const isReviewWrite = ReviewWrite.includes(router.asPath);
-  const isNoticeList = NoticeList.includes(router.asPath);
-  const isNoticeDetail = NoticeDetail.includes(router.asPath);
-  const isNoticeWrite = NoticeWrite.includes(router.asPath);
+
+  // 혹시 몰라 주석처리
+  // const LoginPage = ["/login"];
+  
+  // const CommonReviewDetail = ["/reviews/commonReview/detail"];
+  // const CommonReviewList = ["/reviews/commonReview/list"];
+  // const CommonReviewWrite = ["/reviews/commonReview/write"];
+
+  // const TesterReviewList = ["/reviews/testerReview/list"];
+  
+  // const WishList = ["/reviews/wish/list"];
+  // const WishWrite = ["/reviews/wish/write"];
+  
+  // const NoticeList = ["/notice/list"];
+  // const NoticeDetail = ["/notice/detail"];
+  // const NoticeWrite = ["/notice/write"];
+  
+// ==================================================================
+
+  const isMainPage = MainPage.includes(router.pathname);
+
+  // 혹시 몰라 주석처리
+  // const isLoginPage = LoginPage.includes(router.pathname);
+  
+  // const isCommonReviewDetail = CommonReviewDetail.includes(router.asPath);
+  // const isCommonReviewList = CommonReviewList.includes(router.asPath);
+  // const isCommonReviewWrite = CommonReviewWrite.includes(router.asPath);
+
+  // const isTesterReviewList = TesterReviewList.includes(router.asPath);
+
+  // const isWishList = WishList.includes(router.asPath);
+  // const isWishWrite = WishWrite.includes(router.asPath);
+  
+  // const isNoticeList = NoticeList.includes(router.asPath);
+  // const isNoticeDetail = NoticeDetail.includes(router.asPath);
+  // const isNoticeWrite = NoticeWrite.includes(router.asPath);
+  
   return (
     <Wrapper>
       <LayoutHeader />
-
-      {!isLoginPage && 
-      !isReviewDetail && 
-      !isReviewList && 
-      !isReviewWrite &&
-      !isNoticeList && 
-      !isNoticeDetail && 
-      !isNoticeWrite &&
+      
+      {isMainPage &&
       <LayoutBanner />}
 
       <Body>{props.children}</Body>

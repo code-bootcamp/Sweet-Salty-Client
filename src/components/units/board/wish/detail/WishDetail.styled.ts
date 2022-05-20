@@ -1,6 +1,7 @@
-// 가봤어요! List styles --- 김치훈
+// 가주세요! Detail styles -김치훈
 
 import styled from "@emotion/styled";
+import { RightOutlined } from "@ant-design/icons"
 
 
 export const Wrapper = styled.div`
@@ -13,12 +14,18 @@ export const Wrapper = styled.div`
 `
 export const Title = styled.div`
   padding: 100px 0;
-  font-size: 40px;
+  font-size: 40px; 
   font-weight: 700;
+  display: flex;
+  align-items: center;
+  color: #fff;
+`
+export const RightOutline = styled(RightOutlined)`
+  padding: 0 15px;
   color: #fff;
 `
 
-export const WishReviewWriteBox = styled.div`
+export const ReviewWriteBox = styled.div`
   padding: 40px;
   width: 1000px;
   background: #fff;
@@ -27,7 +34,7 @@ export const WishReviewWriteBox = styled.div`
 
 export const RightBoxHr = styled.div`
   margin: 20px 0;
-  width: 900px;
+  width: 446px;
   height: 1.5px;
   border-radius: 50px;
   background: #DADADA;

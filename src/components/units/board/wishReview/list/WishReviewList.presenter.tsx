@@ -1,9 +1,18 @@
+// 가봤어요! List Presenter --- 김치훈
+
 import * as S from "./WishReviewList.styled";
 
-export default function WishReviewPresenterPage() {
+export default function WishReviewListPresenterPage() {
   return (
-    <>
-      <S.TestDiv>이곳은 가주세요 리뷰페이지입니다.</S.TestDiv>
-    </>
+    <S.Wrapper>
+    <S.Title>가봤어요!</S.Title>
+
+    
+    <S.WishReviewWriteBox>
+
+          <S.RightBoxHr/>
+
+    </S.WishReviewWriteBox>
+  </S.Wrapper>
   );
 }

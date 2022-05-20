@@ -1,4 +1,4 @@
-// 가봤어요! List styles --- 김치훈
+// 가봤어요! Write styles -김치훈
 
 import styled from "@emotion/styled";
 
@@ -27,7 +27,7 @@ export const WishReviewWriteBox = styled.div`
 
 export const RightBoxHr = styled.div`
   margin: 20px 0;
-  width: 900px;
+  width: 1000px;
   height: 1.5px;
   border-radius: 50px;
   background: #DADADA;

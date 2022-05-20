@@ -3,8 +3,14 @@
 import * as S from "./filter.styles";
 import MenuFilterPage from "./MenuFilter/MenuFilter";
 import MoodFilterPage from "./MoodFilter/MoodFilter";
+import { v4 as uuidv4 } from "uuid";
+import { Radio } from "antd";
 
 export default function FilterPresenter(props: any) {
+  function onChange(e) {
+    console.log(e.target.value);
+  }
+
   return (
     <>
       {props.isOpen ? (
@@ -21,7 +27,7 @@ export default function FilterPresenter(props: any) {
           </S.FilterBox>
           <S.FilerIcon
             onClick={props.onClickFilterOpen}
-            src="../images/filter.png"
+            src="/images/filter.png"
           />
         </S.Wrapper>
       ) : (
@@ -31,10 +37,34 @@ export default function FilterPresenter(props: any) {
             <S.FilterTitle>메뉴</S.FilterTitle>
             <S.OpenTagBox>
               {/* filter open 태그 올리는 곳 */}
+              {/* <Radio.Group onChange={onChange}>
+                <Radio.Button value={props.menuData?.fetchTags[0].boardTagName}>
+                  {props.menuData?.fetchTags[0].boardTagName}
+                </Radio.Button>
+                <Radio.Button value={props.menuData?.fetchTags[1].boardTagName}>
+                  {props.menuData?.fetchTags[1].boardTagName}
+                </Radio.Button>
+                <Radio.Button value={props.menuData?.fetchTags[2].boardTagName}>
+                  {props.menuData?.fetchTags[2].boardTagName}
+                </Radio.Button>
+                <Radio.Button value={props.menuData?.fetchTags[3].boardTagName}>
+                  {props.menuData?.fetchTags[3].boardTagName}
+                </Radio.Button>
+                <Radio.Button value={props.menuData?.fetchTags[4].boardTagName}>
+                  {props.menuData?.fetchTags[4].boardTagName}
+                </Radio.Button>
+                <Radio.Button value={props.menuData?.fetchTags[5].boardTagName}>
+                  {props.menuData?.fetchTags[5].boardTagName}
+                </Radio.Button>
+                <Radio.Button value={props.menuData?.fetchTags[6].boardTagName}>
+                  {props.menuData?.fetchTags[6].boardTagName}
+                </Radio.Button>
+              </Radio.Group> */}
 
-              {props.menuData?.fetchTags.map((el, index) => (
-                <MenuFilterPage key={index} el={el} />
-              ))}
+              <MenuFilterPage
+                hashTag={props.hashTag}
+                setHashTag={props.setHashTag}
+              />
             </S.OpenTagBox>
           </S.OpenFilterBox>
 

@@ -1,6 +1,7 @@
 // 일반리뷰 상세보기 style  - 김치훈
 
 import styled from "@emotion/styled";
+import { RightOutlined } from "@ant-design/icons"
 
 export const Wrapper = styled.div`
   padding: 40px 0 0 0;
@@ -11,6 +12,18 @@ export const Wrapper = styled.div`
   justify-content: center;
   align-items: center;
 `;
+export const Title = styled.div`
+  padding: 100px 0;
+  font-size: 40px; 
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  color: #fff;
+`
+export const RightOutline = styled(RightOutlined)`
+  padding: 0 15px;
+  color: #fff;
+`
 export const ReviewBox = styled.div`
   padding: 40px;
   width: 1000px;

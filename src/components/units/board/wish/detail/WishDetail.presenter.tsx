@@ -2,6 +2,7 @@
 
 import Hits from "../../../../commons/hits";
 import LikeButton from "../../../../commons/like";
+import TopButton from "../../../../commons/topbutton";
 import * as S from "./WishDetail.styled";
 
 export default function WishDetailPresenterPage(props: any) {
@@ -45,7 +46,7 @@ export default function WishDetailPresenterPage(props: any) {
 
         <S.ButtonBox>
           <S.LeftButton>
-            <S.Button onClick={props.onClickList}>목록으로</S.Button>
+            <S.Button onClick={props.onClickWishList}>목록으로</S.Button>
             <S.Button>수정하기</S.Button>
             <S.Button>삭제하기</S.Button>
           </S.LeftButton>
@@ -93,6 +94,10 @@ export default function WishDetailPresenterPage(props: any) {
           </S.CommentList>
         </S.CommentBox>
       </S.ReviewWriteBox>
+
+      <S.TopButtonBox>
+        <TopButton/>
+      </S.TopButtonBox>
     </S.Wrapper>
   );
 }

@@ -66,7 +66,6 @@ const result = await createBoard({
         boardSalt : data.boardSalt,
         boardContents,
         subCategoryName,
-        url : ["test"],
         place : {
           placeName : "도그니네",
           placeAddress : "도그니네집",

@@ -6,6 +6,7 @@ import TopButton from "../../commons/topbutton";
 import * as S from "./ReviewDetail.styles";
 
 export default function ReviewDetailPresenter(props: any) {
+  console.log(props.fetchBoardData)
   return (
     <S.Wrapper>
       <S.ReviewBox>

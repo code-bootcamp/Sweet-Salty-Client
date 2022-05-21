@@ -36,7 +36,7 @@ const onClickLogin = async (data: OperationVariables | undefined) => {
     });
     const accessToken = result.data.login.accessToken;
     setAccessToken(accessToken);
-console.log(accessToken);
+// console.log(accessToken);
 
 router.push("/");
 console.log(result, loggedInData)

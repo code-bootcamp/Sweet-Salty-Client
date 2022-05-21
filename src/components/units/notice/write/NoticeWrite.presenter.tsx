@@ -1,11 +1,5 @@
 import dynamic from "next/dynamic";
 import "react-quill/dist/quill.snow.css";
-// const Editor = dynamic(
-//   () => import("../../../../components/commons/toast/editor"),
-//   {
-//     ssr: false,
-//   }
-// );
 
 const Editor = dynamic(
   () => import("../../../../components/commons/minyoungtoasttest/editor"),
@@ -14,7 +8,6 @@ const Editor = dynamic(
   }
 );
 
-const ReactQuill = dynamic(() => import("react-quill"), { ssr: false });
 export default function NoticeWritePresenterPage(props) {
   return (
     <div>
@@ -28,12 +21,7 @@ export default function NoticeWritePresenterPage(props) {
           <input type="text" {...props.register("category")} />
         </div>
         <div>
-          {/* <ReactQuill
-            onChange={props.onChangeContents}
-            value={props.getValues("contents") || ""}
-          /> */}
-
-          <Editor SetAaa={props.SetAaa} />
+          <Editor SetContents={props.SetContents} />
         </div>
         <button type="submit">등록하기</button>
       </form>

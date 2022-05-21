@@ -12,7 +12,7 @@ export default function NoticeWriteContainerPage() {
     mode: "onChange",
   });
 
-  const [aaa, SetAaa] = useState("");
+  const [contents, SetContents] = useState("");
 
   // 에디터
   const onChangeContents = (value: string) => {
@@ -23,24 +23,21 @@ export default function NoticeWriteContainerPage() {
   const [createNotice] = useMutation(CREATE_NOTICE);
 
   const onClickNoticeWrite = async (data: any) => {
-    console.log(data);
     try {
       const result = await createNotice({
         variables: {
           createNoticeInput: {
             noticeTitle: data.title,
-            noticeContents: aaa,
+            noticeContents: contents,
             noticeCategory: data.category,
             url: ["굿바이"],
           },
         },
       });
-      console.log(result);
     } catch (error) {
       alert(error.message);
     }
   };
-  console.log(aaa);
   return (
     <NoticeWritePresenterPage
       onClickNoticeWrite={onClickNoticeWrite}
@@ -48,7 +45,7 @@ export default function NoticeWriteContainerPage() {
       register={register}
       getValues={getValues}
       onChangeContents={onChangeContents}
-      SetAaa={SetAaa}
+      SetContents={SetContents}
     />
   );
 }

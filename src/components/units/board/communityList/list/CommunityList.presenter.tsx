@@ -1,10 +1,10 @@
-import ReviewMenuPage from "../../../commons/reviewMenu";
-import SearchBarPage from "../../../commons/searchbar/SearchBar.container";
+import ReviewMenuPage from "../../../../commons/reviewMenu";
+import SearchBarPage from "../../../../commons/searchbar/SearchBar.container";
 import * as S from "./CommunityList.styled";
 import InfiniteScroll from "react-infinite-scroller";
-import TopButton from "../../../commons/topbutton";
-import BestCommunityCardContainerPage from "../../../commons/card/BestCommunityCard/BestCommunityCard.container";
-import CommunityCardContainerPage from "../../../commons/card/CommunityCard/CommunityCard.container";
+import TopButton from "../../../../commons/topbutton";
+import BestCommunityCardContainerPage from "../../../../commons/card/BestCommunityCard/BestCommunityCard.container";
+import CommunityCardContainerPage from "../../../../commons/card/CommunityCard/CommunityCard.container";
 
 export default function CommunityListPresenterPage(props) {
   return (

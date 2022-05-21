@@ -5,26 +5,18 @@ import CommonReviewPresenterPage from "./CommonReviewList.presenter";
 import { FETCH_BOARD_CATEGORY_PICK } from "./CommonReviewList.queries";
 
 export default function CommonReviewContainerPage() {
-  const { data: fetchBoardsCategoryData, fetchMore } = useQuery(
-    FETCH_BOARD_CATEGORY_PICK,
-    {
-      variables: {
-        category: "REVIEW",
-      },
-    }
-  );
-
-  console.log(fetchBoardsCategoryData);
+  const { data: ReviewData, fetchMore } = useQuery(FETCH_BOARD_CATEGORY_PICK, {
+    variables: {
+      category: "REVIEW",
+    },
+  });
 
   // 무한스크롤
   const loadMore = () => {
-    if (!fetchBoardsCategoryData) return;
+    if (!ReviewData) return;
     fetchMore({
       variables: {
-        page:
-          Math.ceil(
-            fetchBoardsCategoryData.fetchBoardCategoryPick.length / 10
-          ) + 1,
+        page: Math.ceil(ReviewData.fetchBoardCategoryPick.length / 10) + 1,
       },
       updateQuery: (prev, { fetchMoreResult }) => {
         if (!fetchMoreResult?.fetchBoardCategoryPick)
@@ -40,9 +32,6 @@ export default function CommonReviewContainerPage() {
   };
 
   return (
-    <CommonReviewPresenterPage
-      loadMore={loadMore}
-      fetchBoardsCategoryData={fetchBoardsCategoryData}
-    />
+    <CommonReviewPresenterPage loadMore={loadMore} ReviewData={ReviewData} />
   );
 }

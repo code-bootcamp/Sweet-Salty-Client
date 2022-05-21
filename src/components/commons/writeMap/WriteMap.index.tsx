@@ -1,6 +1,7 @@
+// 주석 절대 지우지 말것
+
 import { useEffect, useState } from "react";
 import * as S from "./WriteMap.styled";
-import { CaretRightFilled, CaretLeftFilled } from "@ant-design/icons";
 
 declare const window: typeof globalThis & {
   kakao: any;
@@ -238,7 +239,7 @@ export default function WriteMap() {
           );
 
           const marker = new window.kakao.maps.Marker({
-            position: position, // 마커의 위치
+            position, // 마커의 위치
             image: markerImage,
           });
 

@@ -7,12 +7,11 @@ export const FETCH_BOARDS = gql`
     fetchBoards {
       boardId
       boardTitle
-      boardSugar
-      boardSalt
       boardContents
       boardLikeCount
       boardHit
       createAt
+      thumbnail
     }
   }
 `;

@@ -39,7 +39,7 @@ export default function CommonReviewPresenterPage(props: any) {
           <S.CommonReviewHr />
 
           {/* 리뷰리스트 */}
-          <div style={{ height: "700px", overflow: "auto" }}>
+          <div style={{ overflow: "auto" }}>
             <InfiniteScroll
               pageStart={0}
               loadMore={props.loadMore}
@@ -47,7 +47,7 @@ export default function CommonReviewPresenterPage(props: any) {
               useWindow={false}
             >
               <S.ReviewList>
-                {props.fetchBoardsCategoryData?.fetchBoardCategoryPick.map(
+                {props.ReviewData?.fetchBoardCategoryPick.map(
                   (el: any, idx) => (
                     <CommunityCardContainerPage key={idx} el={el} />
                   )

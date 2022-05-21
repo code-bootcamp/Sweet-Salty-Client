@@ -2,33 +2,47 @@
 
 import { useQuery } from "@apollo/client";
 import CommonReviewPresenterPage from "./CommonReviewList.presenter";
-import { FETCH_BOARDS } from "./CommonReviewList.queries";
+import { FETCH_BOARD_CATEGORY_PICK } from "./CommonReviewList.queries";
 
 export default function CommonReviewContainerPage() {
-  const { data: fetchBoardsData, fetchMore } = useQuery(FETCH_BOARDS);
+  const { data: fetchBoardsCategoryData, fetchMore } = useQuery(
+    FETCH_BOARD_CATEGORY_PICK,
+    {
+      variables: {
+        category: "REVIEW",
+      },
+    }
+  );
+
+  console.log(fetchBoardsCategoryData);
 
   // 무한스크롤
   const loadMore = () => {
-    if (!fetchBoardsData) return;
+    if (!fetchBoardsCategoryData) return;
     fetchMore({
       variables: {
-        page: Math.ceil(fetchBoardsData.fetchBoards.length / 10) + 1,
+        page:
+          Math.ceil(
+            fetchBoardsCategoryData.fetchBoardCategoryPick.length / 10
+          ) + 1,
       },
       updateQuery: (prev, { fetchMoreResult }) => {
-        if (!fetchMoreResult?.fetchBoards)
-          return { fetchBoards: [...prev.fetchBoards] };
+        if (!fetchMoreResult?.fetchBoardCategoryPick)
+          return { fetchBoardCategoryPick: [...prev.fetchBoardCategoryPick] };
         return {
-          fetchBoards: [...prev.fetchBoards, ...fetchMoreResult?.fetchBoards],
+          fetchBoardCategoryPick: [
+            ...prev.fetchBoardCategoryPick,
+            ...fetchMoreResult?.fetchBoardCategoryPick,
+          ],
         };
       },
     });
   };
 
-
   return (
     <CommonReviewPresenterPage
       loadMore={loadMore}
-      fetchBoardsData={fetchBoardsData}
+      fetchBoardsCategoryData={fetchBoardsCategoryData}
     />
   );
 }

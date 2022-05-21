@@ -25,8 +25,6 @@ export default function FilterContainer() {
   const test2 = moodHashTag;
   const test3 = test.concat(test2);
 
-  console.log(test3);
-
   return (
     <FilterPresenter
       isOpen={isOpen}

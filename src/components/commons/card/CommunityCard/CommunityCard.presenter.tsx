@@ -3,14 +3,20 @@ import * as S from "./CommunityCard.styles";
 export default function CommunityCardPresenterPage(props) {
   return (
     <S.ItemMainDiv>
-      <S.ItemImg>
+      <S.ItemImg
+        style={{
+          backgroundImage: `url(https://storage.googleapis.com/${props.fetchBoardsCategoryData?.thumbnail})`,
+          backgroundSize: "cover",
+          backgroundRepeat: "no-repeat",
+        }}
+      >
         <S.ItemProfile></S.ItemProfile>
       </S.ItemImg>
       <S.ItemInfoDiv>
         <S.ItemInfoTopDiv>
           <S.ItemInfoLeftDiv>
             <S.ItemInfoTitleDiv>
-              {props.fetchBoardsData?.boardTitle}
+              {props.fetchBoardsCategoryData?.boardTitle}
             </S.ItemInfoTitleDiv>
             <S.ItemInfoBarDiv>|</S.ItemInfoBarDiv>
             <S.ItemInfoLocationDiv>구로구</S.ItemInfoLocationDiv>
@@ -23,18 +29,18 @@ export default function CommunityCardPresenterPage(props) {
             <S.ItemInfoLeftDiv>
               <S.ItemInfoImg src="/images/likeCount.png" alt="하트" />
               <S.ItemInfoCountDiv>
-                {props.fetchBoardsData?.boardLikeCount}
+                {props.fetchBoardsCategoryData?.boardLikeCount}
               </S.ItemInfoCountDiv>
             </S.ItemInfoLeftDiv>
             <S.ItemInfoLeftDiv>
               <S.ItemInfoImg src="/images/viewCount.png" alt="뷰" />
               <S.ItemInfoCountDiv>
-                {props.fetchBoardsData?.boardHit}
+                {props.fetchBoardsCategoryData?.boardHit}
               </S.ItemInfoCountDiv>
             </S.ItemInfoLeftDiv>
           </S.ItemInfoLeftDiv>
           <S.IteminfoDateDiv>
-            {props.fetchBoardsData?.createAt.slice(0, 10)}
+            {props.fetchBoardsCategoryData?.createAt.slice(0, 10)}
           </S.IteminfoDateDiv>
         </S.ItemInfoBottomDiv>
       </S.ItemInfoDiv>

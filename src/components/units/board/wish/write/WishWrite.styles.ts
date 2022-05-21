@@ -1,6 +1,7 @@
 // 가주세요! 등록 Styles --- 김치훈
 
 import styled from "@emotion/styled";
+import { RightOutlined } from "@ant-design/icons"
 
 export const Wrapper = styled.div`
   padding-bottom: 100px;
@@ -15,6 +16,14 @@ export const Title = styled.div`
   font-size: 40px;
   font-weight: 700;
   color: #fff;
+  cursor: default;
+  display: flex;
+  align-items: center;
+`
+export const RightOutline = styled(RightOutlined)`
+  padding: 0 15px;
+  color: #fff;
+  cursor: default;
 `
 
 export const ReviewWriteBox = styled.div`
@@ -23,17 +32,15 @@ export const ReviewWriteBox = styled.div`
   background: #fff;
   border-radius: 20px;
 `;
-
-export const RightBoxHr = styled.div`
+export const ReviewWriteBoxHr = styled.div`
   margin: 20px 0;
-  width: 446px;
+  width: 920px;
   height: 1.5px;
   border-radius: 50px;
   background: #DADADA;
 `
 
 export const Header = styled.div`
-  padding-bottom: 36px;
   display: flex;
   justify-content: space-between;
 `;
@@ -45,45 +52,9 @@ export const WriteTitle = styled.div`
   padding-bottom: 10px;
   font-size: 16px;
   font-weight: 700;
+  cursor: default;
 `;
-export const Map = styled.div`
-  width: 445px;
-  height: 545px;
-  text-align: center;
-  line-height: 545px;
-  background: #999;
-  border-radius: 20px;
-  `
-  
-export const RightBox = styled.div`
-  width: 445px;
-  display: flex;
-  flex-direction: column;
-`
-export const Span = styled.span`
-  margin-left: 4px;
-  font-size: 12px;
-  font-weight: 500;
-  `
-export const CategoryBox = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-`
-export const Category = styled.div`
-  margin: 7px 9px 0 0;
-  padding: 10px 20px;
-  color: #fff;
-  transition: 0.2s;
-  cursor: pointer;
-  border-radius: 50px;
-  font-size: 16px;
-  font-weight: 700;
-  background: #dbdbdb;
-  &:hover {
-    background: #FF9A31;
-  }
-  `
-  export const InputBox = styled.input`
+export const InputBox = styled.input`
   padding: 12px 16px;
   width: 445px;
   height: 46px;
@@ -94,19 +65,70 @@ export const Category = styled.div`
   font-weight: 700;
   outline-color: #676767;
   ::placeholder {color: #dbdbdb;}
-  `
+`
+export const RightBox = styled.div`
+  width: 445px;
+  display: flex;
+  flex-direction: column;
+`
+export const CategoryBox = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+`
+export const Category = styled.div`
+  padding: 7px 30px;
+  color: #fff;
+  transition: 0.2s;
+  cursor: default;
+  border-radius: 50px;
+  font-size: 16px;
+  font-weight: 700;
+  background: #FF9A31;
+`
+export const RightBoxHr = styled.div`
+  margin: 20px 0;
+  width: 446px;
+  height: 1.5px;
+  border-radius: 50px;
+  background: #DADADA;
+`
+
+export const Map = styled.div`
+  width: 920px;
+  height: 600px;
+  text-align: center;
+  line-height: 545px;
+  background: #999;
+  border-radius: 20px;
+`
+
+export const ImageBox =styled.div`
+  width: 300px;
+  height: 250px;
+  background: #dadada;
+  border-radius: 20px;
+  object-fit: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`
+export const ImageText = styled.div`
+  font-size: 14px;
+  color: #fff;
+  font-weight: 700;
+  transition: .2s;
+  cursor: pointer;
+  &:hover {
+    font-size: 16px;
+  }
+
+`
+  
   
   export const Section = styled.div`
     display: flex;
     flex-direction: column;
     align-items: start;
-  `
-  export const SectionHr = styled.div`
-    margin: 20px 0;
-    width: 920px;
-    height: 1.5px;
-    border-radius: 50px;
-    background: #DADADA;
   `
   export const TextAreaBox = styled.textarea`
     padding: 12px 16px;
@@ -131,7 +153,7 @@ export const Category = styled.div`
   `
   export const Button = styled.button`
     margin: 0 9px;
-    padding: 10px 42px;
+    padding: 7px 42px;
     background: #fff;
     border: 2px solid #DADADA;
     border-radius: 10px;

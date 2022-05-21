@@ -1,7 +1,5 @@
-
 import styled from "@emotion/styled";
 import { useRouter } from "next/router";
-
 
 export const ReviewMenuBox = styled.div`
   margin: 0 auto;
@@ -12,7 +10,7 @@ export const ReviewMenuBox = styled.div`
   align-items: center;
 `;
 export const ReviewMenu = styled.div`
-  width: 320px;
+  width: 299px;
   height: 50px;
   text-align: center;
   line-height: 50px;
@@ -29,29 +27,31 @@ export const ReviewMenu = styled.div`
   }
 `;
 
-export default function ReviewMenuPage(){
+export default function ReviewMenuPage() {
   const router = useRouter();
 
-  const onClickCommonReviewList = ()=>{
-    router.push("/reviews/commonReview/list")
-  }
-  const onClickTasterReviewList = ()=>{
-    router.push("/reviews/testerReview/list")
-  }
-  const onClickWishReviewList = ()=>{
-    router.push("/reviews/wish/list")
-  }
+  const onClickCommunityList = () => {
+    router.push("/reviews");
+  };
+
+  const onClickCommonReviewList = () => {
+    router.push("/reviews/commonReview/list");
+  };
+  const onClickTasterReviewList = () => {
+    router.push("/reviews/testerReview/list");
+  };
+  const onClickWishReviewList = () => {
+    router.push("/reviews/wish/list");
+  };
 
   return (
-  <>
-  <ReviewMenuBox>
-    <ReviewMenu onClick={onClickCommonReviewList}>
-      단짠 리뷰
-    </ReviewMenu>
-    <ReviewMenu onClick={onClickTasterReviewList}>시식단 리뷰</ReviewMenu>
-    <ReviewMenu onClick={onClickWishReviewList}>가주세요!</ReviewMenu>
-  </ReviewMenuBox>
-  
-  </>
-  )
+    <>
+      <ReviewMenuBox>
+        <ReviewMenu onClick={onClickCommunityList}>전체</ReviewMenu>
+        <ReviewMenu onClick={onClickCommonReviewList}>단짠 리뷰</ReviewMenu>
+        <ReviewMenu onClick={onClickTasterReviewList}>시식단 리뷰</ReviewMenu>
+        <ReviewMenu onClick={onClickWishReviewList}>가주세요!</ReviewMenu>
+      </ReviewMenuBox>
+    </>
+  );
 }

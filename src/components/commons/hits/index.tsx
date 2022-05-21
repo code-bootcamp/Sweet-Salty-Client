@@ -15,7 +15,7 @@ export const ViewIcon = styled.img`
 export default function Hits() {
   return (
     <ViewCount>
-      <ViewIcon src={"../images/viewCount.png"} />
+      <ViewIcon src={"/images/viewCount.png"} />
       100
     </ViewCount>
   );

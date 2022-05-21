@@ -5,7 +5,6 @@ import { RightOutlined,EditOutlined } from "@ant-design/icons"
 
 
 export const Wrapper = styled.div`
-  padding-bottom: 100px;
   width: 100%;
   background: radial-gradient(#ff6e30, #ff9a31);
   display: flex;
@@ -31,18 +30,16 @@ export const ReviewWriteBox = styled.div`
   border-radius: 20px;
 `;
 
-export const Header = styled.div`
-  margin-bottom: 64px;
-`;
+export const Header = styled.div``;
 export const HeaderBox = styled.div`
-  margin-bottom: 10px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+margin-bottom: 10px;
+display: flex;
+justify-content: space-between;
+align-items: center;
 `;
 export const HeaderLeft = styled.div`
-  display: flex;
-  align-items: center;
+display: flex;
+align-items: center;
 `;
 export const Category = styled.span`
   margin-right: 10px;
@@ -230,3 +227,7 @@ export const CommentCreatAt = styled.span`
   font-size: 12px;
   color: #676767;
 `;
+
+export const TopButtonBox =styled.div`
+  padding: 50px 0;
+`

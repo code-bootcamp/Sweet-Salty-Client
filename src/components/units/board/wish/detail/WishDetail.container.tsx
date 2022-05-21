@@ -7,7 +7,7 @@ import WishDetailPresenterPage from "./WishDetail.presenter";
 export default function WishDetailContainerPage() {
   const router = useRouter()
 
-  const onClickList =()=>{
+  const onClickWishList =()=>{
     router.push("/reviews/wish/list")
   }
   const onClickWishReviewWrite =()=>{
@@ -16,7 +16,7 @@ export default function WishDetailContainerPage() {
 
 
   return <WishDetailPresenterPage
-    onClickList={onClickList}
+  onClickWishList={onClickWishList}
     onClickWishReviewWrite={onClickWishReviewWrite}
   />;
 }

@@ -6,8 +6,8 @@ import ReviewMenuPage from "../../../../commons/reviewMenu";
 import SearchBarPage from "../../../../commons/searchbar/SearchBar.container";
 import FilterContainer from "../../../../commons/filter/filter.container";
 import BestReviewItemContainerPage from "../../../../commons/card/BestReviewCard/BestReviewItem.container";
-import CommonReviewItemContainerPage from "../../../../commons/card/ReviewCard/ReviewItem.container";
 import TopButton from "../../../../commons/topbutton";
+import CommunityCardContainerPage from "../../../../commons/card/CommunityCard/CommunityCard.container";
 
 export default function CommonReviewPresenterPage(props: any) {
   return (
@@ -17,7 +17,7 @@ export default function CommonReviewPresenterPage(props: any) {
         <S.SearchbarBox>
           <SearchBarPage />
         </S.SearchbarBox>
-        
+
         <ReviewMenuPage />
 
         <S.CommonReviewInnerBox>
@@ -43,13 +43,15 @@ export default function CommonReviewPresenterPage(props: any) {
             <InfiniteScroll
               pageStart={0}
               loadMore={props.loadMore}
-              hasMore={true}
+              hasMore={false}
               useWindow={false}
             >
               <S.ReviewList>
-                {props.fetchBoardsData?.fetchBoards.map((el: any) => (
-                  <CommonReviewItemContainerPage key={el.boardId} el={el} />
-                ))}
+                {props.fetchBoardsCategoryData?.fetchBoardCategoryPick.map(
+                  (el: any, idx) => (
+                    <CommunityCardContainerPage key={idx} el={el} />
+                  )
+                )}
               </S.ReviewList>
             </InfiniteScroll>
           </div>

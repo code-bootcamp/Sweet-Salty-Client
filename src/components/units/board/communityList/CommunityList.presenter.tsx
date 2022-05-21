@@ -37,7 +37,7 @@ export default function CommunityListPresenterPage(props) {
             <InfiniteScroll
               pageStart={0}
               loadMore={props.loadMore}
-              hasMore={true}
+              hasMore={false}
               useWindow={false}
             >
               <S.ReviewList>

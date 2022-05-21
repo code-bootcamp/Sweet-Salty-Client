@@ -68,9 +68,9 @@ export const CommonReviewHr = styled.div`
 `;
 
 export const ReviewList = styled.div`
-  display: flex;
+  display: grid;
   flex-wrap: wrap;
-  justify-content: space-between;
+  grid-template-columns: 25% 25% 25% 25%;
 `;
 
 export const TopButtonArticle = styled.div`

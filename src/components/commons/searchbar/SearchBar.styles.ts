@@ -33,6 +33,13 @@ export const SearchInnerBox = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+
+  #searchSelect {
+    width: 88px;
+    transform: translate(12px);
+    border: 1px solid #999;
+    -moz-appearance: none;
+  }
 `;
 
 export const SearchBar = styled.input`

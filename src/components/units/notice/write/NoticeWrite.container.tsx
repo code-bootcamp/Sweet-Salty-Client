@@ -29,7 +29,7 @@ export default function NoticeWriteContainerPage() {
         variables: {
           createNoticeInput: {
             noticeTitle: data.title,
-            noticeContents: data.contents,
+            noticeContents: aaa,
             noticeCategory: data.category,
             url: ["굿바이"],
           },
@@ -40,7 +40,7 @@ export default function NoticeWriteContainerPage() {
       alert(error.message);
     }
   };
-
+  console.log(aaa);
   return (
     <NoticeWritePresenterPage
       onClickNoticeWrite={onClickNoticeWrite}

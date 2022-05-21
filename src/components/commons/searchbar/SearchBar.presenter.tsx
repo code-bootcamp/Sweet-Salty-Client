@@ -12,7 +12,7 @@ export default function SearchBarPresenter(props: any) {
     >
       <S.SearchBox>
         <S.SearchInnerBox>
-          <select>
+          <select id="searchSelect">
             <option value="제목">제목</option>
             <option value="내용">내용</option>
             <option value="가게명">가게명</option>

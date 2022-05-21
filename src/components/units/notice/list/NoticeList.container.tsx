@@ -4,11 +4,10 @@ import { useRouter } from "next/router";
 import NoticeListPresenterPage from "./NoticeList.presenter";
 
 export default function NoticeListContainerPage() {
-  const router = useRouter()
-  const onClickDetail =() => {
-    router.push("./detail")
-  }
-
+  const router = useRouter();
+  const onClickDetail = () => {
+    router.push("/notice/write");
+  };
 
   return <NoticeListPresenterPage onClickDetail={onClickDetail} />;
 }

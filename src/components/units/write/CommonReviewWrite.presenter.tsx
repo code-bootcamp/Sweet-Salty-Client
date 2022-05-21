@@ -5,10 +5,10 @@ import * as S from "./CommonReviewWrite.styles"
 
 const Editor = dynamic(() => import("../../commons/toast/editor"), { ssr: false });
 
-export default function CommonReviewWritePresenter(props:any){
+export default function CommonReviewWritePresenter(props){
   return (
   <S.Wrapper>
-    <S.Form onSubmit={props.handleSubmit(props.onClickSubmit)}>
+    <form onSubmit={props.handleSubmit(props.onClickSubmit)}>
     <S.Title>단짠 게시판 글 등록</S.Title>
 
     
@@ -31,18 +31,18 @@ export default function CommonReviewWritePresenter(props:any){
           <S.RightBoxHr/>
 
           <S.WriteTitle>제목</S.WriteTitle>
-          <S.InputBox type="text" placeholder="20자 이내로 작성하세요." register={props.register("boardTitle")} maxLength="20"/>
+          <S.InputBox type="text" placeholder="20자 이내로 작성하세요." register={props.register("boardTitle")} />
 
           <S.RightBoxHr/>
 
 
           <S.WriteTitle style={{color: "#FF9A31"}}>장점</S.WriteTitle>
-          <S.InputBox type="text" placeholder="30자 이내로 작성하세요." register={props.register("boardSugar")} maxLength="30" />
+          <S.InputBox type="text" placeholder="30자 이내로 작성하세요." register={props.register("boardSugar")}  />
 
           <S.RightBoxHr/>
 
           <S.WriteTitle style={{color: "red"}}>단점</S.WriteTitle>
-          <S.InputBox type="text" placeholder="30자 이내로 작성하세요." register={props.register("boardSalt")} maxLength="30" />
+          <S.InputBox type="text" placeholder="30자 이내로 작성하세요." register={props.register("boardSalt")}  />
 
         </S.RightBox>
       </S.Header>
@@ -69,14 +69,15 @@ export default function CommonReviewWritePresenter(props:any){
 moodHashTag={props.moodHashTag}
 setMoodHashTag={props.setMoodHashTag}
 />
-<button onClick={props.checker}>d</button>
         </S.MoodBox>
 
         <S.SectionHr/>
 
         <S.WriteTitle>내용</S.WriteTitle>
         <Editor
-        value={props.getValues("boardContents") || ""}/>
+        setBoardContents={props.setBoardContents}
+        // value={props.getValues("boardContents") || ""}
+        />
         {/* <S.TextAreaBox type="text" placeholder="200자 이내로 작성하세요." maxLength="200" /> */}
 
         <S.ButtonBox>
@@ -86,7 +87,7 @@ setMoodHashTag={props.setMoodHashTag}
 
       </S.Section>
     </S.ReviewWriteBox>
-    </S.Form>
+    </form>
   </S.Wrapper>
   )
 }

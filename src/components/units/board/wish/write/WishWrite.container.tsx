@@ -7,7 +7,7 @@ export default function WishWriteContainer(){
   const router = useRouter()
 
   const onClickWishDetail =() =>{
-    alert("등록되었습니다.")
+    alert("가주세요! 등록되었습니다.")
     router.push("/reviews/wish/detail")
   }
   const onClickBack = ()=>{
@@ -16,7 +16,7 @@ export default function WishWriteContainer(){
 
   return (
   <WishWritePresenter
-  onClickWishDetail={onClickWishDetail}
+    onClickWishDetail={onClickWishDetail}
     onClickBack={onClickBack}
   />
   )

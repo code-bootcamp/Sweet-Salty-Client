@@ -18,8 +18,8 @@ export default function LayoutHeader() {
   const onClickNotice = () => {
     router.push("/notice/list");
   };
-  const NoticePage = ["/notice/list"];
-  const isNoticePage = NoticePage.includes(router.asPath);
+  const NoticePage = ["notice"];
+  const isNoticePage = NoticePage.includes(router.asPath.split("/")[1]);
 
   const onClickLogin = () => {
     router.push("/login");
@@ -28,8 +28,8 @@ export default function LayoutHeader() {
   const onClickReview = () => {
     router.push("/reviews/commonReview/list");
   };
-  const ReviewPage = ["/reviews/commonReview/list"];
-  const isReviewPage = ReviewPage.includes(router.asPath);
+  const ReviewPage = ["reviews"];
+  const isReviewPage = ReviewPage.includes(router.asPath.split("/")[1]);
 
   return (
     <LayoutHeaderPresenter

@@ -1,31 +1,65 @@
-import { useQuery } from "@apollo/client";
+import { useMutation, useQuery } from "@apollo/client";
 import { useRouter } from "next/router";
 import ReviewDetailPresenter from "./CommonReviewDetail.presenter";
-import { FETCH_BOARD } from "./CommonReviewDetail.queries";
+import { CREATE_BOARD_LIKE, DELETE_BOARD, FETCH_BOARD } from "./CommonReviewDetail.queries";
 
 export default function ReviewDetailContainer() {
   const router = useRouter()
-  const {data : fetchBoardData}= useQuery(FETCH_BOARD,{variables: {boardId:"2"}}) 
-
-// console.log("타이틀",fetchBoardData?.fetchBoard?.boardTitle)
-// console.log("슈가",fetchBoardData?.fetchBoard?.boardSugar)
-// console.log("솔트",fetchBoardData?.fetchBoard?.boardSalt)
-// console.log("내용",fetchBoardData?.fetchBoard?.boardContents)
-// console.log("좋아요",fetchBoardData?.fetchBoard?.boardLikeCount)
-// console.log("조회",fetchBoardData?.fetchBoard?.boardHit)
-// console.log("주제",fetchBoardData?.fetchBoard?.boardSubject)
-console.log("생성일",fetchBoardData?.fetchBoard?.createAt)
-// console.log("서브카테",fetchBoardData?.fetchBoard?.subCategory?.subCategoryName)
-// console.log("장소",fetchBoardData?.fetchBoard?.place)
-// console.log("태그",fetchBoardData?.fetchBoard?.boardSides)
-console.log("태그맵",fetchBoardData?.fetchBoard?.boardSides.map((el)=>(el.boardTags.boardTagName)))
+  const {data}= useQuery(FETCH_BOARD,{variables: {boardId:String(router.query.boardId)}}) 
+  const [createBoardLike] = useMutation(CREATE_BOARD_LIKE);
+  const [deleteBoard] = useMutation(DELETE_BOARD);
+console.log("생성일",data?.fetchBoard?.createAt)
+console.log("데이타",data)
 
   const onClickCommonReviewList = ()=>{
     router.push("/reviews/commonReview/list")
   }
-
+  const onClickDelete = () => {
+    deleteBoard({
+      variables: { boardId: String(router.query.boardId) },
+    });
+    alert("게시글 삭제 완료");
+    router.push("/reviews/commonReview");
+  };
+  const onClickLike = ()=>{
+    createBoardLike({
+      variables: { boardId: 
+        // String(router.query.boardId)
+        String(router.query.boardId)
+      },
+      refetchQueries: [
+        {query : FETCH_BOARD, variables:{ boardId:
+          //  String(router.query.boardId)
+          String(router.query.boardId)
+          }}
+      ]
+      // optimisticResponse:{
+      //   createBoardLike : (data?.fetchBoard?.boardLikeCount || 0) +1,
+      // },
+      // update(cache, {data}){
+      //   cache.writeQuery({
+      //     query:FETCH_BOARD,
+      //     variables: { boardId: 
+      //       "2"
+      //       // String(router.query.boardId) 
+      //     },
+      //     data : { 
+      //       fetchBoard : {
+      //         boardId : 
+      //         // router.query.boardId
+      //         "2",
+      //         __typename: "Board",
+      //         boardLikeCount :data.fetchBoard.boardLikeCount
+      //       }
+      //     }
+      //   })
+      // }
+    })
+  }
   return <ReviewDetailPresenter
-  data={fetchBoardData?.fetchBoard}
+  data={data?.fetchBoard}
   onClickCommonReviewList={onClickCommonReviewList}
+  onClickDelete={onClickDelete}
+  onClickLike={onClickLike}
   />;
 }

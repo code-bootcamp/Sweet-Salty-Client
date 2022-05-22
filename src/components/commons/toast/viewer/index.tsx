@@ -1,8 +1,9 @@
-import '@toast-ui/editor/dist/toastui-editor.css';
-import { Viewer } from '@toast-ui/react-editor';
+import dynamic from 'next/dynamic'
 
-export default function PostView(){
-	return (
-	<Viewer	/>
-	);
+const ToastViewer = dynamic(() => import('./viewer'), {
+  ssr: false,
+})
+
+export default function ToastViewerPage(props) {
+  return <ToastViewer contents={props.contents} />
 }

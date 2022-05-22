@@ -33,7 +33,7 @@ export default function CommunityListPresenterPage(props) {
           <S.CommonReviewHr />
 
           {/* 리뷰리스트 */}
-          <div style={{ height: "700px", overflow: "auto" }}>
+          <div style={{ height: "auto", overflow: "auto" }}>
             <InfiniteScroll
               pageStart={0}
               loadMore={props.loadMore}

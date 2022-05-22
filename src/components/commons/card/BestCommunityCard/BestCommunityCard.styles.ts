@@ -64,7 +64,6 @@ export const ItemInfoLocationDiv = styled.div`
   color: #676767;
   font-size: 14px;
   line-height: 16px;
-  text-align: center;
 `;
 export const ItemInfoUserDiv = styled.div`
   color: #2c2c2c;

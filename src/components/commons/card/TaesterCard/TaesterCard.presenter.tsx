@@ -18,13 +18,17 @@ export default function TasterCardPresenterPage(props) {
             <S.ItemInfoTitleDiv>
               {props.fetchBoardsCategoryData?.boardTitle}
             </S.ItemInfoTitleDiv>
-            <S.ItemInfoBarDiv>|</S.ItemInfoBarDiv>
-            <S.ItemInfoLocationDiv>구로구</S.ItemInfoLocationDiv>
           </S.ItemInfoLeftDiv>
-          <S.ItemInfoUserDiv>푸딩 단짝님</S.ItemInfoUserDiv>
         </S.ItemInfoTopDiv>
 
-        <div></div>
+        <S.ItemInfoMidDiv>
+          <S.MidStoreInfoDiv>
+            <S.ItemInfoStoreName>식당명</S.ItemInfoStoreName>
+            <S.ItemInfoBarDiv>|</S.ItemInfoBarDiv>
+            <S.ItemInfoLocationDiv>구로구</S.ItemInfoLocationDiv>
+          </S.MidStoreInfoDiv>
+          <S.ItemInfoUserDiv>푸딩 단짝님</S.ItemInfoUserDiv>
+        </S.ItemInfoMidDiv>
 
         <S.ItemInfoBottomDiv>
           <S.ItemInfoLeftDiv>

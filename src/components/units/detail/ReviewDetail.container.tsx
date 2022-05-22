@@ -5,7 +5,7 @@ import { FETCH_BOARD } from "./ReviewDetail.queries";
 
 export default function ReviewDetailContainer() {
   const router = useRouter()
-  const {data : fetchBoardData}= useQuery(FETCH_BOARD,{variables: {boardId:34}}) 
+  const {data : fetchBoardData}= useQuery(FETCH_BOARD,{variables: {boardId:Number(1)}}) 
 
 console.log(fetchBoardData)
   const onClickCommonReviewList = ()=>{

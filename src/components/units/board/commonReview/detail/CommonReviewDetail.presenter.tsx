@@ -3,6 +3,7 @@
 import Hits from "../../../../commons/hits";
 import { getDate } from "../../../../commons/libraries/date";
 import LikeButton from "../../../../commons/like";
+import ToastViewerPage from "../../../../commons/toast/viewer";
 import TopButton from "../../../../commons/topbutton";
 import * as S from "./CommonReviewDetail.styles";
 
@@ -18,7 +19,7 @@ export default function ReviewDetailPresenter(props: any) {
               {props.data?.boardTitle}
             </S.BoardTitle>
             <S.RightBox>
-              <LikeButton />{props.data?.boardLikeCount}
+              <LikeButton onClick={props.onClickLike}/>{props.data?.boardLikeCount}
               <Hits />{props.data?.boardHit}
             </S.RightBox>
           </S.HeaderBox>
@@ -49,7 +50,7 @@ export default function ReviewDetailPresenter(props: any) {
           <S.SectionRight>
             <S.DetailedReview>세부 리뷰</S.DetailedReview>
             <S.DetailedReviewText>
-            {props.data?.boardContents}
+            <ToastViewerPage contents={props.data?.boardContents} />
             </S.DetailedReviewText>
           </S.SectionRight>
         </S.Section>
@@ -69,7 +70,7 @@ export default function ReviewDetailPresenter(props: any) {
         <S.Buttons>
           <S.Button onClick={props.onClickCommonReviewList}>목록으로</S.Button>
           <S.Button>수정하기</S.Button>
-          <S.Button>삭제하기</S.Button>
+          <S.Button onClick={props.onClickDelete}>삭제하기</S.Button>
         </S.Buttons>
 
         <S.ReviewHr />

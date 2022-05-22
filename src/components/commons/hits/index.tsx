@@ -16,7 +16,7 @@ export default function Hits() {
   return (
     <ViewCount>
       <ViewIcon src={"/images/viewCount.png"} />
-      100
+      
     </ViewCount>
   );
 }

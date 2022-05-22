@@ -1,11 +1,13 @@
 // 일반리뷰 상세보기 Presenter  - 김치훈
 
 import Hits from "../../../../commons/hits";
+import { getDate } from "../../../../commons/libraries/date";
 import LikeButton from "../../../../commons/like";
 import TopButton from "../../../../commons/topbutton";
 import * as S from "./CommonReviewDetail.styles";
 
 export default function ReviewDetailPresenter(props: any) {
+  console.log(props.data?.boardTitle)
   return (
     <S.Wrapper>
       <S.Title>단짠 게시판 <S.RightOutline /> 단짠 리뷰</S.Title>
@@ -13,43 +15,41 @@ export default function ReviewDetailPresenter(props: any) {
         <S.Header>
           <S.HeaderBox>
             <S.BoardTitle>
-              태어나서 먹어본 크림 파스타 중에 제일 맛있어요!
+              {props.data?.boardTitle}
             </S.BoardTitle>
             <S.RightBox>
-              <LikeButton />
-              <Hits />
+              <LikeButton />{props.data?.boardLikeCount}
+              <Hits />{props.data?.boardHit}
             </S.RightBox>
           </S.HeaderBox>
 
           <S.UserNameBox>
-            <S.UserName>주혜</S.UserName> 단짝님
+            <S.UserName>{(props.data?.boardWriter) || "푸딩"}</S.UserName> 단짝님
           </S.UserNameBox>
           <S.P>|</S.P>
-          <S.CreateAt>2022년 5월 10일</S.CreateAt>
+          <S.CreateAt>{getDate(props.data?.createAt)}</S.CreateAt>
         </S.Header>
 
         <S.Section>
           <S.SectionLeft>
             <S.ShopNameBox>
-              <S.ShopName>가게명</S.ShopName> 파스타 조아
+              <S.ShopName>가게명</S.ShopName>{props.data?.place?.placeName}
             </S.ShopNameBox>
             <S.MenuNameBox>
-              <S.MenuName>메뉴명</S.MenuName> 크림 파스타
+              <S.MenuName>주소</S.MenuName>{props.data?.place?.placeAddress}
             </S.MenuNameBox>
             <S.ProsBox>
-              <S.Pros>장점</S.Pros> 내부가 깨끗하고 음식이 맛있었어요!
+              <S.Pros>단맛</S.Pros>{props.data?.boardSugar}
             </S.ProsBox>
             <S.ConsBox>
-              <S.Cons>단점</S.Cons> 딱히 없어요.
+              <S.Cons>짠맛</S.Cons>{props.data?.boardSalt}
             </S.ConsBox>
           </S.SectionLeft>
 
           <S.SectionRight>
             <S.DetailedReview>세부 리뷰</S.DetailedReview>
             <S.DetailedReviewText>
-              가격 저렴하면서도 맛도 같이 즐기기에 좋은 곳입니다. 평일에
-              점심시간 약간 지나서 가니 자리도 비고 편안한 공간속에서 먹을 수
-              있어 좋았어요^^ 간단히 파스타 즐기기에 좋은 곳입니다.
+            {props.data?.boardContents}
             </S.DetailedReviewText>
           </S.SectionRight>
         </S.Section>
@@ -59,10 +59,11 @@ export default function ReviewDetailPresenter(props: any) {
         </S.ImageBox>
 
         <S.Tags>
-          <S.Tag>양식</S.Tag>
-          <S.Tag>서울특별시</S.Tag>
-          <S.Tag>송파구</S.Tag>
-          <S.Tag>데이트</S.Tag>
+          {props.data?.boardSides.map((el, idx)=>(
+            <S.Tag key={idx}>{el.boardTags.boardTagName}</S.Tag>
+            
+            ))}
+          
         </S.Tags>
 
         <S.Buttons>

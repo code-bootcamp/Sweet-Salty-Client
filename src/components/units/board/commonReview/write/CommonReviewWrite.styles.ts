@@ -1,6 +1,8 @@
-// 일반리뷰 등록 Styles --- 김치훈
-
 import styled from "@emotion/styled";
+import WriteReviewInput from "./CommonReviewWrite.input";
+
+
+
 
 export const Wrapper = styled.div`
   padding-bottom: 100px;
@@ -10,6 +12,8 @@ export const Wrapper = styled.div`
   flex-direction: column;
   align-items: center;
 `
+
+export const Form = styled.form``;
 export const Title = styled.div`
   padding: 100px 0;
   font-size: 40px;
@@ -48,9 +52,9 @@ export const WriteTitle = styled.div`
 `;
 export const Map = styled.div`
   width: 445px;
-  height: 545px;
+  height: 515px;
   text-align: center;
-  line-height: 545px;
+  line-height: 515px;
   background: #999;
   border-radius: 20px;
   `
@@ -83,7 +87,7 @@ export const Category = styled.div`
     background: #FF9A31;
   }
   `
-  export const InputBox = styled.input`
+  export const InputBox = styled(WriteReviewInput)`
   padding: 12px 16px;
   width: 445px;
   height: 46px;

@@ -7,13 +7,13 @@ query fetchBoard($boardId:String!){
         boardSugar
         boardSalt
         boardContents
-        boardWriter
+        # boardWriter
         boardLikeCount
         boardHit
         boardSubject
         createAt
         subCategory {subCategoryName}
-        place {placeId placeName placeAddress}
+        place {placeName placeAddress}
         boardSides { boardTags { boardTagName boardTagRefName }}
     }
 }

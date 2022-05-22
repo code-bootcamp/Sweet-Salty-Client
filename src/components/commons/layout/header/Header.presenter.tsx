@@ -12,7 +12,7 @@ export default function LayoutHeaderPresenter(props: any) {
           <S.ReviewMenu isReviewPage={props.isReviewPage} onClick={props.onClickReview}>
             단짠 게시판
           </S.ReviewMenu>
-          <S.StoreMenu>단짠 스토어</S.StoreMenu>
+          <S.StoreMenu isStorePage={props.isStorePage} onClick={props.onClickStore}>단짠 스토어</S.StoreMenu>
           <S.NoticeMenu isNoticePage={props.isNoticePage} onClick={props.onClickNotice}>공지사항</S.NoticeMenu>
         </S.HeaderMenuBox>
 

@@ -14,25 +14,22 @@ export const MapSection = styled.div`
   #map {
     width: 920px;
     height: 600px;
-    /* position: absolute; */
+    position: absolute;
     overflow: hidden;
     border-radius: 20px;
   }
   #menuDiv {
     display: flex;
-    top: 10px;
     position: relative;
     z-index: 2;
     font-size: 12px;
-    border-radius: 10px;
-    left: ${(props: ISearchBarOpen) => (props.isOpen ? "-906px" : "-920px")};
   }
 
   #menu_wrap {
     position: relative;
     width: 400px;
-    height: 580px;
-    /* padding: 10px; */
+    height: 600px;
+    border-radius: 20px;
     overflow-y: auto;
     background: rgba(255, 255, 255, 0.7);
     display: ${(props: ISearchBarOpen) => (props.isOpen ? "" : "none")};
@@ -42,6 +39,7 @@ export const MapSection = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
+    width: 100%;
     padding: 10px;
   }
 
@@ -95,7 +93,6 @@ export const MapSection = styled.div`
   #btnDiv {
     display: flex;
     flex-direction: column;
-    align-items: center;
     justify-content: center;
   }
 
@@ -112,6 +109,13 @@ export const MapSection = styled.div`
     font-weight: bold;
     cursor: default;
     color: #ff6e30;
+  }
+
+  #btnOn {
+    height: 600px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
   }
 
   #searchBtn {
@@ -135,5 +139,4 @@ export const LeftDisplayButton = styled(CaretLeftFilled)`
 `;
 export const RightDisplayButton = styled(CaretRightFilled)`
   color: #fff;
-  cursor: pointer;
 `;

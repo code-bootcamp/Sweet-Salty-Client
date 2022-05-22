@@ -9,20 +9,8 @@ export default function LayoutHeader() {
   const [isClick, setIsClick] = useState(false);
 
   
-  const onClickPhoto = () => {
-    setIsClick((prev) => !prev);
-  };
   const onClickHome = () => {
     router.push("/");
-  };
-  const onClickNotice = () => {
-    router.push("/notice/list");
-  };
-  const NoticePage = ["notice"];
-  const isNoticePage = NoticePage.includes(router.asPath.split("/")[1]);
-
-  const onClickLogin = () => {
-    router.push("/login");
   };
   
   const onClickReview = () => {
@@ -30,16 +18,37 @@ export default function LayoutHeader() {
   };
   const ReviewPage = ["reviews"];
   const isReviewPage = ReviewPage.includes(router.asPath.split("/")[1]);
+  
+  const onClickStore = () => {
+    router.push("/store");
+  };
+  const StorePage = ["store"];
+  const isStorePage = StorePage.includes(router.asPath.split("/")[1]);
+  
+  const onClickNotice = () => {
+    router.push("/notice/list");
+  };
+  const NoticePage = ["notice"];
+  const isNoticePage = NoticePage.includes(router.asPath.split("/")[1]);
+
+  const onClickPhoto = () => {
+    setIsClick((prev) => !prev);
+  };
+  const onClickLogin = () => {
+    router.push("/login");
+  };
 
   return (
     <LayoutHeaderPresenter
       onClickHome={onClickHome}
       onClickReview={onClickReview}
+      onClickStore={onClickStore}
       onClickNotice={onClickNotice}
       onClickPhoto={onClickPhoto}
       onClickLogin={onClickLogin}
       isClick={isClick}
       isReviewPage={isReviewPage}
+      isStorePage={isStorePage}
       isNoticePage={isNoticePage}
     />
   );

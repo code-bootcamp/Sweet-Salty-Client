@@ -60,7 +60,8 @@ export const ReviewMenu = styled.div`
 `;
 export const StoreMenu = styled.div`
   font-size: 18px;
-  font-weight: 500;
+  font-weight: ${(props: any) =>
+    props.isStorePage ? "900" : "500"};
   margin: 0 20px;
   cursor: pointer;
   transition: 0.2s;
@@ -71,6 +72,8 @@ export const StoreMenu = styled.div`
   &:active {
     font-size: 18.5px;
   }
+  border-bottom: ${(props: any) =>
+    props.isStorePage ? "8px solid #ffa230" : "none"};
 `;
 export const NoticeMenu = styled.div`
   font-size: 18px;

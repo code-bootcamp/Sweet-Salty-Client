@@ -14,8 +14,6 @@ export default function CommonReviewContainerPage() {
     }
   );
 
-  console.log(fetchBoardsCategoryData);
-
   // 무한스크롤
   const loadMore = () => {
     if (!fetchBoardsCategoryData) return;

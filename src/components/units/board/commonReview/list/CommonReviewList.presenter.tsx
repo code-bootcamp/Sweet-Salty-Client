@@ -7,7 +7,7 @@ import SearchBarPage from "../../../../commons/searchbar/SearchBar.container";
 import FilterContainer from "../../../../commons/filter/filter.container";
 import BestReviewItemContainerPage from "../../../../commons/card/BestReviewCard/BestReviewItem.container";
 import TopButton from "../../../../commons/topbutton";
-import CommunityCardContainerPage from "../../../../commons/card/CommunityCard/CommunityCard.container";
+import CommonReviewItemContainerPage from "../../../../commons/card/ReviewCard/ReviewItem.container";
 
 export default function CommonReviewPresenterPage(props: any) {
   return (
@@ -49,7 +49,7 @@ export default function CommonReviewPresenterPage(props: any) {
               <S.ReviewList>
                 {props.fetchBoardsCategoryData?.fetchBoardCategoryPick.map(
                   (el: any, idx) => (
-                    <CommunityCardContainerPage key={idx} el={el} />
+                    <CommonReviewItemContainerPage key={idx} el={el} />
                   )
                 )}
               </S.ReviewList>

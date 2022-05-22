@@ -8,7 +8,7 @@ export const ItemInfoLeftDiv = styled.div`
 export const ItemMainDiv = styled.div`
   cursor: pointer;
   height: 342px;
-  width: 300px;
+  width: 338px;
 `;
 export const ItemImg = styled.div`
   background-color: #ffa230;
@@ -18,7 +18,7 @@ export const ItemImg = styled.div`
   height: 250px;
   justify-content: flex-end;
   padding: 15px;
-  width: 300px;
+  width: 338px;
 `;
 export const ItemProfile = styled.div`
   background-color: #ffffff;
@@ -29,7 +29,7 @@ export const ItemProfile = styled.div`
 export const ItemInfoDiv = styled.div`
   height: 92px;
   padding: 10px 0;
-  width: 300px;
+  width: 338px;
 `;
 export const ItemInfoTopDiv = styled.div`
   display: flex;
@@ -37,48 +37,37 @@ export const ItemInfoTopDiv = styled.div`
   justify-content: space-between;
 `;
 
-export const ItemInfoMidDiv = styled.div`
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  padding: 10px 0;
-`;
-
-export const MidStoreInfoDiv = styled.div`
-  display: flex;
-`;
-
-export const ItemInfoStoreName = styled.div`
-  color: #676767;
-  font-size: 14px;
-  line-height: 16px;
-`;
-
 export const ItemInfoTitleDiv = styled.div`
   color: #2c2c2c;
   font-size: 18px;
   line-height: 22px;
   text-align: center;
-  font-weight: 600;
 `;
 export const ItemInfoBarDiv = styled.div`
   color: #676767;
   font-size: 18px;
-  line-height: 16px;
+  line-height: 18px;
   padding: 0 5px;
+  text-align: center;
 `;
 export const ItemInfoLocationDiv = styled.div`
   color: #676767;
-  font-size: 14px;
-  line-height: 16px;
+  font-size: 16px;
+  line-height: 22px;
+  text-align: center;
 `;
 export const ItemInfoUserDiv = styled.div`
   color: #2c2c2c;
   font-size: 14px;
-  font-weight: 600;
-  line-height: 16px;
+  font-weight: 500;
+  line-height: 22px;
 `;
-
+export const ItemInfoMidDiv = styled.div`
+  color: #676767;
+  font-size: 14px;
+  line-height: 16px;
+  padding: 10px 0;
+`;
 export const ItemInfoBottomDiv = styled.div`
   display: flex;
   justify-content: space-between;

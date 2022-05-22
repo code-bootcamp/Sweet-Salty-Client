@@ -1,12 +1,11 @@
 import { useEffect, useState } from "react";
 import * as S from "./WriteMap.styled";
-import { CaretRightFilled, CaretLeftFilled } from "@ant-design/icons";
 
 declare const window: typeof globalThis & {
   kakao: any;
 };
 
-export default function WriteMap() {
+export default function WriteMapPage() {
   // props로 내릴 거임
   const [address, setAddress] = useState();
   useEffect(() => {

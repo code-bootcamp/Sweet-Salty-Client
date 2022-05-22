@@ -33,8 +33,17 @@ export const ItemInfoDiv = styled.div`
 `;
 export const ItemInfoTopDiv = styled.div`
   display: flex;
+`;
+
+export const ItemInfoMidDiv = styled.div`
+  display: flex;
   flex-direction: row;
   justify-content: space-between;
+  padding: 10px 0;
+`;
+
+export const MidStoreInfoDiv = styled.div`
+  display: flex;
 `;
 
 export const ItemInfoTitleDiv = styled.div`
@@ -42,32 +51,33 @@ export const ItemInfoTitleDiv = styled.div`
   font-size: 18px;
   line-height: 22px;
   text-align: center;
+  font-weight: 600;
 `;
 export const ItemInfoBarDiv = styled.div`
   color: #676767;
   font-size: 18px;
-  line-height: 18px;
+  line-height: 16px;
   padding: 0 5px;
   text-align: center;
 `;
 export const ItemInfoLocationDiv = styled.div`
   color: #676767;
-  font-size: 16px;
-  line-height: 22px;
+  font-size: 14px;
+  line-height: 16px;
   text-align: center;
 `;
 export const ItemInfoUserDiv = styled.div`
   color: #2c2c2c;
   font-size: 14px;
-  font-weight: 500;
-  line-height: 22px;
+  font-weight: 600;
+  line-height: 16px;
 `;
-export const ItemInfoMidDiv = styled.div`
+export const ItemInfoStoreName = styled.div`
   color: #676767;
   font-size: 14px;
   line-height: 16px;
-  padding: 10px 0;
 `;
+
 export const ItemInfoBottomDiv = styled.div`
   display: flex;
   justify-content: space-between;

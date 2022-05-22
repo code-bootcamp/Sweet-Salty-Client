@@ -1,7 +1,7 @@
 // 일반리뷰 top3랑 연결되있음
-import * as S from "./BestReviewItem.styles";
+import * as S from "./BestTasterItem.styles";
 
-export default function BestReviewItem() {
+export default function BestTasterItemPresenterPage() {
   return (
     <S.ItemMainDiv>
       <S.ItemImg>
@@ -10,19 +10,13 @@ export default function BestReviewItem() {
       <S.ItemInfoDiv>
         <S.ItemInfoTopDiv>
           <S.ItemInfoLeftDiv>
-            <S.ItemInfoTitleDiv>제목</S.ItemInfoTitleDiv>
-          </S.ItemInfoLeftDiv>
-        </S.ItemInfoTopDiv>
-
-        <S.ItemInfoMidDiv>
-          <S.MidStoreInfoDiv>
-            <S.ItemInfoStoreName>식당명</S.ItemInfoStoreName>
+            <S.ItemInfoTitleDiv>푸딩이네 통조림</S.ItemInfoTitleDiv>
             <S.ItemInfoBarDiv>|</S.ItemInfoBarDiv>
             <S.ItemInfoLocationDiv>구로구</S.ItemInfoLocationDiv>
-          </S.MidStoreInfoDiv>
+          </S.ItemInfoLeftDiv>
           <S.ItemInfoUserDiv>푸딩 단짝님</S.ItemInfoUserDiv>
-        </S.ItemInfoMidDiv>
-
+        </S.ItemInfoTopDiv>
+        <S.ItemInfoMidDiv>고양이라면 누구나 좋아할 맛!</S.ItemInfoMidDiv>
         <S.ItemInfoBottomDiv>
           <S.ItemInfoLeftDiv>
             <S.ItemInfoLeftDiv>

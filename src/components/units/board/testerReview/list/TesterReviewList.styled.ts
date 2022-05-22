@@ -33,6 +33,47 @@ export const CommonReviewInnerBox = styled.div`
   flex-direction: column;
 `;
 
+export const TopThreeBox = styled.div`
+  margin: 30px 0;
+  display: flex;
+  justify-content: space-between;
+`;
+export const TopThreeTitle = styled.div`
+  display: flex;
+  flex-direction: column;
+  cursor: default;
+  color: #ff9a31;
+`;
+export const TopDiv = styled.div`
+  font-size: 20px;
+  font-weight: 700;
+  cursor: default;
+`;
+
+export const BottomDiv = styled.div`
+  font-size: 30px;
+  font-weight: 800;
+`;
+
+export const ReviewSection = styled.div`
+  width: 1072px;
+  display: flex;
+  justify-content: space-between;
+`;
+
+export const CommonReviewHr = styled.div`
+  margin-bottom: 30px;
+  width: 1290px;
+  height: 2px;
+  background: #dadada;
+`;
+
+export const ReviewList = styled.div`
+  display: grid;
+  flex-wrap: wrap;
+  grid-template-columns: 25% 25% 25% 25%;
+`;
+
 export const TopButtonArticle = styled.div`
   padding: 50px 0px;
 `;

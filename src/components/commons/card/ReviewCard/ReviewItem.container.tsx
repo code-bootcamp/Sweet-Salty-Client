@@ -1,5 +1,5 @@
-import CommonReviewItem from "./ReviewItem.presenter";
+import CommonReviewItemPresenterPage from "./ReviewItem.presenter";
 
 export default function CommonReviewItemContainerPage(props) {
-  return <CommonReviewItem fetchBoardsData={props.el} />;
+  return <CommonReviewItemPresenterPage fetchBoardsData={props.el} />;
 }

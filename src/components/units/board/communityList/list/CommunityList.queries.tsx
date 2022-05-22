@@ -13,6 +13,7 @@ export const FETCH_BOARDS = gql`
       boardLikeCount
       boardHit
       createAt
+      thumbnail
     }
   }
 `;

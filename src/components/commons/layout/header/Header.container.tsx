@@ -14,7 +14,7 @@ export default function LayoutHeader() {
   };
   
   const onClickReview = () => {
-    router.push("/reviews/commonReview/list");
+    router.push("/reviews");
   };
   const ReviewPage = ["reviews"];
   const isReviewPage = ReviewPage.includes(router.asPath.split("/")[1]);
@@ -37,6 +37,9 @@ export default function LayoutHeader() {
   const onClickLogin = () => {
     router.push("/login");
   };
+  const onClickMypage = () => {
+    router.push("/mypage");
+  };
 
   return (
     <LayoutHeaderPresenter
@@ -46,6 +49,7 @@ export default function LayoutHeader() {
       onClickNotice={onClickNotice}
       onClickPhoto={onClickPhoto}
       onClickLogin={onClickLogin}
+      onClickMypage={onClickMypage}
       isClick={isClick}
       isReviewPage={isReviewPage}
       isStorePage={isStorePage}

@@ -10,13 +10,19 @@ export default function BestTasterItemPresenterPage() {
       <S.ItemInfoDiv>
         <S.ItemInfoTopDiv>
           <S.ItemInfoLeftDiv>
-            <S.ItemInfoTitleDiv>푸딩이네 통조림</S.ItemInfoTitleDiv>
+            <S.ItemInfoTitleDiv>제목</S.ItemInfoTitleDiv>
+          </S.ItemInfoLeftDiv>
+        </S.ItemInfoTopDiv>
+
+        <S.ItemInfoMidDiv>
+          <S.MidStoreInfoDiv>
+            <S.ItemInfoStoreName>식당명</S.ItemInfoStoreName>
             <S.ItemInfoBarDiv>|</S.ItemInfoBarDiv>
             <S.ItemInfoLocationDiv>구로구</S.ItemInfoLocationDiv>
-          </S.ItemInfoLeftDiv>
+          </S.MidStoreInfoDiv>
           <S.ItemInfoUserDiv>푸딩 단짝님</S.ItemInfoUserDiv>
-        </S.ItemInfoTopDiv>
-        <S.ItemInfoMidDiv>고양이라면 누구나 좋아할 맛!</S.ItemInfoMidDiv>
+        </S.ItemInfoMidDiv>
+
         <S.ItemInfoBottomDiv>
           <S.ItemInfoLeftDiv>
             <S.ItemInfoLeftDiv>

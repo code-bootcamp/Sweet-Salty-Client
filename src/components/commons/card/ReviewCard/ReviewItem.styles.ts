@@ -9,6 +9,7 @@ export const ItemMainDiv = styled.div`
   cursor: pointer;
   height: 342px;
   width: 300px;
+  margin-bottom: 20px;
 `;
 export const ItemImg = styled.div`
   background-color: #ffa230;

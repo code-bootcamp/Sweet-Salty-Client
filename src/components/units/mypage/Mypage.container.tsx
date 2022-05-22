@@ -1,7 +1,16 @@
-// 여기는 마이페이지 입니다.
+// mypage Container --- 김치훈
 
+import { useRouter } from "next/router";
 import MyPagePresenterPage from "./Mypage.presenter";
 
 export default function MyPageContainerPage() {
-  return <MyPagePresenterPage />;
+  const router = useRouter()
+
+  const onClickModify = () =>{
+    router.push("/mypage/infomodify")
+  }
+
+  return <MyPagePresenterPage 
+  onClickModify={onClickModify}
+  />;
 }

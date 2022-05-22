@@ -25,7 +25,7 @@ export default function WriteMapPage() {
           // 지도 중심 좌표
           center: new window.kakao.maps.LatLng(38.2313466, 128.2139293),
           // 지도 확대 레벨
-          level: 3,
+          level: 1,
         };
         // 지도 생성
         const map = new window.kakao.maps.Map(container, options);
@@ -87,6 +87,7 @@ export default function WriteMapPage() {
             }
 
             // 검색된 장소 위치를 기준으로 지도 범위를 재설정합니다
+
             map.setBounds(bounds);
           } else if (status === window.kakao.maps.services.Status.ZERO_RESULT) {
             alert("검색 결과가 존재하지 않습니다.");
@@ -318,7 +319,6 @@ export default function WriteMapPage() {
     setIsOpen(!isOpen);
   };
 
-  console.log(address);
   return (
     <S.MapSection className="map_wrap" isOpen={isOpen}>
       <div id="map"></div>
@@ -351,13 +351,25 @@ export default function WriteMapPage() {
 
         <div id="btnDiv">
           {isOpen ? (
-            <button id="searchBtn" onClick={onClickSearchBarOpen}>
-              <S.LeftDisplayButton />
-            </button>
+            <div id="btnOn">
+              <button
+                id="searchBtn"
+                onClick={onClickSearchBarOpen}
+                type="button"
+              >
+                <S.LeftDisplayButton />
+              </button>
+            </div>
           ) : (
-            <button id="searchBtn" onClick={onClickSearchBarOpen}>
-              <S.RightDisplayButton />
-            </button>
+            <div id="btnOn">
+              <button
+                id="searchBtn"
+                onClick={onClickSearchBarOpen}
+                type="button"
+              >
+                <S.RightDisplayButton />
+              </button>
+            </div>
           )}
         </div>
       </div>

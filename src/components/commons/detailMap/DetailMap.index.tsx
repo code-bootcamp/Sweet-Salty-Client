@@ -5,7 +5,7 @@ declare const window: typeof globalThis & {
   kakao: any;
 };
 
-export default function WriteMapPage() {
+export default function DetailMapPage() {
   useEffect(() => {
     const script = document.createElement("script");
     script.src =

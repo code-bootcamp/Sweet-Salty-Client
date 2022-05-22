@@ -1,9 +1,6 @@
 import styled from "@emotion/styled";
 import WriteReviewInput from "./CommonReviewWrite.input";
 
-
-
-
 export const Wrapper = styled.div`
   padding-bottom: 100px;
   width: 100%;
@@ -11,7 +8,7 @@ export const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-`
+`;
 
 export const Form = styled.form``;
 export const Title = styled.div`
@@ -19,7 +16,9 @@ export const Title = styled.div`
   font-size: 40px;
   font-weight: 700;
   color: #fff;
-`
+  display: flex;
+  justify-content: center;
+`;
 
 export const ReviewWriteBox = styled.div`
   padding: 40px;
@@ -28,53 +27,74 @@ export const ReviewWriteBox = styled.div`
   border-radius: 20px;
 `;
 
-export const RightBoxHr = styled.div`
-  margin: 20px 0;
-  width: 446px;
-  height: 1.5px;
-  border-radius: 50px;
-  background: #DADADA;
-`
-
 export const Header = styled.div`
-  padding-bottom: 36px;
-  display: flex;
-  justify-content: space-between;
+  padding-bottom: 20px;
 `;
-export const LeftBox = styled.div`
+
+export const TitleArticle = styled.div`
+  display: flex;
+  border-bottom: 1px solid #dadada;
+  padding-bottom: 20px;
+`;
+
+export const TitleSection = styled.div`
   display: flex;
   flex-direction: column;
+  margin: 0px 31px 0px 0px;
+`;
+
+export const MapArticle = styled.div`
+  display: flex;
+  flex-direction: column;
+  padding: 20px 0px;
+  border-bottom: 1px solid #dadada;
+`;
+export const Map = styled.div`
+  width: 920px;
+  height: 600px;
 `;
 export const WriteTitle = styled.div`
   padding-bottom: 10px;
   font-size: 16px;
   font-weight: 700;
 `;
-export const Map = styled.div`
-  width: 445px;
-  height: 515px;
-  text-align: center;
-  line-height: 515px;
-  background: #999;
-  border-radius: 20px;
-  `
-  
-export const RightBox = styled.div`
-  width: 445px;
+
+export const SugarSaltArticle = styled.div`
+  width: 100%;
   display: flex;
-  flex-direction: column;
-`
+  justify-content: space-between;
+  padding: 20px 0px;
+  border-bottom: 1px solid #dadada;
+`;
+
+export const MenuArticle = styled.div`
+  width: 100%;
+  border-bottom: 1px solid #dadada;
+  padding: 0px 0px 20px 0px;
+`;
+
+export const MoodArticle = styled.div`
+  width: 100%;
+  padding: 20px 0px;
+  border-bottom: 1px solid #dadada;
+`;
+
+export const EditorArticle = styled.div`
+  width: 100%;
+  padding: 20px 0px;
+`;
+
 export const Span = styled.span`
   margin-left: 4px;
   font-size: 12px;
   font-weight: 500;
-  `
+`;
 export const CategoryBox = styled.div`
   display: flex;
   flex-wrap: wrap;
-`
+`;
 export const Category = styled.div`
-  margin: 7px 9px 0 0;
+  margin: 0 9px 0 0;
   padding: 10px 20px;
   color: #fff;
   transition: 0.2s;
@@ -84,10 +104,10 @@ export const Category = styled.div`
   font-weight: 700;
   background: #dbdbdb;
   &:hover {
-    background: #FF9A31;
+    background: #ff9a31;
   }
-  `
-  export const InputBox = styled(WriteReviewInput)`
+`;
+export const InputBox = styled(WriteReviewInput)`
   padding: 12px 16px;
   width: 445px;
   height: 46px;
@@ -97,75 +117,79 @@ export const Category = styled.div`
   font-size: 14px;
   font-weight: 700;
   outline-color: #676767;
-  ::placeholder {color: #dbdbdb;}
-  `
-  
-  export const Section = styled.div`
-    display: flex;
-    flex-direction: column;
-    align-items: start;
-  `
-  export const SectionHr = styled.div`
-    margin: 20px 0;
-    width: 920px;
-    height: 1.5px;
-    border-radius: 50px;
-    background: #DADADA;
-  `
-  export const MoodBox = styled.div`
-    display: flex;
-    flex-wrap: wrap;
-  `
-  export const Mood = styled.div`
-    margin: 7px 7px 0 0;
-    padding: 10px 30px;
-    color: #7B7B7B;
-    background: #fff;
-    transition: 0.2s;
-    cursor: pointer;
-    border: 2px solid #D8D8D8;
-    border-radius: 50px;
-    font-size: 16px;
-    font-weight: 700;
-    &:hover {
-      color: #FF9A31;
-      border: 2px solid #FF9A31;
-    }
-  `
-  export const TextAreaBox = styled.textarea`
-    padding: 12px 16px;
-    max-width: 920px;
-    min-width: 920px;
-    height: 492px;
-    max-height: 492px;
-    border: 2px solid #dadada;
-    border-radius: 10px;
-    color: #676767;
-    font-size: 14px;
-    font-weight: 700;
-    outline-color: #676767;
-    ::placeholder {color: #dbdbdb;}
-  `
+  ::placeholder {
+    color: #dbdbdb;
+  }
+`;
 
-  export const ButtonBox = styled.div`
-    padding: 40px 0;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-  `
-  export const Button = styled.button`
-    margin: 0 9px;
-    padding: 10px 42px;
-    background: #fff;
-    border: 2px solid #DADADA;
-    border-radius: 10px;
-    color: #676767;
-    font-weight: 700;
-    font-size: 16px;
-    cursor: pointer;
-    transition: 0.2s;
-    &:hover {
-      color: #FF9A31;
-      border: 2px solid #FF9A31;
-    }
-  `
+export const Section = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+`;
+export const SectionHr = styled.div`
+  margin: 20px 0;
+  width: 920px;
+  height: 1.5px;
+  border-radius: 50px;
+  background: #dadada;
+`;
+export const MoodBox = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+`;
+export const Mood = styled.div`
+  margin: 7px 7px 0 0;
+  padding: 10px 30px;
+  color: #7b7b7b;
+  background: #fff;
+  transition: 0.2s;
+  cursor: pointer;
+  border: 2px solid #d8d8d8;
+  border-radius: 50px;
+  font-size: 16px;
+  font-weight: 700;
+  &:hover {
+    color: #ff9a31;
+    border: 2px solid #ff9a31;
+  }
+`;
+export const TextAreaBox = styled.textarea`
+  padding: 12px 16px;
+  max-width: 920px;
+  min-width: 920px;
+  height: 492px;
+  max-height: 492px;
+  border: 2px solid #dadada;
+  border-radius: 10px;
+  color: #676767;
+  font-size: 14px;
+  font-weight: 700;
+  outline-color: #676767;
+  ::placeholder {
+    color: #dbdbdb;
+  }
+`;
+
+export const ButtonBox = styled.div`
+  padding: 20px 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+`;
+export const Button = styled.button`
+  margin: 0 9px;
+  padding: 10px 42px;
+  background: #fff;
+  border: 2px solid #dadada;
+  border-radius: 10px;
+  color: #676767;
+  font-weight: 700;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.2s;
+  &:hover {
+    color: #ff9a31;
+    border: 2px solid #ff9a31;
+  }
+`;

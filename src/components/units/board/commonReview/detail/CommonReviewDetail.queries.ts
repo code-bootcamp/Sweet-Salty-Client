@@ -25,7 +25,7 @@ mutation deleteBoard($boardId:String!){
 }
 `;
 export const CREATE_BOARD_LIKE = gql`
-mutation createBoardLIKE($boardId:String!){
-    createBoardLikce(boardId:$boardId)
+mutation createBoardLike($boardId:String!){
+    createBoardLike(boardId:$boardId)
 }
 `;

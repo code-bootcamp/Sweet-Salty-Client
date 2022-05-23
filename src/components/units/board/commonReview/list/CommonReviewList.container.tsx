@@ -1,5 +1,5 @@
 // 일반리뷰 List 페이지 container
-
+import { MouseEvent } from "react";
 import { useQuery } from "@apollo/client";
 import CommonReviewPresenterPage from "./CommonReviewList.presenter";
 import { FETCH_BOARD_CATEGORY_PICK } from "./CommonReviewList.queries";
@@ -36,11 +36,17 @@ export default function CommonReviewContainerPage() {
       },
     });
   };
-
+// 온클릭디테일페이지
+  const onClickDetailPage =(event: MouseEvent<HTMLDivElement>)=>{
+    // if (event.target instanceof Element)
+    // router.push(`/boards/${event.target.id}`);
+    console.log(event);
+  }
   return (
     <CommonReviewPresenterPage
       loadMore={loadMore}
       fetchBoardsCategoryData={fetchBoardsCategoryData}
+      onClickDetailPage={onClickDetailPage}
     />
   );
 }

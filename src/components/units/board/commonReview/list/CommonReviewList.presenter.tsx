@@ -8,8 +8,10 @@ import FilterContainer from "../../../../commons/filter/filter.container";
 import BestReviewItemContainerPage from "../../../../commons/card/BestReviewCard/BestReviewItem.container";
 import TopButton from "../../../../commons/topbutton";
 import CommonReviewItemContainerPage from "../../../../commons/card/ReviewCard/ReviewItem.container";
-
+import { v4 as uuidv4 } from "uuid";
 export default function CommonReviewPresenterPage(props: any) {
+  const dataForMap = props.fetchBoardsCategoryData?.fetchBoardCategoryPick
+ 
   return (
     <S.CommonReviewWrapper>
       <S.Title>단짠 게시판</S.Title>
@@ -37,7 +39,6 @@ export default function CommonReviewPresenterPage(props: any) {
           </S.TopThreeBox>
 
           <S.CommonReviewHr />
-
           {/* 리뷰리스트 */}
           <div style={{ height: "auto", overflow: "auto" }}>
             <InfiniteScroll
@@ -46,10 +47,14 @@ export default function CommonReviewPresenterPage(props: any) {
               hasMore={false}
               useWindow={false}
             >
-              <S.ReviewList>
-                {props.fetchBoardsCategoryData?.fetchBoardCategoryPick.map(
-                  (el: any, idx) => (
-                    <CommonReviewItemContainerPage key={idx} el={el} />
+              <S.ReviewList >
+                {dataForMap?.map(
+                  (el: any) => (
+                    <CommonReviewItemContainerPage
+                    el={el}
+                    key={uuidv4()}
+                    id={el.boardId}
+                    />
                   )
                 )}
               </S.ReviewList>

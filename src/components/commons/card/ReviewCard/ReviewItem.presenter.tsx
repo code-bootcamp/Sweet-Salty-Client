@@ -2,7 +2,7 @@ import * as S from "./ReviewItem.styles";
 
 export default function CommonReviewItemPresenterPage(props) {
   return (
-    <S.ItemMainDiv>
+    <S.ItemMainDiv onClick={props.onClickDetailPage} id={props.fetchBoardsData?.boardId}>
       <S.ItemImg
         style={{
           backgroundImage: `url(https://storage.googleapis.com/${props.fetchBoardsData?.thumbnail})`,

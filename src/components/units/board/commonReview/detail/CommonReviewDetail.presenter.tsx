@@ -8,7 +8,6 @@ import TopButton from "../../../../commons/topbutton";
 import * as S from "./CommonReviewDetail.styles";
 
 export default function ReviewDetailPresenter(props: any) {
-  console.log(props.data?.boardTitle)
   return (
     <S.Wrapper>
       <S.Title>단짠 게시판 <S.RightOutline /> 단짠 리뷰</S.Title>
@@ -19,8 +18,8 @@ export default function ReviewDetailPresenter(props: any) {
               {props.data?.boardTitle}
             </S.BoardTitle>
             <S.RightBox>
-              <LikeButton onClick={props.onClickLike}/>{props.data?.boardLikeCount}
-              <Hits />{props.data?.boardHit}
+              <S.CountBox onClick={props.onClickLike}><LikeButton />{props.data?.boardLikeCount}</S.CountBox>
+              <S.CountBox><Hits />{props.data?.boardHit}</S.CountBox>
             </S.RightBox>
           </S.HeaderBox>
 

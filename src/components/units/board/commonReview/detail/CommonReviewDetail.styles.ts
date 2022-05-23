@@ -46,7 +46,8 @@ export const RightBox = styled.div`
   display: flex;
   align-items: center;
 `;
-
+export const CountBox = styled.div`
+display:flex;`;
 export const UserNameBox = styled.span`
   font-size: 14px;
 `;

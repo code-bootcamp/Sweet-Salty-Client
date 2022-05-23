@@ -49,13 +49,13 @@ export default function ReviewMenuPage() {
   const ReviewList = ["/reviews"];
   const isReviewList = ReviewList.includes(router.asPath);
   // 단짠리뷰 
-  const CommonReviewList = ["/reviews/commonReview/list"];
+  const CommonReviewList = ["/reviews/commonReview"];
   const isCommonReviewList = CommonReviewList.includes(router.asPath);
   // 시식단리뷰
-  const TesterReview = ["/reviews/testerReview/list"];
+  const TesterReview = ["/reviews/testerReview"];
   const isTesterReview = TesterReview.includes(router.asPath);
   // 거주세요! 리뷰
-  const WishList = ["/reviews/wish/list"];
+  const WishList = ["/reviews/wish"];
   const isWishList = WishList.includes(router.asPath);
 
   const onClickCommunityList = () => {
@@ -63,13 +63,13 @@ export default function ReviewMenuPage() {
   };
 
   const onClickCommonReviewList = () => {
-    router.push("/reviews/commonReview/list");
+    router.push("/reviews/commonReview");
   };
   const onClickTasterReviewList = () => {
-    router.push("/reviews/testerReview/list");
+    router.push("/reviews/testerReview");
   };
   const onClickWishReviewList = () => {
-    router.push("/reviews/wish/list");
+    router.push("/reviews/wish");
   };
 
   return (

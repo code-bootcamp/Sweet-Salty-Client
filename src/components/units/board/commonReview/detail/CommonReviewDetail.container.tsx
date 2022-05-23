@@ -10,16 +10,20 @@ export default function ReviewDetailContainer() {
   const [deleteBoard] = useMutation(DELETE_BOARD);
 console.log("생성일",data?.fetchBoard?.createAt)
 console.log("데이타",data)
-
+console.log("보드아이디",router.query.boardId)
   const onClickCommonReviewList = ()=>{
-    router.push("/reviews/commonReview/list")
+    router.push("/reviews/commonReview")
   }
   const onClickDelete = () => {
-    deleteBoard({
+    try
+    {deleteBoard({
       variables: { boardId: String(router.query.boardId) },
     });
     alert("게시글 삭제 완료");
-    router.push("/reviews/commonReview");
+    router.push("/reviews/commonReview");}
+    catch(error:any) {
+      alert(error.message);
+    }
   };
   const onClickLike = ()=>{
     createBoardLike({
@@ -29,7 +33,6 @@ console.log("데이타",data)
       },
       refetchQueries: [
         {query : FETCH_BOARD, variables:{ boardId:
-          //  String(router.query.boardId)
           String(router.query.boardId)
           }}
       ]

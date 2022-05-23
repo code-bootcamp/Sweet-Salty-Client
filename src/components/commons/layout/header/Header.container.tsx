@@ -26,7 +26,7 @@ export default function LayoutHeader() {
   const isStorePage = StorePage.includes(router.asPath.split("/")[1]);
   
   const onClickNotice = () => {
-    router.push("/notice/list");
+    router.push("/notice");
   };
   const NoticePage = ["notice"];
   const isNoticePage = NoticePage.includes(router.asPath.split("/")[1]);

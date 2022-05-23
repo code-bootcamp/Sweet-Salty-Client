@@ -65,8 +65,8 @@ export default function MyPagePresenterPage(props: any) {
         </S.UserLeftBox>
         
         <S.ButtonBox>
-          <S.Button><img style={{width: "24px", marginRight: "6px"}} src="images/pointicon.png"/>포인트 충전</S.Button>
-          <S.Button onClick={props.onClickModify}><SettingOutlined style={{ marginRight: "6px"}}/>회원정보 수정</S.Button>
+          <S.PointButton><img style={{width: "24px", marginRight: "6px"}} src="images/pointicon.png"/>포인트 충전하기</S.PointButton>
+          <S.Button onClick={props.onClickModify}><SettingOutlined style={{ marginRight: "6px"}}/>회원정보 수정하기</S.Button>
         </S.ButtonBox>
 
       </S.MypageBox>

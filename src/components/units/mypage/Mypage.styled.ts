@@ -90,6 +90,20 @@ export const ButtonBox = styled.div`
   justify-content: space-between;
   align-items: end;
 `
+export const PointButton = styled.div`
+  padding: 10px 15px;
+  transition: 0.2s;
+  display: flex;
+  align-items: center;
+  font-weight: 700;
+  font-size: 16px;
+  border-radius: 50px;
+  background: linear-gradient(#ff6e30, #ffa230);
+  cursor: pointer;
+  color: #fff;
+  &:hover {
+  }
+`
 export const Button = styled.div`
   padding: 10px 15px;
   transition: 0.2s;
@@ -102,7 +116,6 @@ export const Button = styled.div`
   cursor: pointer;
   color: #fff;
   &:hover {
-    background: linear-gradient(#ff6e30, #ffa230);
   }
 `
 

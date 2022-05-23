@@ -1,5 +1,6 @@
 // 공지사항 list Presenter === 김치훈
 
+import { getDateDot } from "../../../commons/libraries/date";
 import SearchBarPage from "../../../commons/searchbar/SearchBar.container";
 import * as S from "./NoticeList.styled";
 
@@ -21,42 +22,31 @@ export default function NoticeListPresenterPage(props: any) {
 
         <S.NoticeThHr />
         
-        <S.NoticeTd>
-          <S.NoticeTdNumber>
-            1
-          </S.NoticeTdNumber>
-          <S.NoticeTdCategory>
-            이벤트
-          </S.NoticeTdCategory>
-          <S.NoticeTdTitle onClick={props.onClickDetail}>
-            공지사항 상세보기 이동하기
-          </S.NoticeTdTitle>
-          <S.NoticeTdCreateAt>
-            2022.05.16
-          </S.NoticeTdCreateAt>
-          <S.NoticeTdHits>
-            100
-          </S.NoticeTdHits>
-        </S.NoticeTd>
-        <S.NoticeTdHr />
-        <S.NoticeTd>
-          <S.NoticeTdNumber>
-            {/* 1 */}
-          </S.NoticeTdNumber>
-          <S.NoticeTdCategory>
-            {/* 시식단 모집 */}
-          </S.NoticeTdCategory>
-          <S.NoticeTdTitle>
-            {/* 단짝 스토어에서 첫 선물하고 100 포인트 적립하세요. */}데이터 넣는 공간 (오류아님)
-          </S.NoticeTdTitle>
-          <S.NoticeTdCreateAt>
-            {/* 2022.05.16 */}
-          </S.NoticeTdCreateAt>
-          <S.NoticeTdHits>
-             {/* 100 */}
-          </S.NoticeTdHits>
-        </S.NoticeTd>
-        <S.NoticeTdHr />
+        {props.data?.fetchNoticeAll.map((el: any, index: any) => (
+          <>
+            <S.NoticeTd key={el.noticeId}>
+            <S.NoticeTdNumber>
+              {el.noticeId}
+            </S.NoticeTdNumber>
+            <S.NoticeTdCategory>
+              {el?.subCategory?.subCategoryName === "TASTING" && "시식단 리뷰"}
+              {el?.subCategory?.subCategoryName === "NOTICE" && "공지"}
+              {el?.subCategory?.subCategoryName === "EVENT" && "이벤트"} 
+              {el?.subCategory?.subCategoryName === "PROMOTION" && "프로모션"}
+            </S.NoticeTdCategory>
+            <S.NoticeTdTitle id={el.noticeId} onClick={props.onClickMoveNoticeDetail}>
+              {el.noticeContents}
+            </S.NoticeTdTitle>
+            <S.NoticeTdCreateAt>
+              {getDateDot(el.createAt)}
+            </S.NoticeTdCreateAt>
+            <S.NoticeTdHits>
+              {el.noticeHit}
+            </S.NoticeTdHits>
+          </S.NoticeTd>
+          <S.NoticeTdHr />
+        </>
+        ))}
       </S.NoticeBox>
 
       <S.PagenationBox>

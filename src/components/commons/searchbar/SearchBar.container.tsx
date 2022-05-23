@@ -23,7 +23,7 @@ export default function SearchBarPage() {
   const WishList = ["/reviews/wish/list"];
   const isWishList = WishList.includes(router.asPath);
   // 공지사항
-  const NoticeList = ["/notice/list"];
+  const NoticeList = ["/notice"];
   const isNoticeList = NoticeList.includes(router.asPath);
 
   const onClickReviewDetail = () => {

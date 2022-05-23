@@ -17,6 +17,7 @@ export default function MoodFilterPage(props) {
   ]);
 
   const onCheckedElement = (checked, item) => {
+    if (props.moodHashTag.length === 3) return;
     if (checked) {
       props.setMoodHashTag([...props.moodHashTag, item]);
     } else if (!checked) {

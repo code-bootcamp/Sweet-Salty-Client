@@ -15,11 +15,11 @@ export default function SearchBarPresenter(props: any) {
     {props.isReviewList && 
       (<S.SearchBox>
         <S.SearchInnerBox>
-          <select id="searchSelect">
+          <S.Select id="searchSelect">
             <option value="제목">제목</option>
             <option value="내용">내용</option>
             <option value="가게명">가게명</option>
-          </select>
+          </S.Select>
           <S.SearchBar
             type="text"
             placeholder="지역, 음식 또는 식당명을 입력하세요."
@@ -31,14 +31,29 @@ export default function SearchBarPresenter(props: any) {
     {props.isWishList && (
       <S.SearchBox>
         <S.SearchInnerBox>
-          <select id="searchSelect">
+          <S.Select id="searchSelect">
             <option value="제목">제목</option>
             <option value="내용">내용</option>
             <option value="가게명">가게명</option>
-          </select>
+          </S.Select>
           <S.SearchBar
             type="text"
             placeholder="지역, 음식 또는 식당명을 입력하세요."
+          />
+          <S.SearchIcon />
+        </S.SearchInnerBox>
+      </S.SearchBox>
+    )}
+    {props.isNoticeList && (
+      <S.SearchBox>
+        <S.SearchInnerBox>
+          <S.Select id="searchSelect">
+            <option value="제목">제목</option>
+            <option value="내용">내용</option>
+          </S.Select>
+          <S.SearchBar
+            type="text"
+            placeholder="검색어를 입력하세요."
           />
           <S.SearchIcon />
         </S.SearchInnerBox>

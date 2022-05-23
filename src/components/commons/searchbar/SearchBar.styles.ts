@@ -42,6 +42,18 @@ export const SearchInnerBox = styled.div`
     -moz-appearance: none;
   }
 `;
+export const Select = styled.select`
+  width: 88px;
+  height: 32px;
+  outline: 2px solid #dadada;
+  border-radius: 10px;
+  font-size: 16px; 
+  font-weight: 700;
+  color: #676767
+  ::-webkit-appearance: none; /* 네이티브 외형 감추기 */
+  ::-moz-appearance: none;
+`
+
 
 export const SearchBar = styled.input`
   padding: 0 20px;

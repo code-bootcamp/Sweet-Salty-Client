@@ -5,6 +5,7 @@ import { getDate } from "../../../../commons/libraries/date";
 import LikeButton from "../../../../commons/like";
 import ToastViewerPage from "../../../../commons/toast/viewer";
 import TopButton from "../../../../commons/topbutton";
+import CommentWriteContainerPage from "../../../comment/commentWrite/CommentWrite.container";
 import * as S from "./CommonReviewDetail.styles";
 
 export default function ReviewDetailPresenter(props: any) {
@@ -76,6 +77,7 @@ export default function ReviewDetailPresenter(props: any) {
 
         <S.CommentBox>
           <S.CommentTitle>단짠 리뷰에 대한 댓글</S.CommentTitle>
+          <CommentWriteContainerPage/>
           <S.CommentWrite>
             <S.CommentInput
               type="text"

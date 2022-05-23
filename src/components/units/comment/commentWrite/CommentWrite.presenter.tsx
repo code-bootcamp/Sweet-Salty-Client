@@ -1,9 +1,1 @@
-import * as S from "./CommentWrite.styled";
-
-export default function CommentWritePresenterPage() {
-  return (
-    <>
-      <S.TestDiv>이곳은 댓글 등록페이지입니다.</S.TestDiv>
-    </>
-  );
-}
+// 핸들 서브밋 에러가 나서 컨테이너 하나만 사용하였읍니다.

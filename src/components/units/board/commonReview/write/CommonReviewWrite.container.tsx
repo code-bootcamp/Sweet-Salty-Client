@@ -3,11 +3,10 @@ import { useForm } from "react-hook-form";
 // import * as yup from "yup";
 import { useRouter } from "next/router";
 import CommonReviewWritePresenter from "./CommonReviewWrite.presenter";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { useMutation } from "@apollo/client";
 import { CREATE_BOARD, UPDATE_BOARD } from "./CommonReviewWrite.queries";
-import _ from "lodash";
-
+import { Editor } from "@toast-ui/react-editor";
 // const schema =yup.object({
 //   boardTitle: yup.string().required("제목을 입력해주세요."),
 //   boardSugar: yup.string().required("단맛(장점)을 입력해주세요."),
@@ -24,6 +23,7 @@ export default function CommonReviewWriteContainer(props) {
   const [moodHashTag, setMoodHashTag] = useState([]);
   const [boardContents, setBoardContents] = useState("");
   const [address, setAddress] = useState();
+
   // 메뉴 태그 데이터 테이블
   const [menuTagData, setMenuTagData] = useState([
     { key: "0", value: "비건", checked: false, index: 0 },
@@ -88,8 +88,6 @@ export default function CommonReviewWriteContainer(props) {
     setSubCategoryName(el.value);
   };
 
-  console.log(subCategoryName);
-
   const {
     register,
     handleSubmit,
@@ -110,8 +108,6 @@ export default function CommonReviewWriteContainer(props) {
   const onClickCancel = () => {
     router.back();
   };
-
-  console.log(address);
 
   const onClickSubmit = async (data) => {
     if (moodHashTag.length > 3) {
@@ -150,7 +146,6 @@ export default function CommonReviewWriteContainer(props) {
   };
   return (
     <CommonReviewWritePresenter
-      // onClickReviewDetail={onClickReviewDetail}
       onClickCancel={onClickCancel}
       moodHashTag={moodHashTag}
       setMoodHashTag={setMoodHashTag}
@@ -160,7 +155,6 @@ export default function CommonReviewWriteContainer(props) {
       register={register}
       handleSubmit={handleSubmit}
       formState={formState}
-      // onChangeContents={onChangeContents}
       setBoardContents={setBoardContents}
       setAddress={setAddress}
       menuTagData={menuTagData}

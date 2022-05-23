@@ -25,20 +25,12 @@ export default function WriteToast(props) {
   };
 
   const onUploadImage = async (blob, callback) => {
-    // console.log(blob);
-
-    // myblob.push(blob)
     const url = await uploadFile({
       variables: { file: blob },
     });
     const urldata = url?.data.uploadFile;
-    // console.log(data2,"데이타2")
-    // console.log(url,"유알엘")
-    // console.log(urldata)
     const result = "https://storage.googleapis.com/" + urldata;
-    //  console.log(result)
     callback(result, "");
-    // return false;
   };
 
   return (

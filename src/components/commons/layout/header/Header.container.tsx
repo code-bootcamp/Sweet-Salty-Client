@@ -26,9 +26,9 @@ export default function LayoutHeader() {
   const isStorePage = StorePage.includes(router.asPath.split("/")[1]);
   
   const onClickNotice = () => {
-    router.push("/notice");
+    router.push("/noticeAll");
   };
-  const NoticePage = ["notice"];
+  const NoticePage = ["noticeAll"];
   const isNoticePage = NoticePage.includes(router.asPath.split("/")[1]);
 
   const onClickPhoto = () => {

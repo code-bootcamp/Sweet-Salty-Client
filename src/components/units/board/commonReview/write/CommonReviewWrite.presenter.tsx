@@ -124,6 +124,8 @@ export default function CommonReviewWritePresenter(props) {
             <S.EditorArticle>
               <S.WriteTitle>내용</S.WriteTitle>
               <Editor
+                // ref={props.editorRef}
+                // onChangeEditor={props.onChangeEditor}
                 setBoardContents={props.setBoardContents}
                 // value={props.getValues("boardContents") || ""}
               />

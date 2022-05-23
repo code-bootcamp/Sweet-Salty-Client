@@ -1,7 +1,7 @@
 import dynamic from "next/dynamic";
-import MoodFilterPage from "../../../../commons/filter/MoodFilter/MoodFilter";
 import WriteMapPage from "../../../../commons/writeMap/WriteMap.index";
 import * as S from "./CommonReviewWrite.styles";
+import { CheckOutlined } from "@ant-design/icons";
 
 const Editor = dynamic(() => import("../../../../commons/toast/editor"), {
   ssr: false,
@@ -29,12 +29,17 @@ export default function CommonReviewWritePresenter(props) {
                   카테고리<S.Span>(1개만 선택 가능)</S.Span>
                 </S.WriteTitle>
                 <S.CategoryBox>
-                  <S.Category onClick={props.onClickCategory} id="REVIEW">
-                    단짠리뷰
-                  </S.Category>
-                  <S.Category onClick={props.onClickCategory} id="TASTER">
-                    시식단 리뷰
-                  </S.Category>
+                  {props.categoryData.map((el, idx) => (
+                    <label className="checkbox" key={el.key}>
+                      <input
+                        type="checkbox"
+                        id={String(idx)}
+                        onChange={props.onChangeCheckCategory(el)}
+                        checked={Boolean(el.checked)}
+                      />
+                      <span className="checkbox_text">{el.name}</span>
+                    </label>
+                  ))}
                 </S.CategoryBox>
               </div>
             </S.TitleArticle>
@@ -42,7 +47,7 @@ export default function CommonReviewWritePresenter(props) {
             <S.MapArticle>
               <S.WriteTitle>가게선택</S.WriteTitle>
               <S.Map>
-                <WriteMapPage />
+                <WriteMapPage setAddress={props.setAddress} />
               </S.Map>
             </S.MapArticle>
 
@@ -73,29 +78,19 @@ export default function CommonReviewWritePresenter(props) {
                 메뉴 선택<S.Span>(1개만 선택 가능)</S.Span>
               </S.WriteTitle>
 
-              <S.CategoryBox>
-                <S.Category onClick={props.onClickMenu} id="양식">
-                  양식
-                </S.Category>
-                <S.Category onClick={props.onClickMenu} id="한식">
-                  한식
-                </S.Category>
-                <S.Category onClick={props.onClickMenu} id="중식">
-                  중식
-                </S.Category>
-                <S.Category onClick={props.onClickMenu} id="일식">
-                  일식
-                </S.Category>
-                <S.Category onClick={props.onClickMenu} id="아시안푸드">
-                  아시안푸드
-                </S.Category>
-                <S.Category onClick={props.onClickMenu} id="할랄">
-                  할랄
-                </S.Category>
-                <S.Category onClick={props.onClickMenu} id="비건">
-                  비건
-                </S.Category>
-              </S.CategoryBox>
+              <S.MenuBox>
+                {props.menuTagData.map((el, idx) => (
+                  <label className="checkbox" key={el.key}>
+                    <input
+                      type="checkbox"
+                      id={String(idx)}
+                      onChange={props.onChangeCheckMenu(el)}
+                      checked={Boolean(el.checked)}
+                    />
+                    <span className="checkbox_text">{el.value}</span>
+                  </label>
+                ))}
+              </S.MenuBox>
             </S.MenuArticle>
 
             <S.MoodArticle>
@@ -103,11 +98,26 @@ export default function CommonReviewWritePresenter(props) {
                 분위기 선택<S.Span>(여러개 선택 가능)</S.Span>
               </S.WriteTitle>
 
-              <S.MoodBox>
-                <MoodFilterPage
-                  moodHashTag={props.moodHashTag}
-                  setMoodHashTag={props.setMoodHashTag}
-                />
+              <S.MoodBox moodTagData={props.moodTagData}>
+                {props.moodTagData.map((el, idx) => (
+                  <label className="checkbox" key={el.key}>
+                    <input
+                      type="checkbox"
+                      value={el.value}
+                      id={idx}
+                      onChange={(e) => {
+                        props.onChangeCheckMood(
+                          e.target.checked,
+                          e.target.value
+                        )(e);
+                      }}
+                    />
+                    <span className="checkbox_text">
+                      <img className="check_icon" src="/images/check.png" />
+                      {el.value}
+                    </span>
+                  </label>
+                ))}
               </S.MoodBox>
             </S.MoodArticle>
 

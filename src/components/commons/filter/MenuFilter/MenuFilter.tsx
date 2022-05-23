@@ -26,7 +26,7 @@ export default function MenuFilterPage(props) {
         <label className="checkbox" key={el.key}>
           <input
             type="checkbox"
-            id={idx}
+            id={String(idx)}
             onChange={onChangeCheck(el)}
             checked={Boolean(el.checked)}
           />

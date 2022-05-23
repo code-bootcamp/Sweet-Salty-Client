@@ -5,9 +5,7 @@ declare const window: typeof globalThis & {
   kakao: any;
 };
 
-export default function WriteMapPage() {
-  // props로 내릴 거임
-  const [address, setAddress] = useState();
+export default function WriteMapPage(props) {
   useEffect(() => {
     const script = document.createElement("script");
     script.src =
@@ -50,8 +48,8 @@ export default function WriteMapPage() {
         // 검색 결과 목록이나 마커를 클릭했을 때 장소명을 표출할 인포윈도우를 생성합니다
         const infowindow = new window.kakao.maps.InfoWindow({ zIndex: 1 });
 
-        const searchForm = document.getElementById("form");
-        searchForm.addEventListener("submit", function (e) {
+        const searchForm = document.getElementById("submit_btn");
+        searchForm.addEventListener("click", function (e) {
           e.preventDefault();
           // 키워드로 장소를 검색합니다
           searchPlaces();
@@ -101,7 +99,7 @@ export default function WriteMapPage() {
         function displayMarker(place) {
           // 마커를 생성하고 지도에 표시합니다
           const marker = new window.kakao.maps.Marker({
-            map: map,
+            map,
             position: new window.kakao.maps.LatLng(place.y, place.x),
           });
           // 마커에 클릭이벤트를 등록합니다
@@ -110,7 +108,7 @@ export default function WriteMapPage() {
             "click",
             function (mouseEvent) {
               // 마커를 클릭하면 장소명이 인포윈도우에 표출됩니다
-              setAddress(place);
+              props.setAddress(place);
               infowindow.setContent(`
               <span>
               ${place.place_name}
@@ -167,7 +165,7 @@ export default function WriteMapPage() {
 
               itemEl.addEventListener("click", function (e) {
                 displayInfowindow(marker, title);
-                setAddress(places[i]);
+                props.setAddress(places[i]);
                 // console.log(places[i]);
                 map.panTo(placePosition);
               });
@@ -307,7 +305,6 @@ export default function WriteMapPage() {
     };
   }, []);
 
-  // props로 내릴 거임
   const [search, setSearch] = useState("");
   const [isOpen, setIsOpen] = useState(true);
 
@@ -331,7 +328,7 @@ export default function WriteMapPage() {
                 <div>단짠맛집</div>
               </div>
 
-              <form id="form">
+              <div id="form">
                 <input
                   type="text"
                   value={search}
@@ -341,7 +338,7 @@ export default function WriteMapPage() {
                 <button id="submit_btn" type="submit">
                   <S.SearchIcon />
                 </button>
-              </form>
+              </div>
             </div>
           </div>
 

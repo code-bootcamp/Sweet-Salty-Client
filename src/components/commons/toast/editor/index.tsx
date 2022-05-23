@@ -20,7 +20,8 @@ export default function WriteToast(props) {
     const editorInstance = editorRef.current.getInstance();
     props.setBoardContents(editorInstance.getMarkdown());
 
-    if (props.defaultValue) props.SetAaa(editorInstance.getMarkdown());
+    if (props.defaultValue)
+      props.setBoardContents(editorInstance.getMarkdown());
   };
 
   const onUploadImage = async (blob, callback) => {

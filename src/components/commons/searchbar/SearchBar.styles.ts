@@ -4,14 +4,17 @@ import styled from "@emotion/styled";
 import { SearchOutlined, EditOutlined } from "@ant-design/icons";
 
 export const Wrapper = styled.div`
-  width: 1338px;
+  width: ${(props: any) =>
+    props.isNoticeAllList 
+      ? "1120px"
+      : "1338px"};
   display: flex;
   justify-content: ${(props: any) =>
     props.isReviewList ||
     props.isCommonReviewList ||
     props.isTesterReview ||
     props.isWishList ||
-    props.isNoticeList
+    props.isNoticeAllList
       ? "end"
       : "center"};
   background: #f3f3f3;
@@ -72,7 +75,11 @@ export const SearchIcon = styled(SearchOutlined)`
 
 export const ReviewWriteBox = styled.div`
   position: relative;
-  margin-left: 236px;
+  margin-left: ${(props: any) =>
+    props.isNoticeAllList
+      ? "120px"
+      : "236px"};
+  // margin-left: 120px;
   width: 180px;
   height: 50px;
   border-radius: 50px;

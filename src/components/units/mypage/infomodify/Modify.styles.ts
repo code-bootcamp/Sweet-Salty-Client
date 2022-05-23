@@ -114,7 +114,7 @@ export const Span = styled.span`
     export const ButtonBox = styled.div`
       padding: 40px 0;
       display: flex;
-      flex-direction: column;
+      justify-content: center;
       align-items: center;
     `
     export const CompleteButton = styled.button`
@@ -131,6 +131,7 @@ export const Span = styled.span`
       
     `
     export const ResignMB = styled.div`
+      margin: 0 auto;
       font-size: 16px;
       cursor: pointer;
     `

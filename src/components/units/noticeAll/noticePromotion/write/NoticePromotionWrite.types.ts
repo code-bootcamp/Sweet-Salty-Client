@@ -1,0 +1,1 @@
+// 공지사항 Promotion Write types --- 김치훈

@@ -1,0 +1,1 @@
+// 공지사항 Event Detail types --- 김치훈

@@ -65,8 +65,9 @@ export default function ModifyPresenterPage(props: any){
         </S.MoodBox>
         <S.ButtonBox>
           <S.CompleteButton>수정 완료</S.CompleteButton>
+          <S.CompleteButton onClick={props.onClickBack}>취소</S.CompleteButton>
+        </S.ButtonBox>
           <S.ResignMB><u>회원탈퇴하기</u></S.ResignMB>
-      </S.ButtonBox>
       </S.NoticeBox>
     </S.Wrapper>)
 }

@@ -10,6 +10,14 @@ query fetchComment($boardId: String!){
 }
 `;
 
+export const UPDATE_COMMENT = gql`
+mutation updateComment($boardId: String!, $contents: String!){
+    updateComment(boardId: $boardId, contents:$contents){
+        commentId
+    }
+}
+`;
+
 export const DELETE_COMMENT = gql`
 mutation deleteComment($commentId: String!){
     deleteComment(commentId: $commentId)

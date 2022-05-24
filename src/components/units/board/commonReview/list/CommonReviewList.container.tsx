@@ -1,23 +1,45 @@
 // 일반리뷰 List 페이지 container
-import { MouseEvent } from "react";
 import { useQuery } from "@apollo/client";
+import { useState } from "react";
 import CommonReviewPresenterPage from "./CommonReviewList.presenter";
-import { FETCH_BOARD_CATEGORY_PICK } from "./CommonReviewList.queries";
+import {
+  FETCH_BOARD_CATEGORY_PICK,
+  FETCH_BOARD_WITH_TAGS,
+} from "./CommonReviewList.queries";
 
 export default function CommonReviewContainerPage() {
-  const { data: fetchBoardsCategoryData, fetchMore } = useQuery(
-    FETCH_BOARD_CATEGORY_PICK,
-    {
-      variables: {
-        category: "REVIEW",
-      },
-    }
-  );
+  const [menuHashTag, setMenuHashTag] = useState([]);
+  const [menuTagCheckList, setMenuTagCheckList] = useState([]);
+  const [moodHashTag, setMoodHashTag] = useState([]);
+  const [moodTagCheckList, setMoodTagCheckList] = useState([]);
 
-  // 무한스크롤
-  const loadMore = () => {
+  const searchTags = moodHashTag.concat(menuHashTag);
+  console.log(searchTags);
+  const {
+    data: fetchBoardsCategoryData,
+    fetchMore: CategoryFetchMore,
+    refetch: CategoryRefetch,
+  } = useQuery(FETCH_BOARD_CATEGORY_PICK, {
+    variables: {
+      category: "REVIEW",
+    },
+  });
+
+  const {
+    data: fetchBoardWithTagData,
+    fetchMore: TagFetchMore,
+    refetch: TagRefetch,
+  } = useQuery(FETCH_BOARD_WITH_TAGS, {
+    variables: {
+      tags: searchTags,
+    },
+  });
+
+  const infiniteTagArr = fetchBoardWithTagData?.fetchBoardWithTags.hits;
+  // 전체 데이터 무한스크롤
+  const categoryDataLoadMore = () => {
     if (!fetchBoardsCategoryData) return;
-    fetchMore({
+    CategoryFetchMore({
       variables: {
         page:
           Math.ceil(
@@ -36,17 +58,41 @@ export default function CommonReviewContainerPage() {
       },
     });
   };
-// 온클릭디테일페이지
-  const onClickDetailPage =(event: MouseEvent<HTMLDivElement>)=>{
-    // if (event.target instanceof Element)
-    // router.push(`/boards/${event.target.id}`);
-    console.log(event);
-  }
+  // 필터 검색 데이터 무한스크롤
+  const filterDataLoadMore = () => {
+    if (!infiniteTagArr) return;
+    TagFetchMore({
+      variables: {
+        page: Math.ceil(infiniteTagArr.length / 10) + 1,
+      },
+      updateQuery: (prev, { fetchMoreResult }) => {
+        if (!fetchMoreResult.hits) return { hits: [...prev.hits] };
+        return {
+          hits: [...prev.hits, ...fetchMoreResult?.hits],
+        };
+      },
+    });
+  };
+  // const onClickFilterApply = () => {
+
+  // }
   return (
     <CommonReviewPresenterPage
-      loadMore={loadMore}
+      categoryDataLoadMore={categoryDataLoadMore}
+      filterDataLoadMore={filterDataLoadMore}
       fetchBoardsCategoryData={fetchBoardsCategoryData}
-      onClickDetailPage={onClickDetailPage}
+      fetchBoardWithTagData={fetchBoardWithTagData}
+      menuTagCheckList={menuTagCheckList}
+      setMenuTagCheckList={setMenuTagCheckList}
+      moodTagCheckList={moodTagCheckList}
+      setMoodTagCheckList={setMoodTagCheckList}
+      menuHashTag={menuHashTag}
+      setMenuHashTag={setMenuHashTag}
+      moodHashTag={moodHashTag}
+      setMoodHashTag={setMoodHashTag}
+      CategoryRefetch={CategoryRefetch}
+      TagRefetch={TagRefetch}
+      searchTags={searchTags}
     />
   );
 }

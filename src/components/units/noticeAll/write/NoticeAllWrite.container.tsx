@@ -1,3 +1,5 @@
+// 전체 공지사항 write Container --- 김치훈
+
 import { useMutation } from "@apollo/client";
 import { useState } from "react";
 import { useForm } from "react-hook-form";

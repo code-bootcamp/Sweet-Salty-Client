@@ -45,6 +45,9 @@ export default function SignUpContainerPage() {
   const [createUser] = useMutation(CREATE_USER);
   const [getNumber] = useMutation(SIGNUP_GET_TOKEN);
   const [checkNumber] = useMutation(SIGNUP_CHECK_TOKEN);
+  const [gender, setGender] = useState();
+  const [ageGroup, setAgeGroup] = useState();
+  const [prefer, setPrefer] = useState();
   const { register, handleSubmit, formState } = useForm({
   resolver: yupResolver(schema),
   mode: "onChange",

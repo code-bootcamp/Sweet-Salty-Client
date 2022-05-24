@@ -3,9 +3,22 @@
 import { SettingOutlined } from "@ant-design/icons";
 import TopButton from "../../commons/topbutton";
 import * as S from "./Mypage.styled";
+import Script from "next/script";
 
 export default function MyPagePresenterPage(props: any) {
   return (
+    <>
+    
+    <Script
+        type="text/javascript"
+        src="https://code.jquery.com/jquery-1.12.4.min.js"
+      ></Script>
+      {/* <!-- iamport.payment.js --> */}
+      <Script
+        type="text/javascript"
+        src="https://cdn.iamport.kr/js/iamport.payment-1.2.0.js"
+      ></Script>
+
     <S.Wrapper>
       <S.Title>마이페이지</S.Title>
       <S.MypageBox>
@@ -15,7 +28,7 @@ export default function MyPagePresenterPage(props: any) {
           </S.Photo>
 
           <S.UserInfo>
-            <S.UserName>안녕하세요. <S.Span>{/* 사용자 이름 */}</S.Span> 단짝님</S.UserName>
+            <S.UserName>안녕하세요. <S.Span>{props.data?.fetchUser?.userNickname}</S.Span> 단짝님</S.UserName>
 
             <S.UserSection>
               <S.UserBox style={{paddingLeft: "0px"}}>
@@ -57,7 +70,7 @@ export default function MyPagePresenterPage(props: any) {
               <S.UserBox>
                 <S.UserTitle>포인트</S.UserTitle>
                 <S.UserCount>
-                  {/* 포인트 숫자 */}
+                  {props.data?.fetchUser?.userPoint}
                 </S.UserCount>
               </S.UserBox>
             </S.UserSection>
@@ -65,7 +78,7 @@ export default function MyPagePresenterPage(props: any) {
         </S.UserLeftBox>
         
         <S.ButtonBox>
-          <S.PointButton><img style={{width: "24px", marginRight: "6px"}} src="images/pointicon.png"/>포인트 충전하기</S.PointButton>
+          <S.PointButton onClick={props.onClickPoint}><img style={{width: "24px", marginRight: "6px"}} src="images/pointicon.png"/>포인트 충전하기</S.PointButton>
           <S.Button onClick={props.onClickModify}><SettingOutlined style={{ marginRight: "6px"}}/>회원정보 수정하기</S.Button>
         </S.ButtonBox>
 
@@ -85,5 +98,7 @@ export default function MyPagePresenterPage(props: any) {
         <TopButton/>
       </S.TopButtonBox>
     </S.Wrapper>
+    
+    </>
   );
 }

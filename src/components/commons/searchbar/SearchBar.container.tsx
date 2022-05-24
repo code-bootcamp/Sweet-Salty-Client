@@ -6,6 +6,7 @@ import SearchBarPresenter from "./SearchBar.presenter";
 
 export default function SearchBarPage() {
   const router = useRouter();
+  console.log(router)
 
   const [isButton, setIsButton] = useState(false)
 
@@ -14,17 +15,29 @@ export default function SearchBarPage() {
   const ReviewList = ["/reviews"];
   const isReviewList = ReviewList.includes(router.asPath);
   // 단짠리뷰 
-  const CommonReviewList = ["/reviews/commonReview/list"];
+  const CommonReviewList = ["/reviews/commonReview"];
   const isCommonReviewList = CommonReviewList.includes(router.asPath);
   // 시식단리뷰
-  const TesterReview = ["/reviews/testerReview/list"];
+  const TesterReview = ["/reviews/testerReview"];
   const isTesterReview = TesterReview.includes(router.asPath);
   // 거주세요! 리뷰
-  const WishList = ["/reviews/wish/list"];
+  const WishList = ["/reviews/wish"];
   const isWishList = WishList.includes(router.asPath);
-  // 공지사항
-  const NoticeList = ["/notice"];
+  // 전체 공지사항
+  const NoticeAllList = ["/noticeAll"];
+  const isNoticeAllList = NoticeAllList.includes(router.asPath);
+  // 단짠 공지 공지사항
+  const NoticeList = ["/noticeAll/notice"];
   const isNoticeList = NoticeList.includes(router.asPath);
+  // 이벤트 공지사항
+  const NoticeEventList = ["/noticeAll/noticeEvent"];
+  const isNoticeEventList = NoticeEventList.includes(router.asPath);
+  // 프로모션 공지사항
+  const NoticePromoionList = ["/noticeAll/noticePromotion"];
+  const isNoticePromoionList = NoticePromoionList.includes(router.asPath);
+  // 시식단 모집 공지사항
+  const NoticeTasterList = ["/noticeAll/noticeTaster"];
+  const isNoticeTasterList = NoticeTasterList.includes(router.asPath);
 
   const onClickReviewDetail = () => {
     router.push("/reviews/commonReview/write");
@@ -34,7 +47,7 @@ export default function SearchBarPage() {
   };
 
   const onClickNoticeList = () => {
-    router.push("/notice/write");
+    router.push("/noticeAll/write");
   };
   const onClickButtonBox = () => {
     setIsButton((prev) => !prev);
@@ -46,7 +59,13 @@ export default function SearchBarPage() {
       isCommonReviewList={isCommonReviewList}
       isTesterReview={isTesterReview}
       isWishList={isWishList}
+
+      isNoticeAllList={isNoticeAllList}
       isNoticeList={isNoticeList}
+      isNoticeEventList={isNoticeEventList}
+      isNoticePromoionList={isNoticePromoionList}
+      isNoticeTasterList={isNoticeTasterList}
+      
       onClickReviewDetail={onClickReviewDetail}
       onClickWishDetail={onClickWishDetail}
       onClickNoticeList={onClickNoticeList}

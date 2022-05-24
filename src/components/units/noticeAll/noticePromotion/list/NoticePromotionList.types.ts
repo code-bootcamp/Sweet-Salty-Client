@@ -1,0 +1,1 @@
+// 공지사항 Promotion List types --- 김치훈

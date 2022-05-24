@@ -1,7 +1,7 @@
 // 일반리뷰 상세보기 style  - 김치훈
 
 import styled from "@emotion/styled";
-import { RightOutlined } from "@ant-design/icons"
+import { RightOutlined } from "@ant-design/icons";
 
 export const Wrapper = styled.div`
   padding: 40px 0 0 0;
@@ -14,16 +14,16 @@ export const Wrapper = styled.div`
 `;
 export const Title = styled.div`
   padding: 100px 0;
-  font-size: 40px; 
+  font-size: 40px;
   font-weight: 700;
   display: flex;
   align-items: center;
   color: #fff;
-`
+`;
 export const RightOutline = styled(RightOutlined)`
   padding: 0 15px;
   color: #fff;
-`
+`;
 export const ReviewBox = styled.div`
   padding: 40px;
   width: 1000px;
@@ -33,6 +33,7 @@ export const ReviewBox = styled.div`
 export const Header = styled.div`
   margin-bottom: 64px;
 `;
+export const ReviewInfoSection = styled.div``;
 export const HeaderBox = styled.div`
   margin-bottom: 10px;
   display: flex;
@@ -47,7 +48,8 @@ export const RightBox = styled.div`
   align-items: center;
 `;
 export const CountBox = styled.div`
-display:flex;`;
+  display: flex;
+`;
 export const UserNameBox = styled.span`
   font-size: 14px;
 `;
@@ -64,7 +66,10 @@ export const CreateAt = styled.span`
 
 export const Section = styled.div`
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
+  border: 2px solid #dadada;
+  border-radius: 20px;
+  padding: 60px 194px;
 `;
 export const SectionLeft = styled.div``;
 export const ShopNameBox = styled.div`
@@ -129,32 +134,24 @@ export const DetailedReviewText = styled.div`
   color: #676767;
 `;
 
-export const ImageBox = styled.div`
-  position: relative;
-  margin: 50px 0 20px 0;
-  border-radius: 20px;
-  width: 920px;
-  height: 250px;
-  background: #dbdbdb;
-`;
-export const AddBt = styled.div`
-  font-size: 20px;
-  position: absolute;
-  right: 20px;
-  top: 20px;
-  cursor: pointer;
-  transition: 0.2s;
-  &:hover {
-    width: 30px;
-    height: 30px;
-    text-align: center;
-    line-height: 30px;
-    background: #fff;
-    border-radius: 50%;
-  }
+export const MapSection = styled.div`
+  padding: 40px 0px;
 `;
 
-export const Tags = styled.div``;
+export const MapTitle = styled.div`
+  font-size: 16px;
+  font-weight: 700;
+  padding: 0px 0px 20px 0px;
+`;
+
+export const MapBox = styled.div`
+  width: 920px;
+  height: 506px;
+`;
+
+export const Tags = styled.div`
+  padding: 20px 0px 20px 0px;
+`;
 export const Tag = styled.span`
   margin: 0 10px 0 0;
   padding: 5px 19px;
@@ -261,4 +258,4 @@ export const CommentCreatAt = styled.span`
 
 export const TopButtonBox = styled.div`
   padding: 50px 0;
-`
+`;

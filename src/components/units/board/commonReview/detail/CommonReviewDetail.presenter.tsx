@@ -1,5 +1,6 @@
 // 일반리뷰 상세보기 Presenter  - 김치훈
 
+import DetailMapPage from "../../../../commons/detailMap/DetailMap.index";
 import Hits from "../../../../commons/hits";
 import { getDate } from "../../../../commons/libraries/date";
 import LikeButton from "../../../../commons/like";
@@ -9,63 +10,76 @@ import CommentWriteContainerPage from "../../../comment/commentWrite/CommentWrit
 import * as S from "./CommonReviewDetail.styles";
 
 export default function ReviewDetailPresenter(props: any) {
+  console.log(props);
   return (
     <S.Wrapper>
-      <S.Title>단짠 게시판 <S.RightOutline /> 단짠 리뷰</S.Title>
+      <S.Title>
+        단짠 게시판 <S.RightOutline /> 단짠 리뷰
+      </S.Title>
       <S.ReviewBox>
         <S.Header>
           <S.HeaderBox>
-            <S.BoardTitle>
-              {props.data?.boardTitle}
-            </S.BoardTitle>
+            <S.BoardTitle>{props.data?.boardTitle}</S.BoardTitle>
             <S.RightBox>
-              <S.CountBox onClick={props.onClickLike}><LikeButton />{props.data?.boardLikeCount}</S.CountBox>
-              <S.CountBox><Hits />{props.data?.boardHit}</S.CountBox>
+              <S.CountBox onClick={props.onClickLike}>
+                <LikeButton />
+                {props.data?.boardLikeCount}
+              </S.CountBox>
+              <S.CountBox>
+                <Hits />
+                {props.data?.boardHit}
+              </S.CountBox>
             </S.RightBox>
           </S.HeaderBox>
 
           <S.UserNameBox>
-            <S.UserName>{(props.data?.boardWriter) || "푸딩"}</S.UserName> 단짝님
+            <S.UserName>{props.data?.boardWriter || "푸딩"}</S.UserName> 단짝님
           </S.UserNameBox>
           <S.P>|</S.P>
           <S.CreateAt>{getDate(props.data?.createAt)}</S.CreateAt>
         </S.Header>
 
-        <S.Section>
+        <S.ReviewInfoSection>
           <S.SectionLeft>
             <S.ShopNameBox>
-              <S.ShopName>가게명</S.ShopName>{props.data?.place?.placeName}
+              <S.ShopName>가게명</S.ShopName>
+              {props.data?.place?.placeName}
             </S.ShopNameBox>
             <S.MenuNameBox>
-              <S.MenuName>주소</S.MenuName>{props.data?.place?.placeAddress}
+              <S.MenuName>주소</S.MenuName>
+              {props.data?.place?.placeAddress}
             </S.MenuNameBox>
             <S.ProsBox>
-              <S.Pros>단맛</S.Pros>{props.data?.boardSugar}
+              <S.Pros>단맛</S.Pros>
+              {props.data?.boardSugar}
             </S.ProsBox>
             <S.ConsBox>
-              <S.Cons>짠맛</S.Cons>{props.data?.boardSalt}
+              <S.Cons>짠맛</S.Cons>
+              {props.data?.boardSalt}
             </S.ConsBox>
           </S.SectionLeft>
+          <S.Tags>
+            {props.data?.boardSides.map((el, idx) => (
+              <S.Tag key={idx}>{el.boardTags.boardTagName}</S.Tag>
+            ))}
+          </S.Tags>
+        </S.ReviewInfoSection>
 
+        <S.Section>
           <S.SectionRight>
             <S.DetailedReview>세부 리뷰</S.DetailedReview>
             <S.DetailedReviewText>
-            <ToastViewerPage contents={props.data?.boardContents} />
+              <ToastViewerPage contents={props.data?.boardContents} />
             </S.DetailedReviewText>
           </S.SectionRight>
         </S.Section>
 
-        <S.ImageBox>
-          <S.AddBt>→</S.AddBt>
-        </S.ImageBox>
-
-        <S.Tags>
-          {props.data?.boardSides.map((el, idx)=>(
-            <S.Tag key={idx}>{el.boardTags.boardTagName}</S.Tag>
-            
-            ))}
-          
-        </S.Tags>
+        <S.MapSection>
+          <S.MapTitle>가게 위치</S.MapTitle>
+          <S.MapBox>
+            <DetailMapPage address={props.data} />
+          </S.MapBox>
+        </S.MapSection>
 
         <S.Buttons>
           <S.Button onClick={props.onClickCommonReviewList}>목록으로</S.Button>
@@ -77,7 +91,7 @@ export default function ReviewDetailPresenter(props: any) {
 
         <S.CommentBox>
           <S.CommentTitle>단짠 리뷰에 대한 댓글</S.CommentTitle>
-          <CommentWriteContainerPage/>
+          <CommentWriteContainerPage />
           <S.CommentWrite>
             <S.CommentInput
               type="text"

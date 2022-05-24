@@ -17,6 +17,7 @@ export default function ReviewDetailContainer() {
   const onClickCommonReviewList = () => {
     router.push("/reviews/commonReview");
   };
+
   const onClickDelete = () => {
     try {
       deleteBoard({

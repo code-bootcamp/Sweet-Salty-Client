@@ -30,10 +30,12 @@ export default function FilterPresenter(props: any) {
           <S.OpenFilterBox>
             <S.FilterTitle>메뉴</S.FilterTitle>
             <S.OpenTagBox>
-              {/* filter open 태그 올리는 곳 */}
+              {/* 메뉴 태그 올리는 곳 */}
               <MenuFilterPage
                 menuHashTag={props.menuHashTag}
                 setMenuHashTag={props.setMenuHashTag}
+                menuTagCheckList={props.menuTagCheckList}
+                setMenuTagCheckList={props.setMenuTagCheckList}
               />
             </S.OpenTagBox>
           </S.OpenFilterBox>
@@ -43,17 +45,19 @@ export default function FilterPresenter(props: any) {
           <S.OpenFilterBox>
             <S.FilterTitle>분위기</S.FilterTitle>
             <S.OpenTagBox>
-              {/* filter open 태그 올리는 곳 */}
+              {/* 분위기 태그 올리는 곳 */}
               <MoodFilterPage
                 moodHashTag={props.moodHashTag}
                 setMoodHashTag={props.setMoodHashTag}
+                moodTagCheckList={props.moodTagCheckList}
+                setMoodTagCheckList={props.setMoodTagCheckList}
               />
             </S.OpenTagBox>
           </S.OpenFilterBox>
 
           <S.ButtonBox>
-            <S.Button>다시하기</S.Button>
-            <S.Button onClick={props.onClickFilterOpen}>적용하기</S.Button>
+            <S.Button onClick={props.onClickReset}>다시하기</S.Button>
+            <S.Button onClick={props.onClickFilterApply}>적용하기</S.Button>
           </S.ButtonBox>
         </S.OpenFilter>
       )}

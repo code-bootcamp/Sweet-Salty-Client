@@ -1,7 +1,8 @@
-import CommonReviewItemPresenterPage from "./ReviewItem.presenter";
 import { MouseEvent } from "react";
 import { useRouter } from "next/router";
-export default function CommonReviewItemContainerPage(props) {
+import SearchCategoryItemPresenterPage from "./CategorySearchReviewCard.presenter";
+
+export default function SearchCategoryItemContainerPage(props) {
   const router = useRouter();
   const onClickDetailPage = (event: MouseEvent<HTMLDivElement>) => {
     if (event.target instanceof Element) {
@@ -9,10 +10,10 @@ export default function CommonReviewItemContainerPage(props) {
     }
   };
   return (
-    <CommonReviewItemPresenterPage
+    <SearchCategoryItemPresenterPage
       id={props.id}
       onClickDetailPage={onClickDetailPage}
-      fetchBoardsData={props.el}
+      fetchTagSearchData={props.el}
     />
   );
 }

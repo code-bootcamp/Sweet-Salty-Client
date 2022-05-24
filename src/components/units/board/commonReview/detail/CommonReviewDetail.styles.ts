@@ -39,10 +39,45 @@ export const HeaderBox = styled.div`
   display: flex;
   justify-content: space-between;
 `;
+
+export const BoardTitleArticle = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
+export const BoardReviewCategory = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50px;
+  height: 20px;
+  border-radius: 5px;
+  background-color: #ff9a31;
+  color: #ffffff;
+  font-size: 10px;
+  font-weight: 600;
+  margin: 0px 10px 0px 0px;
+`;
+export const BoardTesterCategory = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 58px;
+  height: 20px;
+  border-radius: 5px;
+  background-color: #ff9a31;
+  color: #ffffff;
+  font-size: 10px;
+  font-weight: 600;
+  margin: 0px 10px 0px 0px;
+`;
+
 export const BoardTitle = styled.div`
   font-size: 20px;
   font-weight: 700;
 `;
+
 export const RightBox = styled.div`
   display: flex;
   align-items: center;

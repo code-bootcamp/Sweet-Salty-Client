@@ -4,7 +4,7 @@ import SearchBarPage from "../../commons/searchbar/SearchBar.container";
 import StoreItem from "../../commons/card/StoreCard/StoreItem.presenter";
 import FilterContainer from "../../commons/filter/filter.container";
 
-export default function StorePresenterPage() {
+export default function ShopPresenterPage() {
   return (
     //   전체페이지
     <S.Page>

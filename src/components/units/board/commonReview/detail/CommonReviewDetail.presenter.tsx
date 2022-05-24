@@ -10,7 +10,7 @@ import CommentWriteContainerPage from "../../../comment/commentWrite/CommentWrit
 import * as S from "./CommonReviewDetail.styles";
 
 export default function ReviewDetailPresenter(props: any) {
-  console.log(props);
+  console.log(props.data?.boardSubject);
   return (
     <S.Wrapper>
       <S.Title>
@@ -19,7 +19,15 @@ export default function ReviewDetailPresenter(props: any) {
       <S.ReviewBox>
         <S.Header>
           <S.HeaderBox>
-            <S.BoardTitle>{props.data?.boardTitle}</S.BoardTitle>
+            <S.BoardTitleArticle>
+              {props.data?.boardSubject === "REVIEW" ? (
+                <S.BoardReviewCategory>단짠 리뷰</S.BoardReviewCategory>
+              ) : (
+                <S.BoardTesterCategory>시식단 리뷰</S.BoardTesterCategory>
+              )}
+
+              <S.BoardTitle>{props.data?.boardTitle}</S.BoardTitle>
+            </S.BoardTitleArticle>
             <S.RightBox>
               <S.CountBox onClick={props.onClickLike}>
                 <LikeButton />

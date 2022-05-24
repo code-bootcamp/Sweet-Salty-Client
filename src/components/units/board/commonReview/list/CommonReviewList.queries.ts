@@ -17,3 +17,9 @@ export const FETCH_BOARD_CATEGORY_PICK = gql`
     }
   }
 `;
+
+export const FETCH_BOARD_WITH_TAGS = gql`
+  query fetchBoardWithTags($tags: [String!]!) {
+    fetchBoardWithTags(tags: $tags)
+  }
+`;

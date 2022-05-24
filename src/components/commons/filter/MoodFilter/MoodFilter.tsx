@@ -17,11 +17,14 @@ export default function MoodFilterPage(props) {
   ]);
 
   const onCheckedElement = (checked, item) => {
-    if (props.moodHashTag.length === 3) return;
     if (checked) {
+      props.setMoodTagCheckList([...props.moodTagCheckList, item]);
       props.setMoodHashTag([...props.moodHashTag, item]);
     } else if (!checked) {
       props.setMoodHashTag(props.moodHashTag.filter((el) => el !== item));
+      props.setMoodTagCheckList(
+        props.moodTagCheckList.filter((el) => el !== item)
+      );
     }
   };
 
@@ -36,6 +39,7 @@ export default function MoodFilterPage(props) {
             onChange={(e) => {
               onCheckedElement(e.target.checked, e.target.value);
             }}
+            checked={props.moodTagCheckList.includes(el.value) ? true : false}
           />
           <span className="checkbox_text">{el.value}</span>
         </label>

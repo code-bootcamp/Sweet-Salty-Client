@@ -1,18 +1,15 @@
 import { gql } from "@apollo/client";
 
-export const FETCH_COMMENT = gql`
-query fetchComment($boardId: String!){
-    fetchComment(boardId: $boardId){
-        commentId
-        commentContents
-        commentLikeCount
-    }
+export const FETCH_COMMENTS = gql`
+query fetchComments($boardId: String!){
+    fetchComments(boardId: $boardId)
+    
 }
 `;
 
 export const UPDATE_COMMENT = gql`
-mutation updateComment($boardId: String!, $contents: String!){
-    updateComment(boardId: $boardId, contents:$contents){
+mutation updateComment($commentId: String!, $contents: String!){
+    updateComment(commentId: $commentId, contents:$contents){
         commentId
     }
 }
@@ -25,7 +22,16 @@ mutation deleteComment($commentId: String!){
 `;
 
 export const CREATE_COMMENT_LIKE = gql`
-mutation createCommentLike($boardId: String!,$commentId: String!){
-    mutation createCommentLike(boardId:$boardId,commentId:$commentId)
+mutation createCommentLike($commentId: String!){
+    createCommentLike(commentId:$commentId)
+}
+`;
+export const FETCH_USER_LOGGED_IN =gql`
+query fetchUserLoggedIn{
+    fetchUserLoggedIn{
+        userImage
+        userNickname
+        
+    }
 }
 `;

@@ -6,11 +6,13 @@ import { getDate } from "../../../../commons/libraries/date";
 import LikeButton from "../../../../commons/like";
 import ToastViewerPage from "../../../../commons/toast/viewer";
 import TopButton from "../../../../commons/topbutton";
-import CommentWriteContainerPage from "../../../comment/commentWrite/CommentWrite.container";
+import CommentListContainerPage from "../../../comment/commentList/CommentList.container";
+import CommentListPresenterPage from "../../../comment/commentList/CommentList.presenter";
+import CommentWriteContainerPage from "../../../comment/commentWrite/CommentWrite.presenter";
 import * as S from "./CommonReviewDetail.styles";
 
 export default function ReviewDetailPresenter(props: any) {
-  console.log(props.data?.boardSubject);
+
   return (
     <S.Wrapper>
       <S.Title>
@@ -100,28 +102,9 @@ export default function ReviewDetailPresenter(props: any) {
         <S.CommentBox>
           <S.CommentTitle>단짠 리뷰에 대한 댓글</S.CommentTitle>
           <CommentWriteContainerPage />
-          <S.CommentWrite>
-            <S.CommentInput
-              type="text"
-              placeholder="이곳에 댓글을 입력하세요."
-            />
-            <S.CommentWriteBt>등록</S.CommentWriteBt>
-            <S.WriteUserPhoto></S.WriteUserPhoto>
-          </S.CommentWrite>
-          <S.CommentList>
-            <S.CommentUserPhoto></S.CommentUserPhoto>
-            <S.Comment>
-              너무 맛있어보이네요! 다음에 저도 한 번 가보려구요!
-              <S.CommentCreatAt>1일전</S.CommentCreatAt>
-            </S.Comment>
-          </S.CommentList>
-          <S.CommentList>
-            <S.CommentUserPhoto></S.CommentUserPhoto>
-            <S.Comment>
-              다른 메뉴는 어땠나요?
-              <S.CommentCreatAt>4일전</S.CommentCreatAt>
-            </S.Comment>
-          </S.CommentList>
+          <CommentListPresenterPage/>
+          <CommentListContainerPage/>
+          
         </S.CommentBox>
       </S.ReviewBox>
 

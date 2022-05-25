@@ -105,9 +105,8 @@ export const ImageBox = styled.div`
   justify-content: space-between;
 `
 export const Image = styled.img`
-  width: 600px;
-  height: 450px;
-  object-fit: cover;
+  max-width: 1258px;
+  margin: 0 auto;
   border: none;
   border-radius: 20px;
   background: #dbdbdb;

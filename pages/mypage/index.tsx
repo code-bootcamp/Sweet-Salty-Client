@@ -1,9 +1,10 @@
-// mypage --- 김치훈
+// mypage page --- 김치훈
 
-import MyPageContainerPage from "../../src/components/units/mypage/Mypage.container";
-
-export default function MyPage(){
+import MyPageContainer from "../../src/components/units/mypage/Mypage.container";
 
 
-  return (<MyPageContainerPage/>)
+export default function MyPagePage(){
+
+
+  return (<MyPageContainer/>)
 }

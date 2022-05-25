@@ -1,7 +1,8 @@
 import { useMutation, useQuery } from "@apollo/client";
 import { useRouter } from "next/router";
-import { useState } from "react";
 import { CREATE_COMMENT_LIKE, DELETE_COMMENT, FETCH_COMMENTS, FETCH_USER_LOGGED_IN } from "./CommentList.queries";
+import { timeForToday } from "../../../commons/libraries/date";
+import * as S from "./CommentList.styled"
 
 export default function CommentItemPage(props) {
   const [deleteComment] = useMutation(DELETE_COMMENT);
@@ -41,20 +42,22 @@ export default function CommentItemPage(props) {
       ]
     })}catch(error:any) {alert(error.message)}
   }
-  console.log(props?.el, "w")
   const url = "https://storage.googleapis.com/"+props.el?.userImage
   const showDelete = props.el?.userNickname === loggedInNickname
   
   return (
-    <div>
-      <div>작성자 : {props.el?.userNickname}</div>
-      <div>작성자프로필 : <img src= {url} /></div>
-      
-      <div>내용 : {props.el?.commentContents}</div>
-      <div>좋아요개수 : {props.el?.commentLikeCount}</div>
-      <div>작성일 : {props.el?.commentCreateAt}</div>
-      <div onClick={onClickLike(props.el?.commentId)}>좋아요버튼</div>
-      {showDelete &&(<div onClick={onClickDelete(props.el?.commentId)}>(본인댓글일경우)삭제버튼</div>)}
-    </div>
+    <S.BoxDiv>
+      <S.ProfileDiv><S.ProfileImg src= {url} /></S.ProfileDiv>
+      <div>
+      <S.ProfileWrapDiv>
+      <S.WriterDiv>{props.el?.userNickname} 단짝님</S.WriterDiv>
+      <S.CreatedAtDiv>{timeForToday(props.el?.commentCreateAt)}</S.CreatedAtDiv>
+      </S.ProfileWrapDiv>
+      <S.ContentsDiv>내용 : {props.el?.commentContents}</S.ContentsDiv>
+      </div>
+      {/* <div>좋아요개수 : {props.el?.commentLikeCount}</div>
+      <div onClick={onClickLike(props.el?.commentId)}>좋아요버튼</div> */}
+      {showDelete &&(<S.DeleteBtn onClick={onClickDelete(props.el?.commentId)}>삭제</S.DeleteBtn>)}
+    </S.BoxDiv>
   )
 }

@@ -47,7 +47,7 @@ export default function SignUpContainerPage() {
   const [checkNumber] = useMutation(SIGNUP_CHECK_TOKEN);
   const [gender, setGender] = useState();
   const [ageGroup, setAgeGroup] = useState();
-  const [prefer, setPrefer] = useState();
+  const [prefer, setPrefer] = useState([]);
   const { register, handleSubmit, formState } = useForm({
   resolver: yupResolver(schema),
   mode: "onChange",
@@ -90,6 +90,13 @@ catch(error:any){
     function onChangeSerialNumber(event){
       setSerialNumber(event.target.value);
     }
+    function onChangeGender(event){
+      setGender(event.target.value);
+    }
+    function onChangeAge(event){
+      setAgeGroup(event.target.value);
+    }
+    
 const onClickSignUp = async (signupData :any) => {
   const { confirmUserPassword, ...data } = signupData;
   // 가입하기
@@ -98,11 +105,11 @@ return}
   try {
     await createUser({
       variables: {
-        createUserInput: { ...data, userPhone:phoneNumber  },
+        createUserInput: { ...data, userPhone:phoneNumber,gender,ageGroup ,prefer:["prefer"] },
       },
     });
-    alert("회원가입에 성공하였습니다.");
-    router.push("/");
+    alert("회원가입에 성공하였습니다. 로그인 페이지로 이동합니다.");
+    router.push("/login");
   } catch (error : any) {
     alert(error.message);
   }
@@ -121,5 +128,7 @@ const onClickBack=()=>{
       handleSubmit={handleSubmit}
       formState={formState}
       checked={checked}
+      onChangeGender={onChangeGender}
+      onChangeAge={onChangeAge}
   />;
 }

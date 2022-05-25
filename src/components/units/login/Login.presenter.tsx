@@ -20,9 +20,10 @@ export default function LoginPresenterPage(props) {
         />
         <S.ErrorTxt>{props.formState.errors.userPassword?.message}</S.ErrorTxt>
         <S.SubmitBtn
-            
             type="submit"
           >로그인</S.SubmitBtn>
+          <button value="google" type="button" onClick={props.onClickSocialGoogle}><img src="/images/google-logo.png"/>구우-글 쇼오-샬 로오-그 인</button>
+          <button value="google" type="button" onClick={props.onClickSocialKakao}><img src="/images/kakao-logo.png"/>카카오 쇼오-샬 로오-그 인</button>
           <S.GoSignupTxt>아직 계정이 없으신가요? <S.GoSignUpA href="/signup">회원가입</S.GoSignUpA></S.GoSignupTxt>
         </S.LoginForm>
       </form>

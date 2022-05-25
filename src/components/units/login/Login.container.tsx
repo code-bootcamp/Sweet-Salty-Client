@@ -45,7 +45,14 @@ console.log(result, loggedInData)
   }
 };
 
-
+const onClickSocialGoogle = ()=>{
+  
+  router.push("https://project08.site/login/google")
+}
+const onClickSocialKakao = ()=>{
+  
+  router.push("https://project08.site/login/kakao")
+}
 
 const onClickSignUp =()=>{
   router.push("/signup");
@@ -58,6 +65,8 @@ const onClickSignUp =()=>{
     handleSubmit={handleSubmit}
     formState={formState}
     onClickSignUp={onClickSignUp}
+    onClickSocialGoogle={onClickSocialGoogle}
+    onClickSocialKakao={onClickSocialKakao}
   />
   );
 }

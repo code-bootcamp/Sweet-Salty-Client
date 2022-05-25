@@ -78,7 +78,6 @@ catch(error:any){
           return
       
         }
-        console.log(dogeun.data.signUpCheckToken)
         setChecked(true)
         alert("인증완료")
       }

@@ -4,7 +4,7 @@ import SearchBarPage from "../../commons/searchbar/SearchBar.container";
 import StoreItem from "../../commons/card/StoreCard/StoreItem.presenter";
 import FilterContainer from "../../commons/filter/filter.container";
 
-export default function ShopPresenterPage() {
+export default function ShopPresenterPage(props) {
   return (
     //   전체페이지
     <S.Page>
@@ -20,7 +20,10 @@ export default function ShopPresenterPage() {
         <S.ContentsSection>
           {/* 필터 */}
           <div>
-            <FilterContainer />
+            <FilterContainer
+              setCommonReviewSearch={props.setCommonReviewSearch}
+              commonReviewSearch={props.commonReviewSearch}
+            />
           </div>
           {/* 베스트게시글 */}
           <S.BestContentsSection>

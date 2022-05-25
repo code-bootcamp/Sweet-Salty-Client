@@ -1,13 +1,27 @@
 // 단짠 게시판 페이지-필터-박스 Container === 김치훈
 
 import { useQuery } from "@apollo/client";
-import { useState } from "react";
+import _ from "lodash";
+import { useEffect, useState } from "react";
 
 import FilterPresenter from "./filter.presenter";
 import { FETCH_TAGS } from "./filter.queries";
 
 export default function FilterContainer(props) {
   const [isOpen, setIsOpen] = useState(true);
+  const [menuHashTag, setMenuHashTag] = useState([]);
+  const [menuTagCheckList, setMenuTagCheckList] = useState([]);
+  const [moodHashTag, setMoodHashTag] = useState([]);
+  const [moodTagCheckList, setMoodTagCheckList] = useState([]);
+  const [locationHashTag, setLocationHashTag] = useState([]);
+  const [locationTagCheckList, setLocationTagCheckList] = useState([]);
+
+  const searchTags = _.concat(moodHashTag, menuHashTag, locationHashTag);
+
+  // 태그 클릭시 자동 검색 일반리뷰만 일단 적용됨
+  useEffect(() => {
+    props.setCommonReviewSearch(searchTags);
+  }, [moodHashTag, locationHashTag, menuHashTag]);
 
   const { data: menuData } = useQuery(FETCH_TAGS, {
     variables: { refName: "MENU" },
@@ -27,12 +41,12 @@ export default function FilterContainer(props) {
   };
 
   const onClickReset = () => {
-    props.setMenuHashTag([]);
-    props.setMoodHashTag([]);
-    props.setLocationHashTag([]);
-    props.setMenuTagCheckList([]);
-    props.setMoodTagCheckList([]);
-    props.setLocationTagCheckList([]);
+    setMenuHashTag([]);
+    setMoodHashTag([]);
+    setLocationHashTag([]);
+    setMenuTagCheckList([]);
+    setMoodTagCheckList([]);
+    setLocationTagCheckList([]);
   };
 
   return (
@@ -42,18 +56,18 @@ export default function FilterContainer(props) {
       menuData={menuData}
       moodData={moodData}
       locationData={locationData}
-      menuTagCheckList={props.menuTagCheckList}
-      setMenuTagCheckList={props.setMenuTagCheckList}
-      moodTagCheckList={props.moodTagCheckList}
-      setMoodTagCheckList={props.setMoodTagCheckList}
-      menuHashTag={props.menuHashTag}
-      setMenuHashTag={props.setMenuHashTag}
-      moodHashTag={props.moodHashTag}
-      setMoodHashTag={props.setMoodHashTag}
-      locationHashTag={props.locationHashTag}
-      setLocationHashTag={props.setLocationHashTag}
-      locationTagCheckList={props.locationTagCheckList}
-      setLocationTagCheckList={props.setLocationTagCheckList}
+      menuTagCheckList={menuTagCheckList}
+      setMenuTagCheckList={setMenuTagCheckList}
+      moodTagCheckList={moodTagCheckList}
+      setMoodTagCheckList={setMoodTagCheckList}
+      menuHashTag={menuHashTag}
+      setMenuHashTag={setMenuHashTag}
+      moodHashTag={moodHashTag}
+      setMoodHashTag={setMoodHashTag}
+      locationHashTag={locationHashTag}
+      setLocationHashTag={setLocationHashTag}
+      locationTagCheckList={locationTagCheckList}
+      setLocationTagCheckList={setLocationTagCheckList}
       onClickReset={onClickReset}
       onClickFilterApply={onClickFilterApply}
     />

@@ -26,18 +26,8 @@ export default function CommonReviewPresenterPage(props: any) {
         <S.CommonReviewInnerBox>
           {/* filter 공동컴포넌트 */}
           <FilterContainer
-            menuTagCheckList={props.menuTagCheckList}
-            setMenuTagCheckList={props.setMenuTagCheckList}
-            moodTagCheckList={props.moodTagCheckList}
-            setMoodTagCheckList={props.setMoodTagCheckList}
-            menuHashTag={props.menuHashTag}
-            setMenuHashTag={props.setMenuHashTag}
-            moodHashTag={props.moodHashTag}
-            setMoodHashTag={props.setMoodHashTag}
-            locationHashTag={props.locationHashTag}
-            setLocationHashTag={props.setLocationHashTag}
-            locationTagCheckList={props.locationTagCheckList}
-            setLocationTagCheckList={props.setLocationTagCheckList}
+            setCommonReviewSearch={props.setCommonReviewSearch}
+            commonReviewSearch={props.commonReviewSearch}
           />
 
           <S.TopThreeBox>
@@ -54,7 +44,7 @@ export default function CommonReviewPresenterPage(props: any) {
 
           <S.CommonReviewHr />
           {/* 리뷰리스트 */}
-          {props.searchTags.length ? (
+          {props.commonReviewSearch.length ? (
             <div style={{ height: "auto", overflow: "auto" }}>
               <InfiniteScroll
                 pageStart={0}

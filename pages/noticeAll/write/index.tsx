@@ -4,6 +4,7 @@ import NoticeAllWriteContainerPage from "../../../src/components/units/noticeAll
 
 
 
+
 export default function NoticeWritePage() {
   return <NoticeAllWriteContainerPage />;
 }

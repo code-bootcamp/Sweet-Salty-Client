@@ -14,7 +14,7 @@ export default function NoticeAllDetailPresenter(props: any){
       <S.NoticeDetailHeader>
         <S.NoticeDetailTitleBox>
           <S.NoticeDetailCategory>
-              {props.data?.fetchNotice?.noticeSubject === "TASTING" && "시식단 리뷰"}
+              {props.data?.fetchNotice?.noticeSubject === "TASTING" && "시식단 모집"}
               {props.data?.fetchNotice?.noticeSubject === "NOTICE" && "공지"}
               {props.data?.fetchNotice?.noticeSubject === "EVENT" && "이벤트"} 
               {props.data?.fetchNotice?.noticeSubject === "PROMOTION" && "프로모션"}

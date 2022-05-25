@@ -4,6 +4,7 @@ import { getDateDot } from "../../../commons/libraries/date";
 import Paginations01 from "../../../commons/paginations/paginations/01/Paginations01.container";
 import SearchBarPage from "../../../commons/searchbar/SearchBar.container";
 import * as S from "./NoticeAllList.styled";
+import { v4 as uuidv4 } from "uuid";
 
 export default function NoticeListPresenterPage(props: any) {
   return (
@@ -32,16 +33,16 @@ export default function NoticeListPresenterPage(props: any) {
         <S.NoticeThHr />
         
         {props.data?.fetchNoticeAll.map((el: any, index: any) => (
-          <>
-            <S.NoticeTd key={el.noticeId}>
+          <S.Notice key={uuidv4()}>
+            <S.NoticeTd>
             <S.NoticeTdCategory>
-              {el?.subCategory?.subCategoryName === "TASTING" && "시식단 리뷰"}
               {el?.subCategory?.subCategoryName === "NOTICE" && "공지"}
               {el?.subCategory?.subCategoryName === "EVENT" && "이벤트"} 
               {el?.subCategory?.subCategoryName === "PROMOTION" && "프로모션"}
+              {el?.subCategory?.subCategoryName === "TASTING" && "시식단 모집"}
             </S.NoticeTdCategory>
             <S.NoticeTdTitle id={el.noticeId} onClick={props.onClickMoveNoticeDetail}>
-              {el.noticeContents}
+              {el.noticeTitle}
             </S.NoticeTdTitle>
             <S.NoticeTdCreateAt>
               {getDateDot(el.createAt)}
@@ -51,7 +52,7 @@ export default function NoticeListPresenterPage(props: any) {
             </S.NoticeTdHits>
           </S.NoticeTd>
           <S.NoticeTdHr />
-        </>
+        </S.Notice>
         ))}
       </S.NoticeBox>
 

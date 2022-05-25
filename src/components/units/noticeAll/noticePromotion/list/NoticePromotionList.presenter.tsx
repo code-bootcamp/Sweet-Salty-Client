@@ -41,7 +41,7 @@ export default function NoticePromitionListPresenterPage(props: any) {
               {el?.subCategory?.subCategoryName === "PROMOTION" && "프로모션"}
             </S.NoticeTdCategory>
             <S.NoticeTdTitle id={el.noticeId} onClick={props.onClickMoveNoticeDetail}>
-              {el.noticeContents}
+              {el.noticeTitle}
             </S.NoticeTdTitle>
             <S.NoticeTdCreateAt>
               {getDateDot(el.createAt)}

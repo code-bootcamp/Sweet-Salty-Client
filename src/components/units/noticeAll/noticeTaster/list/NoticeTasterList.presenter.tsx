@@ -35,13 +35,13 @@ export default function NoticeTasterListPresenterPage(props: any) {
           <>
             <S.NoticeTd key={el.noticeId}>
             <S.NoticeTdCategory>
-              {el?.subCategory?.subCategoryName === "TASTING" && "시식단 리뷰"}
+              {el?.subCategory?.subCategoryName === "TASTING" && "시식단 모집"}
               {el?.subCategory?.subCategoryName === "NOTICE" && "공지"}
               {el?.subCategory?.subCategoryName === "EVENT" && "이벤트"} 
               {el?.subCategory?.subCategoryName === "PROMOTION" && "프로모션"}
             </S.NoticeTdCategory>
             <S.NoticeTdTitle id={el.noticeId} onClick={props.onClickMoveNoticeDetail}>
-              {el.noticeContents}
+              {el.noticeTitle}
             </S.NoticeTdTitle>
             <S.NoticeTdCreateAt>
               {getDateDot(el.createAt)}

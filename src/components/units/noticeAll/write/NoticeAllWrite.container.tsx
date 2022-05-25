@@ -1,51 +1,102 @@
-// 전체 공지사항 write Container --- 김치훈
+// NoticeAll Writer container ---김치훈
 
-import { useMutation } from "@apollo/client";
-import { useState } from "react";
 import { useForm } from "react-hook-form";
-import NoticeAllWritePresenterPage from "./NoticeAllWrite.presenter";
+import { useRouter } from "next/router";
+import { useState } from "react";
+import { useMutation } from "@apollo/client";
+import NoticeWritePresenter from "./NoticeAllWrite.presenter";
 import { CREATE_NOTICE } from "./NoticeAllWrite.queries";
 
-export default function NoticeAllWriteContainerPage() {
 
-  const { register, handleSubmit, setValue, trigger, getValues } = useForm({
-    mode: "onChange",
-  });
+export default function NoticeAllWriteContainerPage(props: any) {
+  const router = useRouter();
+  const [createNotice] = useMutation(CREATE_NOTICE);
+  const [subCategoryName, setSubCategoryName] = useState("");
 
-  const [contents, SetContents] = useState("");
 
-  // 에디터
-  const onChangeContents = (value: string) => {
-    setValue("contents", value === "<p><br></p>" ? "" : value);
-    trigger("contents");
+  // 취소하기 버튼
+  const onClickCancel = () => {
+    router.back();
   };
 
-  const [createNotice] = useMutation(CREATE_NOTICE);
+  // 상단 카테고리 데이터 테이블
+  const [categoryData, setCategoryData] = useState([
+    {key: "0", value: "NOTICE", name: "단짠 공지", checked: false, index: 0 }, 
+    {key: "1", value: "EVENT", name: "이벤트", checked: false, index: 1},
+    {key: "2", value: "PROMOTION", name: "프로모션", checked: false, index: 2},
+    {key: "3", value: "TASTING", name: "시식단 모집", checked: false, index: 3},
+  ]);
 
-  const onClickNoticeWrite = async (data: any) => {
+  // 카테고리 태그 체크되었는지 확인
+  const onChangeCheckCategory = (el: any) => (event: any) => {
+    const select = categoryData.map((el, idx) => {
+      return { ...el, checked: idx === Number(event.target.id) };
+    });
+    setCategoryData(select);
+    setSubCategoryName(el.value);
+  };
+
+  const {register, handleSubmit} = useForm({
+    mode: "onChange",
+  });
+  
+  // 이미지 업로드
+  const [fileUrls, setFileUrls] = useState([""]);
+  // console.log(fileUrls)
+
+  const onChangeFileUrls = (fileUrl: string, index: number) => {
+    const newFileUrls = [...fileUrls];
+    newFileUrls[index] = fileUrl;
+    setFileUrls(newFileUrls);
+  };
+
+
+  
+  const onClickSubmit = async (data: any) => {
+    // console.log(subCategoryName);
     try {
-      await createNotice({
+      const result = await createNotice({
         variables: {
           createNoticeInput: {
-            noticeTitle: data.title,
-            noticeContents: contents,
-            noticeCategory: data.category,
-            url: ["굿바이"],
+            noticeTitle: data.noticeTitle,
+            noticeContents: data.noticeContents,
+            noticeCategory: subCategoryName,
+            url: fileUrls,
           },
         },
       });
+      // console.log(result)
+      console.log(result.data?.createNotice?.noticeSubject)
+      if(result.data?.createNotice?.noticeSubject === "NOTICE"){
+        console.log("공지사항")
+      }
+      if(result.data?.createNotice?.noticeSubject === "EVENT"){
+        console.log("이벤트")
+      }
+      if(result.data?.createNotice?.noticeSubject === "PROMOTION"){
+        console.log("프로모션")
+      }
+      if(result.data?.createNotice?.noticeSubject === "TASTING"){
+        console.log("시식단모집")
+      }
+      // router.push(`./${result.data?.createNotice?.noticeId}`)
     } catch (error: any) {
       alert(error.message);
     }
-  };
+};
   return (
-    <NoticeAllWritePresenterPage
-      onClickNoticeWrite={onClickNoticeWrite}
-      handleSubmit={handleSubmit}
-      register={register}
-      getValues={getValues}
-      onChangeContents={onChangeContents}
-      SetContents={SetContents}
+    <NoticeWritePresenter
+    register={register}
+    onClickSubmit={onClickSubmit}
+
+    fileUrls={fileUrls}
+    onChangeFileUrls={onChangeFileUrls}
+    
+    handleSubmit={handleSubmit}
+    categoryData={categoryData}
+    setCategoryData={setCategoryData}
+    onChangeCheckCategory={onChangeCheckCategory}
+    onClickCancel={onClickCancel}
     />
   );
 }

@@ -20,9 +20,9 @@ export default function LayoutHeader() {
   const isReviewPage = ReviewPage.includes(router.asPath.split("/")[1]);
   
   const onClickStore = () => {
-    router.push("/store");
+    router.push("/shop");
   };
-  const StorePage = ["store"];
+  const StorePage = ["shop"];
   const isStorePage = StorePage.includes(router.asPath.split("/")[1]);
   
   const onClickNotice = () => {

@@ -3,8 +3,9 @@ import {
   UploadFileHidden,
   UploadImage,
 } from "./Uploads01.styled";
+import { IUploads01UIProps } from "./Uploads01.types";
 
-export default function Uploads01UI(props: any) {
+export default function Uploads01UI(props: IUploads01UIProps) {
   return (
     <>
       {props.fileUrl ? (
@@ -14,7 +15,8 @@ export default function Uploads01UI(props: any) {
         />
       ) : (
         <UploadButton onClick={props.onClickUpload} type="button">
-          <>이미지 선택</>
+          <>+</>
+          <>Upload</>
         </UploadButton>
       )}
       {/* display: none */}

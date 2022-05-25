@@ -1,7 +1,22 @@
-// 일반리뷰 top3랑 연결되있음
+import { MouseEvent } from "react";
+import { useRouter } from "next/router";
+import BestReviewItemPresenterPage from "./BestReviewItem.presenter";
 
-import BestReviewItem from "./BestReviewItem.presenter";
+export default function BestReviewItemContainerPage(props) {
+  console.log("여기", props);
+  const router = useRouter();
 
-export default function BestReviewItemContainerPage() {
-  return <BestReviewItem />;
+  const onClickDetailPage = (event: MouseEvent<HTMLDivElement>) => {
+    console.log("?", event);
+    if (event.target instanceof Element) {
+      router.push(`/reviews/commonReview/${event.currentTarget.id}`);
+    }
+  };
+  return (
+    <BestReviewItemPresenterPage
+      id={props.id}
+      onClickDetailPage={onClickDetailPage}
+      fetchBestDetailData={props.el}
+    />
+  );
 }

@@ -23,3 +23,21 @@ export const FETCH_BOARD_WITH_TAGS = gql`
     fetchBoardWithTags(tags: $tags)
   }
 `;
+
+export const FETCH_BOARD_BEST = gql`
+  query fetchBoardBest($category: BOARD_SUB_CATEGORY_NAME_ENUM!) {
+    fetchBoardBest(category: $category) {
+      boardId
+      boardTitle
+      thumbnail
+      boardHit
+      boardLikeCount
+      boardWriter
+      createAt
+      place {
+        placeName
+        placeAddress
+      }
+    }
+  }
+`;

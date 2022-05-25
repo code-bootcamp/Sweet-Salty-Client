@@ -20,6 +20,8 @@ export const ItemImg = styled.div`
   justify-content: flex-end;
   padding: 15px;
   width: 300px;
+  overflow: hidden;
+  transition: 0.2s;
 `;
 export const ItemProfile = styled.div`
   background-color: #ffffff;

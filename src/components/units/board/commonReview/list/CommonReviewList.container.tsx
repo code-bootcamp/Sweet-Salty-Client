@@ -4,6 +4,7 @@ import _ from "lodash";
 import { useState } from "react";
 import CommonReviewPresenterPage from "./CommonReviewList.presenter";
 import {
+  FETCH_BOARD_BEST,
   FETCH_BOARD_CATEGORY_PICK,
   FETCH_BOARD_WITH_TAGS,
 } from "./CommonReviewList.queries";
@@ -12,8 +13,8 @@ export default function CommonReviewContainerPage() {
   const [commonReviewSearch, setCommonReviewSearch] = useState([]);
   const {
     data: fetchBoardsCategoryData,
-    fetchMore: CategoryFetchMore,
-    refetch: CategoryRefetch,
+    fetchMore: categoryFetchMore,
+    refetch: categoryRefetch,
   } = useQuery(FETCH_BOARD_CATEGORY_PICK, {
     variables: {
       category: "REVIEW",
@@ -22,18 +23,25 @@ export default function CommonReviewContainerPage() {
 
   const {
     data: fetchBoardWithTagData,
-    fetchMore: TagFetchMore,
-    refetch: TagRefetch,
+    fetchMore: tagFetchMore,
+    refetch: tagRefetch,
   } = useQuery(FETCH_BOARD_WITH_TAGS, {
     variables: {
       tags: commonReviewSearch,
     },
   });
+
+  const { data: fetchBoardBestData } = useQuery(FETCH_BOARD_BEST, {
+    variables: {
+      category: "REVIEW",
+    },
+  });
+
   const infiniteTagArr = fetchBoardWithTagData?.fetchBoardWithTags.hits;
   // 전체 데이터 무한스크롤
   const categoryDataLoadMore = () => {
     if (!fetchBoardsCategoryData) return;
-    CategoryFetchMore({
+    categoryFetchMore({
       variables: {
         page:
           Math.ceil(
@@ -55,7 +63,7 @@ export default function CommonReviewContainerPage() {
   // 필터 검색 데이터 무한스크롤
   const filterDataLoadMore = () => {
     if (!infiniteTagArr) return;
-    TagFetchMore({
+    tagFetchMore({
       variables: {
         page: Math.ceil(infiniteTagArr.length / 10) + 1,
       },
@@ -67,9 +75,7 @@ export default function CommonReviewContainerPage() {
       },
     });
   };
-  // const onClickFilterApply = () => {
 
-  // }
   return (
     <CommonReviewPresenterPage
       categoryDataLoadMore={categoryDataLoadMore}
@@ -78,8 +84,9 @@ export default function CommonReviewContainerPage() {
       fetchBoardWithTagData={fetchBoardWithTagData}
       commonReviewSearch={commonReviewSearch}
       setCommonReviewSearch={setCommonReviewSearch}
-      CategoryRefetch={CategoryRefetch}
-      TagRefetch={TagRefetch}
+      categoryRefetch={categoryRefetch}
+      tagRefetch={tagRefetch}
+      fetchBoardBestData={fetchBoardBestData}
     />
   );
 }

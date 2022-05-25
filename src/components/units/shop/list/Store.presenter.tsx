@@ -1,0 +1,61 @@
+import * as S from "./Store.styled";
+import TopButton from "../../../commons/topbutton";
+import StoreItemContainerPage from "../../../commons/card/StoreCard/StoreItem.container";
+import { v4 as uuidv4 } from "uuid";
+import BestStoreItemContainerPage from "../../../commons/card/BestStoreCard/BestStoreItem.container";
+import InfiniteScroll from "react-infinite-scroller";
+import StoreSearchBarPage from "../../../commons/shopSearchBar/shopSearchBar.container";
+
+export default function ShopPresenterPage(props) {
+  return (
+    //   전체페이지
+    <S.Page>
+      {/* 메인 */}
+      <S.Main>
+        {/* 타이틀 */}
+        <S.TitleSection>단짝 스토어</S.TitleSection>
+        {/* 검색바 */}
+        <S.SearchSection>
+          <StoreSearchBarPage />
+        </S.SearchSection>
+        {/* 내용 */}
+        <S.ContentsSection>
+          {/* 베스트게시글 */}
+          <S.BestContentsSection>
+            {/* 베스트게시글타이틀 */}
+            <S.BestContentsTitleArticle>
+              <S.BestContentsTitleTop>실시간</S.BestContentsTitleTop>
+              <S.BestContentsTitleBottom>TOP 3</S.BestContentsTitleBottom>
+            </S.BestContentsTitleArticle>
+            {/* 베스트게시글 */}
+            <BestStoreItemContainerPage />
+          </S.BestContentsSection>
+          {/* 메인게시글 */}
+
+          <div style={{ height: "auto", overflow: "auto" }}>
+            <InfiniteScroll
+              pageStart={0}
+              loadMore={props.shopListDataLoadMore}
+              hasMore={false}
+              useWindow={false}
+            >
+              <S.StoreContentsSection>
+                {props.shopListData?.fetchShops.map((el: any) => (
+                  <StoreItemContainerPage
+                    el={el}
+                    key={uuidv4()}
+                    id={el.shopId}
+                  />
+                ))}
+              </S.StoreContentsSection>
+            </InfiniteScroll>
+          </div>
+        </S.ContentsSection>
+        {/* 위로가기 버튼 */}
+        <S.UpBtnSection>
+          <TopButton />
+        </S.UpBtnSection>
+      </S.Main>
+    </S.Page>
+  );
+}

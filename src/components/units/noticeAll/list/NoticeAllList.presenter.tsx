@@ -42,7 +42,7 @@ export default function NoticeListPresenterPage(props: any) {
               {el?.subCategory?.subCategoryName === "TASTING" && "시식단 모집"}
             </S.NoticeTdCategory>
             <S.NoticeTdTitle id={el.noticeId} onClick={props.onClickMoveNoticeDetail}>
-              {el.noticeContents}
+              {el.noticeTitle}
             </S.NoticeTdTitle>
             <S.NoticeTdCreateAt>
               {getDateDot(el.createAt)}

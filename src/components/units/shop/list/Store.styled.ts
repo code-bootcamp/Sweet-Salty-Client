@@ -12,7 +12,6 @@ export const Main = styled.div`
   display: flex;
   flex-direction: column;
   width: 1338px;
-  border: 1px solid red;
 `;
 
 export const TitleSection = styled.div`
@@ -41,6 +40,7 @@ export const BestContentsSection = styled.div`
 export const BestContentsTitleArticle = styled.div`
   display: flex;
   flex-direction: column;
+  padding: 0px 130px 0px 0px;
 `;
 
 export const BestContentsTitleTop = styled.div`
@@ -55,6 +55,9 @@ export const BestContentsTitleBottom = styled.div`
 
 export const StoreContentsSection = styled.div`
   padding: 30px 0px 0px 0px;
+  display: grid;
+  flex-wrap: wrap;
+  grid-template-columns: 25% 25% 25% 25%;
 `;
 
 export const UpBtnSection = styled.div`

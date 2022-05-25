@@ -13,6 +13,7 @@ import SearchCategoryItemContainerPage from "../../../../commons/card/CategorySe
 export default function CommonReviewPresenterPage(props: any) {
   const dataForCategory = props.fetchBoardsCategoryData?.fetchBoardCategoryPick;
   const dataForTags = props.fetchBoardWithTagData?.fetchBoardWithTags.hits.hits;
+
   return (
     <S.CommonReviewWrapper>
       <S.Title>단짠 게시판</S.Title>
@@ -38,7 +39,13 @@ export default function CommonReviewPresenterPage(props: any) {
 
             <S.ReviewSection>
               {/* 베스트리뷰3개 */}
-              <BestReviewItemContainerPage />
+              {props.fetchBoardBestData?.fetchBoardBest.map((el: any) => (
+                <BestReviewItemContainerPage
+                  key={uuidv4()}
+                  el={el}
+                  id={el.boardId}
+                />
+              ))}
             </S.ReviewSection>
           </S.TopThreeBox>
 

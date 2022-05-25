@@ -6,15 +6,17 @@ export default function CommonReviewItemPresenterPage(props) {
       onClick={props.onClickDetailPage}
       id={props.fetchBoardsData?.boardId}
     >
-      <S.ItemImg
-        style={{
-          backgroundImage: `url(https://storage.googleapis.com/${props.fetchBoardsData?.thumbnail})`,
-          backgroundSize: "cover",
-          backgroundRepeat: "no-repeat",
-        }}
-      >
-        <S.ItemProfile></S.ItemProfile>
-      </S.ItemImg>
+      <div>
+        <S.ItemImg
+          style={{
+            backgroundImage: `url(https://storage.googleapis.com/${props.fetchBoardsData?.thumbnail})`,
+            backgroundSize: "cover",
+            backgroundRepeat: "no-repeat",
+          }}
+        >
+          <S.ItemProfile></S.ItemProfile>
+        </S.ItemImg>
+      </div>
       <S.ItemInfoDiv>
         <S.ItemInfoTopDiv>
           <S.ItemInfoLeftDiv>

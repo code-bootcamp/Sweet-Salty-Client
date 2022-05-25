@@ -166,7 +166,6 @@ export default function WriteMapPage(props) {
               itemEl.addEventListener("click", function (e) {
                 displayInfowindow(marker, title);
                 props.setAddress(places[i]);
-                // console.log(places[i]);
                 map.panTo(placePosition);
               });
             })(marker, places[i].place_name);

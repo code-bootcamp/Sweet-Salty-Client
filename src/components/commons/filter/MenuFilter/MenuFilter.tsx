@@ -1,8 +1,7 @@
 import * as S from "./MenuFilter.styles";
-import { useState } from "react";
 
 export default function MenuFilterPage(props) {
-  const isSelect = [
+  const menuData = [
     { key: "0", value: "비건", checked: false, index: 0 },
     { key: "1", value: "아시안푸드", checked: false, index: 1 },
     { key: "2", value: "양식", checked: false, index: 2 },
@@ -48,7 +47,7 @@ export default function MenuFilterPage(props) {
         </label>
       ))} */}
 
-      {isSelect.map((el) => (
+      {menuData.map((el) => (
         <label className="checkbox" key={el.key}>
           <input
             type="checkbox"

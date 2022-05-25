@@ -13,7 +13,6 @@ import SearchCategoryItemContainerPage from "../../../../commons/card/CategorySe
 export default function CommonReviewPresenterPage(props: any) {
   const dataForCategory = props.fetchBoardsCategoryData?.fetchBoardCategoryPick;
   const dataForTags = props.fetchBoardWithTagData?.fetchBoardWithTags.hits.hits;
-
   return (
     <S.CommonReviewWrapper>
       <S.Title>단짠 게시판</S.Title>
@@ -35,6 +34,10 @@ export default function CommonReviewPresenterPage(props: any) {
             setMenuHashTag={props.setMenuHashTag}
             moodHashTag={props.moodHashTag}
             setMoodHashTag={props.setMoodHashTag}
+            locationHashTag={props.locationHashTag}
+            setLocationHashTag={props.setLocationHashTag}
+            locationTagCheckList={props.locationTagCheckList}
+            setLocationTagCheckList={props.setLocationTagCheckList}
           />
 
           <S.TopThreeBox>

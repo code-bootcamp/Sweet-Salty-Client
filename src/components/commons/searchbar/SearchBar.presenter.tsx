@@ -45,6 +45,7 @@ export default function SearchBarPresenter(props: any) {
           <S.SearchBar
             type="text"
             placeholder="검색어를 입력하세요."
+            onChange={props.onChangeSearchbar}
           />
           <S.SearchIcon />
         </S.SearchInnerBox>

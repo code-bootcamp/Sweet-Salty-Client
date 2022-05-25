@@ -1,13 +1,42 @@
 // searchbar Container === 김치훈
 
+import { useQuery } from "@apollo/client";
 import { useRouter } from "next/router";
-import { useState } from "react";
+import { useState, ChangeEvent } from "react";
 import SearchBarPresenter from "./SearchBar.presenter";
+import { FETCH_NOTICE_SEARCH_CONTENTS, FETCH_NOTICE_SEARCH_TITLE } from "./SearchBar.queries";
+import _ from "lodash";
 
-export default function SearchBarPage() {
+export default function SearchBarPage(props: any) {
   const router = useRouter();
 
   const [isButton, setIsButton] = useState(false);
+  const [ searchTitle, setSearchTitle ] = useState("")
+
+  const getDebounce = _.debounce((data: string) => {
+    props.refetch({search: data, page: 1 });
+    props.refetchNoticeCount({ search: data});
+    props.onChangeKeyword(data)
+  }, 200);
+
+  function onChangeSearchbar(event: ChangeEvent<HTMLInputElement>){
+    getDebounce(event.target.value)
+  }
+
+  const {data: titlesearch} = useQuery(FETCH_NOTICE_SEARCH_TITLE, {
+    variables: {
+      title: searchTitle
+    }
+  })
+  const {data: contentssearch} = useQuery(FETCH_NOTICE_SEARCH_CONTENTS, {
+    variables: {
+      contents: "d"
+    }
+  })
+
+  const onChangeTitle = (event: any) =>{
+    setSearchTitle(event.target.value)
+  }
 
   // 전체리뷰
   const ReviewList = ["/reviews"];
@@ -53,6 +82,8 @@ export default function SearchBarPage() {
 
   return (
     <SearchBarPresenter
+      onChangeTitle={onChangeTitle}
+      onChangeSearchbar={onChangeSearchbar}
       isReviewList={isReviewList}
       isCommonReviewList={isCommonReviewList}
       isTesterReview={isTesterReview}

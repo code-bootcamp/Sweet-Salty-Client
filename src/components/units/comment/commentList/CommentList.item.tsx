@@ -55,8 +55,8 @@ export default function CommentItemPage(props) {
       </S.ProfileWrapDiv>
       <S.ContentsDiv>내용 : {props.el?.commentContents}</S.ContentsDiv>
       </div>
-      {/* <div>좋아요개수 : {props.el?.commentLikeCount}</div>
-      <div onClick={onClickLike(props.el?.commentId)}>좋아요버튼</div> */}
+      <div>좋아요개수 : {props.el?.commentLikeCount}</div>
+      <div onClick={onClickLike(props.el?.commentId)}>좋아요버튼</div>
       {showDelete &&(<S.DeleteBtn onClick={onClickDelete(props.el?.commentId)}>삭제</S.DeleteBtn>)}
     </S.BoxDiv>
   )

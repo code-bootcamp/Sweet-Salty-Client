@@ -6,15 +6,13 @@ import SearchBarPresenter from "./SearchBar.presenter";
 
 export default function SearchBarPage() {
   const router = useRouter();
-  console.log(router)
 
-  const [isButton, setIsButton] = useState(false)
+  const [isButton, setIsButton] = useState(false);
 
-
-  // 전체리뷰 
+  // 전체리뷰
   const ReviewList = ["/reviews"];
   const isReviewList = ReviewList.includes(router.asPath);
-  // 단짠리뷰 
+  // 단짠리뷰
   const CommonReviewList = ["/reviews/commonReview"];
   const isCommonReviewList = CommonReviewList.includes(router.asPath);
   // 시식단리뷰
@@ -59,13 +57,11 @@ export default function SearchBarPage() {
       isCommonReviewList={isCommonReviewList}
       isTesterReview={isTesterReview}
       isWishList={isWishList}
-
       isNoticeAllList={isNoticeAllList}
       isNoticeList={isNoticeList}
       isNoticeEventList={isNoticeEventList}
       isNoticePromoionList={isNoticePromoionList}
       isNoticeTasterList={isNoticeTasterList}
-      
       onClickReviewDetail={onClickReviewDetail}
       onClickWishDetail={onClickWishDetail}
       onClickNoticeList={onClickNoticeList}

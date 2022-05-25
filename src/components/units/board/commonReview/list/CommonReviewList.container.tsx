@@ -9,15 +9,7 @@ import {
 } from "./CommonReviewList.queries";
 
 export default function CommonReviewContainerPage() {
-  const [menuHashTag, setMenuHashTag] = useState([]);
-  const [menuTagCheckList, setMenuTagCheckList] = useState([]);
-  const [moodHashTag, setMoodHashTag] = useState([]);
-  const [moodTagCheckList, setMoodTagCheckList] = useState([]);
-  const [locationHashTag, setLocationHashTag] = useState([]);
-  const [locationTagCheckList, setLocationTagCheckList] = useState([]);
-
-  const searchTags = _.concat(moodHashTag, menuHashTag, locationHashTag);
-
+  const [commonReviewSearch, setCommonReviewSearch] = useState([]);
   const {
     data: fetchBoardsCategoryData,
     fetchMore: CategoryFetchMore,
@@ -34,10 +26,9 @@ export default function CommonReviewContainerPage() {
     refetch: TagRefetch,
   } = useQuery(FETCH_BOARD_WITH_TAGS, {
     variables: {
-      tags: searchTags,
+      tags: commonReviewSearch,
     },
   });
-  console.log("ggk", fetchBoardWithTagData);
   const infiniteTagArr = fetchBoardWithTagData?.fetchBoardWithTags.hits;
   // 전체 데이터 무한스크롤
   const categoryDataLoadMore = () => {
@@ -85,21 +76,10 @@ export default function CommonReviewContainerPage() {
       filterDataLoadMore={filterDataLoadMore}
       fetchBoardsCategoryData={fetchBoardsCategoryData}
       fetchBoardWithTagData={fetchBoardWithTagData}
-      menuTagCheckList={menuTagCheckList}
-      setMenuTagCheckList={setMenuTagCheckList}
-      moodTagCheckList={moodTagCheckList}
-      setMoodTagCheckList={setMoodTagCheckList}
-      menuHashTag={menuHashTag}
-      setMenuHashTag={setMenuHashTag}
-      moodHashTag={moodHashTag}
-      locationHashTag={locationHashTag}
-      setLocationHashTag={setLocationHashTag}
-      locationTagCheckList={locationTagCheckList}
-      setLocationTagCheckList={setLocationTagCheckList}
-      setMoodHashTag={setMoodHashTag}
+      commonReviewSearch={commonReviewSearch}
+      setCommonReviewSearch={setCommonReviewSearch}
       CategoryRefetch={CategoryRefetch}
       TagRefetch={TagRefetch}
-      searchTags={searchTags}
     />
   );
 }

@@ -7,12 +7,10 @@ import LikeButton from "../../../../commons/like";
 import ToastViewerPage from "../../../../commons/toast/viewer";
 import TopButton from "../../../../commons/topbutton";
 import CommentListContainerPage from "../../../comment/commentList/CommentList.container";
-import CommentListPresenterPage from "../../../comment/commentList/CommentList.presenter";
 import CommentWriteContainerPage from "../../../comment/commentWrite/CommentWrite.presenter";
 import * as S from "./CommonReviewDetail.styles";
 
 export default function ReviewDetailPresenter(props: any) {
-
   return (
     <S.Wrapper>
       <S.Title>
@@ -102,8 +100,7 @@ export default function ReviewDetailPresenter(props: any) {
         <S.CommentBox>
           <S.CommentTitle>댓글</S.CommentTitle>
           <CommentWriteContainerPage />
-          <CommentListContainerPage/>
-          
+          <CommentListContainerPage />
         </S.CommentBox>
       </S.ReviewBox>
 

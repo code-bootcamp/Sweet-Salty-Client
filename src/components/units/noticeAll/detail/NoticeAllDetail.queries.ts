@@ -11,6 +11,9 @@ export const FETCH_NOTICE = gql`
       noticeHit
       noticeSubject
       createAt
+      images{
+        url
+      }
     }
   }
 `

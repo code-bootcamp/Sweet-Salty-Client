@@ -6,12 +6,15 @@ import SearchBarPage from "../../../../commons/searchbar/SearchBar.container";
 import * as S from "./NoticeList.styled";
 
 export default function NoticeListPresenterPage(props: any) {
-  console.log(props.data)
   return (
     <S.Wrapper>
       <S.Title>공지사항 <S.RightOutline /> 단짠 공지</S.Title>
       <S.SearchBarBox>
-        <SearchBarPage />
+        <SearchBarPage 
+          refetch={props.refetch} 
+          refetchNoticeCount={props.refetchNoticeCount}
+          onChangeKeyword={props.onChangeKeyword}
+        />
       </S.SearchBarBox>
 
       <S.ReviewMenuBox>

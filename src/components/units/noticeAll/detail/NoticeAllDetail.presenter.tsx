@@ -5,7 +5,6 @@ import TopButton from "../../../commons/topbutton"
 import * as S from "./NoticeAllDetail.styles"
 
 export default function NoticeAllDetailPresenter(props: any){
-
   return (
   <S.Wrapper>
     <S.Title>공지사항</S.Title>
@@ -42,8 +41,7 @@ export default function NoticeAllDetailPresenter(props: any){
       <S.NoticeDetailHr/>
 
       <S.ImageBox>
-        <S.Image src=""></S.Image>
-        <S.Image src=""></S.Image>
+        <S.Image src={`https://storage.googleapis.com/${props.data?.fetchNotice.images[0].url}`}></S.Image>
       </S.ImageBox>
 
       <S.Contents>

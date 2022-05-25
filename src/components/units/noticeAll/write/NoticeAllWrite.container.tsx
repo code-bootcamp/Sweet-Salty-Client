@@ -42,7 +42,6 @@ export default function NoticeAllWriteContainerPage(props: any) {
   
   // 이미지 업로드
   const [fileUrls, setFileUrls] = useState([""]);
-  // console.log(fileUrls)
 
   const onChangeFileUrls = (fileUrl: string, index: number) => {
     const newFileUrls = [...fileUrls];
@@ -53,7 +52,6 @@ export default function NoticeAllWriteContainerPage(props: any) {
 
   
   const onClickSubmit = async (data: any) => {
-    // console.log(subCategoryName);
     try {
       const result = await createNotice({
         variables: {
@@ -65,21 +63,7 @@ export default function NoticeAllWriteContainerPage(props: any) {
           },
         },
       });
-      // console.log(result)
-      console.log(result.data?.createNotice?.noticeSubject)
-      if(result.data?.createNotice?.noticeSubject === "NOTICE"){
-        console.log("공지사항")
-      }
-      if(result.data?.createNotice?.noticeSubject === "EVENT"){
-        console.log("이벤트")
-      }
-      if(result.data?.createNotice?.noticeSubject === "PROMOTION"){
-        console.log("프로모션")
-      }
-      if(result.data?.createNotice?.noticeSubject === "TASTING"){
-        console.log("시식단모집")
-      }
-      // router.push(`./${result.data?.createNotice?.noticeId}`)
+      router.push(`./${result.data.createNotice.noticeId}`)
     } catch (error: any) {
       alert(error.message);
     }

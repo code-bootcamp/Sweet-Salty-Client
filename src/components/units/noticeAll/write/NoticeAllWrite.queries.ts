@@ -7,17 +7,6 @@ export const CREATE_NOTICE = gql`
     mutation createNotice($createNoticeInput: CreateNoticeInput!){
         createNotice(createNoticeInput: $createNoticeInput){
             noticeId
-            noticeTitle
-            noticeContents
-            noticeHit
-            noticeSubject
-            createAt
-            subCategory {
-                subCategoryId
-            }
-            images{
-                url
-            }
         }
 }
 `;

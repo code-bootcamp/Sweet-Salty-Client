@@ -2,11 +2,9 @@ import { gql } from "@apollo/client";
 
 
 export const CREATE_POINT_TRANSACTION = gql`
-  mutation createPointTransaction($impUid: String!){
-  createPointTransaction(impUid: $impUid){
-    id
-    impUid
-    amount
+  mutation createPointTransaction($impUid: String!, $amount: Float!){
+    createPointTransaction(impUid: $impUid, amount: $amount){
+      id
   }
 }
 `
@@ -20,7 +18,6 @@ export const FETCH_USER = gql`
       userName
       userNickname
       userPhone
-      userAddress
       userPoint
       ageGroup
       gender

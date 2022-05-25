@@ -100,9 +100,8 @@ export default function ReviewDetailPresenter(props: any) {
         <S.ReviewHr />
 
         <S.CommentBox>
-          <S.CommentTitle>단짠 리뷰에 대한 댓글</S.CommentTitle>
+          <S.CommentTitle>댓글</S.CommentTitle>
           <CommentWriteContainerPage />
-          <CommentListPresenterPage/>
           <CommentListContainerPage/>
           
         </S.CommentBox>

@@ -45,7 +45,26 @@ export default function SignUpPresenterPage(props) {
       <button type="button" onClick={props.onClickGetNumber}>전화번호인증</button>
       <SignupInput type="text" placeholder="인증번호를 입력하세요." onChange={props.onChangeSerialNumber}></SignupInput>
       <button type="button" onClick={props.onClickCheckNumber}>인증확인</button>
-    
+<div>
+      <select onChange={props.onChangeGender}>
+        <option selected disabled>성별 선택</option>
+        <option value="MALE">남성</option>
+        <option value="FEMALE">여성</option>
+        <option value="PRIVATE">비밀♡</option>
+      </select>
+      </div>
+<div>
+      <select onChange={props.onChangeAge}>
+      <option selected disabled>연령대 선택</option>
+        <option value="NONE">비밀♡</option>
+        <option value="TEN">10대</option>
+        <option value="TWENTY">20대</option>
+        <option value="THIRTY">30대</option>
+        <option value="FORTY">40대</option>
+        <option value="FIFTY">50대</option>
+        <option value="SIXTY">60대</option>
+      </select>
+      </div>
       <S.SubmitBtn type="submit">회원가입</S.SubmitBtn>
       <S.CancleBtn type="button" onClick={props.onClickBack}>취소</S.CancleBtn>
           <S.GoLoginTxt>이미 아이디가 있으신가요? <S.GoLoginA href="/login">로그인</S.GoLoginA></S.GoLoginTxt>

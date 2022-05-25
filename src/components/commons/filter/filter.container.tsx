@@ -29,8 +29,10 @@ export default function FilterContainer(props) {
   const onClickReset = () => {
     props.setMenuHashTag([]);
     props.setMoodHashTag([]);
+    props.setLocationHashTag([]);
     props.setMenuTagCheckList([]);
     props.setMoodTagCheckList([]);
+    props.setLocationTagCheckList([]);
   };
 
   return (

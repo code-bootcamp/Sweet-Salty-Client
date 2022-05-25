@@ -1,17 +1,19 @@
 import styled from "@emotion/styled";
 
 
+
 export const UploadImage = styled.img`
-  width: 210px;
+  width: 300px;
   height: 210px;
   cursor: pointer;
-  object-fit: cover;
+  object-fit: contain;
   border-radius: 20px;
 `;
 
 export const UploadButton = styled.button`
-  width: 210px;
+width: 300px;
   height: 210px;
+  margin-right: 20px; 
   background: #dbdbdb;
   border-radius: 20px;
   outline: none;

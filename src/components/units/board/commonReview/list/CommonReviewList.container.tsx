@@ -1,5 +1,6 @@
 // 일반리뷰 List 페이지 container
 import { useQuery } from "@apollo/client";
+import _ from "lodash";
 import { useState } from "react";
 import CommonReviewPresenterPage from "./CommonReviewList.presenter";
 import {
@@ -12,9 +13,11 @@ export default function CommonReviewContainerPage() {
   const [menuTagCheckList, setMenuTagCheckList] = useState([]);
   const [moodHashTag, setMoodHashTag] = useState([]);
   const [moodTagCheckList, setMoodTagCheckList] = useState([]);
+  const [locationHashTag, setLocationHashTag] = useState([]);
+  const [locationTagCheckList, setLocationTagCheckList] = useState([]);
 
-  const searchTags = moodHashTag.concat(menuHashTag);
-  console.log(searchTags);
+  const searchTags = _.concat(moodHashTag, menuHashTag, locationHashTag);
+
   const {
     data: fetchBoardsCategoryData,
     fetchMore: CategoryFetchMore,
@@ -34,7 +37,7 @@ export default function CommonReviewContainerPage() {
       tags: searchTags,
     },
   });
-
+  console.log("ggk", fetchBoardWithTagData);
   const infiniteTagArr = fetchBoardWithTagData?.fetchBoardWithTags.hits;
   // 전체 데이터 무한스크롤
   const categoryDataLoadMore = () => {
@@ -89,6 +92,10 @@ export default function CommonReviewContainerPage() {
       menuHashTag={menuHashTag}
       setMenuHashTag={setMenuHashTag}
       moodHashTag={moodHashTag}
+      locationHashTag={locationHashTag}
+      setLocationHashTag={setLocationHashTag}
+      locationTagCheckList={locationTagCheckList}
+      setLocationTagCheckList={setLocationTagCheckList}
       setMoodHashTag={setMoodHashTag}
       CategoryRefetch={CategoryRefetch}
       TagRefetch={TagRefetch}

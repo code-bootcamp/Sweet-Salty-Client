@@ -18,13 +18,17 @@ export const OpenTag = styled.div`
 
   .checkbox_text {
     display: flex;
+    background-color: #d2d2d2;
     margin-left: 10px;
     font-size: 16px;
-    color: #d8d8d8;
+    color: #ffffff;
     padding: 7px 20px;
     border-radius: 50px;
-    border: 2px solid #dbdbdb;
     cursor: pointer;
+    &:hover {
+      background-color: #ff9a31;
+      color: #ffffff;
+    }
   }
 
   // 체크박스 테두리
@@ -33,7 +37,6 @@ export const OpenTag = styled.div`
     background-color: transparent;
     width: 20px;
     height: 20px;
-    border: 1px solid #cacaca;
     border-radius: 2px;
     position: relative;
     cursor: pointer;
@@ -41,7 +44,7 @@ export const OpenTag = styled.div`
 
   // 체크되었을 때 설정
   .checkbox input:checked + .checkbox_text {
-    border: 2px solid #ffa230;
-    color: #ffa230;
+    color: #ffffff;
+    background-color: #ffa230;
   }
 `;

@@ -1,8 +1,7 @@
 import * as S from "./MoodFilter.styles";
-import { useState } from "react";
 
 export default function MoodFilterPage(props) {
-  const [isSelect, setIsSelect] = useState([
+  const moodData = [
     { key: "0", value: "가족들과", checked: false, index: 0 },
     { key: "1", value: "동창회자리로좋은", checked: false, index: 0 },
     { key: "2", value: "부모님과함께", checked: false, index: 0 },
@@ -14,9 +13,9 @@ export default function MoodFilterPage(props) {
     { key: "8", value: "혼밥하기좋은", checked: false, index: 0 },
     { key: "9", value: "혼술하기좋은", checked: false, index: 0 },
     { key: "10", value: "회식자리로좋은", checked: false, index: 0 },
-  ]);
+  ];
 
-  const onCheckedElement = (checked, item) => {
+  const onChangeMood = (checked, item) => {
     if (checked) {
       props.setMoodTagCheckList([...props.moodTagCheckList, item]);
       props.setMoodHashTag([...props.moodHashTag, item]);
@@ -30,18 +29,20 @@ export default function MoodFilterPage(props) {
 
   return (
     <S.OpenTag>
-      {isSelect.map((el, idx) => (
+      {moodData.map((el) => (
         <label className="checkbox" key={el.key}>
           <input
             type="checkbox"
             value={el.value}
-            id={idx}
             onChange={(e) => {
-              onCheckedElement(e.target.checked, e.target.value);
+              onChangeMood(e.target.checked, e.target.value);
             }}
             checked={props.moodTagCheckList.includes(el.value) ? true : false}
           />
-          <span className="checkbox_text">{el.value}</span>
+          <span className="checkbox_text">
+            <img className="check_icon" src="/images/check.png" />
+            {el.value}
+          </span>
         </label>
       ))}
     </S.OpenTag>

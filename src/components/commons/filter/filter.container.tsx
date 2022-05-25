@@ -1,7 +1,7 @@
 // 단짠 게시판 페이지-필터-박스 Container === 김치훈
 
 import { useQuery } from "@apollo/client";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 import FilterPresenter from "./filter.presenter";
 import { FETCH_TAGS } from "./filter.queries";
@@ -15,6 +15,10 @@ export default function FilterContainer(props) {
   const { data: moodData } = useQuery(FETCH_TAGS, {
     variables: { refName: "MOOD" },
   });
+  const { data: locationData } = useQuery(FETCH_TAGS, {
+    variables: { refName: "REGION" },
+  });
+
   const onClickFilterOpen = () => {
     setIsOpen((prev) => !prev);
   };
@@ -35,6 +39,7 @@ export default function FilterContainer(props) {
       onClickFilterOpen={onClickFilterOpen}
       menuData={menuData}
       moodData={moodData}
+      locationData={locationData}
       menuTagCheckList={props.menuTagCheckList}
       setMenuTagCheckList={props.setMenuTagCheckList}
       moodTagCheckList={props.moodTagCheckList}
@@ -43,6 +48,10 @@ export default function FilterContainer(props) {
       setMenuHashTag={props.setMenuHashTag}
       moodHashTag={props.moodHashTag}
       setMoodHashTag={props.setMoodHashTag}
+      locationHashTag={props.locationHashTag}
+      setLocationHashTag={props.setLocationHashTag}
+      locationTagCheckList={props.locationTagCheckList}
+      setLocationTagCheckList={props.setLocationTagCheckList}
       onClickReset={onClickReset}
       onClickFilterApply={onClickFilterApply}
     />

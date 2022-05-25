@@ -2,12 +2,15 @@
 
 import { useQuery } from "@apollo/client";
 import { useRouter } from "next/router";
+import { useState } from "react";
 import NoticeListPresenterPage from "./NoticeList.presenter";
 import { FETCH_NOTICE_COUNT,FETCH_NOTICE_CATEGORY_PICK } from "./NoticeList.queries";
 
 
 
 export default function NoticeListContainerPage() {
+  const [keyword, setKeyword] = useState("")
+
   const router = useRouter();
   
   const {data, refetch} = useQuery(FETCH_NOTICE_CATEGORY_PICK, {
@@ -15,11 +18,16 @@ export default function NoticeListContainerPage() {
       category: "NOTICE"
     }
   })
-  const {data: NoticePagecount} = useQuery(FETCH_NOTICE_COUNT, {
+  
+  const {data: NoticePagecount, refetch: refetchNoticeCount} = useQuery(FETCH_NOTICE_COUNT, {
     variables: {
       category: "NOTICE"
     }
   })
+
+  function onChangeKeyword(value: string){
+    setKeyword(value);
+  }
 
   const onClickNoticeAll = ()=>{
     router.push("/noticeAll")
@@ -47,13 +55,15 @@ export default function NoticeListContainerPage() {
 
   return <NoticeListPresenterPage
   data={data}
+  refetch={refetch}
+  onChangeKeyword={onChangeKeyword}
   count={NoticePagecount?.fetchNoticeCount}
+  refetchNoticeCount={refetchNoticeCount}
   onClickNoticeAll={onClickNoticeAll}
   onClickNotice={onClickNotice}
   onClickNoticeEvent={onClickNoticeEvent}
   onClickNoticePromotion={onClickNoticePromotion}
   onClickNoticTaster={onClickNoticTaster}
   isNotice={isNotice}
-  refetch={refetch}
   onClickMoveNoticeDetail={onClickMoveNoticeDetail} />;
 }

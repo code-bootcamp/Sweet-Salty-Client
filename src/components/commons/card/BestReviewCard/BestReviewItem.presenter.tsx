@@ -2,10 +2,6 @@
 import * as S from "./BestReviewItem.styles";
 
 export default function BestReviewItemPresenterPage(props) {
-  console.log(
-    "id",
-    props.fetchBestDetailData?.place.placeAddress.split(" ")[1]
-  );
   return (
     <S.ItemMainDiv onClick={props.onClickDetailPage} id={props.id}>
       <S.ItemImg

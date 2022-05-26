@@ -1,11 +1,11 @@
-import * as S from "./StoreItem.styles";
+import * as S from "./StoreSearchItem.styles";
 
-export default function StoreItemPresenterPage(props) {
+export default function StoreSearchItemPresenterPage(props) {
   return (
     <S.ItemMainDiv>
       <S.ItemImg
         style={{
-          backgroundImage: `url(https://storage.googleapis.com/${props.fetchShopListData?.thumbnail})`,
+          backgroundImage: `url(https://storage.googleapis.com/${props.el?.thumbnail})`,
           backgroundSize: "cover",
           backgroundRepeat: "no-repeat",
         }}
@@ -16,26 +16,22 @@ export default function StoreItemPresenterPage(props) {
         <S.ItemInfoTopDiv>
           <S.ItemInfoWrapDiv>
             <S.ItemInfoTxtDiv>
-              {props.fetchShopListData?.shopProductName}
+              {props.el?.shopproductname}
               <S.ItemInfoBarDiv>|</S.ItemInfoBarDiv>
-              {props.fetchShopListData?.shopSeller}
+              {props.el?.shopseller}
             </S.ItemInfoTxtDiv>
           </S.ItemInfoWrapDiv>
           <S.ItemInfoWrapDiv>
             <S.ItemInfoLikeCount />
-            <S.ItemInfoCountDiv>99999</S.ItemInfoCountDiv>
+            <S.ItemInfoCountDiv>좋아요</S.ItemInfoCountDiv>
           </S.ItemInfoWrapDiv>
         </S.ItemInfoTopDiv>
         <S.ItemInfoBottomDiv>
-          <S.ItemDCRateDiv>
-            {props.fetchShopListData?.shopDisCount}%
-          </S.ItemDCRateDiv>
-          <S.ItemPriceDiv>
-            {props.fetchShopListData?.shopDisCountPrice}
-          </S.ItemPriceDiv>
+          <S.ItemDCRateDiv>{props.el?.shopdiscount}%</S.ItemDCRateDiv>
+          <S.ItemPriceDiv>{props.el?.shopdiscountprice}</S.ItemPriceDiv>
           <S.ItemWonDiv>원</S.ItemWonDiv>
           <S.ItemNoDCPriceDiv>
-            {props.fetchShopListData?.shopOriginalPrice}원
+            {props.el?.shoporiginalprice}원
           </S.ItemNoDCPriceDiv>
         </S.ItemInfoBottomDiv>
       </S.ItemInfoDiv>

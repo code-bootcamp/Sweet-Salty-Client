@@ -19,14 +19,14 @@ export default function WriteMessagePage(){
             await sendMessage({
                 variables: {
                     sendMessageInput:{
-                        title: "0",
                         contents: data.contents,
                         receiveUser : data.receiveUser
                     }
                 }
             })
-            setValue("contents", "");
             alert(`${data.receiveUser}님께 쪽지가 전송되었습니다.`)
+            setValue("contents", "");
+            setValue("receiveUser", "");
         } catch(error : any){alert(error.message)}
     }
     return(

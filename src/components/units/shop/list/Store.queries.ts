@@ -22,3 +22,8 @@ export const FETCH_SHOP_SELLER = gql`
     fetchShopSeller(seller: $seller)
   }
 `;
+export const FETCH_SHOP_TITLE = gql`
+  query fetchShopTitles($title: String!) {
+    fetchShopTitles(title: $title)
+  }
+`;

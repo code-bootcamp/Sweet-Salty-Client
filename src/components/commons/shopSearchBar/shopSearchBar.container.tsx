@@ -1,72 +1,43 @@
 // searchbar Container === 김치훈
 
-import { useRouter } from "next/router";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import StoreSearchBarPresenter from "./shopSearchBar.presenter";
 
-export default function StoreSearchBarPage(props) {
-  const router = useRouter();
+export default function StoreSearchBarContainerPage(props) {
+  const inputRef = useRef<HTMLInputElement>(null);
+  const conditionRef = useRef<HTMLInputElement>(null);
+  const [searchCondition, setSearchCondition] = useState("");
 
-  const [isButton, setIsButton] = useState(false);
-
-  // 전체리뷰
-  const ReviewList = ["/reviews"];
-  const isReviewList = ReviewList.includes(router.asPath);
-  // 단짠리뷰
-  const CommonReviewList = ["/reviews/commonReview"];
-  const isCommonReviewList = CommonReviewList.includes(router.asPath);
-  // 시식단리뷰
-  const TesterReview = ["/reviews/testerReview"];
-  const isTesterReview = TesterReview.includes(router.asPath);
-  // 거주세요! 리뷰
-  const WishList = ["/reviews/wish"];
-  const isWishList = WishList.includes(router.asPath);
-  // 전체 공지사항
-  const NoticeAllList = ["/noticeAll"];
-  const isNoticeAllList = NoticeAllList.includes(router.asPath);
-  // 단짠 공지 공지사항
-  const NoticeList = ["/noticeAll/notice"];
-  const isNoticeList = NoticeList.includes(router.asPath);
-  // 이벤트 공지사항
-  const NoticeEventList = ["/noticeAll/noticeEvent"];
-  const isNoticeEventList = NoticeEventList.includes(router.asPath);
-  // 프로모션 공지사항
-  const NoticePromoionList = ["/noticeAll/noticePromotion"];
-  const isNoticePromoionList = NoticePromoionList.includes(router.asPath);
-  // 시식단 모집 공지사항
-  const NoticeTasterList = ["/noticeAll/noticeTaster"];
-  const isNoticeTasterList = NoticeTasterList.includes(router.asPath);
-
-  const onClickReviewDetail = () => {
-    router.push("/reviews/commonReview/write");
-  };
-  const onClickWishDetail = () => {
-    router.push("/reviews/wish/write");
+  const onChangeSearchCondition = (event) => {
+    setSearchCondition(event.target.value);
   };
 
-  const onClickNoticeList = () => {
-    router.push("/noticeAll/write");
+  const onClickSearchKeyWord = () => {
+    if (conditionRef.current.value === "seller") {
+      props.setTitleSearch("");
+      props.setSellerSearch(inputRef.current.value);
+    } else {
+      props.setSellerSearch("");
+      props.setTitleSearch(inputRef.current.value);
+    }
   };
-  const onClickButtonBox = () => {
-    setIsButton((prev) => !prev);
+  const onKeyUpInput = (event) => {
+    if (conditionRef.current.value === "seller" && event.keyCode === 13) {
+      props.setTitleSearch("");
+      props.setSellerSearch(event.target.value);
+    } else if (conditionRef.current.value === "title" && event.keyCode === 13) {
+      props.setSellerSearch("");
+      props.setTitleSearch(event.target.value);
+    }
   };
 
   return (
     <StoreSearchBarPresenter
-      isReviewList={isReviewList}
-      isCommonReviewList={isCommonReviewList}
-      isTesterReview={isTesterReview}
-      isWishList={isWishList}
-      isNoticeAllList={isNoticeAllList}
-      isNoticeList={isNoticeList}
-      isNoticeEventList={isNoticeEventList}
-      isNoticePromoionList={isNoticePromoionList}
-      isNoticeTasterList={isNoticeTasterList}
-      onClickReviewDetail={onClickReviewDetail}
-      onClickWishDetail={onClickWishDetail}
-      onClickNoticeList={onClickNoticeList}
-      isButton={isButton}
-      onClickButtonBox={onClickButtonBox}
+      onClickSearchKeyWord={onClickSearchKeyWord}
+      onChangeSearchCondition={onChangeSearchCondition}
+      onKeyUpInput={onKeyUpInput}
+      inputRef={inputRef}
+      conditionRef={conditionRef}
     />
   );
 }

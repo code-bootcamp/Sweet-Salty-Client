@@ -9,12 +9,24 @@ export default function StoreSearchBarPresenter(props: any) {
 
       <S.SearchBox>
         <S.SearchInnerBox>
-          <S.Select id="searchSelect">
-            <option value="메뉴명">메뉴명</option>
-            <option value="가게명">가게명</option>
+          <S.Select
+            id="searchSelect"
+            onChange={props.onChangeSearchCondition}
+            defaultValue="default"
+            ref={props.conditionRef}
+          >
+            <option value="default" disabled>
+              선택
+            </option>
+            <option value="title">메뉴명</option>
+            <option value="seller">가게명</option>
           </S.Select>
-          <S.SearchBar type="text" placeholder="검색어를 입력하세요." />
-          <S.SearchIcon />
+          <S.SearchBar
+            onKeyUp={props.onKeyUpInput}
+            type="text"
+            placeholder="검색어를 입력하세요."
+          />
+          <S.SearchIcon type="button" onClick={props.onClickSearchKeyWord} />
         </S.SearchInnerBox>
       </S.SearchBox>
     </S.Wrapper>

@@ -4,9 +4,15 @@ import StoreItemContainerPage from "../../../commons/card/StoreCard/StoreItem.co
 import { v4 as uuidv4 } from "uuid";
 import BestStoreItemContainerPage from "../../../commons/card/BestStoreCard/BestStoreItem.container";
 import InfiniteScroll from "react-infinite-scroller";
-import StoreSearchBarPage from "../../../commons/shopSearchBar/shopSearchBar.container";
+import StoreSearchBarContainerPage from "../../../commons/shopSearchBar/shopSearchBar.container";
+import StoreSearchItemContainerPage from "../../../commons/card/StoreSearchCard/StoreSearchItem.container";
 
 export default function ShopPresenterPage(props) {
+  const dataForSellerSearch = props.sellerSearchData?.fetchShopSeller.hits.hits;
+  const dataForTitleSearch = props.titleSearchData?.fetchShopTitles.hits.hits;
+  console.log("프롭스", props.shopListData?.fetchShops);
+  console.log("프롭스 seller", dataForSellerSearch);
+  console.log("프롭스 title", dataForTitleSearch);
   return (
     //   전체페이지
     <S.Page>
@@ -16,7 +22,10 @@ export default function ShopPresenterPage(props) {
         <S.TitleSection>단짝 스토어</S.TitleSection>
         {/* 검색바 */}
         <S.SearchSection>
-          <StoreSearchBarPage />
+          <StoreSearchBarContainerPage
+            setSellerSearch={props.setSellerSearch}
+            setTitleSearch={props.setTitleSearch}
+          />
         </S.SearchSection>
         {/* 내용 */}
         <S.ContentsSection>
@@ -31,25 +40,64 @@ export default function ShopPresenterPage(props) {
             <BestStoreItemContainerPage />
           </S.BestContentsSection>
           {/* 메인게시글 */}
-
-          <div style={{ height: "auto", overflow: "auto" }}>
-            <InfiniteScroll
-              pageStart={0}
-              loadMore={props.shopListDataLoadMore}
-              hasMore={false}
-              useWindow={false}
-            >
-              <S.StoreContentsSection>
-                {props.shopListData?.fetchShops.map((el: any) => (
-                  <StoreItemContainerPage
-                    el={el}
-                    key={uuidv4()}
-                    id={el.shopId}
-                  />
-                ))}
-              </S.StoreContentsSection>
-            </InfiniteScroll>
-          </div>
+          {!props.sellerSearch.length && !props.titleSearch.length ? (
+            <div style={{ height: "auto", overflow: "auto" }}>
+              <InfiniteScroll
+                pageStart={0}
+                loadMore={props.shopListDataLoadMore}
+                hasMore={false}
+                useWindow={false}
+              >
+                <S.StoreContentsSection>
+                  {props.shopListData?.fetchShops.map((el: any) => (
+                    <StoreItemContainerPage
+                      el={el}
+                      key={uuidv4()}
+                      id={el.shopId}
+                    />
+                  ))}
+                </S.StoreContentsSection>
+              </InfiniteScroll>
+            </div>
+          ) : props.sellerSearch.length ? (
+            <div style={{ height: "auto", overflow: "auto" }}>
+              <InfiniteScroll
+                pageStart={0}
+                loadMore={props.sellerSearchDataLoadMore}
+                hasMore={false}
+                useWindow={false}
+              >
+                <S.StoreContentsSection>
+                  {dataForSellerSearch?.map((el: any) => (
+                    <StoreSearchItemContainerPage
+                      el={el._source}
+                      key={uuidv4()}
+                      id={el._id}
+                    />
+                  ))}
+                </S.StoreContentsSection>
+              </InfiniteScroll>
+            </div>
+          ) : (
+            <div style={{ height: "auto", overflow: "auto" }}>
+              <InfiniteScroll
+                pageStart={0}
+                loadMore={props.titleSearchDataLoadMore}
+                hasMore={false}
+                useWindow={false}
+              >
+                <S.StoreContentsSection>
+                  {dataForTitleSearch?.map((el: any) => (
+                    <StoreSearchItemContainerPage
+                      el={el._source}
+                      key={uuidv4()}
+                      id={el._id}
+                    />
+                  ))}
+                </S.StoreContentsSection>
+              </InfiniteScroll>
+            </div>
+          )}
         </S.ContentsSection>
         {/* 위로가기 버튼 */}
         <S.UpBtnSection>

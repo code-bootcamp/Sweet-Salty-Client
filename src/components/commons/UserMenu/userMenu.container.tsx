@@ -1,10 +1,10 @@
 // mypageMenu Container --- 김치훈
 
 import { useRouter } from "next/router";
-import MyPageMenuPresenter from "./mypageMenu.presenter";
+import UserMenuPresenter from "./UserMenu.presenter";
 
 
-export default function MyPageMenuContainer() {
+export default function UserMenuContainer() {
   const router = useRouter()
 
   const mypage = ["/mypage"]
@@ -25,12 +25,12 @@ export default function MyPageMenuContainer() {
   }
   
 
-  return <MyPageMenuPresenter 
-  ismypage={ismypage}
-  ismypageLike={ismypageLike}
-  ismypagePoint={ismypagePoint}
-  onClickMypage={onClickMypage}
-  onClickMypageLike={onClickMypageLike}
-  onClickMypagePoint={onClickMypagePoint}
+  return <UserMenuPresenter
+    ismypage={ismypage}
+    ismypageLike={ismypageLike}
+    ismypagePoint={ismypagePoint}
+    onClickMypage={onClickMypage}
+    onClickMypageLike={onClickMypageLike}
+    onClickMypagePoint={onClickMypagePoint}
   />;
 }

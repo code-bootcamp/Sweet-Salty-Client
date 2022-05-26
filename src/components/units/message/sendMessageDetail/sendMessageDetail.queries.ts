@@ -9,6 +9,7 @@ query fetchSendMessage($messageInfoId: String!){
     fetchSendMessage(messageInfoId: $messageInfoId){
         messageId
         messageReceivedUser
+        messageReceivedUserImage
         messageInfo{ messageInfoId messageInfoContents}
         sendAt
     }

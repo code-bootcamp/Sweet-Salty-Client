@@ -1,20 +1,31 @@
-export const getDate = (date: string | number | Date) => {
+export const getDate = (date:  Date) => {
     const newdate = new Date(date);
     const yyyy = newdate.getFullYear();
-    const mm = newdate.getMonth() + 1;
+    const mm = String(newdate.getMonth() + 1).padStart(2,'0');
     const dd = newdate.getDate();
     return `${yyyy}년 ${mm}월 ${dd}일`;
 };
 
-export const getDateDot = (date: string | number | Date) => {
+export const getDateDot = (date:  Date) => {
     const newdate = new Date(date);
     const yyyy = newdate.getFullYear();
-    const mm = newdate.getMonth() + 1;
-    const dd = newdate.getDate();
+    const mm = String(newdate.getMonth() + 1).padStart(2,'0');
+    const dd = String(newdate.getDate()).padStart(2,'0');
     return `${yyyy}.${mm}.${dd}`;
 };
 
-export const timeForToday=(date: string | number | Date)=>{
+export const messageDate = (date: Date)=>{
+    const newdate = new Date(date);
+    const yyyy = newdate.getFullYear();
+    const mm = String(newdate.getMonth() + 1).padStart(2,'0');
+    const dd = String(newdate.getDate()).padStart(2,'0');
+    const hh = String(newdate.getHours()).padStart(2,'0');
+    const min = String(newdate.getMinutes()).padStart(2,'0');
+    const ss = String(newdate.getSeconds()).padStart(2,'0');
+    return `${yyyy}-${mm}-${dd} ${hh}:${min}:${ss}`
+}
+
+export const timeForToday=(date: Date)=>{
     const today = new Date();
         const timeValue = new Date(date);
 

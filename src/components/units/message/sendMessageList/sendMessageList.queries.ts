@@ -3,8 +3,8 @@ import { gql } from "@apollo/client";
 export const FETCH_SEND_MESSAGES = gql`
 query fetchSendMessages($page: Int){
     fetchSendMessages(page: $page){
-        messageId
         messageReceivedUser
+        messageReceivedUserImage
         messageInfo{ messageInfoId messageInfoContents }
         sendAt
     }

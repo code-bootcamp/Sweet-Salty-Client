@@ -139,9 +139,10 @@ export const HeaderMemberRightBox = styled.div`
   justify-content: space-between;
   align-items: center;
 `;
-export const Photo = styled.div`
+export const Photo = styled.img`
   width: 40px;
   height: 40px;
+  object-fit: cover;
   border-radius: 50%;
   background: linear-gradient(#ff6e30, #ffa230);
   cursor: pointer;

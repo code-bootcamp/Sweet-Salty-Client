@@ -1,18 +1,19 @@
 // Header container === 김치훈
 
-import { useMutation } from "@apollo/client";
+import { useMutation, useQuery } from "@apollo/client";
 import { useRouter } from "next/router";
 import { useState } from "react";
 import { useRecoilState } from "recoil";
 import { accessTokenState } from "../../store";
 import LayoutHeaderPresenter from "./Header.presenter";
-import { LOGOUT } from "./Header.queries";
+import { LOGOUT, FETCH_USER_LOGGED_IN } from "./Header.queries";
 
 export default function LayoutHeader() {
   const router = useRouter();
   const [isClick, setIsClick] = useState(false);
   const [logout] = useMutation(LOGOUT);
-  const [accessToken, setAccessToken] = useRecoilState(accessTokenState);
+  const {data} = useQuery(FETCH_USER_LOGGED_IN)
+  const [, setAccessToken] = useRecoilState(accessTokenState);
   const onClickHome = () => {
     router.push("/");
   };
@@ -51,6 +52,7 @@ export default function LayoutHeader() {
   }
   return (
     <LayoutHeaderPresenter
+      data={data}
       onClickHome={onClickHome}
       onClickReview={onClickReview}
       onClickStore={onClickStore}

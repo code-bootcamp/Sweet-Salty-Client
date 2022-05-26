@@ -1,7 +1,7 @@
 // MypageLike presenter --- 김치훈
 
-import MyPageMenuContainer from "../../../commons/mypageMenu/mypageMenu.container";
-import MypageUserInfoContainer from "../../../commons/mypageUserInfo/userInfo.container";
+import MyPageMenuContainer from "../../../commons/UserMenu/userMenu.container";
+import MypageUserInfoContainer from "../../../commons/UserInfo/userInfo.container";
 import TopButton from "../../../commons/topbutton";
 import * as S from "./MypageLike.styled";
 

@@ -1,9 +1,9 @@
 // mypageMenu Presenter --- 김치훈
 
-import * as S from "./mypageMenu.styles"
+import * as S from "./UserMenu.styles"
 
 
-export default function MyPageMenuPresenter(props: any) {
+export default function UserMenuPresenter(props: any) {
   
 
   return (

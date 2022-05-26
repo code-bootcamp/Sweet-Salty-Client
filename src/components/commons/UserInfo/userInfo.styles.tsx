@@ -26,35 +26,98 @@ export const UserLeftBox = styled.div`
   display: flex;
   align-items: center;
 `
-
-export const Photo = styled.div`
-  width: 106px;
+export const ImgBox = styled.div`
+  width: 146px;
   height: 106px;
+  display: flex;
+  justify-content: end;
+  align-items: end;
+`;
+// 프로필 이미지
+export const UserImage = styled.img`
+  width: 10px;
+  height: 10px;
   border-radius: 50%;
   background: linear-gradient(#ff6e30, #ffa230);
   display: flex;
   justify-content: end;
   align-items: end;
 `;
-export const ImgBox = styled.div`
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  background: #C9C9C9;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  cursor: pointer;
+// 이미지 변경 버튼
+export const ImgUpdate = styled.div`
+  img {
+    width: 24px;
+    transition: 0.1s;
+    display: none;
+    &:hover{
+      width: 28px;
+    }
+  }
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: #C9C9C9;
+    transform: translate(-20px,0);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
 `;
 export const UserInfo = styled.div`
-  padding: 0 40px;
+  padding: 0 20px;
 `
 export const UserName = styled.div`
   font-size: 20px;
   font-weight: 700;
+  cursor: default;
 `
 export const Span = styled.span`
   color: #FF9A31;
+  cursor: default;
+`
+export const userProfileBox = styled.div`
+  display: flex;
+  align-items: center;
+`
+export const userProfile = styled.div`
+  font-size: 14px;
+  font-weight: 700;
+  color: #7B7B7B;
+  cursor: default;
+`
+export const userProfileInput = styled.input`
+  width: 300px;
+  outline: none;
+  border: none;
+  font-size: 14px;
+  font-weight: 700;
+  color: #7B7B7B;
+  cursor: default;
+  ::placeholder {
+    color: #dadada;
+  }
+`
+export const userProfileUpdate = styled.div`
+  display: flex;
+  align-items: center;
+  u{
+    cursor: pointer;
+    margin-left: 10px;
+    font-size: 14px;
+    font-weight: 700;
+    color: #7B7B7B;
+  }
+`
+export const userProfileComplete = styled.div`
+  display: flex;
+  align-items: center;
+  u{
+    cursor: pointer;
+    margin-left: 5px;
+    font-size: 14px;
+    font-weight: 700;
+    color: #FF9A31;
+  }
 `
 export const UserSection = styled.div`
   padding-top: 20px;
@@ -73,13 +136,16 @@ export const VerticalLine = styled.div`
   background: #DADADA;
 `
 export const UserTitle = styled.div`
+  cursor: default;
   font-size: 16px;
 `
 export const UserCount = styled.div`
+  cursor: pointer;
   color: #FF9A31;
   font-size: 16px;
 `
 export const ButtonBox = styled.div`
+  cursor: default;
   height: 106px;
   display: flex;
   flex-direction: column;
@@ -87,6 +153,7 @@ export const ButtonBox = styled.div`
   align-items: end;
 `
 export const PointButton = styled.div`
+  cursor: default;
   padding: 10px 15px;
   transition: 0.2s;
   display: flex;

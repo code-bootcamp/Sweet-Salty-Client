@@ -2,7 +2,7 @@
 
 import * as S from "./NoticeAllWrite.styled";
 import { v4 as uuidv4 } from "uuid";
-import Uploads01 from "../../../commons/uploads/01/Uploads01.containder";
+import Uploads01 from "../../../commons/uploads/01NoticeWrite/Uploads01.containder";
 
 
 export default function NoticeWritePresenter(props: any) {

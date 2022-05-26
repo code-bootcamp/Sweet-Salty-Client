@@ -2,8 +2,9 @@
 
 import TopButton from "../../commons/topbutton";
 import * as S from "./Mypage.styled";
-import MypageUserInfoContainer from "../../commons/mypageUserInfo/userInfo.container";
-import MyPageMenuContainer from "../../commons/mypageMenu/mypageMenu.container";
+import MypageUserInfoContainer from "../../commons/UserInfo/userInfo.container";
+import UserMenuContainer from "../../commons/UserMenu/userMenu.container";
+import MyreviewCardContainer from "../../commons/card/MyreviewCard/MyreviewCard.container";
 
 export default function MyPagePresenter(props: any) {
   return (
@@ -14,9 +15,12 @@ export default function MyPagePresenter(props: any) {
       <MypageUserInfoContainer />
 
       {/* mypage 메뉴 */}
-      <MyPageMenuContainer />
+      <UserMenuContainer data={props.data}/>
 
       <S.MypageSectionBox>
+
+        {/* <MyreviewCardContainer/> */}
+
       </S.MypageSectionBox>
       <S.TopButtonBox>
         <TopButton/>

@@ -5,10 +5,10 @@ mutation deleteReceivedMessage($messageInfoId: String!){
 }
 `;
 export const FETCH_RECEIVED_MESSAGE = gql`
-query fetchReceivedMessage(messageInfoId: String!){
+query fetchReceivedMessage($messageInfoId: String!){
     fetchReceivedMessage(messageInfoId: $messageInfoId){
-        messageId
         messageSendUser
+        messageSendUserImage
         messageState
         messageInfo{ messageInfoId messageInfoContents}
         sendAt

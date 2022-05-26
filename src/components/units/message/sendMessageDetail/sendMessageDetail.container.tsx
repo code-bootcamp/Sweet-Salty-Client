@@ -7,26 +7,25 @@ export default function SendMessageDetailContainerPage (){
     const router = useRouter();
     const [deleteSendMessage] = useMutation(DELETE_SEND_MESSAGE);
     const {data : sendMessageData} = useQuery(FETCH_SEND_MESSAGE, {
-        variables: {messageInfoId:
-            // String(router.query.messageInfoId)
-            "f29a8046-6c14-4de7-9582-8f4e31e3896e"
+        variables: {messageInfoId:String(router.query.messageInfoId)
         }
     })
-    const onClickDeleteMessage = ()=>{
-        deleteSendMessage({
+    const onClickDeleteMessage = async()=>{
+       try{await deleteSendMessage({
             variables: { messageInfoId: String(router.query.messageInfoId)}
         })
         alert("쪽지 삭제 완료")
+        router.push("/message/send")}
+        catch(error:any){alert(error.message)}
+    }
+    const onClickSendMessageList =()=>{
         router.push("/message/send")
     }
-    const onClickSendList =()=>{
-        router.push("/message/send")
-    }
-    console.log(sendMessageData)
     return(
         <SendMessageDetailPresenterPage
+        data={sendMessageData}
         onClickDeleteMessage={onClickDeleteMessage}
-        onClickSendList={onClickSendList}
+        onClickSendMessageList={onClickSendMessageList}
         />
     )
 }

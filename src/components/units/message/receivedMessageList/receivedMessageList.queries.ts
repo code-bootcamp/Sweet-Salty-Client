@@ -22,3 +22,7 @@ query fetchReceivedMessagesCount{
     fetchReceivedMessagesCount
 }
 `;
+
+export const FETCH_UNREAD_MESSAGE_COUNT = gql`
+query fetchUnreadMessageCount{fetchUnreadMessageCount}
+`;

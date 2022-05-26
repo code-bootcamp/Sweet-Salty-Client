@@ -29,10 +29,10 @@ export default function LayoutHeaderPresenter(props: any) {
             <S.UserProfileBox>
               <S.ArrowBox></S.ArrowBox>
               <S.UserProfile>
-                <S.UserNameBox>
+                <S.UserNameBox onClick={props.onClickMypage}>
                   <S.UserName>{props.data?.fetchUserLoggedIn.userNickname}</S.UserName> 단짝님
                 </S.UserNameBox>
-                <S.UserPointBox>
+                <S.UserPointBox onClick={props.onClickMypagePoint}>
                   <S.UserPoint>{props.data?.fetchUserLoggedIn.userPoint}</S.UserPoint> 포인트
                 </S.UserPointBox>
                 <S.MyPage onClick={props.onClickMypage}>마이페이지</S.MyPage>

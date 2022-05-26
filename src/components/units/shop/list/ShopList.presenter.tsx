@@ -1,4 +1,4 @@
-import * as S from "./Store.styled";
+import * as S from "./ShopList.styled";
 import TopButton from "../../../commons/topbutton";
 import StoreItemContainerPage from "../../../commons/card/StoreCard/StoreItem.container";
 import { v4 as uuidv4 } from "uuid";

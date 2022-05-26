@@ -1,4 +1,4 @@
-import ShopContainerPage from "../../src/components/units/shop/list/Store.container";
+import ShopContainerPage from "../../src/components/units/shop/list/ShopList.container";
 
 export default function StorePage() {
   return <ShopContainerPage />;

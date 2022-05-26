@@ -1,4 +1,4 @@
-// mypage styled --- 김치훈
+// MypagePoint styled --- 김치훈
 
 import styled from "@emotion/styled";
 

@@ -1,0 +1,1 @@
+// MypageLike types --- 김치훈

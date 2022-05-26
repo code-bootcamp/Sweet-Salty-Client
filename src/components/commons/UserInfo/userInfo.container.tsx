@@ -2,7 +2,7 @@
 
 import UserInfoPresenter from "./userInfo.presenter";
 import { useMutation, useQuery } from "@apollo/client";
-import { CREATE_POINT_TRANSACTION, FETCH_USER_LOGGED_IN, FOLLOW, FOLLOW_COUNT, UPDATE_IMAGE, UPDATE_PROFILE } from "./userInfo.queries";
+import { CREATE_POINT_TRANSACTION, FETCH_USER_LOGGED_IN, FOLLOW_COUNT, UPDATE_PROFILE } from "./userInfo.queries";
 import { useRouter } from "next/router";
 import { useState } from "react";
 
@@ -19,19 +19,14 @@ export default function UserInfoContainer(){
 
   // 프로필 사진 수정
   const [fileUrls, setFileUrls] = useState([""]);
-  const [updateImage] = useMutation(UPDATE_IMAGE)
-  const onClickUpdateImage = async () =>{
-    try{
-      await updateImage({
-        variables: {
-          image: fileUrls
-        }
-      })
-    }
-    catch(error:any){
-      alert(error.message)
-    }
-  }
+
+  const onChangeFileUrls = (fileUrl: string, index: number) => {
+    const newFileUrls = [...fileUrls];
+    newFileUrls[index] = fileUrl;
+    setFileUrls(newFileUrls);
+  };
+
+
 
 
   // 자기소개 수정
@@ -144,6 +139,8 @@ const onChangeProfile =(event: any)=>{
     data={data}
     followCountData={followCountData}
     isUpdate={isUpdate}
+    fileUrls={fileUrls}
+    onChangeFileUrls={onChangeFileUrls}
     onChangeProfile={onChangeProfile}
     onClickUpdate={onClickUpdate}
     onClickUpdateProfile={onClickUpdateProfile}

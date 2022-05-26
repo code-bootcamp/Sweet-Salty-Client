@@ -46,14 +46,6 @@ export const UPDATE_PROFILE = gql`
     }
   }
 `
-export const UPDATE_IMAGE = gql`
-  mutation updateImage ($image: String!){
-    updateImage(image: $image){
-      userId
-      userImage
-    }
-  }
-`
 
 
 

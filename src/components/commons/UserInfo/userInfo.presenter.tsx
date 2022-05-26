@@ -3,6 +3,7 @@
 import * as S from "./userInfo.styles"
 import Script from "next/script";
 import { SettingOutlined } from "@ant-design/icons";
+import { v4 as uuidv4 } from "uuid";
 import Uploads02 from "../uploads/02mypageUserProfile/Uploads02.containder";
 
 export default function UserInfoPresenter(props: any){
@@ -24,17 +25,17 @@ export default function UserInfoPresenter(props: any){
 
     <S.MypageBox>
         <S.UserLeftBox>
-          <S.ImgBox>
+          {/* <S.ImgBox> */}
 
-            <Uploads02 data={props.data}/>
-            
-          {/* <S.UserImage src={props.data?.fetchUserLoggedIn?.userImage
-          ? (`https://storage.googleapis.com/${props.data?.fetchUserLoggedIn.userImage}`)
-          : "https://t1.daumcdn.net/cfile/tistory/24283C3858F778CA2E"
-          }
-          ></S.UserImage>
-            <S.ImgUpdate><img src="../images/gallery.png"/></S.ImgUpdate> */}
-          </S.ImgBox>
+          {props.fileUrls.map((el:any, index:any) => (
+            <Uploads02 
+                data={props.data}
+                key={uuidv4()}
+                index={index}
+                fileUrl={el}
+                onChangeFileUrls={props.onChangeFileUrls}
+            />
+          ))}
 
           <S.UserInfo>
             <S.UserName>안녕하세요. <S.Span>{props.data?.fetchUserLoggedIn?.userNickname}</S.Span> 단짝님</S.UserName>

@@ -3,9 +3,9 @@
 import * as S from "./userInfo.styles"
 import Script from "next/script";
 import { SettingOutlined } from "@ant-design/icons";
+import Uploads02 from "../uploads/02mypageUserProfile/Uploads02.containder";
 
-export default function MypageUserInfoPresenter(props: any){
-
+export default function UserInfoPresenter(props: any){
   return( 
   
     <>
@@ -24,16 +24,44 @@ export default function MypageUserInfoPresenter(props: any){
 
     <S.MypageBox>
         <S.UserLeftBox>
-          <S.Photo>
-            <S.ImgBox><img src="../images/gallery.png" style={{width: "24px"}}/></S.ImgBox>
-          </S.Photo>
+          <S.ImgBox>
+
+            <Uploads02 data={props.data}/>
+            
+          {/* <S.UserImage src={props.data?.fetchUserLoggedIn?.userImage
+          ? (`https://storage.googleapis.com/${props.data?.fetchUserLoggedIn.userImage}`)
+          : "https://t1.daumcdn.net/cfile/tistory/24283C3858F778CA2E"
+          }
+          ></S.UserImage>
+            <S.ImgUpdate><img src="../images/gallery.png"/></S.ImgUpdate> */}
+          </S.ImgBox>
 
           <S.UserInfo>
-            <S.UserName>안녕하세요. <S.Span>{props.data?.fetchUser?.userNickname}</S.Span> 단짝님</S.UserName>
+            <S.UserName>안녕하세요. <S.Span>{props.data?.fetchUserLoggedIn?.userNickname}</S.Span> 단짝님</S.UserName>
+            <S.userProfileBox>
+
+            {props.isUpdate 
+            ?
+            <>
+              <S.userProfile>{props.data?.fetchUserLoggedIn?.userProfile}</S.userProfile>
+              <S.userProfileUpdate><u onClick={props.onClickUpdate}>수정</u></S.userProfileUpdate>
+            </>
+            :
+            <>
+              <S.userProfileInput 
+                type="text"
+                maxLength={40} 
+                placeholder={`${props.data?.fetchUserLoggedIn?.userProfile} (40자 내외로 작성하세요.)`}
+                onChange={props.onChangeProfile}
+              ></S.userProfileInput>
+              <S.userProfileComplete><u onClick={props.onClickUpdateProfile}>완료</u></S.userProfileComplete>
+            </>
+            }
+            </S.userProfileBox>
 
             <S.UserSection>
               <S.UserBox style={{paddingLeft: "0px"}}>
-                <S.UserTitle>마이 단짠</S.UserTitle>
+                <S.UserTitle onClick={props.onClickMyReview}>마이 단짠</S.UserTitle>
                 <S.UserCount>
                   {/* 마이 단짠 숫자 */}
                 </S.UserCount>
@@ -44,7 +72,7 @@ export default function MypageUserInfoPresenter(props: any){
               <S.UserBox>
                 <S.UserTitle>팔로잉</S.UserTitle>
                 <S.UserCount>
-                  {/* 팔로잉 숫자 */}
+                  {props.followCountData?.followCount[3]}
                 </S.UserCount>
               </S.UserBox>
 
@@ -53,7 +81,7 @@ export default function MypageUserInfoPresenter(props: any){
               <S.UserBox>
                 <S.UserTitle>팔로워</S.UserTitle>
                 <S.UserCount>
-                  {/* 팔로워 숫자 */}
+                  {props.followCountData?.followCount[1]}
                 </S.UserCount>
               </S.UserBox>
 
@@ -61,7 +89,7 @@ export default function MypageUserInfoPresenter(props: any){
 
               <S.UserBox>
                 <S.UserTitle>쪽지함</S.UserTitle>
-                <S.UserCount>
+                <S.UserCount onClick={props.onClickLikeAccess}>
                   {/* 쪽지함 숫자 */}
                 </S.UserCount>
               </S.UserBox>
@@ -70,8 +98,8 @@ export default function MypageUserInfoPresenter(props: any){
 
               <S.UserBox>
                 <S.UserTitle>포인트</S.UserTitle>
-                <S.UserCount>
-                  {props.data?.fetchUser?.userPoint}
+                <S.UserCount onClick={props.onClickPointAccess}>
+                  {props.data?.fetchUserLoggedIn?.userPoint}
                 </S.UserCount>
               </S.UserBox>
             </S.UserSection>

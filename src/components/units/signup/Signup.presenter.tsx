@@ -13,7 +13,7 @@ export default function SignUpPresenterPage(props) {
       <S.ErrorTxt>{props.formState.errors.userEmail?.message}</S.ErrorTxt>
       <SignupInput
       type="password"
-      placeholder="비빌번호를 입력해주세요."
+      placeholder="비밀번호를 입력해주세요."
       register={props.register("userPassword")}
       />
       <S.ErrorTxt>{props.formState.errors.userPassword?.message}</S.ErrorTxt>

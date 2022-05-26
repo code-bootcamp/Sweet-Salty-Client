@@ -15,6 +15,7 @@ color: #676767;
 font-size: 14px;
 height: 46px;
 line-height:22px;
+padding : 16px;
 width: 300px;
 `;
 export const MessageTextarea = styled.textarea`

@@ -1,11 +1,11 @@
 import { gql } from "@apollo/client";
 
 export const FETCH_SEND_MESSAGES = gql`
-query fetchSendMessages($page: Int!){
+query fetchSendMessages($page: Int){
     fetchSendMessages(page: $page){
         messageId
         messageReceivedUser
-        messageInfo{ messageInfoContents }
+        messageInfo{ messageInfoId messageInfoContents }
         sendAt
     }
 }
@@ -14,5 +14,11 @@ query fetchSendMessages($page: Int!){
 export const DELETE_SEND_MESSAGE = gql`
 mutation deleteSendMessage($messageInfoId: String!){
     deleteSendMessage(messageInfoId: $messageInfoId)
+}
+`;
+
+export const FETCH_SEND_MESSAGES_COUNT = gql`
+query fetchSendMessagesCount{
+    fetchSendMessagesCount
 }
 `;

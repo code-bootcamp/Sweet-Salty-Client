@@ -1,3 +1,5 @@
+// 마이페이지 이미지 업로드 file 용량체크 --- 김치훈
+
 import { Modal } from "antd";
 
 export function checkValidationImage(file: any) {

@@ -1,3 +1,5 @@
+// 공지사항 이미지 업로드 Container --- 김치훈
+
 import { useMutation } from "@apollo/client";
 import { ChangeEvent, useRef } from "react";
 import { checkValidationImage } from "./Uploads01.validation";

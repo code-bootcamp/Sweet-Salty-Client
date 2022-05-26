@@ -1,3 +1,5 @@
+// 공지사항 이미지 업로드 styles --- 김치훈
+
 import styled from "@emotion/styled";
 
 

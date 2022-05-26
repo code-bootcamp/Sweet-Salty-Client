@@ -37,17 +37,26 @@ export default function LayoutHeader() {
   const isNoticePage = NoticePage.includes(router.asPath.split("/")[1]);
 
   const onClickPhoto = () => {
-    setIsClick((prev) => !prev);
+    setIsClick(true);
   };
   const onClickLogin = () => {
     router.push("/login");
+    setIsClick(false);
   };
   const onClickMypage = () => {
     router.push("/mypage");
+    setIsClick(false);
+  };
+  const onClickMypagePoint = () => {
+    router.push("/mypage/mypagepoint");
+    setIsClick(false);
   };
   const onClickLogout =()=>{
-    try{logout();
-    setAccessToken("");}
+    try{
+      logout();
+      setAccessToken("");
+      setIsClick(false);
+    }
     catch(error:any){ alert(error.message);}
   }
   return (
@@ -60,6 +69,7 @@ export default function LayoutHeader() {
       onClickPhoto={onClickPhoto}
       onClickLogin={onClickLogin}
       onClickMypage={onClickMypage}
+      onClickMypagePoint={onClickMypagePoint}
       onClickLogout={onClickLogout}
       isClick={isClick}
       isReviewPage={isReviewPage}

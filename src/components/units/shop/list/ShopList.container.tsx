@@ -2,12 +2,12 @@
 
 import { useQuery } from "@apollo/client";
 import { useState } from "react";
-import ShopPresenterPage from "./Store.presenter";
+import ShopPresenterPage from "./ShopList.presenter";
 import {
   FETCH_SHOPS,
   FETCH_SHOP_SELLER,
   FETCH_SHOP_TITLE,
-} from "./Store.queries";
+} from "./ShopList.queries";
 
 export default function ShopContainerPage(props) {
   const [sellerSearch, setSellerSearch] = useState("");

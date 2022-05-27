@@ -1,7 +1,7 @@
 // MypageLike presenter --- 김치훈
 
-import MyPageMenuContainer from "../../../commons/UserMenu/userMenu.container";
-import MypageUserInfoContainer from "../../../commons/UserInfo/userInfo.container";
+import MyPageMenuContainer from "../../../commons/Mypage/UserMenu/userMenu.container";
+import MypageUserInfoContainer from "../../../commons/Mypage/UserInfo/userInfo.container";
 import TopButton from "../../../commons/topbutton";
 import * as S from "./MypageLike.styled";
 import { v4 as uuidv4 } from "uuid";
@@ -25,7 +25,11 @@ export default function MypageLikePresenter(props: any) {
           <S.TableTop>
             {props?.data?.fetchPickedBoards.map((el: any)=>
               <S.MypageBoardsOfUser key={uuidv4()}>
-                <LikeReviewCardContainer el={el} data={props.data}/>
+                <LikeReviewCardContainer 
+                  el={el}
+                  data={props.data}
+                  onClickMoveLikeReviewDetail={props.onClickMoveLikeReviewDetail} 
+                />
               </S.MypageBoardsOfUser>
             )}
           </S.TableTop>

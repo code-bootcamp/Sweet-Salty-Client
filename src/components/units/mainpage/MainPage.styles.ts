@@ -57,7 +57,7 @@ export const ReviewTitle = styled.div`
   font-weight: 700;
   cursor: default;
 `;
-export const ReviewArror = styled.div`
+export const ReviewArrow = styled.div`
   width: 35px;
   height: 35px;
   line-height: 35px;

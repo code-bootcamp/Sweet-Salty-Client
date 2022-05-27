@@ -2,7 +2,6 @@ import { useMutation, useQuery } from "@apollo/client";
 import { useRouter } from "next/router"
 import SendMessageListPresenterPage from "./sendMessageList.presenter";
 import { DELETE_SEND_MESSAGE, FETCH_SEND_MESSAGES, FETCH_SEND_MESSAGES_COUNT } from "./sendMessageList.queries";
-import {MouseEvent} from "react"
 
 export default function SendMessageListContainerPage(){
     const router = useRouter();
@@ -10,10 +9,12 @@ export default function SendMessageListContainerPage(){
     const {data : dataSendMessages, refetch : refetchSendMessages} = useQuery(FETCH_SEND_MESSAGES);
     const {data : dataSendMessagesCount, refetch : refetchSendMessagesCount} = useQuery(FETCH_SEND_MESSAGES_COUNT);
     const onClickWriteMessage = ()=>{
-        router.push("/message/write")
+        // router.push("/message/write")
+        window.open("/message/write","_blank","width=800, height=600")
     }
     const onClickMessageDetail = (id:String)=>()=>{
-      router.push(`/message/send/${id}`);
+    //   router.push(`/message/send/${id}`);
+    window.open(`/message/send/${id}`,"_blank","width=800, height=600");
     }
     const onClickDeleteMessage = (id:String)=> async()=>{
         try{ await deleteSendMessage({

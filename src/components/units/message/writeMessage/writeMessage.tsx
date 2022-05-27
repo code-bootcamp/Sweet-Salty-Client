@@ -14,7 +14,6 @@ export default function WriteMessagePage(){
         router.push("/message/received")  
     }
     const onClickSubmit = async(data)=>{
-        console.log(data)
         try{
             await sendMessage({
                 variables: {
@@ -25,8 +24,9 @@ export default function WriteMessagePage(){
                 }
             })
             alert(`${data.receiveUser}님께 쪽지가 전송되었습니다.`)
-            setValue("contents", "");
-            setValue("receiveUser", "");
+            // setValue("contents", "");
+            // setValue("receiveUser", "");
+            window.close()
         } catch(error : any){alert(error.message)}
     }
     return(

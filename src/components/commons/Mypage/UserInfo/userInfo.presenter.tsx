@@ -4,8 +4,8 @@ import * as S from "./userInfo.styles"
 import Script from "next/script";
 import { SettingOutlined } from "@ant-design/icons";
 import { v4 as uuidv4 } from "uuid";
-import Uploads02 from "../uploads/02mypageUserProfile/Uploads02.containder";
-import { PointComma } from "../libraries/point";
+import Uploads02 from "../../uploads/02mypageUserProfile/Uploads02.containder";
+import { PointComma } from "../../libraries/point";
 
 export default function UserInfoPresenter(props: any){
   return( 

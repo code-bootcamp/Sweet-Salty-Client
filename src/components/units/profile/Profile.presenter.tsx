@@ -3,7 +3,7 @@
 import TopButton from "../../commons/topbutton";
 import * as S from "./Profile.styled";
 import UserMenuContainer from "../../commons/UserMenu/userMenu.container";
-import UserInfoContainer from "../../commons/UserInfo/userInfo.container";
+import UserInfoContainer from "../../commons/Mypage/UserInfo/userInfo.container";
 
 export default function ProfilePresenter(props: any) {
   return (

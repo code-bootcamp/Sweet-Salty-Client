@@ -5,11 +5,17 @@ import { MouseEvent } from "react";
 export default function StoreItemContainerPage(props) {
   const router = useRouter();
 
-  //   const onClickDetailPage = (event: MouseEvent<HTMLDivElement>) => {
-  //     if (event.target instanceof Element) {
-  //       router.push(`/reviews/commonReview/${event.currentTarget.id}`);
-  //     }
-  //   };
+  const onClickDetailPage = (event: MouseEvent<HTMLDivElement>) => {
+    if (event.target instanceof Element) {
+      router.push(`/shop/${event.currentTarget.id}`);
+    }
+  };
 
-  return <StoreItemPresenterPage id={props.id} fetchShopListData={props.el} />;
+  return (
+    <StoreItemPresenterPage
+      onClickDetailPage={onClickDetailPage}
+      id={props.id}
+      fetchShopListData={props.el}
+    />
+  );
 }

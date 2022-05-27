@@ -2,7 +2,7 @@ import * as S from "./StoreSearchItem.styles";
 
 export default function StoreSearchItemPresenterPage(props) {
   return (
-    <S.ItemMainDiv>
+    <S.ItemMainDiv onClick={props.onClickDetailPage} id={props.id}>
       <S.ItemImg
         style={{
           backgroundImage: `url(https://storage.googleapis.com/${props.el?.thumbnail})`,

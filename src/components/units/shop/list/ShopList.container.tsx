@@ -20,9 +20,6 @@ export default function ShopContainerPage(props) {
     refetch: refetchShopListsData,
   } = useQuery(FETCH_SHOPS);
 
-  console.log("seller", sellerSearch);
-  console.log("title", titleSearch);
-
   // 가게이름 검색 데이터
   const {
     data: sellerSearchData,

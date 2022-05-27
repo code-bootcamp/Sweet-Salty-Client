@@ -6,11 +6,17 @@ export default function StoreSearchItemContainerPage(props) {
   console.log("프프프롭스", props);
   const router = useRouter();
 
-  // const onClickDetailPage = (event: MouseEvent<HTMLDivElement>) => {
-  //   if (event.target instanceof Element) {
-  //     router.push(`/reviews/commonReview/${event.currentTarget.id}`);
-  //   }
-  // };
+  const onClickDetailPage = (event: MouseEvent<HTMLDivElement>) => {
+    if (event.target instanceof Element) {
+      router.push(`/shop/${event.currentTarget.id}`);
+    }
+  };
 
-  return <StoreSearchItemPresenterPage id={props.id} el={props.el} />;
+  return (
+    <StoreSearchItemPresenterPage
+      id={props.id}
+      el={props.el}
+      onClickDetailPage={onClickDetailPage}
+    />
+  );
 }

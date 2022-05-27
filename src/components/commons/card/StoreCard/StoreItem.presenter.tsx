@@ -1,12 +1,13 @@
 import * as S from "./StoreItem.styles";
 
 export default function StoreItemPresenterPage(props) {
+  console.log("굿굿", props);
   return (
-    <S.ItemMainDiv>
+    <S.ItemMainDiv onClick={props.onClickDetailPage} id={props.id}>
       <S.ItemImg
         style={{
-          backgroundImage: `url(https://storage.googleapis.com/${props.fetchShopListData?.thumbnail})`,
-          backgroundSize: "cover",
+          backgroundImage: `url(${props.fetchShopListData?.thumbnail})`,
+          backgroundSize: "100%",
           backgroundRepeat: "no-repeat",
         }}
       >

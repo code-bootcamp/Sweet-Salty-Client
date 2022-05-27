@@ -6,6 +6,7 @@ declare const window: typeof globalThis & {
 };
 
 export default function DetailMapPage(props) {
+  console.log("이거다", props.address);
   const [isLoad, setIsLoad] = useState(false);
   useEffect(() => {
     setIsLoad(true);

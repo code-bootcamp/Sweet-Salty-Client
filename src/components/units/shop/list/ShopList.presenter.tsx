@@ -10,9 +10,6 @@ import StoreSearchItemContainerPage from "../../../commons/card/StoreSearchCard/
 export default function ShopPresenterPage(props) {
   const dataForSellerSearch = props.sellerSearchData?.fetchShopSeller.hits.hits;
   const dataForTitleSearch = props.titleSearchData?.fetchShopTitles.hits.hits;
-  console.log("프롭스", props.shopListData?.fetchShops);
-  console.log("프롭스 seller", dataForSellerSearch);
-  console.log("프롭스 title", dataForTitleSearch);
   return (
     //   전체페이지
     <S.Page>

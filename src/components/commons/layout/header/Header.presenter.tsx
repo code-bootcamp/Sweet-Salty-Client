@@ -36,7 +36,7 @@ export default function LayoutHeaderPresenter(props: any) {
                   <S.UserPoint>{props.data?.fetchUserLoggedIn.userPoint}</S.UserPoint> 포인트
                 </S.UserPointBox>
                 <S.MyPage onClick={props.onClickMypage}>마이페이지</S.MyPage>
-                <S.Note>쪽지함</S.Note>
+                <S.Note onClick={props.onClickMessage}>쪽지함</S.Note>
                 <S.Logout onClick={props.onClickLogout}>로그아웃</S.Logout>
               </S.UserProfile>
             </S.UserProfileBox>

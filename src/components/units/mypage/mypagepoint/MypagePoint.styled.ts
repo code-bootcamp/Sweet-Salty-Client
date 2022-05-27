@@ -16,7 +16,7 @@ export const Title = styled.div`
 `;
 
 export const MypageSectionBox = styled.div`
-  padding: 25px;
+  padding: 25px 25px 0 25px;
   width: 1120px;
   background: #fff;
   border-radius: 20px;
@@ -30,6 +30,14 @@ export const MypageSectionBox = styled.div`
 
 
 
+export const Hr = styled.div`
+  margin: 30px 0;
+  width: 1060px;
+  height: 1px;
+  border-radius: 50px;
+  background: #DADADA;
+`;
+
 export const TopButtonBox = styled.div`
-padding: 40px 0;
+  padding: 40px 0;
 `;

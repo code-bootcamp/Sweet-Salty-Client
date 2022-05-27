@@ -11,6 +11,6 @@ export default function ModifyContainerPage(){
   }
 
   return <ModifyPresenterPage
-  onClickBack={onClickBack}
+    onClickBack={onClickBack}
   />
 }

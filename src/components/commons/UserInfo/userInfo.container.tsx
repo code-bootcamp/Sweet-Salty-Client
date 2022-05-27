@@ -60,7 +60,7 @@ const onChangeProfile =(event: any)=>{
   // 팔로잉, 팔로워 숫자
   const {data: followCountData} = useQuery(FOLLOW_COUNT, {
     variables: {
-      followerNickname: data?.fetchUserLoggedIn?.userNickname
+      followerNickname: String(data?.fetchUserLoggedIn?.userNickname)
     }
   });
   // // 언팔, 팔로우

@@ -16,7 +16,6 @@ export const Title = styled.div`
 `;
 
 export const MypageSectionBox = styled.div`
-  padding: 25px;
   width: 1120px;
   background: #fff;
   border-radius: 20px;
@@ -26,6 +25,17 @@ export const MypageSectionBox = styled.div`
   box-shadow: 10px 10px 10px #dbdbdb;
 `;
 
+export const TableTop = styled.div`
+  padding: 25px;
+  width: 1120px;
+  margin: 0 auto;
+  display: grid;
+  justify-content: space-between;
+  grid-template-columns: 338px 338px 338px; 
+`;
+export const MypageBoardsOfUser = styled.div`
+  width: 1120px;
+`;
 
 
 

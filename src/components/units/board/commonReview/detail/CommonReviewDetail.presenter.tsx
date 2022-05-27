@@ -11,6 +11,7 @@ import CommentWriteContainerPage from "../../../comment/commentWrite/CommentWrit
 import * as S from "./CommonReviewDetail.styles";
 
 export default function ReviewDetailPresenter(props: any) {
+  console.log("여기다", props.data);
   return (
     <S.Wrapper>
       <S.Title>

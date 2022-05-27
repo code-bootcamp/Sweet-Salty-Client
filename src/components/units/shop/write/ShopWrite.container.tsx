@@ -38,6 +38,7 @@ export default function ShopWriteContainerPage() {
           },
         },
       });
+      console.log("하이", result);
     } catch (error: any) {
       alert(error.message);
     }

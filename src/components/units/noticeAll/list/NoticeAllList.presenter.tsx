@@ -32,7 +32,7 @@ export default function NoticeListPresenterPage(props: any) {
 
         <S.NoticeThHr />
         
-        {props.data?.fetchNoticeAll.map((el: any, index: any) => (
+        {props.data?.fetchNoticeAll.map((el: any) => (
           <S.Notice key={uuidv4()}>
             <S.NoticeTd>
             <S.NoticeTdCategory>

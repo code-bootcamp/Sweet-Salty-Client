@@ -1,6 +1,5 @@
 // mypage 회원 정보 변경 Presenter --- 김치훈
 
-import MoodFilterPage from "../../../commons/filter/MoodFilter/MoodFilter"
 import * as S from "./Modify.styles"
 
 export default function ModifyPresenterPage(props: any){
@@ -58,10 +57,6 @@ export default function ModifyPresenterPage(props: any){
         <S.SubWriteTitle>분위기 선택<S.Span>(여러개 선택 가능)</S.Span></S.SubWriteTitle>
         
         <S.MoodBox>
-          <MoodFilterPage
-          moodHashTag={props.moodHashTag}
-          setMoodHashTag={props.setMoodHashTag}
-          />
         </S.MoodBox>
         <S.ButtonBox>
           <S.CompleteButton>수정 완료</S.CompleteButton>

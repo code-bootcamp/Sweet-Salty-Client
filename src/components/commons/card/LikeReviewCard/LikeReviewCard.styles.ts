@@ -1,3 +1,4 @@
+import { HeartFilled } from "@ant-design/icons";
 import styled from "@emotion/styled";
 
 
@@ -89,6 +90,10 @@ export const ItemInfoLocationDiv = styled.div`
 export const ItemInfoBottomDiv = styled.div`
   display: flex;
   justify-content: space-between;
+`;
+export const LikeFillIcon = styled(HeartFilled)`
+  font-size: 24px;
+  color: #FF9A31;
 `;
 export const ItemInfoImg = styled.img`
   height: 24px;

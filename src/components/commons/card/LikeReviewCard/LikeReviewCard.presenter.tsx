@@ -1,7 +1,7 @@
 import { getDateDot } from "../../libraries/date";
-import * as S from "./MyreviewCard.styles";
+import * as S from "./LikeReviewCard.styles";
 
-export default function MyreviewCardPresenter(props: any) {
+export default function LikeReviewCardPresenter(props: any) {
   return (
     <S.ItemMainDiv>
       <S.ItemImg el={props.el}>
@@ -42,7 +42,7 @@ export default function MyreviewCardPresenter(props: any) {
 
             <S.FlexBox2>
               <S.FlexBox2>
-                <S.ItemInfoImg src="/images/likeCount.png" alt="like" />
+                <S.LikeFillIcon />
                 <S.ItemInfoCountDiv>
                   {props.el?.boardLikeCount}
                 </S.ItemInfoCountDiv>

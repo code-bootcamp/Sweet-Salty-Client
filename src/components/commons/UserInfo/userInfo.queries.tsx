@@ -36,6 +36,24 @@ export const FOLLOW_COUNT =gql`
     followCount(followerNickname: $followerNickname)
   }
 ` 
+// 마이 단짠 숫자
+export const FETCH_BOARD_COUNT =gql`
+  query fetchBoardCount {
+    fetchBoardCount
+  }
+` 
+// 쪽지함 받은 쪽지 갯수
+export const FETCH_RECEIVED_MESSAGES_COUNT =gql`
+  query fetchReceivedMessagesCount {
+    fetchReceivedMessagesCount
+  }
+` 
+// 쪽지함 안 본 쪽지 갯수
+export const FETCH_UNREAD_MESSAGE_COUNT =gql`
+  query fetchUnreadMessageCount {
+    fetchUnreadMessageCount
+  }
+` 
 
 // 프로필 한줄 소개 수정
 export const UPDATE_PROFILE = gql`

@@ -1,7 +1,7 @@
 // mypageMenu Container --- 김치훈
 
 import { useRouter } from "next/router";
-import UserMenuPresenter from "./UserMenu.presenter";
+import UserMenuPresenter from "./userMenu.presenter";
 
 
 export default function UserMenuContainer() {

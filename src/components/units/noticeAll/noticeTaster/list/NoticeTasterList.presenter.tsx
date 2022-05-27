@@ -4,6 +4,7 @@ import { getDateDot } from "../../../../commons/libraries/date";
 import Paginations01 from "../../../../commons/paginations/paginations/01/Paginations01.container";
 import SearchBarPage from "../../../../commons/searchbar/SearchBar.container";
 import * as S from "./NoticeTasterList.styled";
+import { v4 as uuidv4 } from "uuid";
 
 export default function NoticeTasterListPresenterPage(props: any) {
   return (
@@ -32,8 +33,8 @@ export default function NoticeTasterListPresenterPage(props: any) {
         <S.NoticeThHr />
         
         {props.data?.fetchNoticeCategoryPick.map((el: any, index: any) => (
-          <>
-            <S.NoticeTd key={el.noticeId}>
+          <S.Notice key={uuidv4()}>
+            <S.NoticeTd>
             <S.NoticeTdCategory>
               {el?.subCategory?.subCategoryName === "TASTING" && "시식단 모집"}
               {el?.subCategory?.subCategoryName === "NOTICE" && "공지"}
@@ -51,7 +52,7 @@ export default function NoticeTasterListPresenterPage(props: any) {
             </S.NoticeTdHits>
           </S.NoticeTd>
           <S.NoticeTdHr />
-        </>
+        </S.Notice>
         ))}
       </S.NoticeBox>
 

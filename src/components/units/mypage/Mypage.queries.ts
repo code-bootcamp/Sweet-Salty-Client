@@ -23,8 +23,6 @@ query fetchUserLoggedIn{
   }
 `;
 
-
-
 // 마이단짠 게시글 목록
 export const FETCH_BOARDS_OF_USER = gql`
   query fetchBoardsOfUser ($userNickname: String!) {
@@ -35,27 +33,15 @@ export const FETCH_BOARDS_OF_USER = gql`
         boardLikeCount
         boardHit
         thumbnail
-        gender
         boardSubject
         createAt
-      # boardId
-      # boardTitle
-      # boardSugar
-      # boardSaltn
-      # boardContents
-      # boardWriter
-      # boardLikeCount
-      # boardHit
-      # thumbnail
-      # ageGroup
-      # gender
-      # boardSubject
-      # createAt
-      # updateAt
-      # place {
-      #   placeName
-      #   placeAddress
-      # }
+        place {
+          placeName
+          placeAddress
+        }
+        user{
+          userImage
+        }
     }
   }
 `

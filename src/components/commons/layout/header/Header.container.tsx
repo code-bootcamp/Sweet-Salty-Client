@@ -47,6 +47,10 @@ export default function LayoutHeader() {
     router.push("/mypage");
     setIsClick(false);
   };
+  const onClickMessage = () => {
+    router.push("/message");
+    setIsClick(false);
+  };
   const onClickMypagePoint = () => {
     router.push("/mypage/mypagepoint");
     setIsClick(false);
@@ -69,6 +73,7 @@ export default function LayoutHeader() {
       onClickPhoto={onClickPhoto}
       onClickLogin={onClickLogin}
       onClickMypage={onClickMypage}
+      onClickMessage={onClickMessage}
       onClickMypagePoint={onClickMypagePoint}
       onClickLogout={onClickLogout}
       isClick={isClick}

@@ -105,6 +105,7 @@ export const NoticeThHr = styled.div`
   background: #DADADA;
 `;
 
+export const Notice = styled.div``;
 export const NoticeTd = styled.div`
   padding: 20px 0;
   display: flex;

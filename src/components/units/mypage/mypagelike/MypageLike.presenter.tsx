@@ -4,6 +4,9 @@ import MyPageMenuContainer from "../../../commons/UserMenu/userMenu.container";
 import MypageUserInfoContainer from "../../../commons/UserInfo/userInfo.container";
 import TopButton from "../../../commons/topbutton";
 import * as S from "./MypageLike.styled";
+import { v4 as uuidv4 } from "uuid";
+import LikeReviewCardContainer from "../../../commons/card/LikeReviewCard/LikeReviewCard.container";
+// import InfiniteScroll from 'react-infinite-scroller';
 
 export default function MypageLikePresenter(props: any) {
   return (
@@ -17,6 +20,17 @@ export default function MypageLikePresenter(props: any) {
       <MyPageMenuContainer />
 
       <S.MypageSectionBox>
+
+        {/* <InfiniteScroll pageStart={0} loadMore={props.onLoadMore} hasMore={true} useWindow={true}> */}
+          <S.TableTop>
+            {props?.data?.fetchPickedBoards.map((el: any)=>
+              <S.MypageBoardsOfUser key={uuidv4()}>
+                <LikeReviewCardContainer el={el} data={props.data}/>
+              </S.MypageBoardsOfUser>
+            )}
+          </S.TableTop>
+        {/* </InfiniteScroll> */}
+
       </S.MypageSectionBox>
       <S.TopButtonBox>
         <TopButton/>

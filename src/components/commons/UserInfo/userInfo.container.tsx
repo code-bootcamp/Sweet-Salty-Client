@@ -2,7 +2,7 @@
 
 import UserInfoPresenter from "./userInfo.presenter";
 import { useMutation, useQuery } from "@apollo/client";
-import { CREATE_POINT_TRANSACTION, FETCH_USER_LOGGED_IN, FOLLOW_COUNT, UPDATE_PROFILE } from "./userInfo.queries";
+import { CREATE_POINT_TRANSACTION, FETCH_BOARD_COUNT, FETCH_RECEIVED_MESSAGES_COUNT, FETCH_UNREAD_MESSAGE_COUNT, FETCH_USER_LOGGED_IN, FOLLOW_COUNT, UPDATE_PROFILE } from "./userInfo.queries";
 import { useRouter } from "next/router";
 import { useState } from "react";
 
@@ -16,10 +16,11 @@ export default function UserInfoContainer(){
   const router = useRouter()
 
   const {data} = useQuery(FETCH_USER_LOGGED_IN)
+  
 
   // 프로필 사진 수정
   const [fileUrls, setFileUrls] = useState([""]);
-
+  
   const onChangeFileUrls = (fileUrl: string, index: number) => {
     const newFileUrls = [...fileUrls];
     newFileUrls[index] = fileUrl;
@@ -57,10 +58,16 @@ const onChangeProfile =(event: any)=>{
       alert(error.message)
     }
   }
+  // 마이 단짠 숫자
+  const {data: fetchBoardCountData} = useQuery(FETCH_BOARD_COUNT)
+  // 쪽지함 안 읽은 쪽지 갯수
+  const {data: fetchReceivedMessagesCountData} = useQuery(FETCH_RECEIVED_MESSAGES_COUNT)
+  // 쪽지함 안 읽은 쪽지 갯수
+  const {data: fetchUnreadMessageCountData} = useQuery(FETCH_UNREAD_MESSAGE_COUNT)
   // 팔로잉, 팔로워 숫자
   const {data: followCountData} = useQuery(FOLLOW_COUNT, {
     variables: {
-      followerNickname: data?.fetchUserLoggedIn?.userNickname
+      followerNickname: String(data?.fetchUserLoggedIn?.userNickname)
     }
   });
   // // 언팔, 팔로우
@@ -138,6 +145,8 @@ const onChangeProfile =(event: any)=>{
   return <UserInfoPresenter
     data={data}
     followCountData={followCountData}
+    fetchBoardCountData={fetchBoardCountData}
+    fetchUnreadMessageCountData={fetchUnreadMessageCountData}
     isUpdate={isUpdate}
     fileUrls={fileUrls}
     onChangeFileUrls={onChangeFileUrls}

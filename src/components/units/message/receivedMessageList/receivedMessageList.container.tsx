@@ -8,7 +8,6 @@ export default function ReceivedMessageListContainerPage(){
     const [deleteReceivedMessage] =useMutation(DELETE_RECEIVED_MESSAGE);
     const {data : dataReceivedMessages, refetch : refetchReceivedMessages} = useQuery(FETCH_RECEIVED_MESSAGES);
     const {data : dataReceivedMessagesCount, refetch : refetchReceivedMessagesCount} = useQuery(FETCH_RECEIVED_MESSAGES_COUNT);
-    const {data : dataUnreadMessageCount, refetch : refetchUnreadMessageCount} = useQuery(FETCH_UNREAD_MESSAGE_COUNT);
     const onClickWriteMessage = ()=>{
         router.push("/message/write")
     }
@@ -37,7 +36,6 @@ export default function ReceivedMessageListContainerPage(){
         refetch ={refetchReceivedMessages}
         count={dataReceivedMessagesCount?.fetchReceivedMessagesCount}
         refetchReceivedMessagesCount={refetchReceivedMessagesCount}
-        dataUnreadMessageCount={dataUnreadMessageCount?.fetchUnreadMessageCount}
         />
     )
 }

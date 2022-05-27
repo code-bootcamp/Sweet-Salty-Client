@@ -6,6 +6,7 @@ import * as S from "./MainPage.styles";
 export default function MainpagePresenter(props: any) {
   return (
     <S.MainPageWrapper>
+      <button onClick={props.test}></button>
       <S.MainPageOutBox>
         <S.ReviewMenuBox>
           <S.ReviewMenu>단짠 리뷰</S.ReviewMenu>
@@ -15,7 +16,7 @@ export default function MainpagePresenter(props: any) {
         <S.MainPageInnerBox>
           <S.ReviewHeader>
             <S.ReviewTitle>최신 단짠 리뷰</S.ReviewTitle>
-            <S.ReviewArror onClick={props.onClickCommonReview}>→</S.ReviewArror>
+            <S.ReviewArrow onClick={props.onClickCommonReview}>→</S.ReviewArrow>
           </S.ReviewHeader>
           <S.ReviewSection>{/* 리뷰 공동컴포넌트 올리는 곳 */}</S.ReviewSection>
         </S.MainPageInnerBox>
@@ -25,7 +26,7 @@ export default function MainpagePresenter(props: any) {
         <S.MainPageInnerBox>
           <S.ReviewHeader>
             <S.ReviewTitle>광고(시식단) 단짠 리뷰</S.ReviewTitle>
-            <S.ReviewArror>→</S.ReviewArror>
+            <S.ReviewArrow>→</S.ReviewArrow>
           </S.ReviewHeader>
           <S.ReviewSection>{/* 리뷰 공동컴포넌트 올리는 곳 */}</S.ReviewSection>
         </S.MainPageInnerBox>
@@ -35,7 +36,7 @@ export default function MainpagePresenter(props: any) {
         <S.MainPageInnerBox>
           <S.ReviewHeader>
             <S.ReviewTitle>단짝님을 위한 리뷰</S.ReviewTitle>
-            <S.ReviewArror>→</S.ReviewArror>
+            <S.ReviewArrow>→</S.ReviewArrow>
           </S.ReviewHeader>
           <S.ReviewSection>{/* 리뷰 공동컴포넌트 올리는 곳 */}</S.ReviewSection>
         </S.MainPageInnerBox>
@@ -59,7 +60,7 @@ export default function MainpagePresenter(props: any) {
         <S.MainPageInnerBox>
           <S.ReviewHeader>
             <S.ReviewTitle>TOP 3 단짠 리뷰</S.ReviewTitle>
-            <S.ReviewArror>→</S.ReviewArror>
+            <S.ReviewArrow>→</S.ReviewArrow>
           </S.ReviewHeader>
           <S.ReviewSection>{/* 리뷰 공동컴포넌트 올리는 곳 */}</S.ReviewSection>
         </S.MainPageInnerBox>

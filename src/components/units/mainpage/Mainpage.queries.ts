@@ -2,24 +2,48 @@
 
 import { gql } from "@apollo/client";
 
-export const FETCH_BOARD = gql`
-  query fetchBoard($boardId: String!) {
-    fetchBoard(boardId: $boardId) {
+export const FETCH_RECENT_BOARDS = gql`
+  query fetchRecentBoards($category: BOARD_SUB_CATEGORY_NAME_ENUM!) {
+    fetchRecentBoards(category: $category) {
       boardId
       boardTitle
-      boardContents
+      boardWriter
       boardLikeCount
-      CreateAt
+      boardHit
+      thumbnail
+      createAt
+      user{
+        userNickname
+        userProfile
+      }
+      place{
+        placeName
+        placeAddress
+      }
     }
   }
 `;
-export const FETCH_BOARDS = gql`
-  query fetchBoards($search: String!) {
-    fetchBoards(search: $search) {
-      boardId
-      boardWriter
-      boardContents
-      boardTitle
+
+
+export const FETCH_USER_LOGGED_IN =gql`
+query fetchUserLoggedIn{
+    fetchUserLoggedIn{
+        userImage
+        userNickname
+        
     }
+}
+`;
+
+export const REAL_TIME_SHOP = gql`
+query realTimeShop{
+  realTimeShop{
+    shopProductName
+    shopSeller
+    shopDisCount
+    shopDisCountPrice
+    shopOriginalPrice
+    thumbnail
   }
+}
 `;

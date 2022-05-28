@@ -2,7 +2,7 @@ import { useMutation, useQuery } from "@apollo/client";
 import { useRouter } from "next/router";
 import { CREATE_COMMENT_LIKE, DELETE_COMMENT, FETCH_COMMENTS, FETCH_USER_LOGGED_IN } from "./CommentList.queries";
 import { timeForToday } from "../../../commons/libraries/date";
-import * as S from "./CommentList.styled"
+import * as S from "./CommentList.item.styled"
 
 export default function CommentItemPage(props) {
   const [deleteComment] = useMutation(DELETE_COMMENT);
@@ -47,17 +47,32 @@ export default function CommentItemPage(props) {
   
   return (
     <S.BoxDiv>
-      <S.ProfileDiv><S.ProfileImg src= {url} /></S.ProfileDiv>
-      <div>
-      <S.ProfileWrapDiv>
-      <S.WriterDiv>{props.el?.userNickname} 단짝님</S.WriterDiv>
-      <S.CreatedAtDiv>{timeForToday(props.el?.commentCreateAt)}</S.CreatedAtDiv>
-      </S.ProfileWrapDiv>
-      <S.ContentsDiv>내용 : {props.el?.commentContents}</S.ContentsDiv>
-      </div>
-      <div>좋아요개수 : {props.el?.commentLikeCount}</div>
-      <div onClick={onClickLike(props.el?.commentId)}>좋아요버튼</div>
-      {showDelete &&(<S.DeleteBtn onClick={onClickDelete(props.el?.commentId)}>삭제</S.DeleteBtn>)}
+      <S.ProfileImg src= {url} />
+
+      <S.CommentBox>
+
+        <S.ProfileWrapDiv>
+          <S.WriterDiv>{props.el?.userNickname} 단짝님</S.WriterDiv>
+          
+          <S.CreatedAtDiv>{timeForToday(props.el?.commentCreateAt)}</S.CreatedAtDiv>
+          
+          {showDelete &&(<S.DeleteBtn onClick={onClickDelete(props.el?.commentId)}>삭제</S.DeleteBtn>)}
+
+        </S.ProfileWrapDiv>
+
+        <S.ContentsDiv>{props.el?.commentContents}</S.ContentsDiv>
+
+        <S.LikeBox>
+          {props.el?.commentLikeCount === 0 &&
+            <S.LikeIcon src="/images/Heart.png" onClick={onClickLike(props.el?.commentId)}/>
+          }
+          {props.el?.commentLikeCount === 1 &&
+            <S.LikeIcon src="/images/HeartFill.png" onClick={onClickLike(props.el?.commentId)}/>
+          }
+          <S.LikeCount>{props.el?.commentLikeCount}</S.LikeCount>
+        </S.LikeBox>
+      </S.CommentBox>
+
     </S.BoxDiv>
   )
 }

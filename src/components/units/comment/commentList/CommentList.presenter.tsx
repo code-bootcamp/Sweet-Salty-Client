@@ -1,7 +1,7 @@
 import InfiniteScroll from "react-infinite-scroller";
 import CommentItemPage from "./CommentList.item";
 import { v4 as uuidv4 } from "uuid";
-import * as S from "./CommentList.styled";
+import * as S from "./CommentList.item.styled";
 
 export default function CommentListPresenterPage(props) {
   const dataForMap = props.fetchCommentsData

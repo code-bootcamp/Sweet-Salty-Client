@@ -35,12 +35,13 @@ export const WriteTitle = styled.div`
 `;
 export const FlexBox = styled.div`
   display: flex;
+  align-items: center;
 `
 
 export const InputBox = styled.input`
-  padding: 12px 16px;
-  width: 445px;
-  height: 46px;
+  width: 300px;
+  height: 40px;
+  padding: 0 16px;
   border: 2px solid #dadada;
   border-radius: 10px;
   color: #676767;
@@ -52,7 +53,8 @@ export const InputBox = styled.input`
 
 export const Button = styled.button`
   margin: 0 9px;
-  padding: 7px 30px;
+  width: 80px;
+  height: 40px;
   background: #fff;
   border: 2px solid #DADADA;
   border-radius: 10px;
@@ -87,7 +89,7 @@ export const Span = styled.span`
   `
   export const Category = styled.div`
     margin: 7px 9px 0 0;
-    padding: 10px 20px;
+    padding: 7px 20px;
     color: #fff;
     transition: 0.2s;
     cursor: pointer;
@@ -112,13 +114,13 @@ export const Span = styled.span`
     `
 
     export const ButtonBox = styled.div`
-      padding: 40px 0;
+      padding: 50px 0 30px 0;
       display: flex;
       justify-content: center;
       align-items: center;
     `
     export const CompleteButton = styled.button`
-      margin: 0 9px 32px 9px;
+      margin: 0 9px 0px 9px;
       padding: 7px 40px;
       color: #FFF;
       background: #FF9A31;
@@ -134,4 +136,5 @@ export const Span = styled.span`
       margin: 0 auto;
       font-size: 16px;
       cursor: pointer;
+      text-decoration: underline;
     `

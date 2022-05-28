@@ -19,6 +19,7 @@ export const ItemImg = styled.div`
   });
   background-size: cover;
   background-position: center;
+  cursor: pointer;
 
   border-radius: 20px;
   display: flex;

@@ -1,9 +1,11 @@
+// 페이지네이션 types --- 김치훈
+
 import { ApolloQueryResult } from "@apollo/client";
 import { MouseEvent } from "react";
 import {
   IQuery,
   IQueryFetchBoardsArgs,
-} from "../../../../commons/types/generated/types";
+} from "../../../../../commons/types/generated/types";
 
 export interface IPaginations01Props {
   count?: number;

@@ -1,9 +1,11 @@
-// MypagePoint presenter --- 김치훈
+// 포인트 상세내역 게시글 presenter --- 김치훈
 
-import MyPageMenuContainer from "../../../commons/UserMenu/userMenu.container";
-import MypageUserInfoContainer from "../../../commons/UserInfo/userInfo.container";
+import MyPageMenuContainer from "../../../commons/Mypage/UserMenu/userMenu.container";
+import MypageUserInfoContainer from "../../../commons/Mypage/UserInfo/userInfo.container";
 import TopButton from "../../../commons/topbutton";
 import * as S from "./MypagePoint.styled";
+import PointComponentContainer from "../../../commons/Mypage/PointComponent/pointcomponent.container";
+import ChargeComponentContainer from "../../../commons/Mypage/ChargeComponent/chargecomponent.container";
 
 export default function MypagePointPresenter(props: any) {
   return (
@@ -17,6 +19,15 @@ export default function MypagePointPresenter(props: any) {
       <MyPageMenuContainer />
 
       <S.MypageSectionBox>
+
+        <PointComponentContainer />
+
+        <S.Hr/>
+
+        <ChargeComponentContainer />
+
+        <S.Hr/>
+      
       </S.MypageSectionBox>
       <S.TopButtonBox>
         <TopButton/>

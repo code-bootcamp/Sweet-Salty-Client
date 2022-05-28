@@ -1,4 +1,4 @@
-// userInfo container ---김치훈
+// 마이페이지 유저 정보 container ---김치훈
 
 import UserInfoPresenter from "./userInfo.presenter";
 import { useMutation, useQuery } from "@apollo/client";

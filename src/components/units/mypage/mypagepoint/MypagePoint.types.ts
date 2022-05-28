@@ -1,1 +1,1 @@
-// MypagePoint types --- 김치훈
+// 포인트 상세내역 게시글 types --- 김치훈

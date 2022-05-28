@@ -5,7 +5,11 @@ import { SearchOutlined, EditOutlined } from "@ant-design/icons";
 
 export const Wrapper = styled.div`
   width: ${(props: any) =>
-    props.isNoticeAllList 
+    props.isNoticeAllList ||
+    props.isNoticeList ||
+    props.isNoticeEventList ||
+    props.isNoticePromoionList ||
+    props.isNoticeTasterList
       ? "1120px"
       : "1338px"};
   display: flex;
@@ -13,13 +17,26 @@ export const Wrapper = styled.div`
     props.isReviewList ||
     props.isCommonReviewList ||
     props.isTesterReview ||
-    props.isWishList ||
-    props.isNoticeAllList
+    props.isWishList 
       ? "end"
-      : "center"};
-  background: #f3f3f3;
+      : props.isNoticeAllList 
+        ? "space-between"
+        : "start"
+    };
+    align-items: center;
+    background: #f3f3f3;
 `;
-
+export const SearchbarNoticeCount = styled.div`
+    margin-right: 99px;
+    font-size: 16px;
+    font-weight: 600;
+    color: #676767;
+`
+export const Span = styled.span`
+    font-size: 16px;
+    font-weight: 700;
+    color: #FF9A31;
+`
 export const SearchBox = styled.div`
   width: 500px;
   height: 50px;

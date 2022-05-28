@@ -10,7 +10,12 @@ export default function SearchBarPresenter(props: any) {
       isTesterReview={props.isTesterReview}
       isWishList={props.isWishList}
       isNoticeAllList={props.isNoticeAllList}
+      isNoticeList={props.isNoticeList}
+      isNoticeEventList={props.isNoticeEventList}
+      isNoticePromoionList={props.isNoticePromoionList}
+      isNoticeTasterList={props.isNoticeTasterList}
     >
+
 
     {/* 전체 게시판, 가주세요! 게시판에서 보여줘 */}
     {(props.isReviewList || props.isWishList) && 
@@ -29,6 +34,37 @@ export default function SearchBarPresenter(props: any) {
         </S.SearchInnerBox>
       </S.SearchBox>)
     }
+    
+    {/* 공지사항 전체 페이지 검색창 */}
+    {props.isNoticeAllList  && (
+      <>
+        <S.SearchbarNoticeCount>총 <S.Span>{props.NoticeAllPagecountData?.fetchNoticeCount}</S.Span>건의 공지사항이 있습니다.</S.SearchbarNoticeCount>
+      </>
+    )}
+    {/* 공지사항 단짠리뷰 페이지 검색창 */}
+    {props.isNoticeList  && (
+      <>
+        <S.SearchbarNoticeCount>총 <S.Span>{props.NoticePagecountData?.fetchNoticeCount}</S.Span>건의 공지사항이 있습니다.</S.SearchbarNoticeCount>
+      </>
+    )}
+    {/* 공지사항 이벤트 페이지 검색창 */}
+    {props.isNoticeEventList  && (
+      <>
+        <S.SearchbarNoticeCount>총 <S.Span>{props.NoticeEventPagecountData?.fetchNoticeCount}</S.Span>건의 공지사항이 있습니다.</S.SearchbarNoticeCount>
+      </>
+    )}
+    {/* 공지사항 프로모션 페이지 검색창 */}
+    {props.isNoticePromoionList  && (
+      <>
+        <S.SearchbarNoticeCount>총 <S.Span>{props.NoticePromotionPagecountData?.fetchNoticeCount}</S.Span>건의 공지사항이 있습니다.</S.SearchbarNoticeCount>
+      </>
+    )}
+    {/* 공지사항 시식단 모집 페이지 검색창 */}
+    {props.isNoticeTasterList  && (
+      <>
+        <S.SearchbarNoticeCount>총 <S.Span>{props.NoticeTastingPagecountData?.fetchNoticeCount}</S.Span>건의 공지사항이 있습니다.</S.SearchbarNoticeCount>
+      </>
+    )}
     {/* 공지사항 페이지 검색창 */}
     {(props.isNoticeAllList ||
     props.isNoticeList ||

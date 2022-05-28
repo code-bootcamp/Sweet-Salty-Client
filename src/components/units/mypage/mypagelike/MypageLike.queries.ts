@@ -1,4 +1,4 @@
-// MypageLike queries ---김치훈
+// 좋아요한 단짠 게시글 queries ---김치훈
 
 import { gql } from "@apollo/client";
 

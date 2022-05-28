@@ -14,5 +14,8 @@ export const FETCH_NOTICE_SEARCH_CONTENTS = gql`
 `;
 
 
-// fetchNoticeSearchTitle
-// fetchNoticeSearchContents
+export const FETCH_NOTICE_COUNT = gql`
+  query fetchNoticeCount ($category: NOTICE_SUB_CATEGORY_NAME_ENUM!){
+    fetchNoticeCount(category: $category)
+  }
+`

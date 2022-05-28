@@ -4,7 +4,11 @@ import * as S from "./MyreviewCard.styles";
 export default function MyreviewCardPresenter(props: any) {
   return (
     <S.ItemMainDiv>
-      <S.ItemImg el={props.el}>
+      <S.ItemImg 
+        id={props.el.boardId+props.el.boardSubject} 
+        onClick={props.onClickMoveMyReviewDetail} 
+        el={props.el}
+        >
         <S.BoardSubject>
           {props.el?.boardSubject === "REQUEST" && "가주세요!"}
           {props.el?.boardSubject === "VISITED" && "가봤어요!"} 

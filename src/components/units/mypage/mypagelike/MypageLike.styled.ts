@@ -1,4 +1,4 @@
-// MypageLike styled --- 김치훈
+// 좋아요한 단짠 게시글 styled --- 김치훈
 
 import styled from "@emotion/styled";
 

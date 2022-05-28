@@ -1,16 +1,19 @@
-import { useMutation } from "@apollo/client";
+import { useMutation, useQuery } from "@apollo/client";
 import { useRouter } from "next/router";
 import { useForm } from "react-hook-form";
-import { CREATE_COMMENT, FETCH_COMMENTS} from "./CommentWrite.queries";
+import { CREATE_COMMENT, FETCH_COMMENTS, FETCH_USER_LOGGED_IN} from "./CommentWrite.queries";
+import * as S from "./CommentWrite.styled"
 
-export default function CommentWriteContainerPage(props) {
+export default function CommentWriteContainerPage(props: any) {
   const { register, handleSubmit, setValue } = useForm({
     mode: "onChange",
   });
   const router = useRouter();
   const [createComment] = useMutation(CREATE_COMMENT);
+  const {data} = useQuery(FETCH_USER_LOGGED_IN)
+  console.log(data?.fetchUserLoggedIn?.userImage)
   
-  const onClickSubmit = async (data)=>{
+  const onClickSubmit = async (data: any)=>{
 if(!data.contents) return alert("댓글을 입력해주세요.");
 try{
   await createComment({
@@ -32,16 +35,24 @@ try{
 }
 catch(error:any){alert(error.message)}
   }
-  return (<div>
-  <form onSubmit={handleSubmit(onClickSubmit)}>
-  
-    <input type="text"
-    {...register("contents")}  
-    maxLength={100}
-    // defaultValue={props.el?.contents}
-    />
-    <button type="submit">작성하기</button>
-  </form>
-</div>)
+  return (
+  <>
+    <form onSubmit={handleSubmit(onClickSubmit)}>
+      <S.CommentBox>
+        <S.UserImage src={data?.fetchUserLoggedIn?.userImage 
+        ? (`https://storage.googleapis.com/${data?.fetchUserLoggedIn?.userImage}`)
+        : "https://t1.daumcdn.net/cfile/tistory/24283C3858F778CA2E" }
+        />
+        <S.Input 
+          type="text"
+          placeholder="댓글을 입력하세요."
+        {...register("contents")}
+        maxLength={100}
+        // defaultValue={props.el?.contents}
+        />
+        <S.Button type="submit">등록</S.Button>
+      </S.CommentBox>
+    </form>
+  </>)
   
 }

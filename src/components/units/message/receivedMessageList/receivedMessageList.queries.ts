@@ -1,4 +1,4 @@
-// 쪽지함 리스트 queries --- 임세진
+// 받은 지함 리스트 queries --- 임세진
 
 import { gql } from "@apollo/client";
 

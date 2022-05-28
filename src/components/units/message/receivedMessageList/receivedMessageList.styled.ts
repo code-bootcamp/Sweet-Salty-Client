@@ -1,4 +1,4 @@
-// 쪽지함 리스트 styles --- 임세진, 김치훈
+// 받은 쪽지함 리스트 styles --- 임세진, 김치훈
 
 import styled from "@emotion/styled";
 

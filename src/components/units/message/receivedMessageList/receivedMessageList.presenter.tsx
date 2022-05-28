@@ -1,4 +1,4 @@
-// 쪽지함 리스트 Presenter --- 임세진, 김치훈
+// 받은 쪽지함 리스트 Presenter --- 임세진, 김치훈
 
 import * as S from "./receivedMessageList.styled"
 import { v4 as uuidv4 } from "uuid";

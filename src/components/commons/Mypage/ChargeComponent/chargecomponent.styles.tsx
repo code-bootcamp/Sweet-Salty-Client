@@ -17,6 +17,7 @@ export const StoreImg = styled.div`
   height: 132px;
   border-radius: 10px;
   background: #C9C9C9;
+  background: #FF6E30;
   display: flex;
   justify-content: center;
   align-items: center;

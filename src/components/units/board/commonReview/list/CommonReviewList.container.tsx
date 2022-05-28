@@ -9,26 +9,22 @@ import {
 } from "./CommonReviewList.queries";
 
 export default function CommonReviewContainerPage() {
-  const [commonReviewSearch, setCommonReviewSearch] = useState([]);
-  const {
-    data: fetchBoardsCategoryData,
-    fetchMore: categoryFetchMore,
-    refetch: categoryRefetch,
-  } = useQuery(FETCH_BOARD_CATEGORY_PICK, {
-    variables: {
-      category: "REVIEW",
-    },
-  });
+  const [search, setSearch] = useState([]);
+  const { data: fetchBoardsCategoryData, fetchMore: categoryFetchMore } =
+    useQuery(FETCH_BOARD_CATEGORY_PICK, {
+      variables: {
+        category: "REVIEW",
+      },
+    });
 
-  const {
-    data: fetchBoardWithTagData,
-    fetchMore: tagFetchMore,
-    refetch: tagRefetch,
-  } = useQuery(FETCH_BOARD_WITH_TAGS, {
-    variables: {
-      tags: commonReviewSearch,
-    },
-  });
+  const { data: fetchBoardWithTagData, fetchMore: tagFetchMore } = useQuery(
+    FETCH_BOARD_WITH_TAGS,
+    {
+      variables: {
+        tags: search,
+      },
+    }
+  );
 
   const { data: fetchBoardBestData } = useQuery(FETCH_BOARD_BEST, {
     variables: {
@@ -81,10 +77,8 @@ export default function CommonReviewContainerPage() {
       filterDataLoadMore={filterDataLoadMore}
       fetchBoardsCategoryData={fetchBoardsCategoryData}
       fetchBoardWithTagData={fetchBoardWithTagData}
-      commonReviewSearch={commonReviewSearch}
-      setCommonReviewSearch={setCommonReviewSearch}
-      categoryRefetch={categoryRefetch}
-      tagRefetch={tagRefetch}
+      search={search}
+      setSearch={setSearch}
       fetchBoardBestData={fetchBoardBestData}
     />
   );

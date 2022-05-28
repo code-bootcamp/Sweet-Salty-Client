@@ -8,12 +8,17 @@ export const FETCH_BOARD_CATEGORY_PICK = gql`
       boardId
       boardTitle
       boardSugar
+      boardWriter
       boardSalt
       boardContents
       boardLikeCount
       boardHit
       createAt
       thumbnail
+      place {
+        placeName
+        placeAddress
+      }
     }
   }
 `;

@@ -2,10 +2,13 @@ import * as S from "./TaesterCard.styles";
 
 export default function TasterCardPresenterPage(props) {
   return (
-    <S.ItemMainDiv>
+    <S.ItemMainDiv
+      onClick={props.onClickDetailPage}
+      id={props.fetchBoardsData?.boardId}
+    >
       <S.ItemImg
         style={{
-          backgroundImage: `url(https://storage.googleapis.com/${props.fetchBoardsCategoryData?.thumbnail})`,
+          backgroundImage: `url(https://storage.googleapis.com/${props.fetchBoardsData?.thumbnail})`,
           backgroundSize: "cover",
           backgroundRepeat: "no-repeat",
         }}
@@ -16,18 +19,24 @@ export default function TasterCardPresenterPage(props) {
         <S.ItemInfoTopDiv>
           <S.ItemInfoLeftDiv>
             <S.ItemInfoTitleDiv>
-              {props.fetchBoardsCategoryData?.boardTitle}
+              {props.fetchBoardsData?.boardTitle}
             </S.ItemInfoTitleDiv>
           </S.ItemInfoLeftDiv>
         </S.ItemInfoTopDiv>
 
         <S.ItemInfoMidDiv>
           <S.MidStoreInfoDiv>
-            <S.ItemInfoStoreName>식당명</S.ItemInfoStoreName>
+            <S.ItemInfoStoreName>
+              {props.fetchBoardsData?.place.placeName}
+            </S.ItemInfoStoreName>
             <S.ItemInfoBarDiv>|</S.ItemInfoBarDiv>
-            <S.ItemInfoLocationDiv>구로구</S.ItemInfoLocationDiv>
+            <S.ItemInfoLocationDiv>
+              {props.fetchBoardsData?.place.placeAddress.split(" ")[1]}
+            </S.ItemInfoLocationDiv>
           </S.MidStoreInfoDiv>
-          <S.ItemInfoUserDiv>푸딩 단짝님</S.ItemInfoUserDiv>
+          <S.ItemInfoUserDiv>
+            {props.fetchBoardsData?.boardWriter} 단짝님
+          </S.ItemInfoUserDiv>
         </S.ItemInfoMidDiv>
 
         <S.ItemInfoBottomDiv>
@@ -35,18 +44,18 @@ export default function TasterCardPresenterPage(props) {
             <S.ItemInfoLeftDiv>
               <S.ItemInfoImg src="/images/likeCount.png" alt="하트" />
               <S.ItemInfoCountDiv>
-                {props.fetchBoardsCategoryData?.boardLikeCount}
+                {props.fetchBoardsData?.boardLikeCount}
               </S.ItemInfoCountDiv>
             </S.ItemInfoLeftDiv>
             <S.ItemInfoLeftDiv>
               <S.ItemInfoImg src="/images/viewCount.png" alt="뷰" />
               <S.ItemInfoCountDiv>
-                {props.fetchBoardsCategoryData?.boardHit}
+                {props.fetchBoardsData?.boardHit}
               </S.ItemInfoCountDiv>
             </S.ItemInfoLeftDiv>
           </S.ItemInfoLeftDiv>
           <S.IteminfoDateDiv>
-            {props.fetchBoardsCategoryData?.createAt.slice(0, 10)}
+            {props.fetchBoardsData?.createAt.slice(0, 10)}
           </S.IteminfoDateDiv>
         </S.ItemInfoBottomDiv>
       </S.ItemInfoDiv>

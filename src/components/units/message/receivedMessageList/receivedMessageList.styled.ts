@@ -1,4 +1,4 @@
-// 쪽지함 리스트 styles --- 임세진, 김치훈
+// 받은 쪽지함 리스트 styles --- 임세진, 김치훈
 
 import styled from "@emotion/styled";
 
@@ -51,15 +51,16 @@ export const WriteImg=styled.img`
     margin-right: 10px;
 `
 export const MsgListDiv = styled.div`
+    padding: 24px 24px 0 24px;
+    margin: 0 auto;
+    width: 1120px;
     background-color: #ffffff;
     box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.1);
     border-radius: 20px;
-    margin: 0 auto;
 `;
 
 
 export const MessageTh = styled.div`
-    padding: 24px 0;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -67,22 +68,28 @@ export const MessageTh = styled.div`
     font-weight: 700;
     text-align: center;
 `;
-export const MessageThCategory = styled.div`
-    width: 180px;
+export const MessageThSend = styled.div`
+    width: 170px;
     cursor: default;
-    font-size: 18px;
+    font-size: 16px;
 `;
 export const MessageThContent = styled.div`
-    width: 480px;
+    width: 626px;
     cursor: default;
-    font-size: 18px;
+    font-size: 16px;
 `;
 export const MessageThCreateAt = styled.div`
-    width: 280px;
+    width: 250px;
     cursor: default;
-    font-size: 18px;
+    font-size: 16px;
+`;
+export const MessageThDelete = styled.div`
+    width: 86px;
+    cursor: default;
+    font-size: 16px;
 `;
 export const MessageThHr = styled.div`
+    margin: 20px auto;
     width: 1072px;
     height: 2px;
     border-radius: 50px;
@@ -91,64 +98,73 @@ export const MessageThHr = styled.div`
 
 
 export const MessageBoxDiv = styled.div`
-    border-bottom : 1px solid #dadada;
-    display:flex;
-    height: 78px;
+    width: 1072px;
+    display: flex;
+    justify-content: space-between;
     align-items : center;
-    :last-child{
-        border:none;
-    }
 `;
-export const MessageDataDiv = styled.div`
-    display:flex;`;
-
 export const ProfileDiv = styled.div`
+    width: 170px;
     display: flex;
     align-items : center;
 `;
-export const SendUserDiv = styled.div`
-    align-items: center;
-    color: #FF9A31;
-    font-weight: 600;
-    font-size: 16px;
-    text-align: center;
-`;
 export const ProfileImg = styled.img`
+    margin-right: 8px;
     border-radius: 50%;
     height: 30px;
     width: 30px;
+    cursor: default;
+`;
+export const SendUserDiv = styled.div`
+    color: #FF9A31;
+    font-weight: 600;
+    font-size: 16px;
+    cursor: default;
 `;
 
-export const DateDiv = styled.div`
-    display: flex;
-    align-items : center;
-    color: #2c2c2c;
-    font-size: 16px;
-    font-weight: 500;
-`;
 export const MessageContents = styled.div`
+    width: 626px;
     display: flex;
     align-items : center;
     font-weight: 600;
     font-size: 16px;
-    line-height: 16px;
-    color: ${(props)=>props.isRead?"#bbbbbb":"#2c2c2c"};
+    color: ${(props: any)=>props.isRead?"#bbbbbb":"#2c2c2c"};
     overflow: hidden;
     text-overflow: ellipsis;
-    width:500px;
     white-space: nowrap;
+    cursor: pointer;
+`;
+export const DateDiv = styled.div`
+    width: 250px;
+    display: flex;
+    justify-content: center;
+    color: #2c2c2c;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: default;
 `;
 
 export const DeleteBtn = styled.div`
-    border: none;
-    background-color: transparent;
+    width: 86px;
     color: #7B7B7B;
     cursor: pointer;
-    display: flex;
     font-size: 16px;
     font-weight: 500;
+    display: flex;
+    justify-content: end;
     align-items: center;
-    justify-content: center;
-    vertical-align: center;
     text-decoration: underline;
+`;
+
+export const MessageHr = styled.div`
+    margin: 20px auto;
+    width: 1072px;
+    height: 1px;
+    border-radius: 50px;
+    background: #DADADA;
+`;
+
+
+export const PaginationBox = styled.div`
+    padding: 30px 0 100px 0;
 `;

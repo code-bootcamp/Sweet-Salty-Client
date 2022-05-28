@@ -1,4 +1,4 @@
-// 쪽지함 리스트 Container --- 임세진, 김치훈
+// 받은 쪽지함 리스트 Container --- 임세진, 김치훈
 
 import { useMutation, useQuery } from "@apollo/client";
 import { useRouter } from "next/router"

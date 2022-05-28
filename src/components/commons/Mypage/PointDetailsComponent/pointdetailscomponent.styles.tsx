@@ -29,6 +29,31 @@ export const StoreImg = styled.div`
   justify-content: center;
   align-items: start;
 `
+export const PointChargeImg = styled.div`
+  width: 166px;
+  height: 132px;
+  border-radius: 10px;
+  background: #FF6E30;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  font-weight: 700;
+  font-size: 16px;
+`
+export const PointCancelImg = styled.div`
+  width: 166px;
+  height: 132px;
+  border-radius: 10px;
+  background: #C9C9C9;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  font-weight: 700;
+  font-size: 16px;
+`
+
 export const StoreContents = styled.div`
   width: 166px;
   height: 80px;
@@ -124,12 +149,25 @@ export const PaymentCancel = styled.div`
   color: #7B7B7B;
   text-decoration: underline;
   font-weight: 700;
+  cursor: pointer;
 `
+
 export const PaymentPoint = styled.div`
   color: #FF9A31;
   font-weight: 700;
-  // color: #AAAAAA;
+  cursor: default;
 `
+export const PointChargePoint = styled.div`
+  color: #FF6E30;
+  font-weight: 700;
+  cursor: default;
+`
+export const PointCancelPoint = styled.div`
+  font-weight: 700;
+  color: #AAAAAA;
+  cursor: default;
+`
+
 export const BarcodeBox = styled.div`
   padding: 14px 20px;
   height: 44px;
@@ -137,6 +175,7 @@ export const BarcodeBox = styled.div`
   background: #FF9A31;
   display: flex;
   align-items: center;
+  cursor: pointer;
 `
 export const BarcodeIcon = styled.img`
   width: 24px;
@@ -146,4 +185,24 @@ export const BarcodeText = styled.div`
   font-size: 16px;
   font-weight: 700;
   color: #fff;
+`
+
+
+// 포인트 충전 스타일
+
+export const PayName = styled.div`
+  color: #676767;
+  font-weight: 700;
+  font-size: 16px;
+`
+
+export const PointChargeRightBox = styled.div`
+  display: flex;
+  align-items: center;
+`
+
+
+
+export const Barcode = styled.img`
+  width: 600px;
 `

@@ -4,7 +4,7 @@ import { useQuery } from "@apollo/client";
 import { useRouter } from "next/router";
 import { useState, ChangeEvent } from "react";
 import SearchBarPresenter from "./SearchBar.presenter";
-import { FETCH_NOTICE_SEARCH_CONTENTS, FETCH_NOTICE_SEARCH_TITLE } from "./SearchBar.queries";
+import { FETCH_NOTICE_COUNT, FETCH_NOTICE_SEARCH_CONTENTS, FETCH_NOTICE_SEARCH_TITLE } from "./SearchBar.queries";
 import _ from "lodash";
 
 export default function SearchBarPage(props: any) {
@@ -33,6 +33,33 @@ export default function SearchBarPage(props: any) {
       contents: "d"
     }
   })
+  
+  
+  const {data: NoticeAllPagecountData} = useQuery(FETCH_NOTICE_COUNT, {
+    variables: {
+      category: "ALL"
+    }
+  })
+  const {data: NoticePagecountData} = useQuery(FETCH_NOTICE_COUNT, {
+    variables: {
+      category: "NOTICE"
+    }
+  })
+  const {data: NoticeEventPagecountData} = useQuery(FETCH_NOTICE_COUNT, {
+    variables: {
+      category: "EVENT"
+    }
+  })
+  const {data: NoticePromotionPagecountData} = useQuery(FETCH_NOTICE_COUNT, {
+    variables: {
+      category: "PROMOTION"
+    }
+  })
+  const {data: NoticeTastingPagecountData} = useQuery(FETCH_NOTICE_COUNT, {
+    variables: {
+      category: "TASTING"
+    }
+  })
 
   const onChangeTitle = (event: any) =>{
     setSearchTitle(event.target.value)
@@ -50,19 +77,19 @@ export default function SearchBarPage(props: any) {
   // 거주세요! 리뷰
   const WishList = ["/reviews/wish"];
   const isWishList = WishList.includes(router.asPath);
-  // 전체 공지사항
+  // 공지사항 전체
   const NoticeAllList = ["/noticeAll"];
   const isNoticeAllList = NoticeAllList.includes(router.asPath);
-  // 단짠 공지 공지사항
+  // 공지사항 단짠 공지 공지사항
   const NoticeList = ["/noticeAll/notice"];
   const isNoticeList = NoticeList.includes(router.asPath);
-  // 이벤트 공지사항
+  // 공지사항 이벤트 공지사항
   const NoticeEventList = ["/noticeAll/noticeEvent"];
   const isNoticeEventList = NoticeEventList.includes(router.asPath);
-  // 프로모션 공지사항
+  // 공지사항 프로모션 공지사항
   const NoticePromoionList = ["/noticeAll/noticePromotion"];
   const isNoticePromoionList = NoticePromoionList.includes(router.asPath);
-  // 시식단 모집 공지사항
+  // 공지사항 시식단 모집 공지사항
   const NoticeTasterList = ["/noticeAll/noticeTaster"];
   const isNoticeTasterList = NoticeTasterList.includes(router.asPath);
 
@@ -82,6 +109,12 @@ export default function SearchBarPage(props: any) {
 
   return (
     <SearchBarPresenter
+      NoticeAllPagecountData={NoticeAllPagecountData}
+      NoticePagecountData={NoticePagecountData}
+      NoticeEventPagecountData={NoticeEventPagecountData}
+      NoticePromotionPagecountData={NoticePromotionPagecountData}
+      NoticeTastingPagecountData={NoticeTastingPagecountData}
+
       onChangeTitle={onChangeTitle}
       onChangeSearchbar={onChangeSearchbar}
       isReviewList={isReviewList}

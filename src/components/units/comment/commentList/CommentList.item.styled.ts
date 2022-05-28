@@ -29,11 +29,13 @@ export const ProfileWrapDiv = styled.div`
   align-items: center;
 `;
 export const WriterDiv = styled.div`
+  cursor: default;
   color: #2c2c2c;
   font-size: 14px;
   font-weight: 700;
 `;
 export const CreatedAtDiv= styled.div`
+  cursor: default;
   padding: 0 10px;
   line-height: 12px;
   color: #676767;
@@ -48,6 +50,7 @@ export const DeleteBtn = styled.div`
 `;
 
 export const ContentsDiv = styled.div`
+  cursor: default;
   padding: 8px 0 10px 0;
   width: 860px;
   white-space: nowrap;
@@ -57,10 +60,12 @@ export const ContentsDiv = styled.div`
 `;
 export const LikeBox = styled.div``;
 export const LikeCount = styled.span`
+  cursor: default;
   font-size: 14px;
   font-weight: 500;
 `;
 export const LikeIcon = styled.img`
+  cursor: pointer;
   height: 19px;
   padding-right: 5px; 
 `;

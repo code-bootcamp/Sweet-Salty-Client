@@ -1,6 +1,6 @@
-// mypageMenu Presenter --- 김치훈
+// 마이페이지 게시글 박스 Presenter --- 김치훈
 
-import * as S from "./UserMenu.styles"
+import * as S from "./userMenu.styles"
 
 
 export default function UserMenuPresenter(props: any) {

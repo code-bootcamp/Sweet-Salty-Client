@@ -1,4 +1,4 @@
-// mypageMenu Styles --- 김치훈
+// 마이페이지 게시글 박스 Styles --- 김치훈
 
 import styled from "@emotion/styled";
 

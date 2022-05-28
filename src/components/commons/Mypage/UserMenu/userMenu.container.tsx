@@ -1,4 +1,4 @@
-// mypageMenu Container --- 김치훈
+// 마이페이지 게시글 박스 Container --- 김치훈
 
 import { useRouter } from "next/router";
 import UserMenuPresenter from "./userMenu.presenter";

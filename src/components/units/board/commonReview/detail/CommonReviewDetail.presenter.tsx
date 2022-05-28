@@ -11,7 +11,7 @@ import CommentWriteContainerPage from "../../../comment/commentWrite/CommentWrit
 import * as S from "./CommonReviewDetail.styles";
 
 export default function ReviewDetailPresenter(props: any) {
-  console.log("여기다", props.data);
+  console.log("여기다", props.data?.place.lat.length);
   return (
     <S.Wrapper>
       <S.Title>
@@ -86,7 +86,11 @@ export default function ReviewDetailPresenter(props: any) {
         <S.MapSection>
           <S.MapTitle>가게 위치</S.MapTitle>
           <S.MapBox>
-            <DetailMapPage address={props.data} />
+            {props.data?.place.lat.length ? (
+              <DetailMapPage address={props.data} />
+            ) : (
+              <div>잠시만요</div>
+            )}
           </S.MapBox>
         </S.MapSection>
 

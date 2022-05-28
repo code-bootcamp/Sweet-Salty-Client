@@ -18,17 +18,15 @@ export const ReviewMenu = styled.div`
   font-weight: 700;
   font-size: 20px;
   color:${(props: any)=> 
-    props.isReviewList || 
     props.isCommonReviewList ||
-    props.isTesterReview ||
+    props.isVisited ||
     props.isWishList 
     ? "#fff"
     : "#7b7b7b" 
   };
   background: ${(props: any)=> 
-    props.isReviewList || 
     props.isCommonReviewList ||
-    props.isTesterReview ||
+    props.isVisited ||
     props.isWishList 
     ? "linear-gradient(#ff6e30, #ffa230)"
     : "#fff" 
@@ -41,44 +39,26 @@ export const ReviewMenu = styled.div`
   }
 `;
 
-export default function ReviewMenuPage() {
+export default function MainMenuPage(props) {
   const router = useRouter();
 
-  
-  // 전체리뷰 
-  const ReviewList = ["/reviews"];
-  const isReviewList = ReviewList.includes(router.asPath);
   // 단짠리뷰 
   const CommonReviewList = ["/reviews/commonReview"];
   const isCommonReviewList = CommonReviewList.includes(router.asPath);
-  // 시식단리뷰
-  const TesterReview = ["/reviews/testerReview"];
-  const isTesterReview = TesterReview.includes(router.asPath);
-  // 거주세요! 리뷰
+  // 가봤어요! 리뷰
+  const VisitedReview = ["/reviews/visitedReview"];
+  const isVisited = VisitedReview.includes(router.asPath);
+  // 가주세요! 리뷰
   const WishList = ["/reviews/wish"];
   const isWishList = WishList.includes(router.asPath);
 
-  const onClickCommunityList = () => {
-    router.push("/reviews");
-  };
-
-  const onClickCommonReviewList = () => {
-    router.push("/reviews/commonReview");
-  };
-  const onClickTasterReviewList = () => {
-    router.push("/reviews/testerReview");
-  };
-  const onClickWishReviewList = () => {
-    router.push("/reviews/wish");
-  };
 
   return (
     <>
       <ReviewMenuBox>
-        <ReviewMenu onClick={onClickCommunityList} isReviewList={isReviewList}>전체</ReviewMenu>
-        <ReviewMenu onClick={onClickCommonReviewList} isCommonReviewList={isCommonReviewList}>단짠 리뷰</ReviewMenu>
-        <ReviewMenu onClick={onClickTasterReviewList} isTesterReview={isTesterReview}>시식단 리뷰</ReviewMenu>
-        <ReviewMenu onClick={onClickWishReviewList} isWishList={isWishList}>가주세요!</ReviewMenu>
+        <ReviewMenu onClick={props.onClickCetegory} value="REVIEW" isCommonReviewList={isCommonReviewList}>단짠 리뷰</ReviewMenu>
+        <ReviewMenu onClick={props.onClickCetegory} value="REQUEST" isWishList={isWishList}>가주세요!</ReviewMenu>
+        <ReviewMenu onClick={props.onClickCetegory} value="VISITED" isisVisited={isVisited}>가봤어요!</ReviewMenu>
       </ReviewMenuBox>
     </>
   );

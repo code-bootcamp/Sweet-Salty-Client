@@ -64,6 +64,20 @@ export const ReviewArrow = styled.div`
   text-align: center;
   border-radius: 50%;
   background: #fff;
+  color:${(props: any)=> 
+    props.isCommonReviewList ||
+    props.isVisited ||
+    props.isWishList 
+    ? "#fff"
+    : "#7b7b7b" 
+  };
+  background: ${(props: any)=> 
+    props.isCommonReviewList ||
+    props.isVisited ||
+    props.isWishList 
+    ? "linear-gradient(#ff6e30, #ffa230)"
+    : "#fff" 
+  };
   cursor: pointer;
   transition: 0.2s;
   &:hover {

@@ -14,11 +14,16 @@ export const FETCH_RECENT_BOARDS = gql`
       createAt
       user{
         userNickname
-        userProfile
+        userImage
       }
       place{
         placeName
         placeAddress
+      }
+      boardSides{
+        boardTags{
+          boardTagName
+        }
       }
     }
   }

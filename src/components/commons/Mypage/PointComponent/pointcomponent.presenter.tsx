@@ -10,15 +10,21 @@ export default function PointComponentPresenter (){
     <S.Wrapper>
       <S.LeftBox>
         <S.StoreImg>
-          <S.StoreTopBox>
-            <S.EventName>일일특가</S.EventName>
-            <S.LikeIcon />
-          </S.StoreTopBox>
-          
-          <S.StoreMidBox>
-            <S.PointIcon src="/images/pointicon.png"/>+ 취소{/* 취소, 충전 글자 */}
-          </S.StoreMidBox>
-          </S.StoreImg>
+          <S.StoreContents>
+
+            <S.StoreTopBox>
+              <S.EventName>일일특가</S.EventName>
+              <S.LikeIcon src="/images/heartIcon.png" />
+            </S.StoreTopBox>
+            
+            <S.StoreMidBox>
+              <S.PointIcon src="/images/pointicon.png"/>+ 취소{/* 취소, 충전 글자 */}
+            </S.StoreMidBox>
+
+          </S.StoreContents>
+
+        </S.StoreImg>
+
         <S.StoreComments>
 
           <S.ContentsBox>

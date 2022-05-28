@@ -1,6 +1,5 @@
 // 결제 상세내역 Component styles ---김치훈
 
-import { HeartFilled } from "@ant-design/icons";
 import styled from "@emotion/styled";
 
 
@@ -23,14 +22,22 @@ export const StoreImg = styled.div`
   height: 132px;
   border-radius: 10px;
   background: #dbdbdb;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
   color: #fff;
   font-weight: 700;
   font-size: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: start;
 `
+export const StoreContents = styled.div`
+  width: 166px;
+  height: 80px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+`
+
 export const StoreTopBox = styled.div`
   padding: 10px 0;
   width: 146px;
@@ -42,12 +49,13 @@ export const EventName = styled.div`
   font-size: 12px;
   font-weight: 700;
 `
-export const LikeIcon = styled(HeartFilled)`
-  font-size: 12px;
+export const LikeIcon = styled.img`
+  width: 12px;
+  height: 12px;
   color: #fff;
 `
 export const StoreMidBox = styled.div`
-  font-size: 12px;
+  font-size: 16px;
   color: #fff;
 `
 export const PointIcon = styled.img`

@@ -13,6 +13,18 @@ declare const window: typeof globalThis & {
 
 
 export default function UserInfoContainer(){
+  const [isPoint, setIsPoint] =useState(true)
+  const [changePoint, setChangePoint] =useState("")
+
+
+  const onClickPointCharge =()=>{
+    setIsPoint(prev=>(!prev))
+  }
+
+  const onChangePoint =(event: any)=>{
+    setChangePoint(event.target.value)
+  }
+
   const router = useRouter()
 
   const {data} = useQuery(FETCH_USER_LOGGED_IN)
@@ -86,7 +98,6 @@ const onChangeProfile =(event: any)=>{
 
   
   
-  const [chargePrice] = useState(100);
   // 충전
   const [createPointTransaction] = useMutation(CREATE_POINT_TRANSACTION);
   // 충전
@@ -100,7 +111,7 @@ const onChangeProfile =(event: any)=>{
         pg: "html5_inicis",
         pay_method: "card",
         name: "충성",
-        amount: chargePrice,
+        amount: changePoint,
         buyer_email: "rlaclgns321@naver.com",
         buyer_name: `김민영`,
         buyer_tel: "010-4242-4242",
@@ -155,6 +166,10 @@ const onChangeProfile =(event: any)=>{
     onClickUpdateProfile={onClickUpdateProfile}
     onClickModify={onClickModify}
     // onClickFollow={onClickFollow}
+    onChangePoint={onChangePoint}
+    changePoint={changePoint}
+    isPoint={isPoint}
+    onClickPointCharge={onClickPointCharge}
     onClickPoint={onClickPoint}
     onClickMyReview={onClickMyReview}
     onClickLikeAccess={onClickLikeAccess}

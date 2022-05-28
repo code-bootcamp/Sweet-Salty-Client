@@ -152,6 +152,10 @@ export const ButtonBox = styled.div`
   justify-content: space-between;
   align-items: end;
 `
+export const PointCharge = styled.div`
+  font-size: 16px;
+  font-weight: 700;
+`
 export const PointButton = styled.div`
   cursor: default;
   padding: 10px 15px;
@@ -165,6 +169,21 @@ export const PointButton = styled.div`
   cursor: pointer;
   color: #fff;
   &:hover {
+  }
+`
+export const Input = styled.input`
+  width: 160px;
+  color: #2c2c2c;
+  background: transparent;
+  border: none;
+  color: #fff;
+  font-weight: 700;
+  outline: none;
+  ::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+  }
+  ::placeholder {
+    color: #fff;
   }
 `
 export const Button = styled.div`

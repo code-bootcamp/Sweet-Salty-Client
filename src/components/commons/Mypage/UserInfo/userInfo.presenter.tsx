@@ -107,7 +107,25 @@ export default function UserInfoPresenter(props: any){
           </S.UserLeftBox>
           
           <S.ButtonBox>
-            <S.PointButton onClick={props.onClickPoint}><img style={{width: "24px", marginRight: "6px"}} src="../images/pointicon.png"/>포인트 충전하기</S.PointButton>
+            {props.isPoint 
+            ? <S.PointButton>
+                <img onClick={props.onClickPointCharge} style={{width: "24px", marginRight: "6px"}} src="../images/pointicon.png"/>
+                <S.Input 
+                  type="number"
+                  step={100}
+                  placeholder="충전할 금액을 적으세요."
+                  min={100}
+                  max={50000}
+                  required
+                  onChange={props.onChangePoint}
+                />
+              </S.PointButton>
+            : <S.PointButton>
+                <img onClick={props.onClickPointCharge} style={{width: "24px", marginRight: "6px"}} src="../images/pointicon.png"/>
+                <S.PointCharge onClick={props.onClickPoint}>{props.changePoint} 포인트 충전하기
+                </S.PointCharge>
+              </S.PointButton>
+            }
             <S.Button onClick={props.onClickModify}><SettingOutlined style={{ marginRight: "6px"}}/>회원정보 수정하기</S.Button>
           </S.ButtonBox>
 

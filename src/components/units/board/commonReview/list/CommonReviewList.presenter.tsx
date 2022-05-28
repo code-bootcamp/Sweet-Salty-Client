@@ -26,10 +26,7 @@ export default function CommonReviewPresenterPage(props: any) {
 
         <S.CommonReviewInnerBox>
           {/* filter 공동컴포넌트 */}
-          <FilterContainer
-            setCommonReviewSearch={props.setCommonReviewSearch}
-            commonReviewSearch={props.commonReviewSearch}
-          />
+          <FilterContainer setSearch={props.setSearch} search={props.search} />
 
           <S.TopThreeBox>
             <S.TopThreeTitle>
@@ -51,7 +48,7 @@ export default function CommonReviewPresenterPage(props: any) {
 
           <S.CommonReviewHr />
           {/* 리뷰리스트 */}
-          {props.commonReviewSearch.length ? (
+          {props.search?.length ? (
             <div style={{ height: "auto", overflow: "auto" }}>
               <InfiniteScroll
                 pageStart={0}

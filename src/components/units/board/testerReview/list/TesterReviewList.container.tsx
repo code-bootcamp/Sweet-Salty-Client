@@ -1,23 +1,43 @@
 // 여기는 시식단 리뷰 List Container 입니다..
 
 import { useQuery } from "@apollo/client";
+import { useState } from "react";
+import {
+  FETCH_BOARD_BEST,
+  FETCH_BOARD_WITH_TAGS,
+} from "../../commonReview/list/CommonReviewList.queries";
 import TesterReviewPresenterPage from "./TesterReviewList.presenter";
 import { FETCH_BOARD_CATEGORY_PICK } from "./TesterReviewList.queries";
 
 export default function TesterReviewContainerPage() {
-  const { data: fetchBoardsCategoryData, fetchMore } = useQuery(
-    FETCH_BOARD_CATEGORY_PICK,
-    {
+  const [search, setSearch] = useState([]);
+
+  const { data: fetchBoardsCategoryData, fetchMore: categoryFetchMore } =
+    useQuery(FETCH_BOARD_CATEGORY_PICK, {
       variables: {
         category: "TASTER",
+      },
+    });
+
+  const { data: fetchBoardWithTagData, fetchMore: tagFetchMore } = useQuery(
+    FETCH_BOARD_WITH_TAGS,
+    {
+      variables: {
+        tags: search,
       },
     }
   );
 
-  // 무한스크롤
-  const loadMore = () => {
+  const { data: fetchBoardBestData } = useQuery(FETCH_BOARD_BEST, {
+    variables: {
+      category: "TASTER",
+    },
+  });
+
+  // 전체 데이터 무한스크롤
+  const categoryDataLoadMore = () => {
     if (!fetchBoardsCategoryData) return;
-    fetchMore({
+    categoryFetchMore({
       variables: {
         page:
           Math.ceil(
@@ -37,10 +57,32 @@ export default function TesterReviewContainerPage() {
     });
   };
 
+  const infiniteTagArr = fetchBoardWithTagData?.fetchBoardWithTags.hits;
+  // 필터 검색 데이터 무한스크롤
+  const filterDataLoadMore = () => {
+    if (!infiniteTagArr) return;
+    tagFetchMore({
+      variables: {
+        page: Math.ceil(infiniteTagArr.length / 10) + 1,
+      },
+      updateQuery: (prev, { fetchMoreResult }) => {
+        if (!fetchMoreResult.hits) return { hits: [...prev.hits] };
+        return {
+          hits: [...prev.hits, ...fetchMoreResult?.hits],
+        };
+      },
+    });
+  };
+
   return (
     <TesterReviewPresenterPage
-      loadMore={loadMore}
+      categoryDataLoadMore={categoryDataLoadMore}
+      filterDataLoadMore={filterDataLoadMore}
       fetchBoardsCategoryData={fetchBoardsCategoryData}
+      fetchBoardWithTagData={fetchBoardWithTagData}
+      search={search}
+      setSearch={setSearch}
+      fetchBoardBestData={fetchBoardBestData}
     />
   );
 }

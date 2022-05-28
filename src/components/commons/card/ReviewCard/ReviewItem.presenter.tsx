@@ -28,11 +28,17 @@ export default function CommonReviewItemPresenterPage(props) {
 
         <S.ItemInfoMidDiv>
           <S.MidStoreInfoDiv>
-            <S.ItemInfoStoreName>식당명</S.ItemInfoStoreName>
+            <S.ItemInfoStoreName>
+              {props.fetchBoardsData?.place.placeName}
+            </S.ItemInfoStoreName>
             <S.ItemInfoBarDiv>|</S.ItemInfoBarDiv>
-            <S.ItemInfoLocationDiv>구로구</S.ItemInfoLocationDiv>
+            <S.ItemInfoLocationDiv>
+              {props.fetchBoardsData?.place.placeAddress.split(" ")[1]}
+            </S.ItemInfoLocationDiv>
           </S.MidStoreInfoDiv>
-          <S.ItemInfoUserDiv>푸딩 단짝님</S.ItemInfoUserDiv>
+          <S.ItemInfoUserDiv>
+            {props.fetchBoardsData?.boardWriter} 단짝님
+          </S.ItemInfoUserDiv>
         </S.ItemInfoMidDiv>
 
         <S.ItemInfoBottomDiv>

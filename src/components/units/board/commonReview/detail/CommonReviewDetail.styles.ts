@@ -25,7 +25,7 @@ export const RightOutline = styled(RightOutlined)`
   color: #fff;
 `;
 export const ReviewBox = styled.div`
-  padding: 40px;
+  padding: 40px 40px 0px 40px;
   width: 1000px;
   background: #fff;
   border-radius: 20px;
@@ -226,7 +226,7 @@ export const ReviewHr = styled.div`
 `;
 
 export const CommentBox = styled.div`
-  padding: 40px 0;
+  padding: 30px 0 20px 0px;
 `;
 export const CommentTitle = styled.div`
   font-weight: 700;

@@ -14,7 +14,7 @@ export default function PointComponentPresenter (){
 
             <S.StoreTopBox>
               <S.EventName>일일특가</S.EventName>
-              <S.LikeIcon src="/images/heartIcon.png" />
+              <S.LikeIcon src="/images/WhiteHeartIcon.png" />
             </S.StoreTopBox>
             
             <S.StoreMidBox>

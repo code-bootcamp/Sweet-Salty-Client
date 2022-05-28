@@ -8,6 +8,7 @@ export default function CommonReviewItemContainerPage(props) {
       router.push(`/reviews/commonReview/${event.currentTarget.id}`);
     }
   };
+  
   return (
     <CommonReviewItemPresenterPage
       id={props.id}

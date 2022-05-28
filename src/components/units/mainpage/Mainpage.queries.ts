@@ -1,5 +1,3 @@
-// Mainpage 메인페이지 queries - 김치훈
-
 import { gql } from "@apollo/client";
 
 export const FETCH_RECENT_BOARDS = gql`
@@ -43,12 +41,40 @@ query fetchUserLoggedIn{
 export const REAL_TIME_SHOP = gql`
 query realTimeShop{
   realTimeShop{
+    shopId
     shopProductName
     shopSeller
     shopDisCount
     shopDisCountPrice
     shopOriginalPrice
     thumbnail
+  }
+}
+`;
+
+export const FETCH_PREFER_BOARDS = gql`
+query fetchPreferBoards{
+  fetchPreferBoards{
+    boardId
+      boardTitle
+      boardWriter
+      boardLikeCount
+      boardHit
+      thumbnail
+      createAt
+      user{
+        userNickname
+        userImage
+      }
+      place{
+        placeName
+        placeAddress
+      }
+      boardSides{
+        boardTags{
+          boardTagName
+        }
+      }
   }
 }
 `;

@@ -90,9 +90,12 @@ export const ReviewArrow = styled.div`
 export const ReviewSection = styled.div`
   margin: 0 30px;
   display: flex;
-  overflow: hidden;
+  overflow-x: scroll;
+  overflow-y: hidden;
 `;
-
+export const CardBoxDiv =styled.div`
+padding-right:30px;
+`;
 export const MainPageLoginOutBox = styled.div`
   position: absolute;
   margin: 0 auto 40px auto;

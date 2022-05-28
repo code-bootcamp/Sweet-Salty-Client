@@ -3,10 +3,11 @@
 import TopButton from "../../commons/topbutton";
 import * as S from "./MainPage.styles";
 import { v4 as uuidv4 } from "uuid";
-import { getDateDot } from "../../commons/libraries/date";
+import StoreItemContainerPage from "../../commons/card/StoreCard/StoreItem.container";
+import MainReviewItemContainerPage from "../../commons/card/MainReviewCard/ReviewItem.container";
 export default function MainpagePresenter(props: any) {
 
-const url = "https://storage.googleapis.com/"
+
   return (
     <S.MainPageWrapper>
       <S.MainPageOutBox>
@@ -17,23 +18,15 @@ const url = "https://storage.googleapis.com/"
       </S.ReviewMenuBox>
         <S.MainPageInnerBox>
           <S.ReviewHeader>
-            <S.ReviewTitle>최신 단짠 리뷰</S.ReviewTitle>
-            <S.ReviewArrow onClick={props.onClickCommonReview}>→</S.ReviewArrow>
+            <S.ReviewTitle>{props.category==="REVIEW"?"최신 단짠 리뷰":(props.category==="REQUEST"?"가주세요! 최신 글":"가봤어요! 최신 글")}</S.ReviewTitle>
+            <S.ReviewArrow onClick={props.onClickReview}>→</S.ReviewArrow>
           </S.ReviewHeader>
           <S.ReviewSection>
             {/* 리뷰 공동컴포넌트 올리는 곳 */}
             {props.recentBoardsData?.fetchRecentBoards.map((el)=>(
-              <div key ={uuidv4()}  onClick={props.onClickDetailPage(el.boardId)}>
-                {/* <div>섬네일<img src={url + el.thumbnail}/></div> */}
-                {/* <div>유저이미지<img src={url +el.user?.userImage}/></div> */}
-                <div>제목{el.boardTitle}</div>
-                <div>식당명{el.place?.placeName}</div>
-                <div>식당장소{el.boardSides?.boardTags?.boardTagName}</div>
-                <div>작성자{el.boardWriter}</div>
-                <div>좋아요{el.boardLikeCount}</div>
-                <div>조회수{el.boardHit}</div>
-                <div>작성일{getDateDot(el.createAt)}</div>
-              </div>
+              <S.CardBoxDiv  key={uuidv4()}>
+              <MainReviewItemContainerPage category={props.category} id={el.boardId} el={el}/>
+              </S.CardBoxDiv>
             ))}
             </S.ReviewSection>
         </S.MainPageInnerBox>
@@ -43,22 +36,14 @@ const url = "https://storage.googleapis.com/"
         <S.MainPageInnerBox>
           <S.ReviewHeader>
             <S.ReviewTitle>광고(시식단) 단짠 리뷰</S.ReviewTitle>
-            <S.ReviewArrow>→</S.ReviewArrow>
+            <S.ReviewArrow onClick={props.onClickTasterPage}>→</S.ReviewArrow>
           </S.ReviewHeader>
           <S.ReviewSection>
             {/* 리뷰 공동컴포넌트 올리는 곳 */}
             {props.recentBoardsTasterData?.fetchRecentBoards.map((el)=>(
-              <div key ={uuidv4()} onClick={props.onClickDetailPage(el.boardId)}>
-                {/* <div>섬네일<img src={url + el.thumbnail}/></div> */}
-                {/* <div>유저이미지<img src={url +el.user?.userImage}/></div> */}
-                <div>제목{el.boardTitle}</div>
-                <div>식당명{el.place?.placeName}</div>
-                <div>식당장소{el.boardSides?.boardTags?.boardTagName}</div>
-                <div>작성자{el.boardWriter}</div>
-                <div>좋아요{el.boardLikeCount}</div>
-                <div>조회수{el.boardHit}</div>
-                <div>작성일{getDateDot(el.createAt)}</div>
-              </div>
+             <S.CardBoxDiv  key={uuidv4()}>
+              <MainReviewItemContainerPage category="TASTER" id={el.boardId} el={el} />
+              </S.CardBoxDiv>
             ))}
           </S.ReviewSection>
         </S.MainPageInnerBox>
@@ -92,9 +77,16 @@ const url = "https://storage.googleapis.com/"
         <S.MainPageInnerBox>
           <S.ReviewHeader>
             <S.ReviewTitle>단짝 샵</S.ReviewTitle>
-            <S.ReviewArrow>→</S.ReviewArrow>
+            <S.ReviewArrow onClick={props.onClickShopPage}>→</S.ReviewArrow>
           </S.ReviewHeader>
-          <S.ReviewSection>{/* 리뷰 공동컴포넌트 올리는 곳 */}</S.ReviewSection>
+          <S.ReviewSection>
+            {/* 리뷰 공동컴포넌트 올리는 곳 */}
+          {props.recentShopData?.realTimeShop.map((el)=>(
+           <S.CardBoxDiv  key={uuidv4()}>
+            <StoreItemContainerPage id={el.shopId} el={el}/>
+            </S.CardBoxDiv>
+          ))}
+          </S.ReviewSection>
         </S.MainPageInnerBox>
       </S.MainPageOutBox>
 

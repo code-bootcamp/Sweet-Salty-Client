@@ -2,7 +2,7 @@ import { useQuery } from "@apollo/client";
 import { useRouter } from "next/router";
 import { useState } from "react";
 import MainpagePresenter from "./MainPage.presenter";
-import { FETCH_RECENT_BOARDS, FETCH_USER_LOGGED_IN, REAL_TIME_SHOP } from "./Mainpage.queries";
+import { FETCH_PREFER_BOARDS, FETCH_RECENT_BOARDS, FETCH_USER_LOGGED_IN, REAL_TIME_SHOP } from "./Mainpage.queries";
 
 export default function MainPageList() {
   const router = useRouter();
@@ -14,17 +14,24 @@ export default function MainPageList() {
   const {data : recentBoardsTasterData } =useQuery(FETCH_RECENT_BOARDS,{
     variables: { category : "TASTER"}
   });
+  const {data : preferData} = useQuery(FETCH_PREFER_BOARDS)
   const {data: recentShopData} = useQuery(REAL_TIME_SHOP)
   const loggedInNickname = loggedInData?.fetchUserLoggedIn?.userNickname
-  console.log("리센트",category, recentBoardsData)
-  console.log("테이스터", recentBoardsTasterData)
-  // console.log("샵",recentShopData)
-  const onClickCommonReview = () => {
-    router.push("/reviews/");
-  };
-const onClickCetegory =(event)=>{
-  setCategory(event.currentTarget.id)
-}
+  
+  const onClickCetegory =(event)=>{
+    setCategory(event.currentTarget.id)
+  }
+  const onClickReview = () => {
+    if(category==="REVIEW") router.push(`/reviews/commonReview`);
+    if(category==="REQUEST") router.push(`/reviews/wish`)
+    if(category==="VISITED") router.push(`/reviews/wishreview`)
+    };
+  const onClickTasterPage = ()=>{
+    router.push(`/reviews/tasterReview`)
+  }
+  const onClickShopPage=()=>{
+    router.push(`/shop`)
+  }
 const onClickDetailPage =(id)=>()=>{
   if(category==="REVIEW")
   router.push(`/reviews/commonReview/${id}`)
@@ -35,6 +42,7 @@ const onClickDetailPage =(id)=>()=>{
   if(category==="TASTER")
   router.push(`/reviews/tasterReview/${id}`)
 }
+
 
   // 단짠리뷰 
   const CommonReviewList = ["/reviews/commonReview"];
@@ -47,7 +55,9 @@ const onClickDetailPage =(id)=>()=>{
   const isWishList = WishList.includes(router.asPath);
 
   return <MainpagePresenter
-          onClickCommonReview={onClickCommonReview}
+          onClickReview={onClickReview}
+          onClickTasterPage={onClickTasterPage}
+          onClickShopPage={onClickShopPage}
           loggedInNickname={loggedInNickname}
           onClickCetegory={onClickCetegory}
           onClickDetailPage={onClickDetailPage}
@@ -57,5 +67,6 @@ const onClickDetailPage =(id)=>()=>{
           recentBoardsData={recentBoardsData}
           recentShopData={recentShopData}
           recentBoardsTasterData={recentBoardsTasterData}
+          category={category}
           />;
 }

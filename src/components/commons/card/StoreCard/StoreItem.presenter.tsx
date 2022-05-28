@@ -1,7 +1,6 @@
 import * as S from "./StoreItem.styles";
 
 export default function StoreItemPresenterPage(props) {
-  console.log("굿굿", props);
   return (
     <S.ItemMainDiv onClick={props.onClickDetailPage} id={props.id}>
       <S.ItemImg

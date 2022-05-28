@@ -10,7 +10,6 @@ export default function StoreItemContainerPage(props) {
       router.push(`/shop/${event.currentTarget.id}`);
     }
   };
-
   return (
     <StoreItemPresenterPage
       onClickDetailPage={onClickDetailPage}

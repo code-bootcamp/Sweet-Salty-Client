@@ -1,4 +1,4 @@
-// MypagePoint presenter --- 김치훈
+// 포인트 상세내역 게시글 presenter --- 김치훈
 
 import MyPageMenuContainer from "../../../commons/Mypage/UserMenu/userMenu.container";
 import MypageUserInfoContainer from "../../../commons/Mypage/UserInfo/userInfo.container";

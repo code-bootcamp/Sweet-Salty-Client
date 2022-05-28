@@ -1,1 +1,1 @@
-// MypagePoint queries ---김치훈
+// 포인트 상세내역 게시글 queries ---김치훈

@@ -1,19 +1,21 @@
 import { useEffect, useState } from "react";
-import * as S from "./DetailMap.styled";
 
 declare const window: typeof globalThis & {
   kakao: any;
 };
 
 export default function DetailMapPage(props) {
-  console.log("이거다", props.address);
-  const [isLoad, setIsLoad] = useState(false);
-  useEffect(() => {
-    setIsLoad(true);
-  }, [props.address]);
+  // const [isLoad, setIsLoad] = useState(false);
+  // useEffect(() => {
+  //   setIsLoad(true);
+  //   console.log("1번", isLoad);
+  // }, [props]);
+
+  // console.log("2번", isLoad);
 
   useEffect(() => {
-    if (!isLoad) return;
+    console.log("여기", props);
+    // if (!isLoad) return;
     const script = document.createElement("script");
     script.src =
       "//dapi.kakao.com/v2/maps/sdk.js?appkey=f487080ea91748abbd2e3df735d5af4c&libraries=services&autoload=false";
@@ -30,7 +32,6 @@ export default function DetailMapPage(props) {
           ), // 지도의 중심좌표
           level: 2, // 지도의 확대 레벨
         };
-
         const map = new window.kakao.maps.Map(container, option); // 지도를 생성합니다
 
         // 마커가 표시될 위치입니다
@@ -62,7 +63,7 @@ export default function DetailMapPage(props) {
         infowindow.open(map, marker);
       });
     };
-  }, [props.address]);
+  }, []);
 
   return (
     <div

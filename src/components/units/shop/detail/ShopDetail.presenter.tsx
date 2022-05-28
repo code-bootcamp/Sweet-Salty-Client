@@ -2,7 +2,7 @@ import DetailMapPage from "../../../commons/detailMap/DetailMap.index";
 import * as S from "./ShopDetail.styled";
 
 export default function ShopDetailPresenterPage(props) {
-  console.log("디그다", props.fetchShop);
+  console.log("이얏호", props.fetchShop?.fetchShop.place.lat.length);
   return (
     <S.Page>
       {/* 타이틀 */}
@@ -25,6 +25,8 @@ export default function ShopDetailPresenterPage(props) {
                     backgroundImage: `url(${props.fetchShop?.fetchShop.thumbnail})`,
                     backgroundSize: "cover",
                     backgroundRepeat: "no-repeat",
+                    objectFit: "cover",
+                    overflow: "hidden",
                   }}
                 ></S.Thumbnail>
                 {/* Info */}
@@ -57,15 +59,19 @@ export default function ShopDetailPresenterPage(props) {
                   </S.PriceArticle>
                   <S.CountButtonArticle>
                     {/* 수량 */}
-                    <S.CountButton>-</S.CountButton>
-                    <S.Count>1</S.Count>
-                    <S.CountButton>+</S.CountButton>
+                    <S.CountButton onClick={props.buyAmountMinus}>
+                      -
+                    </S.CountButton>
+                    <S.Count>{props.buyAmount}</S.Count>
+                    <S.CountButton onClick={props.buyAmountPlus}>
+                      +
+                    </S.CountButton>
                   </S.CountButtonArticle>
                   <S.StockArticle>
                     {/* 재고 */}
                     <S.StockText>재고 현황 : </S.StockText>
                     <S.StockText>
-                      {/* {props.fetchShop?.fetchShop.shopStock}개 */}
+                      {props.fetchShop?.fetchShop.shopStock}개
                     </S.StockText>
                   </S.StockArticle>
                   {/* TMI */}
@@ -150,36 +156,94 @@ export default function ShopDetailPresenterPage(props) {
               <S.MapSection>
                 <S.MapTitleArticle>이용 식당 위치</S.MapTitleArticle>
                 <S.MapArticle>
-                  <DetailMapPage address={props.fetchShop?.fetchShop} />
+                  {props.fetchShop?.fetchShop.place.lat.length ? (
+                    <DetailMapPage address={props?.fetchShop?.fetchShop} />
+                  ) : (
+                    <div>잠시만요</div>
+                  )}
                 </S.MapArticle>
               </S.MapSection>
             </S.MainLeftSection>
             {/* 우측 */}
           </S.MainSection>
         </S.Padding>
+
         <S.MainRightSection>
           {/* 타이틀 */}
           <S.RightTitleArticle>포인트 결제 상세</S.RightTitleArticle>
           {/* 결제 상세 */}
           <div>
             {/* 보유포인트 */}
-            <div>
-              <div>현재 보유 포인트</div>
-              <div>{props.fetchUserLoggedIn?.fetchUserLoggedIn.userPoint}</div>
-            </div>
+            <S.RightSection>
+              <div>
+                <S.UserNameSection>
+                  <S.UserName>주혜&nbsp;</S.UserName>
+                  <S.RightText>단짝님의</S.RightText>
+                </S.UserNameSection>
+                <S.RightText>현재 보유 포인트</S.RightText>
+              </div>
+              <S.RightTextOrange>
+                {props.fetchUserLoggedIn?.fetchUserLoggedIn.userPoint}
+              </S.RightTextOrange>
+            </S.RightSection>
             {/* 상품 금액 */}
-            <div>
-              <div>상품금액</div>
-              <div>10000</div>
-            </div>
-            {/* 구매 가능 여부 */}
-            <div>
-              <div>구매 가능하다 / 안하다</div>
-            </div>
+            <S.RightSection>
+              <S.RightText>식사권 금액</S.RightText>
+              <S.PriceText>
+                {props.fetchShop?.fetchShop.shopDisCountPrice}
+              </S.PriceText>
+            </S.RightSection>
+            {/* 선택 수량 */}
+            <S.RightSection>
+              <S.RightText>선택한 수량</S.RightText>
+              <S.AmountText>{props.buyAmount} 개</S.AmountText>
+            </S.RightSection>
+            {/* 차감될 포인트 */}
+            <S.RightSection>
+              <S.RightText>차감될 포인트</S.RightText>
+              <S.AmountPoint>
+                {props.amountPoint ? (
+                  -props.amountPoint
+                ) : (
+                  <div>수량을 선택해주세요</div>
+                )}
+              </S.AmountPoint>
+            </S.RightSection>
+            {/* 잔여 포인트 */}
+            <S.RightSection>
+              {props.remainPoint < 0 ? (
+                <S.RightText>필요한 포인트</S.RightText>
+              ) : (
+                <S.RightText>잔여 포인트</S.RightText>
+              )}
+              <S.RemainPoint>
+                {props.remainPoint !==
+                  props.fetchUserLoggedIn?.fetchUserLoggedIn.userPoint ||
+                props.remainPoint <= 0 ? (
+                  props.remainPoint
+                ) : (
+                  <div>수량을 선택해주세요</div>
+                )}
+              </S.RemainPoint>
+            </S.RightSection>
+
             {/* 구매하기 버튼 */}
-            <div>
-              <button>구매하기 / 충전하기</button>
-            </div>
+            <S.BuyButonSection>
+              {props.remainPoint >= 0 && props.buyAmount !== 0 ? (
+                <S.BuyButton
+                  amountPoint={props.amountPoint}
+                  disabled={props.amountPoint === 0}
+                >
+                  <S.ButtonImage src="/images/Bag.png" />
+                  구매하기
+                </S.BuyButton>
+              ) : (
+                <S.ChargeButton>
+                  <S.ButtonImage src="/images/Point.png" />
+                  포인트 충전하기
+                </S.ChargeButton>
+              )}
+            </S.BuyButonSection>
           </div>
         </S.MainRightSection>
       </S.Main>

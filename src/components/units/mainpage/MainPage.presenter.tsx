@@ -5,9 +5,10 @@ import * as S from "./MainPage.styles";
 import { v4 as uuidv4 } from "uuid";
 import StoreItemContainerPage from "../../commons/card/StoreCard/StoreItem.container";
 import MainReviewItemContainerPage from "../../commons/card/MainReviewCard/ReviewItem.container";
+import CommonReviewItemPresenterPage from "../../commons/card/ReviewCard/ReviewItem.presenter";
 export default function MainpagePresenter(props: any) {
 
-
+console.log(props.preferData,"프리퍼")
   return (
     <S.MainPageWrapper>
       <S.MainPageOutBox>
@@ -25,7 +26,7 @@ export default function MainpagePresenter(props: any) {
             {/* 리뷰 공동컴포넌트 올리는 곳 */}
             {props.recentBoardsData?.fetchRecentBoards.map((el)=>(
               <S.CardBoxDiv  key={uuidv4()}>
-              <MainReviewItemContainerPage category={props.category} id={el.boardId} el={el}/>
+              <MainReviewItemContainerPage subject={el.boardSubject} id={el.boardId} el={el}/>
               </S.CardBoxDiv>
             ))}
             </S.ReviewSection>
@@ -42,37 +43,46 @@ export default function MainpagePresenter(props: any) {
             {/* 리뷰 공동컴포넌트 올리는 곳 */}
             {props.recentBoardsTasterData?.fetchRecentBoards.map((el)=>(
              <S.CardBoxDiv  key={uuidv4()}>
-              <MainReviewItemContainerPage category="TASTER" id={el.boardId} el={el} />
+              <MainReviewItemContainerPage subject={el.boardSubject} id={el.boardId} el={el} />
               </S.CardBoxDiv>
             ))}
           </S.ReviewSection>
         </S.MainPageInnerBox>
       </S.MainPageOutBox>
-
+<div>
       <S.MainPageOutBox>
         <S.MainPageInnerBox>
           <S.ReviewHeader>
             <S.ReviewTitle>단짝님을 위한 리뷰</S.ReviewTitle>
-            <S.ReviewArrow>→</S.ReviewArrow>
+            <S.ReviewArrow></S.ReviewArrow>
           </S.ReviewHeader>
-          <S.ReviewSection>{/* 리뷰 공동컴포넌트 올리는 곳 */}</S.ReviewSection>
+          <S.ReviewSection>
+            {/* 리뷰 공동컴포넌트 올리는 곳 */}
+            {!props.loggedInNickname && <CommonReviewItemPresenterPage/>}
+            {props.preferData?.fetchPreferBoards.map((el)=>(
+             <S.CardBoxDiv  key={uuidv4()}>
+              <MainReviewItemContainerPage subject={el.boardSubject} id={el.boardId} el={el} />
+              </S.CardBoxDiv>
+            ))}
+          </S.ReviewSection>
         </S.MainPageInnerBox>
-      </S.MainPageOutBox>
-
-      {/* 공동컴포넌트에 width와 height를 다시 줘야합니다. merge하고 조정하겠음 */}
-      <S.MainPageLoginOutBox>
+        {!props.loggedInNickname && <S.MainPageLoginOutBox>
+        {/* 공동컴포넌트에 width와 height를 다시 줘야합니다. merge하고 조정하겠음 */}
         <S.MainPageLoginInnerBox>
           <S.MainPageInnerText>
-            단짠님이 선호하는 맞십 리뷰를 보고싶다면?
+            단짝님이 선호하는 맛집 리뷰를 보고싶다면?
           </S.MainPageInnerText>
           <S.FlexBox>
-            <S.Login>로그인</S.Login>
+            <S.Login onClick={props.onClickLogin}>로그인</S.Login>
             <S.P>|</S.P>
-            <S.Signup>회원가입</S.Signup>
+            <S.Signup onClick={props.onClickSignUp}>회원가입</S.Signup>
           </S.FlexBox>
         </S.MainPageLoginInnerBox>
-      </S.MainPageLoginOutBox>
+      </S.MainPageLoginOutBox>}
+      </S.MainPageOutBox>
 
+
+      </div>
       <S.MainPageOutBox>
         <S.MainPageInnerBox>
           <S.ReviewHeader>

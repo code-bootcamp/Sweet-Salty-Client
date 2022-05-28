@@ -9,6 +9,7 @@ export const MainPageWrapper = styled.div`
   align-items: center;
 `;
 export const MainPageOutBox = styled.div`
+position:relative;
   margin: 40px auto 0 auto;
   width: 1120px;
 `;
@@ -100,14 +101,14 @@ export const MainPageLoginOutBox = styled.div`
   position: absolute;
   margin: 0 auto 40px auto;
   width: 1120px;
-  height: 436px;
+  height: 427px;
   display: flex;
   justify-content: center;
   align-items: center;
   border-radius: 20px;
-  background: rgba(0, 0, 0, 0.2);
-  transform: translate(200px, -476px);
-  display: none;
+  background: rgba(255, 255, 255, 0.8);
+  transform: translate(000px, -426px);
+  /* display: none; */
 `;
 export const MainPageLoginInnerBox = styled.div`
   width: 480px;
@@ -118,6 +119,7 @@ export const MainPageLoginInnerBox = styled.div`
   align-items: center;
   border-radius: 20px;
   background: #fff;
+  box-shadow: 0px 0px 15px #dbdbdb;
 `;
 export const MainPageInnerText = styled.div`
   font-weight: 700;

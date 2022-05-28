@@ -8,6 +8,7 @@ export const FETCH_RECENT_BOARDS = gql`
       boardWriter
       boardLikeCount
       boardHit
+      boardSubject
       thumbnail
       createAt
       user{
@@ -60,6 +61,7 @@ query fetchPreferBoards{
       boardWriter
       boardLikeCount
       boardHit
+      boardSubject
       thumbnail
       createAt
       user{
@@ -70,11 +72,7 @@ query fetchPreferBoards{
         placeName
         placeAddress
       }
-      boardSides{
-        boardTags{
-          boardTagName
-        }
-      }
+      
   }
 }
 `;

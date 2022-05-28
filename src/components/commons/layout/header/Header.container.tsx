@@ -37,7 +37,7 @@ export default function LayoutHeader() {
   const isNoticePage = NoticePage.includes(router.asPath.split("/")[1]);
 
   const onClickPhoto = () => {
-    setIsClick(true);
+    setIsClick((prev) => !prev);
   };
   const onClickLogin = () => {
     router.push("/login");

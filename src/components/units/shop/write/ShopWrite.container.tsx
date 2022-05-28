@@ -1,10 +1,12 @@
 import { useMutation } from "@apollo/client";
+import { useRouter } from "next/router";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import ShopWritePresenterPage from "./ShopWrite.presenter";
 import { CREATE_SHOP, UPLOAD_FILE } from "./ShopWrite.queries";
 
 export default function ShopWriteContainerPage() {
+  const router = useRouter();
   const [createShop] = useMutation(CREATE_SHOP);
   const [uploadFile] = useMutation(UPLOAD_FILE);
   const [address, setAddress] = useState();
@@ -38,7 +40,7 @@ export default function ShopWriteContainerPage() {
           },
         },
       });
-      console.log("하이", result);
+      router.push("/shop");
     } catch (error: any) {
       alert(error.message);
     }

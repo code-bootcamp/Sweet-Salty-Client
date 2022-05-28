@@ -61,9 +61,17 @@ export const LeftTopInfoArticle = styled.div`
 export const Thumbnail = styled.div`
   width: 410px;
   height: 340px;
-  /* object-fit: cover; */
-  background-color: red;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  padding: 15px;
   border-radius: 20px;
+`;
+
+export const ThumbnailTitle = styled.div`
+  font-size: 25px;
+  font-weight: 700;
+  color: #ff9a31;
 `;
 
 export const InfoSection = styled.div`

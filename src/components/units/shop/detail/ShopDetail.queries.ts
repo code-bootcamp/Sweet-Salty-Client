@@ -33,3 +33,9 @@ export const FETCH_SHOP = gql`
     }
   }
 `;
+
+export const PAY_SHOP = gql`
+  mutation payShop($stock: Int!, $shopId: String!) {
+    payShop(stock: $stock, shopId: $shopId)
+  }
+`;

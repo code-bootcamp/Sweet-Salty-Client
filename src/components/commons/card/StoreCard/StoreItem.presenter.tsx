@@ -7,11 +7,13 @@ export default function StoreItemPresenterPage(props) {
       <S.ItemImg
         style={{
           backgroundImage: `url(${props.fetchShopListData?.thumbnail})`,
-          backgroundSize: "100%",
+          backgroundSize: "cover",
           backgroundRepeat: "no-repeat",
+          objectFit: "cover",
+          overflow: "hidden",
         }}
       >
-        <S.ItemPick />
+        <S.ImageTitle>일일 특가</S.ImageTitle>
       </S.ItemImg>
       <S.ItemInfoDiv>
         <S.ItemInfoTopDiv>
@@ -21,10 +23,6 @@ export default function StoreItemPresenterPage(props) {
               <S.ItemInfoBarDiv>|</S.ItemInfoBarDiv>
               {props.fetchShopListData?.shopSeller}
             </S.ItemInfoTxtDiv>
-          </S.ItemInfoWrapDiv>
-          <S.ItemInfoWrapDiv>
-            <S.ItemInfoLikeCount />
-            <S.ItemInfoCountDiv>99999</S.ItemInfoCountDiv>
           </S.ItemInfoWrapDiv>
         </S.ItemInfoTopDiv>
         <S.ItemInfoBottomDiv>

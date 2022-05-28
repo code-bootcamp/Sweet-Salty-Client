@@ -2,7 +2,10 @@ import DetailMapPage from "../../../commons/detailMap/DetailMap.index";
 import * as S from "./ShopDetail.styled";
 
 export default function ShopDetailPresenterPage(props) {
-  console.log("이얏호", props.fetchShop?.fetchShop.place.lat.length);
+  console.log(
+    "여기입니다",
+    props.fetchUserLoggedIn?.fetchUserLoggedIn.userNickname
+  );
   return (
     <S.Page>
       {/* 타이틀 */}
@@ -28,7 +31,9 @@ export default function ShopDetailPresenterPage(props) {
                     objectFit: "cover",
                     overflow: "hidden",
                   }}
-                ></S.Thumbnail>
+                >
+                  <S.ThumbnailTitle>일일 특가</S.ThumbnailTitle>
+                </S.Thumbnail>
                 {/* Info */}
                 <S.InfoSection>
                   {/* 식당명 */}
@@ -94,7 +99,6 @@ export default function ShopDetailPresenterPage(props) {
                     <S.ProductSmallContentsArticle>
                       <S.DetailProductInfoSection>
                         <S.ProductSmallContents>
-                          {" "}
                           &#91;사용처&#93;{" "}
                         </S.ProductSmallContents>
                         <S.ProductSmallContents>
@@ -177,7 +181,10 @@ export default function ShopDetailPresenterPage(props) {
             <S.RightSection>
               <div>
                 <S.UserNameSection>
-                  <S.UserName>주혜&nbsp;</S.UserName>
+                  <S.UserName>
+                    {props.fetchUserLoggedIn?.fetchUserLoggedIn.userNickname}
+                    &nbsp;
+                  </S.UserName>
                   <S.RightText>단짝님의</S.RightText>
                 </S.UserNameSection>
                 <S.RightText>현재 보유 포인트</S.RightText>
@@ -202,10 +209,12 @@ export default function ShopDetailPresenterPage(props) {
             <S.RightSection>
               <S.RightText>차감될 포인트</S.RightText>
               <S.AmountPoint>
-                {props.amountPoint ? (
-                  -props.amountPoint
-                ) : (
+                {isNaN(props.amountPoint) ? (
                   <div>수량을 선택해주세요</div>
+                ) : props.amountPoint === 0 ? (
+                  <div>수량을 선택해주세요</div>
+                ) : (
+                  props.amountPoint
                 )}
               </S.AmountPoint>
             </S.RightSection>
@@ -217,12 +226,13 @@ export default function ShopDetailPresenterPage(props) {
                 <S.RightText>잔여 포인트</S.RightText>
               )}
               <S.RemainPoint>
-                {props.remainPoint !==
-                  props.fetchUserLoggedIn?.fetchUserLoggedIn.userPoint ||
-                props.remainPoint <= 0 ? (
+                {props.buyAmount === 0 ? (
+                  <div>수량을 선택해주세요</div>
+                ) : props.remainPoint > 0 ? (
                   props.remainPoint
                 ) : (
-                  <div>수량을 선택해주세요</div>
+                  props.amountPoint -
+                  props.fetchUserLoggedIn?.fetchUserLoggedIn.userPoint
                 )}
               </S.RemainPoint>
             </S.RightSection>
@@ -233,12 +243,13 @@ export default function ShopDetailPresenterPage(props) {
                 <S.BuyButton
                   amountPoint={props.amountPoint}
                   disabled={props.amountPoint === 0}
+                  onClick={props.onClickPay}
                 >
                   <S.ButtonImage src="/images/Bag.png" />
                   구매하기
                 </S.BuyButton>
               ) : (
-                <S.ChargeButton>
+                <S.ChargeButton onClick={props.chargePoint}>
                   <S.ButtonImage src="/images/Point.png" />
                   포인트 충전하기
                 </S.ChargeButton>

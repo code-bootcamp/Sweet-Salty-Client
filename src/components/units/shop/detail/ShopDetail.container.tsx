@@ -1,30 +1,55 @@
-import { useQuery } from "@apollo/client";
+import { useMutation, useQuery } from "@apollo/client";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import ShopDetailPresenterPage from "./ShopDetail.presenter";
-import { FETCH_SHOP, FETCH_USER_LOGGED_IN } from "./ShopDetail.queries";
+import {
+  FETCH_SHOP,
+  FETCH_USER_LOGGED_IN,
+  PAY_SHOP,
+} from "./ShopDetail.queries";
 
 export default function ShopDetailContainerPage(props) {
   const router = useRouter();
   const [buyAmount, setBuyAmount] = useState(0);
-
+  const [payShop] = useMutation(PAY_SHOP);
   const { data: fetchUserLoggedInData } = useQuery(FETCH_USER_LOGGED_IN);
   const { data: fetchShopData } = useQuery(FETCH_SHOP, {
     variables: { shopId: String(router.query.shopId) },
   });
-  console.log("0", fetchShopData);
+
   // 수량 * 가격
   const [amountPoint, setAmountPoint] = useState(
     fetchShopData?.fetchShop.shopDisCountPrice
   );
-  console.log(
-    "여기ㅁㄶㄴㅇ",
-    fetchUserLoggedInData?.fetchUserLoggedIn.userPoint - amountPoint
-  );
+
   // 잔여포인트
   const [remainPoint, setRemainPoint] = useState(
     fetchUserLoggedInData?.fetchUserLoggedIn.userPoint - amountPoint
   );
+
+  const chargePoint = () => {
+    router.push("/mypage");
+  };
+
+  console.log("수량", buyAmount);
+  console.log("수량가격", amountPoint);
+  console.log("잔여포인트", remainPoint);
+
+  const onClickPay = async () => {
+    try {
+      const result = await payShop({
+        variables: {
+          stock: buyAmount,
+          shopId: String(router.query.shopId),
+        },
+      });
+      console.log(result);
+    } catch (error: any) {
+      alert(error.message);
+    }
+  };
+
+  useEffect(() => {});
 
   // 수량 * 가격
   useEffect(() => {
@@ -57,6 +82,8 @@ export default function ShopDetailContainerPage(props) {
       buyAmountMinus={buyAmountMinus}
       amountPoint={amountPoint}
       remainPoint={remainPoint}
+      chargePoint={chargePoint}
+      onClickPay={onClickPay}
     />
   );
 }

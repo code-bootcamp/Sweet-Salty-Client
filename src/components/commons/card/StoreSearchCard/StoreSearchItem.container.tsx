@@ -3,7 +3,6 @@ import { MouseEvent } from "react";
 import StoreSearchItemPresenterPage from "./StoreSearchItem.presenter";
 
 export default function StoreSearchItemContainerPage(props) {
-  console.log("프프프롭스", props);
   const router = useRouter();
 
   const onClickDetailPage = (event: MouseEvent<HTMLDivElement>) => {

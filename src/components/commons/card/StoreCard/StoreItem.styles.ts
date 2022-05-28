@@ -19,10 +19,17 @@ export const ItemImg = styled.div`
   display: flex;
   flex-direction: row;
   height: 250px;
-  justify-content: flex-end;
+  justify-content: flex-start;
   padding: 15px;
   width: 300px;
 `;
+
+export const ImageTitle = styled.div`
+  font-size: 16px;
+  font-weight: 700;
+  color: #ff9a31;
+`;
+
 export const ItemPick = styled(FavoriteRoundedIcon)`
   && {
     color: #ffffff;
@@ -39,6 +46,7 @@ export const ItemInfoTopDiv = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  padding: 16px 0px 10px 0px;
 `;
 
 export const ItemInfoTxtDiv = styled.div`

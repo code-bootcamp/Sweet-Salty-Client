@@ -5,12 +5,14 @@ export default function StoreSearchItemPresenterPage(props) {
     <S.ItemMainDiv onClick={props.onClickDetailPage} id={props.id}>
       <S.ItemImg
         style={{
-          backgroundImage: `url(https://storage.googleapis.com/${props.el?.thumbnail})`,
+          backgroundImage: `url(${props.el?.thumbnail})`,
           backgroundSize: "cover",
           backgroundRepeat: "no-repeat",
+          objectFit: "cover",
+          overflow: "hidden",
         }}
       >
-        <S.ItemPick />
+        <S.ImageTitle>일일특가</S.ImageTitle>
       </S.ItemImg>
       <S.ItemInfoDiv>
         <S.ItemInfoTopDiv>
@@ -20,10 +22,6 @@ export default function StoreSearchItemPresenterPage(props) {
               <S.ItemInfoBarDiv>|</S.ItemInfoBarDiv>
               {props.el?.shopseller}
             </S.ItemInfoTxtDiv>
-          </S.ItemInfoWrapDiv>
-          <S.ItemInfoWrapDiv>
-            <S.ItemInfoLikeCount />
-            <S.ItemInfoCountDiv>좋아요</S.ItemInfoCountDiv>
           </S.ItemInfoWrapDiv>
         </S.ItemInfoTopDiv>
         <S.ItemInfoBottomDiv>

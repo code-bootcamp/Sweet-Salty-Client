@@ -3,13 +3,19 @@ import { KeyboardEventHandler } from "react";
 import { UseFormRegisterReturn } from "react-hook-form";
 
 export const Input = styled.input`
-  width: 100%;
-  height: 64px;
-  background: #F6F6F6;
-border: 1px solid #CCCCCC;
-box-sizing: border-box;
-border-radius: 5px;
-  padding: 14px 16px;
+  width: 350px;
+  height: 40px;
+  background: #fff;
+  border: 2px solid #DADADA;
+  border-radius: 10px;
+  padding: 10px 9px;
+  font-size: 14px;
+  outline: none;
+  color: #2C2C2C;
+  font-weight: 600;
+  ::placeholder {
+    color: #D2D2D2;
+  }
 `;
 
 interface IProps {

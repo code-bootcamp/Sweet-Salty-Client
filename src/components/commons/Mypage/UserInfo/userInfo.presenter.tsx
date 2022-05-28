@@ -1,4 +1,4 @@
-// userInfo Presenter ---김치훈
+// 마이페이지 유저 정보 Presenter ---김치훈
 
 import * as S from "./userInfo.styles"
 import Script from "next/script";
@@ -22,17 +22,17 @@ export default function UserInfoPresenter(props: any){
     
       <S.Wrapper>
 
-      <S.MypageBox>
+        <S.MypageBox>
           <S.UserLeftBox>
             {/* <S.ImgBox> */}
 
             {props.fileUrls.map((el:any, index:any) => (
               <Uploads02 
-                  data={props.data}
-                  key={uuidv4()}
-                  index={index}
-                  fileUrl={el}
-                  onChangeFileUrls={props.onChangeFileUrls}
+                data={props.data}
+                key={uuidv4()}
+                index={index}
+                fileUrl={el}
+                onChangeFileUrls={props.onChangeFileUrls}
               />
             ))}
 

@@ -1,4 +1,4 @@
-// userInfo queries ---김치훈
+// 마이페이지 유저 정보 queries ---김치훈
 
 import { gql } from "@apollo/client";
 

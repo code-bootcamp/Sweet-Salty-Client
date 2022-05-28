@@ -1,4 +1,4 @@
-// userInfo styles ---김치훈
+// 마이페이지 유저 정보 styles ---김치훈
 
 import styled from "@emotion/styled";
 

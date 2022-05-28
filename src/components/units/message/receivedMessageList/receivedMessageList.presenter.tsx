@@ -32,15 +32,16 @@ const profileUrl = "https://storage.googleapis.com/"
                             <>
                                 <S.MessageBoxDiv key={uuidv4()} >
 
-                                        <S.ProfileDiv>
-                                            <S.ProfileImg src={profileUrl+el.messageSendUserImage}/>
-                                            <S.SendUserDiv>{el.messageSendUser}</S.SendUserDiv>
-                                        </S.ProfileDiv>
-                                        <S.MessageContents onClick={props.onClickMessageDetail(el.messageInfo?.messageInfoId)} isRead={el.messageState}> {el.messageInfo?.messageInfoContents}</S.MessageContents>
-                                        <S.DateDiv> {messageDate(el.sendAt)}</S.DateDiv>
+                                    <S.ProfileDiv>
+                                        <S.ProfileImg src={profileUrl+el.messageSendUserImage}/>
+                                        <S.SendUserDiv>{el.messageSendUser}</S.SendUserDiv>
+                                    </S.ProfileDiv>
+                                    <S.MessageContents onClick={props.onClickMessageDetail(el.messageInfo?.messageInfoId)} isRead={el.messageState}> {el.messageInfo?.messageInfoContents}</S.MessageContents>
+                                    <S.DateDiv> {messageDate(el.sendAt)}</S.DateDiv>
                                     
                                     <S.DeleteBtn onClick={props.onClickDeleteMessage(el.messageInfo?.messageInfoId)}>삭제</S.DeleteBtn>
                                 </S.MessageBoxDiv>
+                                
                                 <S.MessageHr />
                             </>
                         ))}

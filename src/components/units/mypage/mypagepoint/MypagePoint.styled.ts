@@ -13,6 +13,7 @@ export const Title = styled.div`
   padding: 100px 0;
   font-weight: 700;
   font-size: 40px;
+  cursor: default;
 `;
 
 export const MypageSectionBox = styled.div`

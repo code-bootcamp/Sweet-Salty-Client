@@ -44,25 +44,26 @@ export default function UserInfoPresenter(props: any){
               ?
               <>
                 <S.userProfile>{props.data?.fetchUserLoggedIn?.userProfile}</S.userProfile>
-                <S.userProfileUpdate><u onClick={props.onClickUpdate}>수정</u></S.userProfileUpdate>
+                <S.userProfileUpdate onClick={props.onClickUpdate}>수정</S.userProfileUpdate>
               </>
               :
               <>
                 <S.userProfileInput 
                   type="text"
                   maxLength={40} 
-                  placeholder={`${props.data?.fetchUserLoggedIn?.userProfile} (40자 내외로 작성하세요.)`}
+                  defaultValue={props.data?.fetchUserLoggedIn?.userProfile}
+                  placeholder={"간단한 소개글을 작성해주세요. (40자 내외로 작성하세요.)"}
                   onChange={props.onChangeProfile}
                 ></S.userProfileInput>
-                <S.userProfileComplete><u onClick={props.onClickUpdateProfile}>완료</u></S.userProfileComplete>
+                <S.userProfileComplete onClick={props.onClickUpdateProfile}>완료</S.userProfileComplete>
               </>
               }
               </S.userProfileBox>
 
               <S.UserSection>
                 <S.UserBox style={{paddingLeft: "0px"}}>
-                  <S.UserTitle onClick={props.onClickMyReview}>마이 단짠</S.UserTitle>
-                  <S.UserCount>
+                  <S.UserTitle>마이 단짠</S.UserTitle>
+                  <S.UserCount onClick={props.onClickMyReview}>
                     {props.fetchBoardCountData?.fetchBoardCount}
                   </S.UserCount>
                 </S.UserBox>
@@ -121,7 +122,7 @@ export default function UserInfoPresenter(props: any){
                 />
               </S.PointButton>
             : <S.PointButton>
-                <img onClick={props.onClickPointCharge} style={{width: "24px", marginRight: "6px"}} src="../images/pointicon.png"/>
+                <S.PointImg onClick={props.onClickPointCharge} src="../images/pointicon.png"/>
                 <S.PointCharge onClick={props.onClickPoint}>{props.changePoint} 포인트 충전하기
                 </S.PointCharge>
               </S.PointButton>

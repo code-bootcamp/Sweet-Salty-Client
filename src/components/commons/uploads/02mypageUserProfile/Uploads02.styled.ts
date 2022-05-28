@@ -42,6 +42,9 @@ export const UploadButton = styled.button`
   justify-content: center;
   align-items: center;
   cursor: pointer;
+  &:hover {
+    background: linear-gradient(#ff6e30, #ffa230);
+  }
   img {
     transition: 0.2s;
     width: 24px;
@@ -60,10 +63,10 @@ export const UploadButtonLeft = styled.button`
   justify-content: center;
   align-items: center;
   cursor: pointer;
-  transition: 0.2s;
+  transition: 0.4s;
   &:hover {
     transform: rotate(360deg);
-  }
+    background: linear-gradient(#ff6e30, #ffa230);
   }
 `;
 export const CheckCircle = styled(CheckCircleOutlined)`

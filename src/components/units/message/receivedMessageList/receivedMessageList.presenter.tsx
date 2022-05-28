@@ -1,9 +1,11 @@
+// 쪽지함 리스트 Presenter --- 임세진, 김치훈
+
 import * as S from "./receivedMessageList.styled"
 import { v4 as uuidv4 } from "uuid";
 import { messageDate } from "../../../commons/libraries/date";
 import Paginations01 from "../../../commons/paginations/paginations/01/Paginations01.container";
 import MessageMenuPage from "../../../commons/messageMenu";
-export default function ReceivedMessageListPresenterPage(props){
+export default function ReceivedMessageListPresenterPage(props: any){
 
 
 const profileUrl = "https://storage.googleapis.com/"
@@ -11,24 +13,33 @@ const profileUrl = "https://storage.googleapis.com/"
         <div>
             <S.MsgWrapper>
                 <S.TitleTxt>쪽지함</S.TitleTxt>
-            <S.MsgHead><S.MsgAmountDiv>총 <S.MsgAmountSpan>{props.count}</S.MsgAmountSpan>개의 받은 쪽지가 있습니다.</S.MsgAmountDiv>
-            <S.WriteBtn onClick={props.onClickWriteMessage}>쪽지 보내기</S.WriteBtn></S.MsgHead>
+                <S.MsgHead><S.MsgAmountDiv>총 <S.MsgAmountSpan>{props.count}</S.MsgAmountSpan>개의 받은 쪽지가 있습니다.</S.MsgAmountDiv>
+                <S.WriteBtn onClick={props.onClickWriteMessage}><S.WriteImg src="/images/Send.png"/>쪽지 보내기</S.WriteBtn></S.MsgHead>
             <MessageMenuPage/>
+
             <S.MsgListDiv>
-            {props.dataReceivedMessages?.fetchReceivedMessages.map((el: any)=>(
-                <S.MessageBoxDiv key={uuidv4()} >
-                    <S.MessageDataDiv onClick={props.onClickMessageDetail(el.messageInfo?.messageInfoId)}>
-                    <S.ProfileDiv><S.ProfileImg src={profileUrl+el.messageSendUserImage}/>
-                    <S.SendUserDiv>{el.messageSendUser}</S.SendUserDiv>
-                    </S.ProfileDiv>
-                    <S.MessageContents isRead={el.messageState}> {el.messageInfo?.messageInfoContents}</S.MessageContents>
-                    <S.DateDiv> {messageDate(el.sendAt)}</S.DateDiv>
-                    </S.MessageDataDiv>
-                    <S.DeleteBtn onClick={props.onClickDeleteMessage(el.messageInfo?.messageInfoId)}>삭제</S.DeleteBtn>
-                </S.MessageBoxDiv>
-            ))}
-            </S.MsgListDiv>
-            <Paginations01 refetch={props.refetch} count={props.count} />
+                <S.MessageTh>
+                    <S.MessageThCategory>보낸 단짝님</S.MessageThCategory>
+                    <S.MessageThContent>내용</S.MessageThContent>
+                    <S.MessageThCreateAt>날짜</S.MessageThCreateAt>
+                </S.MessageTh>
+                
+                <S.MessageThHr />
+
+                {props.dataReceivedMessages?.fetchReceivedMessages.map((el: any)=>(
+                    <S.MessageBoxDiv key={uuidv4()} >
+                        <S.MessageDataDiv onClick={props.onClickMessageDetail(el.messageInfo?.messageInfoId)}>
+                        <S.ProfileDiv><S.ProfileImg src={profileUrl+el.messageSendUserImage}/>
+                        <S.SendUserDiv>{el.messageSendUser}</S.SendUserDiv>
+                        </S.ProfileDiv>
+                        <S.MessageContents isRead={el.messageState}> {el.messageInfo?.messageInfoContents}</S.MessageContents>
+                        <S.DateDiv> {messageDate(el.sendAt)}</S.DateDiv>
+                        </S.MessageDataDiv>
+                        <S.DeleteBtn onClick={props.onClickDeleteMessage(el.messageInfo?.messageInfoId)}>삭제</S.DeleteBtn>
+                    </S.MessageBoxDiv>
+                ))}
+                </S.MsgListDiv>
+                <Paginations01 refetch={props.refetch} count={props.count} />
             </S.MsgWrapper>
         </div>
     )

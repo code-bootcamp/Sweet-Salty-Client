@@ -1,3 +1,5 @@
+// 쪽지함 리스트 Container --- 임세진, 김치훈
+
 import { useMutation, useQuery } from "@apollo/client";
 import { useRouter } from "next/router"
 import ReceivedMessageListPresenterPage from "./receivedMessageList.presenter";
@@ -11,21 +13,21 @@ export default function ReceivedMessageListContainerPage(){
     const onClickWriteMessage = ()=>{
         router.push("/message/write")
     }
-    const onClickMessageDetail = (id:String)=>()=>{
-      router.push(`/message/received/${id}`);
+    const onClickMessageDetail = (id: String)=>()=>{
+        router.push(`/message/received/${id}`);
     }
-    const onClickDeleteMessage = (id:String)=> async()=>{
-       try{ await deleteReceivedMessage({
-           variables: { messageInfoId : String(id)
+    const onClickDeleteMessage = (id: String)=> async()=>{
+        try{ await deleteReceivedMessage({
+            variables: { messageInfoId: String(id)
                     },
                     refetchQueries: [{ query:FETCH_RECEIVED_MESSAGES},{query:FETCH_UNREAD_MESSAGE_COUNT}]
-       },
-       
-       )
-       alert("삭제 완료")
+        },
+
+        )
+        alert("삭제 완료")
     }
-       
-       catch(error: any){alert(error.message);}
+
+        catch(error: any){alert(error.message);}
     }
     return(
         <ReceivedMessageListPresenterPage

@@ -1,1 +1,1 @@
-// MypageLike types --- 김치훈
+// 좋아요한 단짠 게시글 types --- 김치훈

@@ -1,4 +1,4 @@
-// MypageLike presenter --- 김치훈
+// 좋아요한 단짠 게시글 presenter --- 김치훈
 
 import MyPageMenuContainer from "../../../commons/Mypage/UserMenu/userMenu.container";
 import MypageUserInfoContainer from "../../../commons/Mypage/UserInfo/userInfo.container";

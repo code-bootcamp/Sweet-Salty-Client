@@ -18,13 +18,14 @@ export const Title = styled.div`
 `;
 
 export const MypageSectionBox = styled.div`
+  position: relative;
   width: 1120px;
   background: #fff;
   border-radius: 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  box-shadow: 10px 10px 10px #dbdbdb;
+  box-shadow: 10px 0px 10px #dbdbdb;
 `;
 
 export const TableTop = styled.div`

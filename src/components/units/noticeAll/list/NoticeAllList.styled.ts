@@ -21,6 +21,7 @@ export const SearchBarBox = styled.div`
 
 
 export const ReviewMenuBox = styled.div`
+position: relative;
   margin: 0 auto;
   width: 1120px;
   height: 50px;
@@ -52,9 +53,10 @@ export const NoticeBox = styled.div`
   background: #fff;
   border-radius: 20px;
   display: flex;
+  z-index:1;
   flex-direction: column;
   align-items: center;
-  box-shadow: 10px 10px 10px #dbdbdb;
+  box-shadow: 10px 0px 10px #dbdbdb;
 `;
 export const NoticeTh = styled.div`
   padding: 20px 0;

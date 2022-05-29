@@ -25,14 +25,14 @@ export const SearchbarBox = styled.div`
 `;
 
 export const CommonReviewInnerBox = styled.div`
+  position: relative;
   margin: 0 auto;
   padding: 24px;
-  width: 1338px;
   background: #fff;
   border-radius: 20px;
-  box-shadow: 10px 0px 10px #dbdbdb;
   display: flex;
   flex-direction: column;
+  box-shadow: 10px 0px 10px #dbdbdb;
 `;
 export const TopThreeBox = styled.div`
   margin: 30px 0;

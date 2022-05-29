@@ -22,6 +22,13 @@ export default function LayoutHeader() {
     router.push("/");
   };
 
+  // 단짠 맛집 소개
+  const onClickIntro = () => {
+    router.push("/Intro");
+  };
+  const IntroPage = ["Intro"];
+  const isIntroPage = IntroPage.includes(router.asPath.split("/")[1]);
+
   const onClickReview = () => {
     router.push("/reviews");
   };
@@ -77,6 +84,7 @@ export default function LayoutHeader() {
       data={data}
       fetchUnreadMessageCountData={fetchUnreadMessageCountData}
       onClickHome={onClickHome}
+      onClickIntro={onClickIntro}
       onClickReview={onClickReview}
       onClickStore={onClickStore}
       onClickNotice={onClickNotice}
@@ -88,6 +96,7 @@ export default function LayoutHeader() {
       onClickMypagePoint={onClickMypagePoint}
       onClickLogout={onClickLogout}
       isClick={isClick}
+      isIntroPage={isIntroPage}
       isReviewPage={isReviewPage}
       isStorePage={isStorePage}
       isNoticePage={isNoticePage}

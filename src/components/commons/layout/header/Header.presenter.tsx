@@ -62,7 +62,7 @@ export default function LayoutHeaderPresenter(props: any) {
         <S.HeaderNonMembersRightBox>
           <S.HeaderLogin onClick={props.onClickLogin}>로그인</S.HeaderLogin>
           <S.P>|</S.P>
-          <S.HeaderSignup>회원가입</S.HeaderSignup>
+          <S.HeaderSignup onClick={props.onClickSignup}>회원가입</S.HeaderSignup>
         </S.HeaderNonMembersRightBox>
         }
       </S.HeaderBox>

@@ -43,6 +43,10 @@ export default function LayoutHeader() {
   const onClickPhoto = () => {
     setIsClick((prev) => !prev);
   };
+  const onClickSignup = () => {
+    router.push("/signup");
+    setIsClick(false);
+  };
   const onClickLogin = () => {
     router.push("/login");
     setIsClick(false);
@@ -77,6 +81,7 @@ export default function LayoutHeader() {
       onClickNotice={onClickNotice}
       onClickPhoto={onClickPhoto}
       onClickLogin={onClickLogin}
+      onClickSignup={onClickSignup}
       onClickMypage={onClickMypage}
       onClickMessage={onClickMessage}
       onClickMypagePoint={onClickMypagePoint}

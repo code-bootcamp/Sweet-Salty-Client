@@ -10,19 +10,19 @@ import TasterCardContainerPage from "../../../../commons/card/TaesterCard/Taeste
 import { v4 as uuidv4 } from "uuid";
 import SearchCategoryItemContainerPage from "../../../../commons/card/CategorySearchReviewCard/CategorySearchReviewCard.container";
 import FilterContainer from "../../../../commons/filter/filter.container";
-
+import WriteBtnContainerPage from "../../../../commons/writeBtn/WriteBtn.container";
 export default function TesterReviewPresenterPage(props: any) {
   const dataForCategory = props.fetchBoardsCategoryData?.fetchBoardCategoryPick;
   const dataForTags = props.fetchBoardWithTagData?.fetchBoardWithTags.hits.hits;
 
-
+  // checkPage
 
   return (
     <S.CommonReviewWrapper>
       <S.Title>시식단 게시판</S.Title>
       <S.CommonReviewOutBox>
         <S.SearchbarBox>
-          <SearchBarPage />
+          <WriteBtnContainerPage checkPage={props.checkPage} />
         </S.SearchbarBox>
 
         <ReviewMenuPage />
@@ -70,7 +70,6 @@ export default function TesterReviewPresenterPage(props: any) {
               </InfiniteScroll>
             </div>
           ) : (
-
             <div style={{ height: "auto", overflow: "auto" }}>
               <InfiniteScroll
                 pageStart={0}

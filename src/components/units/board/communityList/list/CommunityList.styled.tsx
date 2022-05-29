@@ -19,6 +19,8 @@ export const CommonReviewOutBox = styled.div`
 `;
 
 export const SearchbarBox = styled.div`
+  display: flex;
+  justify-content: flex-end;
   padding-bottom: 46px;
 `;
 

@@ -105,7 +105,6 @@ export const CategoryBox = styled.div`
     display: flex;
     background-color: #d2d2d2;
 
-    margin-left: 10px;
     font-size: 16px;
     color: #ffffff;
     padding: 7px 20px;
@@ -120,6 +119,38 @@ export const CategoryBox = styled.div`
     color: #ffffff;
     background-color: #ffa230;
   }
+`;
+
+export const CategoryPickSection = styled.div`
+  display: flex;
+  justify-content: space-between;
+`;
+
+export const CategoryPick = styled.div`
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  font-weight: 600;
+  background-color: #ff9a31;
+  color: #ffffff;
+  padding: 7px 20px;
+  font-size: 16px;
+  border-radius: 50px;
+  margin-right: 20px;
+`;
+export const CategoryUnPick = styled.div`
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  font-weight: 600;
+  background-color: #d2d2d2;
+  color: #ffffff;
+  padding: 7px 20px;
+  border-radius: 50px;
+  font-size: 16px;
+  margin-right: 20px;
 `;
 
 export const MenuBox = styled.div`

@@ -13,7 +13,7 @@ import { FETCH_BOARD_CATEGORY_PICK } from "./TesterReviewList.queries";
 
 export default function TesterReviewContainerPage() {
   const [search, setSearch] = useState([]);
-
+  const checkPage = "taster";
   const tasterSearch = _.concat(search, "TASTER");
 
   const { data: fetchBoardsCategoryData, fetchMore: categoryFetchMore } =
@@ -27,7 +27,6 @@ export default function TesterReviewContainerPage() {
     FETCH_BOARD_WITH_TAGS,
     {
       variables: {
-
         tags: tasterSearch,
       },
     }
@@ -88,6 +87,7 @@ export default function TesterReviewContainerPage() {
       search={search}
       setSearch={setSearch}
       fetchBoardBestData={fetchBoardBestData}
+      checkPage={checkPage}
     />
   );
 }

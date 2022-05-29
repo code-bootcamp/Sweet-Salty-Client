@@ -25,22 +25,43 @@ export default function CommonReviewWritePresenter(props) {
                 />
               </S.TitleSection>
               <div>
-                <S.WriteTitle>
-                  카테고리<S.Span>(1개만 선택 가능)</S.Span>
-                </S.WriteTitle>
-                <S.CategoryBox>
-                  {props.categoryData.map((el, idx) => (
-                    <label className="checkbox" key={el.key}>
-                      <input
-                        type="checkbox"
-                        id={String(idx)}
-                        onChange={props.onChangeCheckCategory(el)}
-                        checked={Boolean(el.checked)}
-                      />
-                      <span className="checkbox_text">{el.name}</span>
-                    </label>
-                  ))}
-                </S.CategoryBox>
+                <S.WriteTitle>카테고리</S.WriteTitle>
+                {props.checkPage === "community" && (
+                  <S.CategoryBox>
+                    {props.categoryData.map((el, idx) => (
+                      <label className="checkbox" key={el.key}>
+                        <input
+                          type="checkbox"
+                          id={String(idx)}
+                          onChange={props.onChangeCheckCategory(el)}
+                          checked={Boolean(el.checked)}
+                        />
+                        <span className="checkbox_text">{el.name}</span>
+                      </label>
+                    ))}
+                  </S.CategoryBox>
+                )}
+                {props.checkPage === "common" && (
+                  <S.CategoryPickSection>
+                    <S.CategoryPick>단짠리뷰</S.CategoryPick>
+                    <S.CategoryUnPick>시식단 리뷰</S.CategoryUnPick>
+                    <S.CategoryUnPick>가주세요</S.CategoryUnPick>
+                  </S.CategoryPickSection>
+                )}
+                {props.checkPage === "taster" && (
+                  <S.CategoryPickSection>
+                    <S.CategoryUnPick>단짠리뷰</S.CategoryUnPick>
+                    <S.CategoryPick>시식단 리뷰</S.CategoryPick>
+                    <S.CategoryUnPick>가주세요</S.CategoryUnPick>
+                  </S.CategoryPickSection>
+                )}
+                {props.checkPage === "wish" && (
+                  <S.CategoryPickSection>
+                    <S.CategoryUnPick>단짠리뷰</S.CategoryUnPick>
+                    <S.CategoryUnPick>시식단 리뷰</S.CategoryUnPick>
+                    <S.CategoryPick>가주세요</S.CategoryPick>
+                  </S.CategoryPickSection>
+                )}
               </div>
             </S.TitleArticle>
 
@@ -51,7 +72,7 @@ export default function CommonReviewWritePresenter(props) {
               </S.Map>
             </S.MapArticle>
 
-            <S.SugarSaltArticle>
+            <S.SugarSaltArticle checkPage={props.checkPage}>
               <div>
                 <S.WriteTitle style={{ color: "#FF9A31" }}>단맛</S.WriteTitle>
                 <S.InputBox
@@ -73,7 +94,7 @@ export default function CommonReviewWritePresenter(props) {
           </S.Header>
 
           <S.Section>
-            <S.MenuArticle>
+            <S.MenuArticle checkPage={props.checkPage}>
               <S.WriteTitle>
                 메뉴 선택<S.Span>(1개만 선택 가능)</S.Span>
               </S.WriteTitle>
@@ -93,7 +114,7 @@ export default function CommonReviewWritePresenter(props) {
               </S.MenuBox>
             </S.MenuArticle>
 
-            <S.MoodArticle>
+            <S.MoodArticle checkPage={props.checkPage}>
               <S.WriteTitle>
                 분위기 선택<S.Span>(여러개 선택 가능)</S.Span>
               </S.WriteTitle>
@@ -123,13 +144,7 @@ export default function CommonReviewWritePresenter(props) {
 
             <S.EditorArticle>
               <S.WriteTitle>내용</S.WriteTitle>
-              <Editor
-                // ref={props.editorRef}
-                // onChangeEditor={props.onChangeEditor}
-                setBoardContents={props.setBoardContents}
-                // value={props.getValues("boardContents") || ""}
-              />
-              {/* <S.TextAreaBox type="text" placeholder="200자 이내로 작성하세요." maxLength="200" /> */}
+              <Editor setBoardContents={props.setBoardContents} />
             </S.EditorArticle>
 
             <S.ButtonBox>

@@ -8,14 +8,21 @@ import ToastViewerPage from "../../../../commons/toast/viewer";
 import TopButton from "../../../../commons/topbutton";
 import CommentListContainerPage from "../../../comment/commentList/CommentList.container";
 import CommentWriteContainerPage from "../../../comment/commentWrite/CommentWrite.presenter";
-import * as S from "./CommonReviewDetail.styles";
+import * as S from "./TesterReview.styles";
 
-export default function ReviewDetailPresenter(props: any) {
+export default function TesterDetailPresenter(props: any) {
   return (
     <S.Wrapper>
-      <S.Title>
-        단짠 게시판 <S.RightOutline /> 단짠 리뷰
-      </S.Title>
+      {props.data?.boardSubject === "REVIEW" ? (
+        <S.Title>
+          단짠 게시판 <S.RightOutline /> 단짠 리뷰
+        </S.Title>
+      ) : (
+        <S.Title>
+          단짠 게시판 <S.RightOutline /> 시식단 리뷰
+        </S.Title>
+      )}
+
       <S.ReviewBox>
         <S.Header>
           <S.HeaderBox>
@@ -41,7 +48,7 @@ export default function ReviewDetailPresenter(props: any) {
           </S.HeaderBox>
 
           <S.UserNameBox>
-            <S.UserName>{props.data?.boardWriter || "푸딩"}</S.UserName> 단짝님
+            <S.UserName>{props.data?.boardWriter || "익명"}</S.UserName> 단짝님
           </S.UserNameBox>
           <S.P>|</S.P>
           <S.CreateAt>{getDate(props.data?.createAt)}</S.CreateAt>

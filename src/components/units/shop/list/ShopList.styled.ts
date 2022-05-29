@@ -26,6 +26,7 @@ export const SearchSection = styled.div`
 
 export const ContentsSection = styled.div`
   box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.2);
+  background-color: #ffffff;
   border-radius: 20px;
   padding: 24px;
   width: 100%;
@@ -46,11 +47,13 @@ export const BestContentsTitleArticle = styled.div`
 export const BestContentsTitleTop = styled.div`
   font-size: 20px;
   font-weight: 800;
+  color: #ff9a31;
 `;
 
 export const BestContentsTitleBottom = styled.div`
   font-size: 30px;
   font-weight: 800;
+  color: #ff9a31;
 `;
 
 export const StoreContentsSection = styled.div`

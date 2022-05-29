@@ -14,33 +14,24 @@ export default function ShopContainerPage(props) {
   const [titleSearch, setTitleSearch] = useState("");
 
   // 전체 리스트 데이터
-  const {
-    data: shopListData,
-    fetchMore: shopFetchMoreData,
-    refetch: refetchShopListsData,
-  } = useQuery(FETCH_SHOPS);
+  const { data: shopListData, fetchMore: shopFetchMoreData } =
+    useQuery(FETCH_SHOPS);
 
   // 가게이름 검색 데이터
-  const {
-    data: sellerSearchData,
-    fetchMore: sellerSearchFetchMoreData,
-    refetch: refetchSearchData,
-  } = useQuery(FETCH_SHOP_SELLER, {
-    variables: {
-      seller: sellerSearch,
-    },
-  });
+  const { data: sellerSearchData, fetchMore: sellerSearchFetchMoreData } =
+    useQuery(FETCH_SHOP_SELLER, {
+      variables: {
+        seller: sellerSearch,
+      },
+    });
 
   // 메뉴 검색 데이터
-  const {
-    data: titleSearchData,
-    fetchMore: titleSearchFetchMoreData,
-    refetch: refetchTitleData,
-  } = useQuery(FETCH_SHOP_TITLE, {
-    variables: {
-      title: titleSearch,
-    },
-  });
+  const { data: titleSearchData, fetchMore: titleSearchFetchMoreData } =
+    useQuery(FETCH_SHOP_TITLE, {
+      variables: {
+        title: titleSearch,
+      },
+    });
 
   // 전체 shop 리스트 데이터 무한스크롤
   const shopListDataLoadMore = () => {

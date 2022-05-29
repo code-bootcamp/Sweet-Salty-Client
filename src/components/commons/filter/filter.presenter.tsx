@@ -11,14 +11,18 @@ export default function FilterPresenter(props: any) {
       {props.isOpen ? (
         <S.Wrapper>
           <S.FilterBox>
-            <S.FilterTitle>메뉴</S.FilterTitle>
-            <S.TagBox>{/* 태그 올리는 곳 */}</S.TagBox>
+            <S.FilterTitle>지역</S.FilterTitle>
+            <S.TagBox>원하는 지역을 선택하세요.(서울특별시 한정)</S.TagBox>
           </S.FilterBox>
-          <S.VerticalLine />
+
+          <S.FilterBoxLine>
+            <S.FilterTitle>메뉴</S.FilterTitle>
+            <S.TagBox>원하는 메뉴 유형을 선택하세요.</S.TagBox>
+          </S.FilterBoxLine>
 
           <S.FilterBox>
             <S.FilterTitle>분위기</S.FilterTitle>
-            <S.TagBox>{/* 태그 올리는 곳 */}</S.TagBox>
+            <S.TagBox>원하는 분위기 유형을 선택하세요.</S.TagBox>
           </S.FilterBox>
           <S.FilerIcon
             onClick={props.onClickFilterOpen}
@@ -65,8 +69,6 @@ export default function FilterPresenter(props: any) {
               <MoodFilterPage
                 moodHashTag={props.moodHashTag}
                 setMoodHashTag={props.setMoodHashTag}
-                moodTagCheckList={props.moodTagCheckList}
-                setMoodTagCheckList={props.setMoodTagCheckList}
               />
             </S.OpenTagBox>
           </S.OpenFilterBox>

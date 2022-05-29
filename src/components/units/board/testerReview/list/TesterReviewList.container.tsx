@@ -1,7 +1,8 @@
 // 여기는 시식단 리뷰 List Container 입니다..
 
 import { useQuery } from "@apollo/client";
-import { useState } from "react";
+import _ from "lodash";
+import { useEffect, useState } from "react";
 import {
   FETCH_BOARD_BEST,
   FETCH_BOARD_WITH_TAGS,
@@ -11,6 +12,7 @@ import { FETCH_BOARD_CATEGORY_PICK } from "./TesterReviewList.queries";
 
 export default function TesterReviewContainerPage() {
   const [search, setSearch] = useState([]);
+  const tasterSearch = _.concat(search, "TASTER");
 
   const { data: fetchBoardsCategoryData, fetchMore: categoryFetchMore } =
     useQuery(FETCH_BOARD_CATEGORY_PICK, {
@@ -23,7 +25,7 @@ export default function TesterReviewContainerPage() {
     FETCH_BOARD_WITH_TAGS,
     {
       variables: {
-        tags: search,
+        tags: tasterSearch,
       },
     }
   );

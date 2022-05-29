@@ -8,7 +8,7 @@ interface IRegisterButton {
 
 export const Wrapper = styled.div`
   width: 1290px;
-  padding: 20px;
+  padding: 20px 20px 10px 20px;
   display: flex;
   justify-content: space-between;
   align-items: start;
@@ -21,6 +21,14 @@ export const FilterBox = styled.div`
   display: flex;
   flex-direction: column;
 `;
+export const FilterBoxLine = styled.div`
+  /* width: 380px; */
+  padding: 0px 190px 0px 30px;
+  display: flex;
+  flex-direction: column;
+  border-left: 1px solid #dbdbdb;
+  border-right: 1px solid #dbdbdb;
+`;
 export const FilterTitle = styled.div`
   margin-right: 30px;
   font-weight: 700;
@@ -31,17 +39,14 @@ export const FilerIcon = styled.img`
   cursor: pointer;
 `;
 
-export const VerticalLine = styled.div`
-  width: 1px;
-  height: 80px;
-  background: #dbdbdb;
-`;
-
 export const TagBox = styled.div`
-  margin: 10px 0;
+  padding: 10px 0px 0xp 0px;
   display: flex;
   flex-wrap: wrap;
+  font-size: 14px;
+  font-weight: 500;
 `;
+
 export const Tag = styled.div`
   margin: 5px 5px 5px 0;
   padding: 7px 20px;

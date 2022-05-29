@@ -1,3 +1,4 @@
+// import MoodFilterPage from "../../commons/filter/MoodFilter/MoodFilter";
 import SignupInput from "./Signup.input";
 import * as S from "./Signup.styled";
 
@@ -41,29 +42,29 @@ export default function SignUpPresenterPage(props: any) {
       </S.PasswordBox>
       
       <S.Text>성별</S.Text>
-      <div>
-        <select onChange={props.onChangeGender}>
-          <option selected disabled>성별 선택</option>
-          <option value="MALE">남성</option>
-          <option value="FEMALE">여성</option>
-
-          <option value="PRIVATE">선택 안함</option>
-
-        </select>
-      </div>
+      <S.SelectDiv>
+        {props.genderData.map((el)=>(
+          <label className="checkbox" key={el.key}>
+            <input type="checkbox" 
+                    id={el.id} 
+                    onChange={(e)=>{props.onChangeGender(e.target.checked, e.target.id)}} 
+                    checked={props.gender===el.id} />
+            <span className="checkbox_text">{el.title}</span>
+          </label>
+        ))}
+      </S.SelectDiv>
       <S.Text>연령대</S.Text>
-      <div>
-        <select onChange={props.onChangeAge}>
-        <option selected disabled>연령대 선택</option>
-          <option value="NONE">선택 안함</option>
-          <option value="TEN">10대</option>
-          <option value="TWENTY">20대</option>
-          <option value="THIRTY">30대</option>
-          <option value="FORTY">40대</option>
-          <option value="FIFTY">50대</option>
-          <option value="SIXTY">60대</option>
-        </select>
-      </div>
+      <S.SelectDiv>
+       {props.ageData.map((el)=>(
+          <label className="checkbox" key={el.key}>
+            <input type="checkbox" 
+                    id={el.id} 
+                    onChange={(e)=>{props.onChangeAge(e.target.checked, e.target.id)}} 
+                    checked={props.ageGroup===el.id} />
+            <span className="checkbox_text">{el.title}</span>
+          </label>
+        ))}
+      </S.SelectDiv>
       
       <S.Text>닉네임</S.Text>
       <SignupInput
@@ -92,18 +93,26 @@ export default function SignUpPresenterPage(props: any) {
       <S.OutputButton  type="button" onClick={props.onClickCheckNumber}>인증확인</S.OutputButton>
 
       <S.WriteTitle style={{paddingBottom: "0px"}}>선호 카테고리</S.WriteTitle>
-      <S.SubWriteTitle>메뉴 선택<S.Span>(여러개 선택 가능)</S.Span></S.SubWriteTitle>
+      <S.SubWriteTitle>메뉴 유형</S.SubWriteTitle>
         
-      <S.CategoryBox>
-        <S.Category onClick={props.onClickMenu} id="양식">양식</S.Category>
-        <S.Category onClick={props.onClickMenu} id="한식">한식</S.Category>
-        <S.Category onClick={props.onClickMenu} id="중식">중식</S.Category>
-        <S.Category onClick={props.onClickMenu} id="일식">일식</S.Category>
-        <S.Category onClick={props.onClickMenu} id="아시안푸드">아시안푸드</S.Category>
-        <S.Category onClick={props.onClickMenu} id="할랄">할랄</S.Category>
-        <S.Category onClick={props.onClickMenu} id="비건">비건</S.Category>
-      </S.CategoryBox>
-      
+      <S.SelectDiv>
+      {props.menuData.map((el)=>(
+          <label className="checkbox" key={el.key}>
+            <input type="checkbox" 
+                    id={el.id} 
+                    onChange={(e)=>{props.onChangeMenu(e.target.checked, e.target.id)}} 
+                    checked={props.menu===el.id} />
+            <span className="checkbox_text">{el.id}</span>
+          </label>
+        ))}
+      </S.SelectDiv>
+      {/* <S.SubWriteTitle>분위기 유형</S.SubWriteTitle>
+      <S.SelectMoodDiv>
+      <MoodFilterPage
+                   moodHashTag={props.moodHashTag}
+                setMoodHashTag={props.setMoodHashTag}
+              />
+      </S.SelectMoodDiv> */}
       <S.ButtonBox>
         <S.SubmitBtn type="submit">가입하기</S.SubmitBtn>
       </S.ButtonBox>

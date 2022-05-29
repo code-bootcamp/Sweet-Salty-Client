@@ -45,10 +45,45 @@ export default function SignUpContainerPage() {
   const [createUser] = useMutation(CREATE_USER);
   const [getNumber] = useMutation(SIGNUP_GET_TOKEN);
   const [checkNumber] = useMutation(SIGNUP_CHECK_TOKEN);
-  const [gender, setGender] = useState();
-  const [ageGroup, setAgeGroup] = useState();
+  const [gender, setGender] = useState("");
+  const [ageGroup, setAgeGroup] = useState("");
+  const [menu, setMenu] = useState("");
+  // const [moodHashTag, setMoodHashTag] = useState([]);
+  const genderData = [
+    { key: "0", id:"MALE",  title: "남성", checked: false, index: 0 },
+    { key: "1", id:"FEMALE", title: "여성", checked: false, index: 1 },
+    { key: "2", id:"PRIVATE", title: "선택 안함", checked: false, index: 2 },
+  ]
+  function onChangeGender(checked, id){
+    if(checked) {setGender(id)};
+  }
   
-  const [prefer, setPrefer] = useState([]);
+  const ageData = [
+    { key: "0", id:"TEN",  title: "10대", checked: false, index: 0 },
+    { key: "1", id:"TWENTY", title: "20대", checked: false, index: 1 },
+    { key: "2", id:"THIRTY", title: "30대", checked: false, index: 2 },
+    { key: "3", id:"FORTY", title: "40대", checked: false, index: 3 },
+    { key: "4", id:"FIFTY", title: "50대 이상", checked: false, index: 4 },
+    { key: "5", id:"NONE", title: "선택 안함", checked: false, index: 5 },
+  ]
+  function onChangeAge(checked, id){
+    if(checked) setAgeGroup(id);
+  }
+
+  const menuData = [
+    { key: "0", id: "비건", checked: false, index: 0 },
+    { key: "1", id: "아시안푸드", checked: false, index: 1 },
+    { key: "2", id: "양식", checked: false, index: 2 },
+    { key: "3", id: "일식", checked: false, index: 3 },
+    { key: "4", id: "중식", checked: false, index: 4 },
+    { key: "5", id: "한식", checked: false, index: 5 },
+    { key: "6", id: "할랄", checked: false, index: 6 },
+  ];
+  function onChangeMenu(checked, id){
+    if(checked) setMenu(id);
+  }
+
+  
   
   const { register, handleSubmit, formState } = useForm({
   resolver: yupResolver(schema),
@@ -56,7 +91,8 @@ export default function SignUpContainerPage() {
     });
 
     const onClickGetNumber = async()=>{
-try{
+      if(phoneNumber.length>=10)
+{try{
 await getNumber({
   variables: {
     phone: phoneNumber
@@ -68,6 +104,9 @@ catch(error:any){
   alert(error.message);
 }
     }
+  else{
+    alert("휴대전화번호를 확인해주세요.")
+  }}
 
     const onClickCheckNumber = async()=>{
       
@@ -90,33 +129,33 @@ catch(error:any){
     function onChangeSerialNumber(event){
       setSerialNumber(event.target.value);
     }
-    function onChangeGender(event){
-      setGender(event.target.value);
-    }
-    function onChangeAge(event){
-      setAgeGroup(event.target.value);
-    }
     
+    // const onClickCheckEmail = async()=>{
+
+    // }
 
     
 
 const onClickSignUp = async (signupData :any) => {
   const { confirmUserPassword, ...data } = signupData;
-  const {data:emailCheckData} = useQuery(OVERLAP_EMAIL,{
-    variables: {email: data.userEmail}
-  })
-  const {data:nicknameCheckData} = useQuery(OVERLAP_NICKNAME,{
-    variables: {nickname: data.userNickname}
-  })
+  // const {data:emailCheckData} = useQuery(OVERLAP_EMAIL,{
+  //   variables: {email: data.userEmail}
+  // })
+  // const {data:nicknameCheckData} = useQuery(OVERLAP_NICKNAME,{
+  //   variables: {nickname: data.userNickname}
+  // })
   // 가입하기
-  if(!checked){alert("전화번호 인증이 되지 않았습니다.")
-  if(!emailCheckData){alert("이메일 중복 확인이 필요합니다.")}
-  if(!nicknameCheckData){alert("닉네임 중복 확인이 필요합니다.")}
-return}
+  if(!checked){alert("휴대폰 인증이 되지 않았습니다.")
+  return}
+//   if(!emailCheckData){alert("이미 사용중인 이메일 주소입니다.")
+// return}
+//   if(!nicknameCheckData){alert("이미 사용중인 닉네임입니다.")
+// return}
+
   try {
     await createUser({
       variables: {
-        createUserInput: { ...data, userPhone:phoneNumber,gender,ageGroup ,prefer:["prefer"] },
+        createUserInput: { ...data, userPhone:phoneNumber,gender,ageGroup ,prefer:[menu] },
       },
     });
     alert("회원가입에 성공하였습니다. 로그인 페이지로 이동합니다.");
@@ -126,11 +165,8 @@ return}
   }
 };
 
-const onClickBack=()=>{
-  router.back()}
   return <SignUpPresenterPage 
       onClickSignUp={onClickSignUp}
-      onClickBack={onClickBack}
       onClickGetNumber={onClickGetNumber}
       onClickCheckNumber={onClickCheckNumber}
       onChangePhoneNumber={onChangePhoneNumber}
@@ -139,7 +175,16 @@ const onClickBack=()=>{
       handleSubmit={handleSubmit}
       formState={formState}
       checked={checked}
+      ageGroup={ageGroup}
+      gender={gender}
+      genderData={genderData}
+      ageData={ageData}
       onChangeGender={onChangeGender}
       onChangeAge={onChangeAge}
+      menuData={menuData}
+      menu={menu}
+      onChangeMenu={onChangeMenu}
+      // moodHashTag={moodHashTag}
+      // setMoodHashTag={setMoodHashTag}
   />;
 }

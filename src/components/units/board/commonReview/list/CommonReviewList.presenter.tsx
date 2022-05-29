@@ -3,13 +3,13 @@
 import * as S from "./CommonReviewList.styles";
 import InfiniteScroll from "react-infinite-scroller";
 import ReviewMenuPage from "../../../../commons/reviewMenu";
-import SearchBarPage from "../../../../commons/searchbar/SearchBar.container";
 import FilterContainer from "../../../../commons/filter/filter.container";
 import BestReviewItemContainerPage from "../../../../commons/card/BestReviewCard/BestReviewItem.container";
 import TopButton from "../../../../commons/topbutton";
 import CommonReviewItemContainerPage from "../../../../commons/card/ReviewCard/ReviewItem.container";
 import { v4 as uuidv4 } from "uuid";
 import SearchCategoryItemContainerPage from "../../../../commons/card/CategorySearchReviewCard/CategorySearchReviewCard.container";
+import WriteBtnContainerPage from "../../../../commons/writeBtn/WriteBtn.container";
 export default function CommonReviewPresenterPage(props: any) {
   const dataForCategory = props.fetchBoardsCategoryData?.fetchBoardCategoryPick;
   const dataForTags = props.fetchBoardWithTagData?.fetchBoardWithTags.hits.hits;
@@ -19,9 +19,8 @@ export default function CommonReviewPresenterPage(props: any) {
       <S.Title>단짠 게시판</S.Title>
       <S.CommonReviewOutBox>
         <S.SearchbarBox>
-          <SearchBarPage />
+          <WriteBtnContainerPage checkPage={props.checkPage} />
         </S.SearchbarBox>
-
         <ReviewMenuPage />
 
         <S.CommonReviewInnerBox>

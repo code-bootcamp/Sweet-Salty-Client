@@ -59,6 +59,13 @@ export default function CommonReviewWriteContainer(props) {
       checked: false,
       index: 1,
     },
+    {
+      key: "2",
+      value: "WISH",
+      name: "가주세요",
+      checked: false,
+      index: 2,
+    },
   ]);
 
   // 메뉴 태그 체크되었는지 확인
@@ -166,6 +173,7 @@ export default function CommonReviewWriteContainer(props) {
       categoryData={categoryData}
       setCategoryData={setCategoryData}
       onChangeCheckCategory={onChangeCheckCategory}
+      checkPage={props.checkPage}
     />
   );
 }

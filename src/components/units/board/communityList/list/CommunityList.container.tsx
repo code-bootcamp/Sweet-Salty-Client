@@ -4,7 +4,7 @@ import { FETCH_BOARDS } from "./CommunityList.queries";
 
 export default function CommunityListContainerPage() {
   const { data: fetchBoardsData, fetchMore } = useQuery(FETCH_BOARDS);
-
+  const checkPage = "community";
   // 무한스크롤
   const loadMore = () => {
     if (!fetchBoardsData) return;
@@ -26,6 +26,7 @@ export default function CommunityListContainerPage() {
     <CommunityListPresenterPage
       fetchBoardsData={fetchBoardsData}
       loadMore={loadMore}
+      checkPage={checkPage}
     />
   );
 }

@@ -1,7 +1,5 @@
+import TesterDetailContainer from "../../../../src/components/units/board/testerReview/detail/TesterReview.container";
+
 export default function TasterDetailPage() {
-  return (
-    <div>
-      <div>여기는 디테일 입니다</div>
-    </div>
-  );
+  return <TesterDetailContainer />;
 }

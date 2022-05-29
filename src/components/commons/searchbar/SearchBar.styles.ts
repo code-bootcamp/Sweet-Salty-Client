@@ -106,20 +106,20 @@ export const ReviewWriteBox = styled.div`
   background: linear-gradient(#ff6e30, #ffa230);
 `;
 export const ReviewWrite = styled.div`
-  width: 172px;
-  height: 44px;
-  line-height: 44px;
+  width: 180px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   border-radius: 50px;
   cursor: pointer;
-  text-align: center;
   font-size: 16px;
   font-weight: 700;
-  background: #fff;
-  color: #7b7b7b;
   transition: 0.2s;
+  background: linear-gradient(#ff6e30, #ffa230);
+  color: #fff;
   &:hover {
-    background: linear-gradient(#ff6e30, #ffa230);
-    color: #fff;
+    background: linear-gradient(#E8662D, #EF982E);
   }
 `;
 
@@ -162,29 +162,20 @@ export const UserProfile = styled.div`
   box-shadow: 2px 2px 7px #999;
 `;
 
-export const TotalReviewWriteBox = styled.div`
-  width: 180px;
-  height: 50px;
-  border-radius: 50px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: linear-gradient(#ff6e30, #ffa230);
-`;
 export const TotalReviewWrite = styled.div`
-  width: 172px;
-  height: 44px;
-  line-height: 44px;
-  border-radius: 50px;
-  cursor: pointer;
-  text-align: center;
-  font-size: 16px;
-  font-weight: 700;
-  background: #fff;
-  color: #7b7b7b;
-  transition: 0.2s;
+width: 180px;
+height: 50px;
+display: flex;
+justify-content: center;
+align-items: center;
+border-radius: 50px;
+cursor: pointer;
+font-size: 16px;
+font-weight: 700;
+background: linear-gradient(#ff6e30, #ffa230);
+color: #fff;
+transition: 1s;
   &:hover {
-    background: linear-gradient(#ff6e30, #ffa230);
-    color: #fff;
+    background: linear-gradient(#E8662D, #EF982E);
   }
 `;

@@ -90,7 +90,7 @@ export default function UserInfoPresenter(props: any){
 
                 <S.UserBox>
                   <S.UserTitle>쪽지함</S.UserTitle>
-                  <S.UserCount onClick={props.onClickLikeAccess}>
+                  <S.UserCount onClick={props.onClickMessagePage}>
                     {props.fetchUnreadMessageCountData?.fetchUnreadMessageCount}
                   </S.UserCount>
                 </S.UserBox>
@@ -99,7 +99,7 @@ export default function UserInfoPresenter(props: any){
 
                 <S.UserBox>
                   <S.UserTitle>포인트</S.UserTitle>
-                  <S.UserCount onClick={props.onClickPointAccess}>
+                  <S.UserCount onClick={props.onClickMyPoint}>
                     {PointComma(props.data?.fetchUserLoggedIn?.userPoint)}
                   </S.UserCount>
                 </S.UserBox>

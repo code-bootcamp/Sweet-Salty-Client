@@ -110,7 +110,7 @@ const onChangeProfile =(event: any)=>{
         // param
         pg: "html5_inicis",
         pay_method: "card",
-        name: "충성",
+        name: "포인트 충전",
         amount: changePoint,
         buyer_email: "rlaclgns321@naver.com",
         buyer_name: `김민영`,
@@ -141,14 +141,15 @@ const onChangeProfile =(event: any)=>{
   const onClickMyReview = () =>{
     router.push("/mypage")
   }
-  // 좋아요한 단짠 게시글 이동
-  const onClickLikeAccess = () =>{
-    router.push("/mypage/mypagelike")
+  // 받은 쪽지함 상세내역 이동
+  const onClickMessagePage = () =>{
+    router.push("/message/received")
   }
   // 포인트 상세내역 이동
-  const onClickPointAccess = () =>{
+  const onClickMyPoint = () =>{
     router.push("/mypage/mypagepoint")
   }
+  // 회원정보 수정
   const onClickModify = () =>{
     router.push("/mypage/infomodify")
   }
@@ -164,15 +165,15 @@ const onChangeProfile =(event: any)=>{
     onChangeProfile={onChangeProfile}
     onClickUpdate={onClickUpdate}
     onClickUpdateProfile={onClickUpdateProfile}
+    onClickMyReview={onClickMyReview}
     onClickModify={onClickModify}
+    onClickMessagePage={onClickMessagePage}
+    onClickMyPoint={onClickMyPoint}
     // onClickFollow={onClickFollow}
     onChangePoint={onChangePoint}
     changePoint={changePoint}
     isPoint={isPoint}
     onClickPointCharge={onClickPointCharge}
     onClickPoint={onClickPoint}
-    onClickMyReview={onClickMyReview}
-    onClickLikeAccess={onClickLikeAccess}
-    onClickPointAccess={onClickPointAccess}
   />
 }

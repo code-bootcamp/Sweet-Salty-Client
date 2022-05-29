@@ -2,8 +2,8 @@
 
 import TopButton from "../../commons/topbutton";
 import * as S from "./Profile.styled";
-import UserMenuContainer from "../../commons/UserMenu/userMenu.container";
 import UserInfoContainer from "../../commons/Mypage/UserInfo/userInfo.container";
+import UserMenuContainer from "../../commons/Mypage/UserMenu/userMenu.container";
 
 export default function ProfilePresenter(props: any) {
   return (

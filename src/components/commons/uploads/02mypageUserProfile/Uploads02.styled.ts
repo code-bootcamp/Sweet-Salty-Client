@@ -6,13 +6,12 @@ import styled from "@emotion/styled";
 
 
 export const ImgBox = styled.div`
-  width: 146px;
+  width: 106px;
   height: 106px;
   display: flex;
-  justify-content: end;
-  align-items: end;
 `;
 export const UploadImage = styled.img`
+  position: relative;
   width: 106px;
   height: 106px;
   cursor: default;
@@ -24,12 +23,12 @@ export const UploadImage = styled.img`
   align-items: end;
 `;
 export const ButtonBox = styled.div`
+position: absolute;
+width: 106px;
   height: 106px;
   display: flex;
-  flex-direction: column;
   justify-content: space-between;
   align-items: end;
-  transform: translate(-20px,0);
 
 `
 export const UploadButton = styled.button`

@@ -13,12 +13,12 @@ export default function Uploads02UI(props: any) {
       : (<S.UploadImage src="https://t1.daumcdn.net/cfile/tistory/24283C3858F778CA2E" />)}
 
       <S.ButtonBox>
-        <S.UploadButtonLeft onClick={props.onClickFileUpdate} type="button">
-          <S.CheckCircle />
-        </S.UploadButtonLeft>
         <S.UploadButton onClick={props.onClickUpload} type="button">
           <img src="../images/gallery.png"/>
         </S.UploadButton>
+        <S.UploadButtonLeft onClick={props.onClickFileUpdate} type="button">
+          <S.CheckCircle />
+        </S.UploadButtonLeft>
       </S.ButtonBox>
         {/* display: none */}
       <S.UploadFileHidden

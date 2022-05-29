@@ -6,7 +6,7 @@ import { useState } from "react";
 import { useRecoilState } from "recoil";
 import { accessTokenState } from "../../store";
 import LayoutHeaderPresenter from "./Header.presenter";
-import { LOGOUT, FETCH_USER_LOGGED_IN } from "./Header.queries";
+import { LOGOUT, FETCH_USER_LOGGED_IN, FETCH_UNREAD_MESSAGE_COUNT } from "./Header.queries";
 
 export default function LayoutHeader() {
   const router = useRouter();
@@ -14,6 +14,10 @@ export default function LayoutHeader() {
   const [logout] = useMutation(LOGOUT);
   const {data} = useQuery(FETCH_USER_LOGGED_IN)
   const [, setAccessToken] = useRecoilState(accessTokenState);
+
+  // 쪽지함 안 읽은 쪽지 갯수
+  const {data: fetchUnreadMessageCountData} = useQuery(FETCH_UNREAD_MESSAGE_COUNT)
+
   const onClickHome = () => {
     router.push("/");
   };
@@ -66,6 +70,7 @@ export default function LayoutHeader() {
   return (
     <LayoutHeaderPresenter
       data={data}
+      fetchUnreadMessageCountData={fetchUnreadMessageCountData}
       onClickHome={onClickHome}
       onClickReview={onClickReview}
       onClickStore={onClickStore}

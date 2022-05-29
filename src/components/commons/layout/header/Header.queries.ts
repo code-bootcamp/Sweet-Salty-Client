@@ -23,3 +23,10 @@ query fetchUserLoggedIn{
     }
   }
 `;
+
+// 쪽지함 안 본 쪽지 갯수
+export const FETCH_UNREAD_MESSAGE_COUNT =gql`
+  query fetchUnreadMessageCount {
+    fetchUnreadMessageCount
+  }
+` 

@@ -61,13 +61,14 @@ export const WriteTitle = styled.div`
 
 export const SugarSaltArticle = styled.div`
   width: 100%;
-  display: flex;
+  display: ${(props) => (props.checkPage === "REQUEST" ? "none" : "flex")};
   justify-content: space-between;
   padding: 20px 0px;
   border-bottom: 1px solid #dadada;
 `;
 
 export const MenuArticle = styled.div`
+  display: ${(props) => (props.checkPage === "REQUEST" ? "none" : "flex")};
   width: 100%;
   border-bottom: 1px solid #dadada;
   padding: 0px 0px 20px 0px;
@@ -77,6 +78,7 @@ export const MoodArticle = styled.div`
   width: 100%;
   padding: 20px 0px;
   border-bottom: 1px solid #dadada;
+  display: ${(props) => (props.checkPage === "REQUEST" ? "none" : "flex")};
 `;
 
 export const EditorArticle = styled.div`

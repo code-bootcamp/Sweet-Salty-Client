@@ -10,9 +10,7 @@ export default function BestReviewItemPresenterPage(props) {
           backgroundSize: "cover",
           backgroundRepeat: "no-repeat",
         }}
-      >
-        <S.ItemProfile></S.ItemProfile>
-      </S.ItemImg>
+      ></S.ItemImg>
       <S.ItemInfoDiv>
         <S.ItemInfoTopDiv>
           <S.ItemInfoLeftDiv>

@@ -2,7 +2,6 @@
 
 import BestTasterItemContainerPage from "../../../../commons/card/BestTaesterCard/BestTasterItem.container";
 import ReviewMenuPage from "../../../../commons/reviewMenu";
-import SearchBarPage from "../../../../commons/searchbar/SearchBar.container";
 import TopButton from "../../../../commons/topbutton";
 import * as S from "./TesterReviewList.styled";
 import InfiniteScroll from "react-infinite-scroller";

@@ -14,6 +14,12 @@ export const FETCH_BOARDS = gql`
       boardHit
       createAt
       thumbnail
+      boardSubject
+      boardWriter
+      place {
+        placeName
+        placeAddress
+      }
     }
   }
 `;

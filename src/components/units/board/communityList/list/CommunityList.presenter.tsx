@@ -27,7 +27,11 @@ export default function CommunityListPresenterPage(props) {
             >
               <S.ReviewList>
                 {props.fetchBoardsData?.fetchBoards.map((el: any) => (
-                  <CommunityCardContainerPage key={el.boardId} el={el} />
+                  <CommunityCardContainerPage
+                    key={el.boardId}
+                    el={el}
+                    id={el.boardId}
+                  />
                 ))}
               </S.ReviewList>
             </InfiniteScroll>

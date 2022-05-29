@@ -24,20 +24,20 @@ export default function PointComponentPresenter (props: any){
               </S.StoreContents>
 
             </S.StoreImg>
-            <S.StoreComments>
 
+            <S.StoreComments>
               <S.ContentsBox>
-                <S.PaymentStatus>결제 완료</S.PaymentStatus>
+                <S.Stock>{props.el?.stock}개 결제 완료</S.Stock>
                 <S.P></S.P> 
                 <S.CreateAt>{getDate_(props.el?.createdAt)}</S.CreateAt>
               </S.ContentsBox>
 
-              <S.PaymentDetails>{props.el?.payStatus}</S.PaymentDetails>
+              <S.PayStatus>{props.el?.payStatus}</S.PayStatus>
 
               <S.ContentsBox>
-                <S.MenuName>{props.el?.productStatus}</S.MenuName>
+                <S.ProductStatus>{props.el?.productStatus}</S.ProductStatus>
                 <S.P></S.P> 
-                <S.RestaurantName>{props.el?.supplier}</S.RestaurantName>
+                <S.Supplier>{props.el?.supplier}</S.Supplier>
               </S.ContentsBox>
 
             </S.StoreComments>
@@ -65,12 +65,12 @@ export default function PointComponentPresenter (props: any){
 
               <S.StoreComments>
                 <S.ContentsBox>
-                  <S.PaymentStatus>취소 완료</S.PaymentStatus>
+                  <S.Stock>취소 완료</S.Stock>
                   <S.P></S.P> 
                   <S.CreateAt>{getDate_(props.el?.createdAt)}</S.CreateAt>
                 </S.ContentsBox>
 
-                <S.PaymentDetails>{props.el?.payStatus}</S.PaymentDetails>
+                <S.PayStatus>{props.el?.payStatus}</S.PayStatus>
 
                 <S.ContentsBox>
                   <S.PayName>{props.el?.supplier}</S.PayName>
@@ -94,12 +94,12 @@ export default function PointComponentPresenter (props: any){
 
               <S.StoreComments>
                 <S.ContentsBox>
-                  <S.PaymentStatus>취소 완료</S.PaymentStatus>
+                  <S.Stock>취소 완료</S.Stock>
                   <S.P></S.P> 
                   <S.CreateAt>{getDate_(props.el?.createdAt)}</S.CreateAt>
                 </S.ContentsBox>
 
-                <S.PaymentDetails>{props.el?.payStatus}</S.PaymentDetails>
+                <S.PayStatus>{props.el?.payStatus}</S.PayStatus>
 
                 <S.ContentsBox>
                   <S.PayName>{props.el?.supplier}</S.PayName>

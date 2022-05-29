@@ -28,6 +28,7 @@ export const StoreImg = styled.div`
   display: flex;
   justify-content: center;
   align-items: start;
+  cursor: pointer;
 `
 export const PointChargeImg = styled.div`
   width: 166px;
@@ -96,38 +97,44 @@ export const ContentsBox = styled.div`
   display: flex;
   align-items: center;
 `
-export const PaymentStatus = styled.div`
+export const Stock = styled.div`
   color: #676767;
   font-weight: 700;
   font-size: 16px;
+  cursor: default;
 `
 export const P = styled.div`
   margin: 0 8px;
   width: 1px;
   height: 16px;
   background: #676767;
+  cursor: default;
 `
 export const CreateAt = styled.div`
   color: #676767;
   font-weight: 700;
   font-size: 16px;
+  cursor: default;
 `
 
 
-export const PaymentDetails = styled.div`
+export const PayStatus = styled.div`
   padding: 10px 0;
   color: #2C2C2C;
   font-weight: 700;
+  cursor: default;
 `
-export const MenuName = styled.div`
+export const ProductStatus = styled.div`
   color: #676767;
   font-weight: 700;
   font-size: 16px;
+  cursor: default;
 `
-export const RestaurantName = styled.div`
+export const Supplier = styled.div`
   color: #676767;
   font-weight: 700;
   font-size: 16px;
+  cursor: default;
 `
 
 

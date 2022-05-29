@@ -4,6 +4,7 @@ import * as S from "./Signup.styled";
 export default function SignUpPresenterPage(props: any) {
   return (
     <S.Wrapper>
+    <S.LogoImg src="/images/whitelogo.png"/>
     <S.Title>회원가입</S.Title>
     <form onSubmit={props.handleSubmit(props.onClickSignUp)}>
       

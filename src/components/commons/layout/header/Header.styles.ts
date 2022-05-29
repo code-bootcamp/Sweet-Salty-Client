@@ -14,10 +14,8 @@ export const HeaderBox = styled.div`
   justify-content: space-between;
   align-items: center;
 `;
-export const HeaderLogo = styled.div`
-  width: 182px;
-  height: 44px;
-  background: #dbdbdb;
+export const HeaderLogo = styled.img`
+  width: 162px;
   cursor: pointer;
 `;
 export const HeaderMenuBox = styled.div`

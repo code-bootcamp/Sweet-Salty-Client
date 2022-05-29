@@ -17,7 +17,6 @@ export default function CommunityListPresenterPage(props) {
         <ReviewMenuPage />
 
         <S.CommonReviewInnerBox>
-          <S.CommonReviewHr />
 
           {/* 리뷰리스트 */}
           <div style={{ height: "auto", overflow: "auto" }}>

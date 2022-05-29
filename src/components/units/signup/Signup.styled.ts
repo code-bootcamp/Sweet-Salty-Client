@@ -8,6 +8,12 @@ export const Wrapper = styled.div`
   flex-direction: column;
   align-items: center;
 `;
+
+export const LogoImg = styled.img`
+  padding-top: 100px;
+  width: 350px;
+`
+
 export const Title = styled.div`
   padding: 100px 0;
   color: #fff;

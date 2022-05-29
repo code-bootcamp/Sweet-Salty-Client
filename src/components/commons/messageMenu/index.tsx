@@ -37,6 +37,7 @@ export const MessageMenu = styled.div`
 export default function MessageMenuPage(props) {
   const router = useRouter();
 
+
   // 전체리뷰
   const Received = ["/message/received"];
   const isReceived = Received.includes(router.asPath);

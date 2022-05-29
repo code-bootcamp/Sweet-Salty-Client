@@ -11,6 +11,7 @@ import {
 
 export default function CommonReviewContainerPage() {
   const [search, setSearch] = useState([]);
+
   const reviewSearch = _.concat(search, "REVIEW");
 
   const { data: fetchBoardsCategoryData, fetchMore: categoryFetchMore } =
@@ -24,6 +25,7 @@ export default function CommonReviewContainerPage() {
     FETCH_BOARD_WITH_TAGS,
     {
       variables: {
+
         tags: reviewSearch,
       },
     }

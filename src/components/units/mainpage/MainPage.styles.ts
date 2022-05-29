@@ -20,6 +20,34 @@ export const ReviewMenuBox = styled.div`
   display: flex;
   justify-content: space-around;
   align-items: center;
+
+  .checkbox input {
+    display: none;
+  }
+  .checkbox_text{
+    width: 240px;
+  height: 50px;
+  padding: 15px 100px;
+  text-align: center;
+  line-height: 50px;
+  border-radius: 20px 20px 0 0;
+  font-weight: 700;
+  font-size: 20px;
+  color: #7b7b7b;
+  z-index:0;
+  position: relative;
+  background-color: #ffffff;
+  cursor: pointer;
+  transition: 0.2s;
+  &:hover {
+    background: linear-gradient(#ff6e30, #ffa230);
+    color: #fff;
+  }
+  }
+  .checkbox input:checked + .checkbox_text{
+    color: #ffffff;
+    background: linear-gradient(#ff6e30, #ffa230);
+  }
 `;
 export const ReviewMenu = styled.div`
   width: 240px;
@@ -30,7 +58,8 @@ export const ReviewMenu = styled.div`
   font-weight: 700;
   font-size: 20px;
   color: #7b7b7b;
-  background: #fff;
+  
+  background-color: #ffffff;
   cursor: pointer;
   transition: 0.2s;
   &:hover {
@@ -42,11 +71,13 @@ export const ReviewMenu = styled.div`
 export const MainPageInnerBox = styled.div`
   margin: 0 auto;
   width: 1120px;
-  background: #fff;
+  background: #ffffff;
   border-radius: 20px;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
+  z-index:1;
+  position: relative;
   box-shadow: 10px 0px 10px #dbdbdb;
 `;
 export const ReviewHeader = styled.div`
@@ -89,7 +120,7 @@ export const ReviewArrow = styled.div`
   }
 `;
 export const ReviewSection = styled.div`
-  margin: 0 30px;
+  margin: 0 0 0 30px ;
   display: flex;
   overflow-x: scroll;
   overflow-y: hidden;
@@ -99,6 +130,7 @@ padding-right:30px;
 `;
 export const MainPageLoginOutBox = styled.div`
   position: absolute;
+  z-index:3;
   margin: 0 auto 40px auto;
   width: 1120px;
   height: 427px;
@@ -120,6 +152,8 @@ export const MainPageLoginInnerBox = styled.div`
   border-radius: 20px;
   background: #fff;
   box-shadow: 0px 0px 15px #dbdbdb;
+  /* position: absolute;
+  z-index:2; */
 `;
 export const MainPageInnerText = styled.div`
   font-weight: 700;

@@ -19,14 +19,22 @@ export default function MainPageList() {
   const { data: recentBoardsTasterData } = useQuery(FETCH_RECENT_BOARDS, {
     variables: { category: "TASTER" },
   });
+
+
   const { data: preferData } = useQuery(FETCH_PREFER_BOARDS);
   const { data: recentShopData } = useQuery(REAL_TIME_SHOP);
-  //
-  // const [tab, setTab] = useState("cur")
-  //
   const loggedInNickname = loggedInData?.fetchUserLoggedIn?.userNickname;
-  const onClickCetegory = (event) => {
-    setCategory(event.currentTarget.id);
+  const categoryData = [
+    { key: "0", id:"REVIEW",  title: "단짠 리뷰", checked: false, index: 0 },
+    { key: "1", id:"REQUEST", title: "가주세요!", checked: false, index: 1 },
+    { key: "2", id:"VISITED", title: "가봤어요!", checked: false, index: 2 },
+  ]
+  
+  const onChangeCategory = (checked, id) => {
+    if(checked) {
+      setCategory(id)
+    } 
+
   };
   const onClickReview = () => {
     if (category === "REVIEW") router.push(`/reviews/commonReview`);
@@ -50,7 +58,7 @@ export default function MainPageList() {
       onClickReview={onClickReview}
       onClickTasterPage={onClickTasterPage}
       onClickShopPage={onClickShopPage}
-      onClickCetegory={onClickCetegory}
+      onChangeCategory={onChangeCategory}
       onClickLogin={onClickLogin}
       onClickSignUp={onClickSignUp}
       loggedInNickname={loggedInNickname}
@@ -59,6 +67,8 @@ export default function MainPageList() {
       recentBoardsTasterData={recentBoardsTasterData}
       preferData={preferData}
       category={category}
+      categoryData={categoryData}
+
     />
   );
 }

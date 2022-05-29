@@ -15,6 +15,8 @@ export default function TesterReviewPresenterPage(props: any) {
   const dataForCategory = props.fetchBoardsCategoryData?.fetchBoardCategoryPick;
   const dataForTags = props.fetchBoardWithTagData?.fetchBoardWithTags.hits.hits;
 
+
+
   return (
     <S.CommonReviewWrapper>
       <S.Title>시식단 게시판</S.Title>
@@ -68,6 +70,7 @@ export default function TesterReviewPresenterPage(props: any) {
               </InfiniteScroll>
             </div>
           ) : (
+
             <div style={{ height: "auto", overflow: "auto" }}>
               <InfiniteScroll
                 pageStart={0}

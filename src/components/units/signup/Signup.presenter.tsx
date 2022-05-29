@@ -29,7 +29,8 @@ export default function SignUpPresenterPage(props: any) {
 
         
         <S.ColumnBox>
-          <S.Text>비밀번호 재확인</S.Text>
+          <S.Text>비밀번호 확인</S.Text>
+
           <SignupInput
           type="password"
           placeholder="비밀번호를 한 번 더 입력해주세요."
@@ -45,14 +46,16 @@ export default function SignUpPresenterPage(props: any) {
           <option selected disabled>성별 선택</option>
           <option value="MALE">남성</option>
           <option value="FEMALE">여성</option>
-          <option value="PRIVATE">비밀</option>
+
+          <option value="PRIVATE">선택 안함</option>
+
         </select>
       </div>
       <S.Text>연령대</S.Text>
       <div>
         <select onChange={props.onChangeAge}>
         <option selected disabled>연령대 선택</option>
-          <option value="NONE">비밀</option>
+          <option value="NONE">선택 안함</option>
           <option value="TEN">10대</option>
           <option value="TWENTY">20대</option>
           <option value="THIRTY">30대</option>

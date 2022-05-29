@@ -4,7 +4,7 @@ import { useForm } from "react-hook-form";
 import { SEND_MESSAGE } from "./writeMessage.queries"
 import * as S from "./writeMessage.styled"
 export default function WriteMessagePage(){
-    const { register, handleSubmit, setValue } = useForm({
+    const { register, handleSubmit} = useForm({
         mode: "onChange",
       });
     const router = useRouter();
@@ -24,8 +24,6 @@ export default function WriteMessagePage(){
                 }
             })
             alert(`${data.receiveUser}님께 쪽지가 전송되었습니다.`)
-            // setValue("contents", "");
-            // setValue("receiveUser", "");
             window.close()
         } catch(error : any){alert(error.message)}
     }

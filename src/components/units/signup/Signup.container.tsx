@@ -1,11 +1,11 @@
 // 여기는 회원가입페이지 입니다.
 import { useRouter } from "next/router";
 import SignUpPresenterPage from "./Signup.presenter";
-import { useMutation } from "@apollo/client";
+import { useMutation, useQuery } from "@apollo/client";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
-import { CREATE_USER, SIGNUP_CHECK_TOKEN, SIGNUP_GET_TOKEN } from "./Signup.queries";
+import { CREATE_USER, OVERLAP_EMAIL, OVERLAP_NICKNAME, SIGNUP_CHECK_TOKEN, SIGNUP_GET_TOKEN } from "./Signup.queries";
 import { useState } from "react";
 
 const schema = yup.object({
@@ -47,7 +47,9 @@ export default function SignUpContainerPage() {
   const [checkNumber] = useMutation(SIGNUP_CHECK_TOKEN);
   const [gender, setGender] = useState();
   const [ageGroup, setAgeGroup] = useState();
+  
   const [prefer, setPrefer] = useState([]);
+  
   const { register, handleSubmit, formState } = useForm({
   resolver: yupResolver(schema),
   mode: "onChange",
@@ -68,7 +70,6 @@ catch(error:any){
     }
 
     const onClickCheckNumber = async()=>{
-      // if()
       
   const dogeun =  await checkNumber({
           variables:{ phone: phoneNumber, token:serialNumber}
@@ -96,10 +97,21 @@ catch(error:any){
       setAgeGroup(event.target.value);
     }
     
+
+    
+
 const onClickSignUp = async (signupData :any) => {
   const { confirmUserPassword, ...data } = signupData;
+  const {data:emailCheckData} = useQuery(OVERLAP_EMAIL,{
+    variables: {email: data.userEmail}
+  })
+  const {data:nicknameCheckData} = useQuery(OVERLAP_NICKNAME,{
+    variables: {nickname: data.userNickname}
+  })
   // 가입하기
   if(!checked){alert("전화번호 인증이 되지 않았습니다.")
+  if(!emailCheckData){alert("이메일 중복 확인이 필요합니다.")}
+  if(!nicknameCheckData){alert("닉네임 중복 확인이 필요합니다.")}
 return}
   try {
     await createUser({

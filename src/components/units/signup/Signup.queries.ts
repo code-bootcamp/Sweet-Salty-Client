@@ -19,3 +19,13 @@ mutation signUpCheckToken($phone: String!, $token:String!){
   signUpCheckToken(phone: $phone, token: $token)
 }
 `;
+export const OVERLAP_EMAIL = gql`
+query overlapEmail($email:String!){
+  overlapEmail(email:$email)
+}
+`;
+export const OVERLAP_NICKNAME = gql`
+query overlapNickname($nickname:String!){
+  overlapNickname(nickname:$nickname)
+}
+`;

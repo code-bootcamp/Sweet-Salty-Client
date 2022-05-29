@@ -86,7 +86,7 @@ export const userProfile = styled.div`
   cursor: default;
 `
 export const userProfileInput = styled.input`
-  width: 300px;
+  width: 330px;
   outline: none;
   border: none;
   font-size: 14px;
@@ -98,26 +98,20 @@ export const userProfileInput = styled.input`
   }
 `
 export const userProfileUpdate = styled.div`
-  display: flex;
-  align-items: center;
-  u{
-    cursor: pointer;
-    margin-left: 10px;
-    font-size: 14px;
-    font-weight: 700;
-    color: #7B7B7B;
-  }
+  cursor: pointer;
+  margin-left: 10px;
+  font-size: 14px;
+  font-weight: 700;
+  color: #7B7B7B;
+  text-decoration: underline;
 `
 export const userProfileComplete = styled.div`
-  display: flex;
-  align-items: center;
-  u{
-    cursor: pointer;
-    margin-left: 5px;
-    font-size: 14px;
-    font-weight: 700;
-    color: #FF9A31;
-  }
+  cursor: pointer;
+  margin-left: 5px;
+  font-size: 14px;
+  font-weight: 700;
+  color: #FF9A31;
+  text-decoration: underline;
 `
 export const UserSection = styled.div`
   padding-top: 20px;
@@ -152,6 +146,10 @@ export const ButtonBox = styled.div`
   justify-content: space-between;
   align-items: end;
 `
+export const PointCharge = styled.div`
+  font-size: 16px;
+  font-weight: 700;
+`
 export const PointButton = styled.div`
   cursor: default;
   padding: 10px 15px;
@@ -165,6 +163,29 @@ export const PointButton = styled.div`
   cursor: pointer;
   color: #fff;
   &:hover {
+  }
+`
+export const PointImg = styled.img`
+  margin-right: 6px;
+  width: 24px;
+  transition: 0.2s;
+  &:hover {
+    width: 25px;
+  }
+`
+export const Input = styled.input`
+  width: 160px;
+  color: #2c2c2c;
+  background: transparent;
+  border: none;
+  color: #fff;
+  font-weight: 700;
+  outline: none;
+  ::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+  }
+  ::placeholder {
+    color: #fff;
   }
 `
 export const Button = styled.div`

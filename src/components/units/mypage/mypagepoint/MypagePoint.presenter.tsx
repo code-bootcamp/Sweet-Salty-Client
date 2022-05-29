@@ -4,8 +4,8 @@ import MyPageMenuContainer from "../../../commons/Mypage/UserMenu/userMenu.conta
 import MypageUserInfoContainer from "../../../commons/Mypage/UserInfo/userInfo.container";
 import TopButton from "../../../commons/topbutton";
 import * as S from "./MypagePoint.styled";
-import PointComponentContainer from "../../../commons/Mypage/PointComponent/pointcomponent.container";
-import ChargeComponentContainer from "../../../commons/Mypage/ChargeComponent/chargecomponent.container";
+import PointComponentContainer from "../../../commons/Mypage/PointDetailsComponent/pointdetailscomponent.container";
+import { v4 as uuidv4 } from "uuid";
 
 export default function MypagePointPresenter(props: any) {
   return (
@@ -19,14 +19,12 @@ export default function MypagePointPresenter(props: any) {
       <MyPageMenuContainer />
 
       <S.MypageSectionBox>
-
-        <PointComponentContainer />
-
-        <S.Hr/>
-
-        <ChargeComponentContainer />
-
-        <S.Hr/>
+        {props.data?.fetchPaymentHistory.map((el: any) => (
+          <div key={uuidv4()}>
+            <PointComponentContainer el={el}/>
+            <S.Hr/>
+          </div>
+        ))}
       
       </S.MypageSectionBox>
       <S.TopButtonBox>

@@ -19,12 +19,17 @@ interface ILayoutProps {
 export default function Layout(props: ILayoutProps) {
   const router = useRouter();
   
+  const LoginPage = ["/login"];
+  const isLoginPage = LoginPage.includes(router.pathname);
+  const SignupPage = ["/signup"];
+  const isSignupPage = SignupPage.includes(router.pathname);
   const MainPage = ["/"];
   const isMainPage = MainPage.includes(router.pathname);
   
   return (
     <Wrapper>
-      <LayoutHeader />
+      {!isLoginPage && !isSignupPage &&
+      <LayoutHeader />}
       
       {isMainPage &&
       <LayoutBanner />}

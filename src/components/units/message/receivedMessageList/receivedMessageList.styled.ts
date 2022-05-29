@@ -50,6 +50,8 @@ export const WriteImg=styled.img`
     width: 18px;
     margin-right: 10px;
 `
+
+
 export const MsgListDiv = styled.div`
     padding: 24px 24px 0 24px;
     margin: 0 auto;
@@ -58,7 +60,6 @@ export const MsgListDiv = styled.div`
     box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.1);
     border-radius: 20px;
 `;
-
 
 export const MessageTh = styled.div`
     display: flex;
@@ -74,17 +75,17 @@ export const MessageThSend = styled.div`
     font-size: 16px;
 `;
 export const MessageThContent = styled.div`
-    width: 626px;
+    width: 546px;
     cursor: default;
     font-size: 16px;
 `;
 export const MessageThCreateAt = styled.div`
-    width: 250px;
+    width: 310px;
     cursor: default;
     font-size: 16px;
 `;
 export const MessageThDelete = styled.div`
-    width: 86px;
+    width: 106px;
     cursor: default;
     font-size: 16px;
 `;
@@ -114,6 +115,7 @@ export const ProfileImg = styled.img`
     height: 30px;
     width: 30px;
     cursor: default;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
 `;
 export const SendUserDiv = styled.div`
     color: #FF9A31;
@@ -123,7 +125,7 @@ export const SendUserDiv = styled.div`
 `;
 
 export const MessageContents = styled.div`
-    width: 626px;
+    width: 546px;
     display: flex;
     align-items : center;
     font-weight: 600;
@@ -135,7 +137,7 @@ export const MessageContents = styled.div`
     cursor: pointer;
 `;
 export const DateDiv = styled.div`
-    width: 250px;
+    width: 310px;
     display: flex;
     justify-content: center;
     color: #2c2c2c;
@@ -145,7 +147,7 @@ export const DateDiv = styled.div`
 `;
 
 export const DeleteBtn = styled.div`
-    width: 86px;
+    width: 106px;
     color: #7B7B7B;
     cursor: pointer;
     font-size: 16px;

@@ -7,6 +7,7 @@ import { FETCH_PREFER_BOARDS, FETCH_RECENT_BOARDS, FETCH_USER_LOGGED_IN, REAL_TI
 export default function MainPageList() {
   const router = useRouter();
   const {data : loggedInData} = useQuery(FETCH_USER_LOGGED_IN);
+  const [category , setCategory] = useState("REVIEW")
   const {data : recentBoardsData } =useQuery(FETCH_RECENT_BOARDS,{
     variables: { category}
   });
@@ -15,7 +16,6 @@ export default function MainPageList() {
   });
   const {data : preferData} = useQuery(FETCH_PREFER_BOARDS)
   const {data: recentShopData} = useQuery(REAL_TIME_SHOP)
-  const [category , setCategory] = useState("REVIEW")
   // 
   // const [tab, setTab] = useState("cur")
   // 

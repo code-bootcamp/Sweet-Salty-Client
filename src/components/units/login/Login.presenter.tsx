@@ -4,6 +4,7 @@ import * as S from "./Login.styled";
 export default function LoginPresenterPage(props: any) {
   return (
       <S.Wrapper>
+        <S.LogoImg src="/images/whitelogo.png"/>
         <S.Title>로그인</S.Title>
         <form onSubmit={props.handleSubmit(props.onClickLogin)}>
           

@@ -8,7 +8,7 @@ export default function LayoutHeaderPresenter(props: any) {
   return (
     <S.HeaderWrapper>
       <S.HeaderBox>
-        <S.HeaderLogo onClick={props.onClickHome}></S.HeaderLogo>
+        <S.HeaderLogo onClick={props.onClickHome} src="/images/logo.png"/>
         <S.HeaderMenuBox>
           <S.IntroductionMenu>단짠 맛집 소개</S.IntroductionMenu>
           <S.ReviewMenu isReviewPage={props.isReviewPage} onClick={props.onClickReview}>

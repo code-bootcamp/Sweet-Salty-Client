@@ -98,24 +98,24 @@ export default function SearchBarPresenter(props: any) {
         {props.isButton && (
           <S.UserProfileBox>
             <S.UserProfile>
-              <S.TotalReviewWriteBox>
+              
                 <S.TotalReviewWrite onClick={props.onClickReviewDetail}>
                   <S.WriteIcon />
                   단짠 리뷰 작성하기
                 </S.TotalReviewWrite>
-              </S.TotalReviewWriteBox>
-              <S.TotalReviewWriteBox>
+              
+              
                 <S.TotalReviewWrite onClick={props.onClickReviewDetail}>
                   <S.WriteIcon />
                   시식단 리뷰 작성하기
                 </S.TotalReviewWrite>
-              </S.TotalReviewWriteBox>
-              <S.TotalReviewWriteBox>
+              
+              
                 <S.TotalReviewWrite onClick={props.onClickWishDetail}>
                   <S.WriteIcon />
                   가주세요! 작성하기
                 </S.TotalReviewWrite>
-              </S.TotalReviewWriteBox>
+              
             </S.UserProfile>
             <S.ArrowBox></S.ArrowBox>
           </S.UserProfileBox>

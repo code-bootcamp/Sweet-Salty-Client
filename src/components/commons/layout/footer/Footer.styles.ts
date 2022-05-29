@@ -17,4 +17,5 @@ export const FooterBox = styled.div`
 `;
 export const FooterText = styled.div`
   margin: 5px 0;
+  cursor: default;
 `;

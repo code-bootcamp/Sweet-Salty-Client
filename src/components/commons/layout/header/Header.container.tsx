@@ -12,24 +12,24 @@ export default function LayoutHeader() {
   const router = useRouter();
   const [isClick, setIsClick] = useState(false);
   const [logout] = useMutation(LOGOUT);
-  const {data} = useQuery(FETCH_USER_LOGGED_IN)
+  const { data } = useQuery(FETCH_USER_LOGGED_IN);
   const [, setAccessToken] = useRecoilState(accessTokenState);
   const onClickHome = () => {
     router.push("/");
   };
-  
+
   const onClickReview = () => {
     router.push("/reviews");
   };
   const ReviewPage = ["reviews"];
   const isReviewPage = ReviewPage.includes(router.asPath.split("/")[1]);
-  
+
   const onClickStore = () => {
     router.push("/shop");
   };
   const StorePage = ["shop"];
   const isStorePage = StorePage.includes(router.asPath.split("/")[1]);
-  
+
   const onClickNotice = () => {
     router.push("/noticeAll");
   };
@@ -48,21 +48,22 @@ export default function LayoutHeader() {
     setIsClick(false);
   };
   const onClickMessage = () => {
-    router.push("/message");
+    window.open("/message", "_blank", "width=1200, height=1000");
     setIsClick(false);
   };
   const onClickMypagePoint = () => {
     router.push("/mypage/mypagepoint");
     setIsClick(false);
   };
-  const onClickLogout =()=>{
-    try{
+  const onClickLogout = () => {
+    try {
       logout();
       setAccessToken("");
       setIsClick(false);
+    } catch (error: any) {
+      alert(error.message);
     }
-    catch(error:any){ alert(error.message);}
-  }
+  };
   return (
     <LayoutHeaderPresenter
       data={data}

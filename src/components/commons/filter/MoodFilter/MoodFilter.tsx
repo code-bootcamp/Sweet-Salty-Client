@@ -17,13 +17,9 @@ export default function MoodFilterPage(props) {
 
   const onChangeMood = (checked, item) => {
     if (checked) {
-      props.setMoodTagCheckList([...props.moodTagCheckList, item]);
       props.setMoodHashTag([...props.moodHashTag, item]);
     } else if (!checked) {
       props.setMoodHashTag(props.moodHashTag.filter((el) => el !== item));
-      props.setMoodTagCheckList(
-        props.moodTagCheckList.filter((el) => el !== item)
-      );
     }
   };
 
@@ -37,7 +33,7 @@ export default function MoodFilterPage(props) {
             onChange={(e) => {
               onChangeMood(e.target.checked, e.target.value);
             }}
-            checked={props.moodTagCheckList.includes(el.value) ? true : false}
+            checked={props.moodHashTag.includes(el.value) ? true : false}
           />
           <span className="checkbox_text">
             <img className="check_icon" src="/images/check.png" />

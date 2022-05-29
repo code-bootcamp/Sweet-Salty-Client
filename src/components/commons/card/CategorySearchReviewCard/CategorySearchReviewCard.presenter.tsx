@@ -1,6 +1,7 @@
 import * as S from "./CategorySearchReviewCard.styles";
 
 export default function SearchCategoryItemPresenterPage(props) {
+  console.log("ggg", props.fetchTagSearchData);
   return (
     <S.ItemMainDiv
       onClick={props.onClickDetailPage}
@@ -30,7 +31,9 @@ export default function SearchCategoryItemPresenterPage(props) {
             <S.ItemInfoBarDiv>|</S.ItemInfoBarDiv>
             <S.ItemInfoLocationDiv>구로구</S.ItemInfoLocationDiv>
           </S.MidStoreInfoDiv>
-          <S.ItemInfoUserDiv>푸딩 단짝님</S.ItemInfoUserDiv>
+          <S.ItemInfoUserDiv>
+            {props.fetchTagSearchData?.boardwriter} 단짝님
+          </S.ItemInfoUserDiv>
         </S.ItemInfoMidDiv>
 
         <S.ItemInfoBottomDiv>

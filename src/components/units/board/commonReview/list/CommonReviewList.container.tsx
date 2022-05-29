@@ -1,5 +1,6 @@
 // 일반리뷰 List 페이지 container
 import { useQuery } from "@apollo/client";
+import _ from "lodash";
 import { useState } from "react";
 import CommonReviewPresenterPage from "./CommonReviewList.presenter";
 import {
@@ -10,6 +11,9 @@ import {
 
 export default function CommonReviewContainerPage() {
   const [search, setSearch] = useState([]);
+
+  const reviewSearch = _.concat(search, "REVIEW");
+
   const { data: fetchBoardsCategoryData, fetchMore: categoryFetchMore } =
     useQuery(FETCH_BOARD_CATEGORY_PICK, {
       variables: {
@@ -21,7 +25,8 @@ export default function CommonReviewContainerPage() {
     FETCH_BOARD_WITH_TAGS,
     {
       variables: {
-        tags: search,
+
+        tags: reviewSearch,
       },
     }
   );

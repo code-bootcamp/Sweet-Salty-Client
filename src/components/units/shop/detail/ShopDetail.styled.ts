@@ -98,7 +98,7 @@ export const CountButtonArticle = styled.div`
   justify-content: space-between;
   width: 150px;
   padding: 10px 20px;
-  border-radius: 25px;
+  border-radius: 30px;
   border: 2px solid #d8d8d8;
 `;
 

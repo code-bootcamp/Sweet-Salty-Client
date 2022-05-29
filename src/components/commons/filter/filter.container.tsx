@@ -12,7 +12,6 @@ export default function FilterContainer(props) {
   const [menuHashTag, setMenuHashTag] = useState([]);
   const [menuTagCheckList, setMenuTagCheckList] = useState([]);
   const [moodHashTag, setMoodHashTag] = useState([]);
-  const [moodTagCheckList, setMoodTagCheckList] = useState([]);
   const [locationHashTag, setLocationHashTag] = useState([]);
   const [locationTagCheckList, setLocationTagCheckList] = useState([]);
 
@@ -45,7 +44,6 @@ export default function FilterContainer(props) {
     setMoodHashTag([]);
     setLocationHashTag([]);
     setMenuTagCheckList([]);
-    setMoodTagCheckList([]);
     setLocationTagCheckList([]);
   };
 
@@ -58,8 +56,6 @@ export default function FilterContainer(props) {
       locationData={locationData}
       menuTagCheckList={menuTagCheckList}
       setMenuTagCheckList={setMenuTagCheckList}
-      moodTagCheckList={moodTagCheckList}
-      setMoodTagCheckList={setMoodTagCheckList}
       menuHashTag={menuHashTag}
       setMenuHashTag={setMenuHashTag}
       moodHashTag={moodHashTag}

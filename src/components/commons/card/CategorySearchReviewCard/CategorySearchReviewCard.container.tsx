@@ -4,9 +4,21 @@ import SearchCategoryItemPresenterPage from "./CategorySearchReviewCard.presente
 
 export default function SearchCategoryItemContainerPage(props) {
   const router = useRouter();
+
   const onClickDetailPage = (event: MouseEvent<HTMLDivElement>) => {
-    if (event.target instanceof Element) {
+
+    console.log(event.currentTarget);
+    if (props.el.boardsubject === "TASTER") {
       router.push(`/reviews/testerReview/${event.currentTarget.id}`);
+    }
+    if (props.el.boardsubject === "REVIEW") {
+      router.push(`/reviews/commonReview/${event.currentTarget.id}`);
+    }
+    if (props.el.boardsubject === "REQUEST") {
+      router.push(`/reviews/wish/${event.currentTarget.id}`);
+    }
+    if (props.el.boardsubject === "VISITED") {
+      router.push(`/reviews/commonReview/${event.currentTarget.id}`);
     }
   };
   return (

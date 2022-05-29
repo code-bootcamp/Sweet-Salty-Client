@@ -17,19 +17,15 @@ export const MessageMenu = styled.div`
   border-radius: 20px 20px 0 0;
   font-weight: 700;
   font-size: 20px;
-  margin : 0 15px;
-  color:${(props: any)=> 
-    props.isReceived || 
-    props.isSend 
-    ? "#fff"
-    : "#7b7b7b" 
-  };
-  background: ${(props: any)=> 
-    props.isReceived || 
-    props.isSend 
-    ? "linear-gradient(#ff6e30, #ffa230)"
-    : "#fff" 
-  };
+  margin: 0 15px;
+  color: ${(props: any) =>
+    props.isReceived || props.isSend || props.isRecievedTap || props.isSendTap
+      ? "#fff"
+      : "#7b7b7b"};
+  background: ${(props: any) =>
+    props.isReceived || props.isSend || props.isRecievedTap || props.isSendTap
+      ? "linear-gradient(#ff6e30, #ffa230)"
+      : "#fff"};
   cursor: pointer;
   transition: 0.2s;
   &:hover {
@@ -38,17 +34,18 @@ export const MessageMenu = styled.div`
   }
 `;
 
-export default function MessageMenuPage() {
+export default function MessageMenuPage(props) {
   const router = useRouter();
 
-  
-  // 받은쪽지 
+
+  // 전체리뷰
   const Received = ["/message/received"];
   const isReceived = Received.includes(router.asPath);
-  // 보낸쪽지 
+
+  // 단짠리뷰
   const Send = ["/message/send"];
   const isSend = Send.includes(router.asPath);
- 
+
   const onClickReceived = () => {
     router.push("/message/received");
   };
@@ -60,8 +57,20 @@ export default function MessageMenuPage() {
   return (
     <>
       <MessageMenuBox>
-        <MessageMenu onClick={onClickReceived} isReceived={isReceived}>받은 쪽지함</MessageMenu>
-        <MessageMenu onClick={onClickSend} isSend={isSend}>보낸 쪽지함</MessageMenu>
+        <MessageMenu
+          onClick={onClickReceived}
+          isReceived={isReceived}
+          isRecievedTap={props.isRecievedTap}
+        >
+          받은 쪽지함
+        </MessageMenu>
+        <MessageMenu
+          onClick={onClickSend}
+          isSend={isSend}
+          isSendTap={props.isSendTap}
+        >
+          보낸 쪽지함
+        </MessageMenu>
       </MessageMenuBox>
     </>
   );

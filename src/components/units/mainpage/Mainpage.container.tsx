@@ -20,6 +20,7 @@ export default function MainPageList() {
     variables: { category: "TASTER" },
   });
 
+
   const { data: preferData } = useQuery(FETCH_PREFER_BOARDS);
   const { data: recentShopData } = useQuery(REAL_TIME_SHOP);
   const loggedInNickname = loggedInData?.fetchUserLoggedIn?.userNickname;
@@ -33,6 +34,7 @@ export default function MainPageList() {
     if(checked) {
       setCategory(id)
     } 
+
   };
   const onClickReview = () => {
     if (category === "REVIEW") router.push(`/reviews/commonReview`);
@@ -66,6 +68,7 @@ export default function MainPageList() {
       preferData={preferData}
       category={category}
       categoryData={categoryData}
+
     />
   );
 }

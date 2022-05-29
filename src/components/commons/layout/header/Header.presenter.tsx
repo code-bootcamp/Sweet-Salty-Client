@@ -10,7 +10,7 @@ export default function LayoutHeaderPresenter(props: any) {
       <S.HeaderBox>
         <S.HeaderLogo onClick={props.onClickHome} src="/images/logo.png"/>
         <S.HeaderMenuBox>
-          <S.IntroductionMenu>단짠 맛집 소개</S.IntroductionMenu>
+          <S.IntroductionMenu isIntroPage={props.isIntroPage} onClick={props.onClickIntro}>단짠 맛집 소개</S.IntroductionMenu>
           <S.ReviewMenu isReviewPage={props.isReviewPage} onClick={props.onClickReview}>
             단짠 게시판
           </S.ReviewMenu>

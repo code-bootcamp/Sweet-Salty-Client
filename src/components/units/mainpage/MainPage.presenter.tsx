@@ -8,19 +8,30 @@ import MainReviewItemContainerPage from "../../commons/card/MainReviewCard/Revie
 import CommonReviewItemPresenterPage from "../../commons/card/ReviewCard/ReviewItem.presenter";
 export default function MainpagePresenter(props: any) {
 
-console.log(props.preferData,"프리퍼")
+
   return (
     <S.MainPageWrapper>
       <S.MainPageOutBox>
       <S.ReviewMenuBox>
-        <S.ReviewMenu onClick={props.onClickCetegory} id="REVIEW" isCommonReviewList={props.isCommonReviewList}>단짠 리뷰</S.ReviewMenu>
+        {props.categoryData.map((el)=>(
+          <label className="checkbox" key={el.key}>
+            {/* <div className="checkbox_cover" checked={props.category===el.value}> */}
+            <input type="checkbox" 
+                    id={el.id} 
+                    onChange={(e)=>{props.onChangeCategory(e.target.checked, e.target.id)}} 
+                    checked={props.category===el.id} />
+            <span className="checkbox_text">{el.title}</span>
+            {/* </div> */}
+          </label>
+        ))}
+        {/* <S.ReviewMenu category="REVIEW" onClick={props.onClickCetegory} id="REVIEW" isCommonReviewList={props.isCommonReviewList}>단짠 리뷰</S.ReviewMenu>
         <S.ReviewMenu onClick={props.onClickCetegory} id="REQUEST" isWishList={props.isWishList}>가주세요!</S.ReviewMenu>
-        <S.ReviewMenu onClick={props.onClickCetegory} id="VISITED" isisVisited={props.isVisited}>가봤어요!</S.ReviewMenu>
+        <S.ReviewMenu onClick={props.onClickCetegory} id="VISITED" isisVisited={props.isVisited}>가봤어요!</S.ReviewMenu> */}
       </S.ReviewMenuBox>
         <S.MainPageInnerBox>
           <S.ReviewHeader>
             <S.ReviewTitle>{props.category==="REVIEW"?"최신 단짠 리뷰":(props.category==="REQUEST"?"가주세요! 최신 글":"가봤어요! 최신 글")}</S.ReviewTitle>
-            <S.ReviewArrow onClick={props.onClickReview}>→</S.ReviewArrow>
+            
           </S.ReviewHeader>
           <S.ReviewSection>
             {/* 리뷰 공동컴포넌트 올리는 곳 */}
@@ -37,7 +48,7 @@ console.log(props.preferData,"프리퍼")
         <S.MainPageInnerBox>
           <S.ReviewHeader>
             <S.ReviewTitle>광고(시식단) 단짠 리뷰</S.ReviewTitle>
-            <S.ReviewArrow onClick={props.onClickTasterPage}>→</S.ReviewArrow>
+            
           </S.ReviewHeader>
           <S.ReviewSection>
             {/* 리뷰 공동컴포넌트 올리는 곳 */}
@@ -53,7 +64,7 @@ console.log(props.preferData,"프리퍼")
       <S.MainPageOutBox>
         <S.MainPageInnerBox>
           <S.ReviewHeader>
-            <S.ReviewTitle>단짝님을 위한 리뷰</S.ReviewTitle>
+            <S.ReviewTitle>{props.loggedInNickname} 단짝님을 위한 리뷰</S.ReviewTitle>
             <S.ReviewArrow></S.ReviewArrow>
           </S.ReviewHeader>
           <S.ReviewSection>
@@ -86,7 +97,7 @@ console.log(props.preferData,"프리퍼")
       <S.MainPageOutBox>
         <S.MainPageInnerBox>
           <S.ReviewHeader>
-            <S.ReviewTitle>단짝 샵</S.ReviewTitle>
+            <S.ReviewTitle>단짝 스토어</S.ReviewTitle>
             <S.ReviewArrow onClick={props.onClickShopPage}>→</S.ReviewArrow>
           </S.ReviewHeader>
           <S.ReviewSection>

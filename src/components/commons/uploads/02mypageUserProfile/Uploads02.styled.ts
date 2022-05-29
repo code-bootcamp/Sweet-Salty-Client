@@ -15,7 +15,7 @@ export const ImgBox = styled.div`
 export const UploadImage = styled.img`
   width: 106px;
   height: 106px;
-  cursor: pointer;
+  cursor: default;
   object-fit: cover;
   border-radius: 50%;
   background: linear-gradient(#ff6e30, #ffa230);

@@ -42,10 +42,10 @@ export default function MessageMenuPage() {
   const router = useRouter();
 
   
-  // 전체리뷰 
+  // 받은쪽지 
   const Received = ["/message/received"];
   const isReceived = Received.includes(router.asPath);
-  // 단짠리뷰 
+  // 보낸쪽지 
   const Send = ["/message/send"];
   const isSend = Send.includes(router.asPath);
  

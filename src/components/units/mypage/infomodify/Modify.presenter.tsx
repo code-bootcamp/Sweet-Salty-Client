@@ -40,7 +40,7 @@ export default function ModifyPresenterPage(props: any){
         </S.FlexBox>
 
 
-      <S.WriteTitle style={{paddingBottom: "0px"}}>선호 카테고리</S.WriteTitle>
+      <S.WriteTitle style={{paddingBottom: "0"}}>선호 카테고리</S.WriteTitle>
       <S.SubWriteTitle>메뉴 선택<S.Span>(여러개 선택 가능)</S.Span></S.SubWriteTitle>
         
         <S.CategoryBox>
@@ -52,9 +52,6 @@ export default function ModifyPresenterPage(props: any){
           <S.Category onClick={props.onClickMenu} id="할랄">할랄</S.Category>
           <S.Category onClick={props.onClickMenu} id="비건">비건</S.Category>
         </S.CategoryBox>
-
-          
-        <S.SubWriteTitle>분위기 선택<S.Span>(여러개 선택 가능)</S.Span></S.SubWriteTitle>
         
         <S.MoodBox>
         </S.MoodBox>
@@ -62,7 +59,7 @@ export default function ModifyPresenterPage(props: any){
           <S.CompleteButton>수정 완료</S.CompleteButton>
           <S.CompleteButton onClick={props.onClickBack}>취소</S.CompleteButton>
         </S.ButtonBox>
-          <S.ResignMB><u>회원탈퇴하기</u></S.ResignMB>
+          <S.ResignMB>회원탈퇴하기</S.ResignMB>
       </S.NoticeBox>
     </S.Wrapper>)
 }

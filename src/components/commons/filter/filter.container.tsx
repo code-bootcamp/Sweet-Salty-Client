@@ -20,7 +20,7 @@ export default function FilterContainer(props) {
 
   // 태그 클릭시 자동 검색 일반리뷰만 일단 적용됨
   useEffect(() => {
-    props.setCommonReviewSearch(searchTags);
+    props.setSearch(searchTags);
   }, [moodHashTag, locationHashTag, menuHashTag]);
 
   const { data: menuData } = useQuery(FETCH_TAGS, {

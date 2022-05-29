@@ -139,6 +139,10 @@ export const HeaderMemberRightBox = styled.div`
   justify-content: space-between;
   align-items: center;
 `;
+export const PhotoBox = styled.div`
+  display: flex;
+  align-items: start;
+`
 export const Photo = styled.img`
   width: 40px;
   height: 40px;
@@ -182,11 +186,7 @@ export const UserNameBox = styled.div`
   color: #7b7b7b;
   font-weight: 700;
   font-size: 20px;
-  cursor: pointer;
-  transition: 0.2s;
-  &:hover {
-    border-bottom: 3px solid #ffa230;
-  }
+  cursor: default;
 `;
 export const UserName = styled.span`
   color: #ffa230;
@@ -227,10 +227,16 @@ export const Note = styled.div`
   z-index: 1;
   cursor: pointer;
   transition: 0.2s;
+  display: flex;
+  align-items: start;
   &:hover {
     border-bottom: 2px solid #ffa230;
   }
 `;
+export const SignalIcon = styled.img`
+  width: 6px;
+`
+
 export const Logout = styled.div`
   font-size: 16px;
   color: #7b7b7b;

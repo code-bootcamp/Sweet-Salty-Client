@@ -13,9 +13,7 @@ export default function CommonReviewItemPresenterPage(props) {
             backgroundSize: "cover",
             backgroundRepeat: "no-repeat",
           }}
-        >
-          <S.ItemProfile></S.ItemProfile>
-        </S.ItemImg>
+        ></S.ItemImg>
       </div>
       <S.ItemInfoDiv>
         <S.ItemInfoTopDiv>

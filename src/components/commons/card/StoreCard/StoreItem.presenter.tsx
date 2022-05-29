@@ -3,16 +3,22 @@ import * as S from "./StoreItem.styles";
 export default function StoreItemPresenterPage(props) {
   return (
     <S.ItemMainDiv onClick={props.onClickDetailPage} id={props.id}>
-      <S.ItemImg
-        style={{
-          backgroundImage: `url(${props.fetchShopListData?.thumbnail})`,
-          backgroundSize: "cover",
-          backgroundRepeat: "no-repeat",
-          objectFit: "cover",
-          overflow: "hidden",
-        }}
-      >
-        <S.ImageTitle>일일 특가</S.ImageTitle>
+      <S.ImageTitle>일일 특가</S.ImageTitle>
+      <S.ItemImg>
+        <S.GifticonDiv>
+          <S.GifticonImg
+            style={{
+              backgroundImage: `url(${props.fetchShopListData?.thumbnail})`,
+              backgroundSize: "cover",
+              backgroundRepeat: "no-repeat",
+              objectFit: "cover",
+              overflow: "hidden",
+            }}
+          ></S.GifticonImg>
+          <S.GifticonLogoDiv>
+            <S.GifiticonLogo src="/images/storelogo.png"></S.GifiticonLogo>
+          </S.GifticonLogoDiv>
+        </S.GifticonDiv>
       </S.ItemImg>
       <S.ItemInfoDiv>
         <S.ItemInfoTopDiv>

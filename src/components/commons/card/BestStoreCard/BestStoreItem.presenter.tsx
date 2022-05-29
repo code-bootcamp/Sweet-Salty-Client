@@ -4,7 +4,12 @@ export default function BestStoreItemPresenterPage(props) {
   return (
     <S.ItemMainDiv>
       <S.ItemImg>
-        <S.ItemPick />
+        <S.GifticonDiv>
+          <S.GifticonImg></S.GifticonImg>
+          <S.GifticonLogoDiv>
+            <S.GifiticonLogo src="/images/storelogo.png"></S.GifiticonLogo>
+          </S.GifticonLogoDiv>
+        </S.GifticonDiv>
       </S.ItemImg>
       <S.ItemInfoDiv>
         <S.ItemInfoTopDiv>

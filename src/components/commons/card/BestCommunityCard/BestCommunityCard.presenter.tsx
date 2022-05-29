@@ -4,9 +4,7 @@ import * as S from "./BestCommunityCard.styles";
 export default function BestCommunityCardPresenterPage() {
   return (
     <S.ItemMainDiv>
-      <S.ItemImg>
-        <S.ItemProfile></S.ItemProfile>
-      </S.ItemImg>
+      <S.ItemImg></S.ItemImg>
       <S.ItemInfoDiv>
         <S.ItemInfoTopDiv>
           <S.ItemInfoLeftDiv>

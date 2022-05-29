@@ -10,7 +10,13 @@ const Editor = dynamic(() => import("../../../../commons/toast/editor"), {
 export default function CommonReviewWritePresenter(props) {
   return (
     <S.Wrapper>
-      <form onSubmit={props.handleSubmit(props.onClickSubmit)}>
+      <form
+        onSubmit={
+          props.checkPage === "REQUEST"
+            ? props.handleSubmit(props.onClickSubmitReq)
+            : props.handleSubmit(props.onClickSubmit)
+        }
+      >
         <S.Title>단짠 게시판 글 등록</S.Title>
 
         <S.ReviewWriteBox>
@@ -41,21 +47,21 @@ export default function CommonReviewWritePresenter(props) {
                     ))}
                   </S.CategoryBox>
                 )}
-                {props.checkPage === "common" && (
+                {props.checkPage === "REVIEW" && (
                   <S.CategoryPickSection>
                     <S.CategoryPick>단짠리뷰</S.CategoryPick>
                     <S.CategoryUnPick>시식단 리뷰</S.CategoryUnPick>
                     <S.CategoryUnPick>가주세요</S.CategoryUnPick>
                   </S.CategoryPickSection>
                 )}
-                {props.checkPage === "taster" && (
+                {props.checkPage === "TASTER" && (
                   <S.CategoryPickSection>
                     <S.CategoryUnPick>단짠리뷰</S.CategoryUnPick>
                     <S.CategoryPick>시식단 리뷰</S.CategoryPick>
                     <S.CategoryUnPick>가주세요</S.CategoryUnPick>
                   </S.CategoryPickSection>
                 )}
-                {props.checkPage === "wish" && (
+                {props.checkPage === "REQUEST" && (
                   <S.CategoryPickSection>
                     <S.CategoryUnPick>단짠리뷰</S.CategoryUnPick>
                     <S.CategoryUnPick>시식단 리뷰</S.CategoryUnPick>

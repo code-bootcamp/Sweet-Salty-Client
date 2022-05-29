@@ -13,7 +13,7 @@ import { FETCH_BOARD_CATEGORY_PICK } from "./TesterReviewList.queries";
 
 export default function TesterReviewContainerPage() {
   const [search, setSearch] = useState([]);
-  const checkPage = "taster";
+  const checkPage = "TASTER";
   const tasterSearch = _.concat(search, "TASTER");
 
   const { data: fetchBoardsCategoryData, fetchMore: categoryFetchMore } =

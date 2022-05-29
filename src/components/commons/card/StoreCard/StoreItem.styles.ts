@@ -13,19 +13,50 @@ export const ItemMainDiv = styled.div`
   height: 342px;
   width: 300px;
   margin: 0px 0px 30px 0px;
+  position: relative;
 `;
 export const ItemImg = styled.div`
-  background-color: #dcdcdc;
+  background-color: #f3f3f3;
   border-radius: 20px;
   display: flex;
   flex-direction: row;
   height: 250px;
-  justify-content: flex-start;
-  padding: 15px;
+  justify-content: flex-end;
+  padding: 70px 39px 60px 39px;
   width: 300px;
 `;
 
+export const GifticonDiv = styled.div`
+  display: flex;
+  justify-content: space-between;
+  width: 222px;
+  height: 119px;
+  box-shadow: 4px 4px 4px 4px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  background-color: #ffffff;
+`;
+
+export const GifticonImg = styled.div`
+  width: 75%;
+  height: 100%;
+  border-radius: 10px 0px 0px 10px;
+  background-color: #c4c4c4;
+`;
+
+export const GifticonLogoDiv = styled.div`
+  display: flex;
+  padding: 8px 8px 0px 0px;
+`;
+
+export const GifiticonLogo = styled.img`
+  width: 31px;
+  height: 7px;
+`;
+
 export const ImageTitle = styled.div`
+  position: absolute;
+  top: 13px;
+  left: 16px;
   font-size: 16px;
   font-weight: 700;
   color: #ff9a31;

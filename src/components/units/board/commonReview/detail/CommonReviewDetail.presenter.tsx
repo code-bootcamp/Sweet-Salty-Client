@@ -13,9 +13,16 @@ import * as S from "./CommonReviewDetail.styles";
 export default function ReviewDetailPresenter(props: any) {
   return (
     <S.Wrapper>
-      <S.Title>
-        단짠 게시판 <S.RightOutline /> 단짠 리뷰
-      </S.Title>
+      {props.data?.boardSubject === "REVIEW" ? (
+        <S.Title>
+          단짠 게시판 <S.RightOutline /> 단짠 리뷰
+        </S.Title>
+      ) : (
+        <S.Title>
+          단짠 게시판 <S.RightOutline /> 시식단 리뷰
+        </S.Title>
+      )}
+
       <S.ReviewBox>
         <S.Header>
           <S.HeaderBox>

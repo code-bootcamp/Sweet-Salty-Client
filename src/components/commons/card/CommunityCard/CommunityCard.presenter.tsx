@@ -1,17 +1,16 @@
 import * as S from "./CommunityCard.styles";
 
 export default function CommunityCardPresenterPage(props) {
+  console.log("here", props.fetchBoardsCategoryData?.boardWriter);
   return (
-    <S.ItemMainDiv>
+    <S.ItemMainDiv onClick={props.onClickDetailPage} id={props.id}>
       <S.ItemImg
         style={{
           backgroundImage: `url(https://storage.googleapis.com/${props.fetchBoardsCategoryData?.thumbnail})`,
           backgroundSize: "cover",
           backgroundRepeat: "no-repeat",
         }}
-      >
-        <S.ItemProfile></S.ItemProfile>
-      </S.ItemImg>
+      ></S.ItemImg>
       <S.ItemInfoDiv>
         <S.ItemInfoTopDiv>
           <S.ItemInfoLeftDiv>
@@ -23,11 +22,17 @@ export default function CommunityCardPresenterPage(props) {
 
         <S.ItemInfoMidDiv>
           <S.MidStoreInfoDiv>
-            <S.ItemInfoStoreName>식당명</S.ItemInfoStoreName>
+            <S.ItemInfoStoreName>
+              {props.fetchBoardsCategoryData?.place.placeName}
+            </S.ItemInfoStoreName>
             <S.ItemInfoBarDiv>|</S.ItemInfoBarDiv>
-            <S.ItemInfoLocationDiv>위치명</S.ItemInfoLocationDiv>
+            <S.ItemInfoLocationDiv>
+              {props.fetchBoardsCategoryData?.place.placeAddress.split(" ")[1]}
+            </S.ItemInfoLocationDiv>
           </S.MidStoreInfoDiv>
-          <S.ItemInfoUserDiv>푸딩 단짝님</S.ItemInfoUserDiv>
+          <S.ItemInfoUserDiv>
+            {props.fetchBoardsCategoryData?.boardWriter} 단짝님
+          </S.ItemInfoUserDiv>
         </S.ItemInfoMidDiv>
 
         <S.ItemInfoBottomDiv>

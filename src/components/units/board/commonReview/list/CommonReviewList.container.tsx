@@ -11,7 +11,7 @@ import {
 
 export default function CommonReviewContainerPage() {
   const [search, setSearch] = useState([]);
-  const checkPage = "common";
+  const checkPage = "REVIEW";
   const reviewSearch = _.concat(search, "REVIEW");
 
   const { data: fetchBoardsCategoryData, fetchMore: categoryFetchMore } =

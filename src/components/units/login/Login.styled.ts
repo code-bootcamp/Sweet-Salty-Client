@@ -92,6 +92,20 @@ export const GoogleLoginButton = styled.div`
   align-items: center;
   cursor: pointer;
 `;
+export const NaverLoginButon = styled.div`
+  margin-top: 30px;
+  width: 350px;
+  height: 50px;
+  font-size: 14px;
+  font-weight: 700;
+  color: #7b7b7b;
+  border: 2px solid #dadada;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+`;
 
 export const SubmitBtn = styled.button`
   margin-top: 80px;

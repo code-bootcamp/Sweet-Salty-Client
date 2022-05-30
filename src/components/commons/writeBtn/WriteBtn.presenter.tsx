@@ -5,7 +5,7 @@ export default function WriteBtnPresenterPage(props) {
     <S.ReviewWriteBox>
       <S.ReviewWrite onClick={props.onClickWrite}>
         <S.WriteIcon />
-        {props.checkPage === "community" && (
+        {props.communityCheckPage === "community" && (
           <S.WriteText>리뷰 작성하기</S.WriteText>
         )}
         {props.checkPage === "REVIEW" && (

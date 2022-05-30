@@ -6,13 +6,15 @@ import TopButton from "../../../../commons/topbutton";
 import WriteBtnContainerPage from "../../../../commons/writeBtn/WriteBtn.container";
 
 export default function CommunityListPresenterPage(props) {
-  console.log("888888", props);
+  console.log("888888", props.communityCheckPage);
   return (
     <S.CommonReviewWrapper>
       <S.Title>전체 게시판</S.Title>
       <S.CommonReviewOutBox>
         <S.SearchbarBox>
-          <WriteBtnContainerPage checkPage={props.checkPage} />
+          <WriteBtnContainerPage
+            communityCheckPage={props.communityCheckPage}
+          />
         </S.SearchbarBox>
 
         <ReviewMenuPage />

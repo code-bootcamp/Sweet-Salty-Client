@@ -10,15 +10,7 @@ const Editor = dynamic(() => import("../../../../commons/toast/editor"), {
 export default function CommonReviewWritePresenter(props) {
   return (
     <S.Wrapper>
-      <form
-        onSubmit={
-          props.checkPage === "REQUEST"
-            ? props.handleSubmit(props.onClickSubmitReq)
-            : props.checkPage === "REVIEW" || props.checkPage === "TASTER"
-            ? props.handleSubmit(props.onClickSubmit)
-            : props.handleSubmit(props.onClickSubmitRes)
-        }
-      >
+      <form onSubmit={props.handleSubmit(props.onClickReg)}>
         <S.Title>단짠 게시판 글 등록</S.Title>
 
         <S.ReviewWriteBox>
@@ -34,7 +26,7 @@ export default function CommonReviewWritePresenter(props) {
               </S.TitleSection>
               <div>
                 <S.WriteTitle>카테고리</S.WriteTitle>
-                {props.checkPage === "community" && (
+                {props.communityCheckPage === "community" && (
                   <S.CategoryBox>
                     {props.categoryData.map((el, idx) => (
                       <label className="checkbox" key={el.key}>
@@ -91,7 +83,10 @@ export default function CommonReviewWritePresenter(props) {
               </S.Map>
             </S.MapArticle>
 
-            <S.SugarSaltArticle checkPage={props.checkPage}>
+            <S.SugarSaltArticle
+              checkPage={props.checkPage}
+              subCategoryName={props.subCategoryName}
+            >
               <div>
                 <S.WriteTitle style={{ color: "#FF9A31" }}>단맛</S.WriteTitle>
                 <S.InputBox
@@ -113,7 +108,10 @@ export default function CommonReviewWritePresenter(props) {
           </S.Header>
 
           <S.Section>
-            <S.MenuArticle checkPage={props.checkPage}>
+            <S.MenuArticle
+              checkPage={props.checkPage}
+              subCategoryName={props.subCategoryName}
+            >
               <S.WriteTitle>
                 메뉴 선택<S.Span>(1개만 선택 가능)</S.Span>
               </S.WriteTitle>
@@ -133,7 +131,10 @@ export default function CommonReviewWritePresenter(props) {
               </S.MenuBox>
             </S.MenuArticle>
 
-            <S.MoodArticle checkPage={props.checkPage}>
+            <S.MoodArticle
+              checkPage={props.checkPage}
+              subCategoryName={props.subCategoryName}
+            >
               <S.WriteTitle>
                 분위기 선택<S.Span>(3개까지 선택 가능)</S.Span>
               </S.WriteTitle>

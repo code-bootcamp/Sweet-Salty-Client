@@ -7,13 +7,18 @@ export default function WriteBtnContainerPage(props) {
   const onClickWrite = () => {
     router.push({
       pathname: "/reviews/commonReview/write",
-      query: { checkPage: props.checkPage, wishId: props.wishId },
+      query: {
+        checkPage: props.checkPage,
+        wishId: props.wishId,
+        communityCheckPage: props.communityCheckPage,
+      },
     });
   };
   return (
     <WriteBtnPresenterPage
       onClickWrite={onClickWrite}
       checkPage={props.checkPage}
+      communityCheckPage={props.communityCheckPage}
     />
   );
 }

@@ -19,6 +19,7 @@ import {
 // })
 // const nonSchema = yup.object({});
 export default function CommonReviewWriteContainer(props) {
+  console.log("커뮤니티체크", props.checkPage);
   // 모든 리뷰 작성 가능함
   const router = useRouter();
   const [createBoard] = useMutation(CREATE_BOARD);
@@ -32,8 +33,6 @@ export default function CommonReviewWriteContainer(props) {
   const [moodHashTag, setMoodHashTag] = useState([]);
   const [boardContents, setBoardContents] = useState("");
   const [address, setAddress] = useState();
-
-  console.log(address);
 
   // 메뉴 태그 데이터 테이블
   const [menuTagData, setMenuTagData] = useState([
@@ -127,13 +126,68 @@ export default function CommonReviewWriteContainer(props) {
     router.back();
   };
 
-  const onClickSubmit = async (data) => {
-    if (moodHashTag.length > 3) {
-      alert("분위기는 3개까지 선택이 가능합니다.");
-    } else {
+  const onClickReg = async (data) => {
+    if (subCategoryName === "REVIEW" || subCategoryName === "TASTER") {
+      if (moodHashTag.length > 3) {
+        alert("분위기는 3개까지 선택이 가능합니다.");
+      } else {
+        try {
+          const result = await createBoard({
+            variables: {
+              createBoardInput: {
+                boardTitle: data.boardTitle,
+                boardSugar: data.boardSugar,
+                boardSalt: data.boardSalt,
+                boardContents,
+                subCategoryName,
+                place: {
+                  placeName: address.place_name,
+                  placeAddress: address.road_address_name,
+                  placeUrl: address.place_url,
+                  lat: address.x,
+                  lng: address.y,
+                },
+              },
+              boardTagsInput: {
+                boardTagMenu,
+                boardTagMood: moodHashTag,
+                boardTagRegion: [address.road_address_name.split(" ")[1]],
+              },
+            },
+          });
+          alert("게시글 등록 완료");
+          if(subCategoryName === "REVIEW")
+        } catch (error: any) {
+          alert(error.message);
+        }
+      }
+    } else if (subCategoryName === "REQUEST") {
       try {
-        const result = await createBoard({
+        const result = await createBoardReq({
           variables: {
+            createBoardReqInput: {
+              boardTitle: data.boardTitle,
+              boardContents,
+              subCategoryName,
+              place: {
+                placeName: address.place_name,
+                placeAddress: address.road_address_name,
+                placeUrl: address.place_url,
+                lat: address.x,
+                lng: address.y,
+              },
+            },
+          },
+        });
+        alert("게시글 등록 완료");
+      } catch (error: any) {
+        alert(error.message);
+      }
+    } else if (subCategoryName === "VISITED") {
+      try {
+        const result = await createBoardRes({
+          variables: {
+            reqBoardId: props.wishId,
             createBoardInput: {
               boardTitle: data.boardTitle,
               boardSugar: data.boardSugar,
@@ -156,74 +210,19 @@ export default function CommonReviewWriteContainer(props) {
           },
         });
         alert("게시글 등록 완료");
-        console.log("ghi", result);
       } catch (error: any) {
         alert(error.message);
       }
     }
   };
-  const onClickSubmitReq = async (data) => {
-    try {
-      const result = await createBoardReq({
-        variables: {
-          createBoardReqInput: {
-            boardTitle: data.boardTitle,
-            boardContents,
-            subCategoryName,
-            place: {
-              placeName: address.place_name,
-              placeAddress: address.road_address_name,
-              placeUrl: address.place_url,
-              lat: address.x,
-              lng: address.y,
-            },
-          },
-        },
-      });
-      alert("게시글 등록 완료");
-    } catch (error: any) {
-      alert(error.message);
-    }
-  };
 
-  const onClickSubmitRes = async (data) => {
-    try {
-      const result = await createBoardRes({
-        variables: {
-          reqBoardId: props.wishId,
-          createBoardInput: {
-            boardTitle: data.boardTitle,
-            boardSugar: data.boardSugar,
-            boardSalt: data.boardSalt,
-            boardContents,
-            subCategoryName: "VISITED",
-            place: {
-              placeName: address.place_name,
-              placeAddress: address.road_address_name,
-              placeUrl: address.place_url,
-              lat: address.x,
-              lng: address.y,
-            },
-          },
-          boardTagsInput: {
-            boardTagMenu,
-            boardTagMood: moodHashTag,
-            boardTagRegion: [address.road_address_name.split(" ")[1]],
-          },
-        },
-      });
-      alert("게시글 등록 완료");
-    } catch (error: any) {
-      alert(error.message);
-    }
-  };
+  //
 
   return (
     <CommonReviewWritePresenter
       onClickCancel={onClickCancel}
       moodHashTag={moodHashTag}
       setMoodHashTag={setMoodHashTag}
-      onClickSubmit={onClickSubmit}
       getValues={getValues}
       setValue={setValue}
       register={register}
@@ -241,8 +240,9 @@ export default function CommonReviewWriteContainer(props) {
       setCategoryData={setCategoryData}
       onChangeCheckCategory={onChangeCheckCategory}
       checkPage={props.checkPage}
-      onClickSubmitReq={onClickSubmitReq}
-      onClickSubmitRes={onClickSubmitRes}
+      communityCheckPage={props.communityCheckPage}
+      onClickReg={onClickReg}
+      subCategoryName={subCategoryName}
     />
   );
 }

@@ -11,6 +11,7 @@ import CommentWriteContainerPage from "../../../comment/commentWrite/CommentWrit
 import * as S from "./CommonReviewDetail.styles";
 
 export default function ReviewDetailPresenter(props: any) {
+  console.log("6418948961", props.data);
   return (
     <S.Wrapper>
       {props.data?.boardSubject === "REVIEW" ? (

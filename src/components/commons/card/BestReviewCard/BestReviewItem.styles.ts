@@ -60,6 +60,10 @@ export const ItemInfoStoreName = styled.div`
   color: #676767;
   font-size: 14px;
   line-height: 16px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  width: 60%;
 `;
 
 export const ItemInfoTitleDiv = styled.div`
@@ -81,6 +85,9 @@ export const ItemInfoLocationDiv = styled.div`
   font-size: 14px;
   line-height: 16px;
   text-align: center;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 `;
 export const ItemInfoUserDiv = styled.div`
   color: #2c2c2c;

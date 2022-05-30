@@ -10,6 +10,7 @@ export const CREATE_BOARD = gql`
       boardTagsInput: $boardTagsInput
     ) {
       boardId
+      boardWriter
     }
   }
 `;
@@ -52,7 +53,7 @@ export const CREATE_BOARD_RES = gql`
       createBoardInput: $createBoardInput
       boardTagsInput: $boardTagsInput
     ) {
-      boadId
+      boardId
     }
   }
 `;

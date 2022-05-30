@@ -7,7 +7,7 @@ export default function SignUpPresenterPage(props: any) {
     <S.Wrapper>
     <S.LogoImg src="/images/whitelogo.png"/>
     <S.Title>회원가입</S.Title>
-    <form onSubmit={props.handleSubmit(props.onClickSignUp)}>
+    <form onSubmit={(props.handleSubmit(props.onClickSignUp))}>
       
     <S.SignupForm>
       <S.Text style={{padding: 0}}>이메일</S.Text>
@@ -107,18 +107,12 @@ export default function SignUpPresenterPage(props: any) {
           </label>
         ))}
       </S.SelectDiv>
-      {/* <S.SubWriteTitle>분위기 유형</S.SubWriteTitle>
-      <S.SelectMoodDiv>
-      <MoodFilterPage
-                   moodHashTag={props.moodHashTag}
-                setMoodHashTag={props.setMoodHashTag}
-              />
-      </S.SelectMoodDiv> */}
+      
       <S.ButtonBox>
         <S.SubmitBtn type="submit">가입하기</S.SubmitBtn>
       </S.ButtonBox>
 
-      <S.GoLoginTxt>이미 아이디가 있으신가요? <S.GoLoginA href="/login">로그인 하기</S.GoLoginA></S.GoLoginTxt>
+      <S.GoLoginTxt>이미 아이디가 있으신가요? <S.GoLoginA onClick={props.onClickLogin}>로그인 하기</S.GoLoginA></S.GoLoginTxt>
     
       </S.SignupForm>
     </form>

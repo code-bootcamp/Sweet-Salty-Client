@@ -1,19 +1,17 @@
-// 여기는 회원가입페이지 입니다.
-import { useRouter } from "next/router";
-import SignUpPresenterPage from "./Signup.presenter";
 import { useMutation } from "@apollo/client";
+import { useState } from "react";
+import Signup2Presenter from "./Signup2.presenter";
 import { useForm } from "react-hook-form";
-import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
+import { yupResolver } from "@hookform/resolvers/yup";
 import {
   CREATE_USER,
   OVERLAP_EMAIL,
   OVERLAP_NICKNAME,
   SIGNUP_CHECK_TOKEN,
   SIGNUP_GET_TOKEN,
-} from "./Signup.queries";
-import { useState } from "react";
-
+} from "./Signup2.queries";
+import { useRouter } from "next/router";
 const schema = yup.object({
   userEmail: yup
     .string()
@@ -39,11 +37,11 @@ const schema = yup.object({
     .string()
     .min(2, "이름은 2자리 이상 입력해 주세요.")
     .required("이름은 필수 입력 사항입니다."),
-  // userPhone : yup
-  // .string()
-  // .min(10,"휴대전화번호를 확인해주세요.")
-  // .max(11,"휴대전화번호를 확인해주세요.")
-  // .required("휴대전화번호를 입력해주세요."),
+  userPhone : yup
+  .string()
+  .min(10,"휴대전화번호를 확인해주세요.")
+  .max(11,"휴대전화번호를 확인해주세요.")
+  .required("휴대전화번호를 입력해주세요."),
   userNickname: yup
     .string()
     .min(2, "2~6자리 닉네임을 입력해 주세요.")
@@ -51,19 +49,25 @@ const schema = yup.object({
     .required("닉네임을 입력해주세요."),
 });
 
-export default function SignUpContainerPage() {
+export default function Signup2Container() {
   const router = useRouter();
-  const [phoneNumber, setPhoneNumber] = useState("");
+  const [createUser] = useMutation(CREATE_USER);
+  // const [userPhone, setUserPhone] = useState("");
   const [serialNumber, setSerialNumber] = useState("");
   const [numberChecked, setNumberChecked] = useState(false);
-  const [createUser] = useMutation(CREATE_USER);
+  const [emailChecked, setEmailChecked] = useState(false);
+  const [nicknameChecked, setNicknameChecked] = useState(false);
   const [getNumber] = useMutation(SIGNUP_GET_TOKEN);
   const [checkNumber] = useMutation(SIGNUP_CHECK_TOKEN);
   const [overlapEmail] = useMutation(OVERLAP_EMAIL);
   const [overlapNickname] = useMutation(OVERLAP_NICKNAME);
   const [gender, setGender] = useState("");
   const [ageGroup, setAgeGroup] = useState("");
-  const [menu, setMenu] = useState("");
+  const [menuPrefer, setMenuPrefer] = useState("");
+  const { register, handleSubmit, formState, getValues } = useForm({
+    resolver: yupResolver(schema),
+    mode: "onChange",
+  });
   const genderData = [
     { key: "0", id: "MALE", title: "남성", checked: false, index: 0 },
     { key: "1", id: "FEMALE", title: "여성", checked: false, index: 1 },
@@ -74,7 +78,6 @@ export default function SignUpContainerPage() {
       setGender(id);
     }
   }
-
   const ageData = [
     { key: "0", id: "TEN", title: "10대", checked: false, index: 0 },
     { key: "1", id: "TWENTY", title: "20대", checked: false, index: 1 },
@@ -86,7 +89,6 @@ export default function SignUpContainerPage() {
   function onChangeAge(checked, id) {
     if (checked) setAgeGroup(id);
   }
-
   const menuData = [
     { key: "0", id: "비건", checked: false, index: 0 },
     { key: "1", id: "아시안푸드", checked: false, index: 1 },
@@ -97,40 +99,34 @@ export default function SignUpContainerPage() {
     { key: "6", id: "할랄", checked: false, index: 6 },
   ];
   function onChangeMenu(checked, id) {
-    if (checked) setMenu(id);
+    if (checked) setMenuPrefer(id);
   }
 
-  const { register, handleSubmit, formState } = useForm({
-    // resolver: yupResolver(schema),
-    mode: "onChange",
-  });
-
   const onClickGetNumber = async () => {
-    if (phoneNumber.length >= 10) {
+    const {userPhone} =getValues();
+   
       try {
         await getNumber({
           variables: {
-            phone: phoneNumber,
+            phone: userPhone,
           },
         });
         alert("인증번호가 발송되었습니다.");
       } catch (error: any) {
         alert(error.message);
       }
-    } else {
-      alert("휴대전화번호를 확인해주세요.");
-    }
+   
   };
-
   const onClickCheckNumber = async () => {
     if (numberChecked) {
       alert("이미 인증이 완료되었습니다.");
       return;
     }
-    const dogeun = await checkNumber({
-      variables: { phone: phoneNumber, token: serialNumber },
+    const {userPhone} =getValues();
+    const result = await checkNumber({
+      variables: { phone: userPhone, token: serialNumber },
     });
-    if (!dogeun.data.signUpCheckToken) {
+    if (!result.data.signUpCheckToken) {
       alert("인증번호를 확인해주세요.");
       return;
     }
@@ -138,80 +134,103 @@ export default function SignUpContainerPage() {
     alert("인증완료");
   };
 
-  function onChangePhoneNumber(event) {
-    setPhoneNumber(event.target.value);
-  }
+  // function onChangePhoneNumber(event) {
+  //   setUserPhone(event.target.value);
+  // }
   function onChangeSerialNumber(event) {
     setSerialNumber(event.target.value);
   }
-
   const onClickLogin = () => {
     router.push("/login");
   };
-  const onClickSignUp = async (signupData: any) => {
+  const onClickEmailCheck = async () => {
+    setEmailChecked(false);
+    const { userEmail } = getValues();
+    
+    const emailChecker = await overlapEmail({
+      variables: { email: userEmail },
+    });
+    // console.log(userEmail,emailChecker.data?.overlapEmail);
+    if (emailChecker.data?.overlapEmail) {
+      setEmailChecked(true);
+      alert("사용 가능한 이메일입니다.");
+    } else {
+      alert("이미 사용중인 이메일입니다.");
+    }
+  };
+  const onClickNicknameCheck = async () => {
+    setNicknameChecked(false);
+    const { userNickname } = getValues();
+    const nicknameChecker = await overlapNickname({
+      variables: { nickname: userNickname },
+    });
+    if (nicknameChecker.data?.overlapNickname) {
+      setNicknameChecked(true);
+      alert("사용 가능한 닉네임입니다.");
+    } else {
+      alert("이미 사용중인 닉네임입니다.");
+    }
+  };
+  const onClickSignup = async (signupData) => {
     const { confirmUserPassword, ...data } = signupData;
     console.log(signupData);
-    const emailChecker = await overlapEmail({
-      variables: { email: data.userEmail },
-    });
-    const nicknameChecker = await overlapNickname({
-      variables: { nickname: data.userNickname },
-    });
-    
-    if (!emailChecker) {
-      alert("이미 사용중인 이메일주소입니다.");
+    if (!emailChecked) {
+      alert("이메일 중복확인이 되지 않았습니다.");
       return;
     }
-    if (!nicknameChecker) {
-      alert("이미 사용중인 닉네임입니다.");
+    if (!nicknameChecked) {
+      alert("닉네임 중복확인이 되지 않았습니다.");
       return;
     }
+
     if (!numberChecked) {
       // 가입하기
       alert("휴대폰 인증이 되지 않았습니다.");
       return;
     }
-
     try {
       await createUser({
         variables: {
           createUserInput: {
-            ...data,
-            userPhone: phoneNumber,
-            gender,
-            ageGroup,
-            prefer: [menu],
+            userEmail: signupData.userEmail,
+            userPassword: signupData.userPassword,
+            userPhone : signupData.userPhone,
+            userNickname: signupData.userNickname,
+            gender: "MALE",
+            ageGroup: "TEN",
+            prefer: ["비건"],
           },
         },
       });
-      alert("회원가입에 성공하였습니다. 로그인 페이지로 이동합니다.");
-      router.push("/login");
-    } catch (error: any) {
+    } catch (error) {
       alert(error.message);
     }
   };
 
   return (
-    <SignUpPresenterPage
-      onClickSignUp={onClickSignUp}
+    <Signup2Presenter
+      onClickSignup={onClickSignup}
       onClickGetNumber={onClickGetNumber}
       onClickCheckNumber={onClickCheckNumber}
-      onChangePhoneNumber={onChangePhoneNumber}
+      onClickLogin={onClickLogin}
+      // onChangePhoneNumber={onChangePhoneNumber}
       onChangeSerialNumber={onChangeSerialNumber}
+      onChangeGender={onChangeGender}
+      onChangeAge={onChangeAge}
+      onChangeMenu={onChangeMenu}
+      numberChecked={numberChecked}
+      gender={gender}
+      genderData={genderData}
+      ageGroup={ageGroup}
+      ageData={ageData}
+      menuData={menuData}
       register={register}
       handleSubmit={handleSubmit}
       formState={formState}
-      numberChecked={numberChecked}
-      ageGroup={ageGroup}
-      gender={gender}
-      genderData={genderData}
-      ageData={ageData}
-      onChangeGender={onChangeGender}
-      onChangeAge={onChangeAge}
-      menuData={menuData}
-      menu={menu}
-      onChangeMenu={onChangeMenu}
-      onClickLogin={onClickLogin}
+      menuPrefer={menuPrefer}
+      setMenuPrefer={setMenuPrefer}
+      onClickEmailCheck={onClickEmailCheck}
+      onClickNicknameCheck={onClickNicknameCheck}
     />
   );
 }

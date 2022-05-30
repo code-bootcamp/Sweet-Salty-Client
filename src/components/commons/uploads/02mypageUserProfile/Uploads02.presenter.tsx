@@ -10,7 +10,9 @@ export default function Uploads02UI(props: any) {
     ? (<S.UploadImage src={`https://storage.googleapis.com/${props.fileUrl}`} />) 
     : props.data?.fetchUserLoggedIn?.userImage 
       ? (<S.UploadImage src={`https://storage.googleapis.com/${props.data?.fetchUserLoggedIn?.userImage}`}/>) 
-      : (<S.UploadImage src="/images/profile.png" />)}
+      : props.data?.fetchUserLoggedIn?.userId 
+        ? (<S.UploadImage style={{backgroundColor: "linear-gradient(#ff6e30, #ffa230"}}/>) 
+        : (<S.UploadImage style={{backgroundColor: "#D2D2D2"}} />)}
 
       <S.ButtonBox>
         <S.UploadButton onClick={props.onClickUpload} type="button">

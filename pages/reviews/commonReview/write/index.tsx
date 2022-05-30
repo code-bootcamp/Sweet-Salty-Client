@@ -5,12 +5,15 @@ export default function CommonReviewWritePage() {
   const router = useRouter();
   const checkPage = router.query.checkPage;
   const wishId = router.query?.wishId;
+  const communityCheckPage = router.query.communityCheckPage;
+
 
   return (
     <CommonReviewWriteContainer
       isEdit={false}
       checkPage={checkPage}
       wishId={wishId}
+      communityCheckPage={communityCheckPage}
     />
   );
 }

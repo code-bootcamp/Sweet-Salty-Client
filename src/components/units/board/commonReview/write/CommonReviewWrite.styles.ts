@@ -63,14 +63,16 @@ export const WriteTitle = styled.div`
 
 export const SugarSaltArticle = styled.div`
   width: 100%;
-  display: ${(props) => (props.checkPage === "REQUEST" ? "none" : "flex")};
+  display: ${(props) =>
+    props.checkPage || props.subCategoryName === "REQUEST" ? "none" : "flex"};
   justify-content: space-between;
   padding: 20px 0px;
   border-bottom: 1px solid #dadada;
 `;
 
 export const MenuArticle = styled.div`
-  display: ${(props) => (props.checkPage === "REQUEST" ? "none" : "flex")};
+  display: ${(props) =>
+    props.checkPage || props.subCategoryName === "REQUEST" ? "none" : "flex"};
   flex-direction: column;
   width: 100%;
   border-bottom: 1px solid #dadada;
@@ -81,7 +83,8 @@ export const MoodArticle = styled.div`
   width: 100%;
   padding: 20px 0px;
   border-bottom: 1px solid #dadada;
-  display: ${(props) => (props.checkPage === "REQUEST" ? "none" : "flex")};
+  display: ${(props) =>
+    props.checkPage || props.subCategoryName === "REQUEST" ? "none" : "flex"};
   flex-direction: column;
 `;
 

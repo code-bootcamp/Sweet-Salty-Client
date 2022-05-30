@@ -17,7 +17,10 @@ export const UploadImage = styled.img`
   cursor: default;
   object-fit: cover;
   border-radius: 50%;
-  background: linear-gradient(#ff6e30, #ffa230);
+  background: ${(props: any) => props.data?.fetchUserLoggedIn?.userId 
+    ? "linear-gradient(#ff6e30, #ffa230)"
+    : "#D2D2D2"
+  }
   display: flex;
   justify-content: end;
   align-items: end;

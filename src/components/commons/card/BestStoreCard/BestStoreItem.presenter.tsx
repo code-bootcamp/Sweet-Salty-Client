@@ -1,6 +1,6 @@
 import * as S from "./BestStoreItem.styles";
 
-export default function BestStoreItemPresenterPage(props) {
+export default function BestStoreItemPresenterPage(props : any) {
   return (
     <S.ItemMainDiv>
       <S.ItemImg>

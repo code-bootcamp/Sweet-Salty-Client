@@ -1,6 +1,6 @@
 import * as S from "./MenuFilter.styles";
 
-export default function MenuFilterPage(props) {
+export default function MenuFilterPage(props : any) {
   const menuData = [
     { key: "0", value: "비건", checked: false, index: 0 },
     { key: "1", value: "아시안푸드", checked: false, index: 1 },
@@ -21,14 +21,14 @@ export default function MenuFilterPage(props) {
 
   // const [checkedList, setCheckedList] = useState([]);
 
-  const onChangeMenu = (checked, item) => {
+  const onChangeMenu = (checked : any, item : any) => {
     if (checked) {
       props.setMenuTagCheckList([item]);
       props.setMenuHashTag([item]);
     } else if (!checked) {
-      props.setMenuHashTag(props.menuHashTag.filter((el) => el !== item));
+      props.setMenuHashTag(props.menuHashTag.filter((el : any) => el !== item));
       props.setMenuTagCheckList(
-        props.menuTagCheckList.filter((el) => el !== item)
+        props.menuTagCheckList.filter((el : any) => el !== item)
       );
     }
   };
@@ -55,7 +55,7 @@ export default function MenuFilterPage(props) {
             onChange={(e) => {
               onChangeMenu(e.target.checked, e.target.value);
             }}
-            checked={props.menuTagCheckList.includes(el.value) ? true : false}
+            checked={props.menuTagCheckList.includes(el.value)}
           />
           <span className="checkbox_text">{el.value}</span>
         </label>

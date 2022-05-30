@@ -1,7 +1,7 @@
 // 일반리뷰 top3랑 연결되있음
 import * as S from "./BestTasterItem.styles";
 
-export default function BestTasterItemPresenterPage(props) {
+export default function BestTasterItemPresenterPage(props : any) {
   console.log("000", props.fetchBestDetailData);
   return (
     <S.ItemMainDiv onClick={props.onClickDetailPage} id={props.id}>

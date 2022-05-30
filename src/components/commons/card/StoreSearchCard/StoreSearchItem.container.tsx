@@ -2,7 +2,7 @@ import { useRouter } from "next/router";
 import { MouseEvent } from "react";
 import StoreSearchItemPresenterPage from "./StoreSearchItem.presenter";
 
-export default function StoreSearchItemContainerPage(props) {
+export default function StoreSearchItemContainerPage(props : any) {
   const router = useRouter();
 
   const onClickDetailPage = (event: MouseEvent<HTMLDivElement>) => {

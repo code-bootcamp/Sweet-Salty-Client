@@ -1,10 +1,10 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 
 declare const window: typeof globalThis & {
   kakao: any;
 };
 
-export default function DetailMapPage(props) {
+export default function DetailMapPage(props : any) {
   // const [isLoad, setIsLoad] = useState(false);
   // useEffect(() => {
   //   setIsLoad(true);

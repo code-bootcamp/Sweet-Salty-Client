@@ -1,6 +1,6 @@
 import * as S from "./MoodFilter.styles";
 
-export default function MoodFilterPage(props) {
+export default function MoodFilterPage(props : any) {
   const moodData = [
     { key: "0", value: "가족들과", checked: false, index: 0 },
     { key: "1", value: "동창회자리로좋은", checked: false, index: 0 },
@@ -15,11 +15,11 @@ export default function MoodFilterPage(props) {
     { key: "10", value: "회식자리로좋은", checked: false, index: 0 },
   ];
 
-  const onChangeMood = (checked, item) => {
+  const onChangeMood = (checked : any, item : any) => {
     if (checked) {
       props.setMoodHashTag([...props.moodHashTag, item]);
     } else if (!checked) {
-      props.setMoodHashTag(props.moodHashTag.filter((el) => el !== item));
+      props.setMoodHashTag(props.moodHashTag.filter((el : any) => el !== item));
     }
   };
 
@@ -33,7 +33,7 @@ export default function MoodFilterPage(props) {
             onChange={(e) => {
               onChangeMood(e.target.checked, e.target.value);
             }}
-            checked={props.moodHashTag.includes(el.value) ? true : false}
+            checked={props.moodHashTag.includes(el.value)}
           />
           <span className="checkbox_text">
             <img className="check_icon" src="/images/check.png" />

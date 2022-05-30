@@ -2,7 +2,7 @@ import { MouseEvent } from "react";
 import { useRouter } from "next/router";
 import SearchCategoryItemPresenterPage from "./CategorySearchReviewCard.presenter";
 
-export default function SearchCategoryItemContainerPage(props) {
+export default function SearchCategoryItemContainerPage(props : any) {
   const router = useRouter();
 
   const onClickDetailPage = (event: MouseEvent<HTMLDivElement>) => {

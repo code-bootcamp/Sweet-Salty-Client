@@ -1,11 +1,10 @@
-import { useRouter } from "next/router"
-import { useEffect } from "react"
+import { useRouter } from "next/router";
+import { useEffect } from "react";
 
-export default function MessagePage(){
-    const router = useRouter()
-    useEffect(()=>{
-
-        router.push("/message/received")
-    },[])
-    return(<></>)
+export default function MessagePage() {
+  const router = useRouter();
+  useEffect(() => {
+    router.push("/message/received");
+  }, []);
+  return <></>;
 }

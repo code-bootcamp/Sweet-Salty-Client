@@ -7,7 +7,7 @@ import { useEffect, useState } from "react";
 import FilterPresenter from "./filter.presenter";
 import { FETCH_TAGS } from "./filter.queries";
 
-export default function FilterContainer(props) {
+export default function FilterContainer(props : any) {
   const [isOpen, setIsOpen] = useState(true);
   const [menuHashTag, setMenuHashTag] = useState([]);
   const [menuTagCheckList, setMenuTagCheckList] = useState([]);

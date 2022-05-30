@@ -1,7 +1,7 @@
 import { useRouter } from "next/router";
 import TasterCardPresenterPage from "./TaesterCard.presenter";
 
-export default function TasterCardContainerPage(props) {
+export default function TasterCardContainerPage(props : any) {
   const router = useRouter();
   const onClickDetailPage = (event: any) => {
     if (event.target instanceof Element) {

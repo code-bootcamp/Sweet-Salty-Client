@@ -1,5 +1,3 @@
-// 일반리뷰 List 페이지 styles === 김치훈
-
 import styled from "@emotion/styled";
 
 export const CommonReviewWrapper = styled.div`
@@ -14,7 +12,6 @@ export const Title = styled.div`
   padding: 100px 0;
 `;
 export const CommonReviewOutBox = styled.div`
-  /* margin: 0 auto 40px auto; */
   width: 1338px;
 `;
 

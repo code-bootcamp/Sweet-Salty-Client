@@ -13,7 +13,7 @@ export default function PointComponentContainer (props: any){
     try {
       await cancelPointTransaction ({
         variables: {
-          ImpUid: props.el.impUid,
+          impUid: String(props.el.impUid),
           amount: 0,
           reason: "내 맘!!!"
         }

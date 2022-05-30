@@ -1,5 +1,3 @@
-// 일반리뷰 상세보기 style  - 김치훈
-
 import styled from "@emotion/styled";
 import { RightOutlined } from "@ant-design/icons";
 
@@ -20,6 +18,26 @@ export const Title = styled.div`
   align-items: center;
   color: #fff;
 `;
+
+export const TotalBox = styled.div`
+  width: 1119px;
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+`
+export const MemberProfile = styled.div`
+  width: 70px;
+  height: 70px;
+  border-radius: 50px;
+  background: #d2d2d2;
+  cursor: pointer;
+  transform: translate(0px, 25px);
+`
+export const ArrowImg = styled.img`
+  width: 44px;
+  transform: translate(10px, 40px);
+`
+
 export const RightOutline = styled(RightOutlined)`
   padding: 0 15px;
   color: #fff;

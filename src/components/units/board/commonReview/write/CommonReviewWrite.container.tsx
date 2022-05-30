@@ -95,6 +95,7 @@ export default function CommonReviewWriteContainer(props) {
       setMoodHashTag(moodHashTag.filter((el) => el !== item));
     }
   };
+
   // 카테고리 태그 체크되었는지 확인
   const onChangeCheckCategory = (el) => (event) => {
     const select = categoryData.map((el, idx) => {
@@ -105,22 +106,9 @@ export default function CommonReviewWriteContainer(props) {
     setSubCategoryName(el.value);
   };
 
-  const {
-    register,
-    handleSubmit,
-    setValue,
-    trigger,
-    getValues,
-    formState,
-    reset,
-  } = useForm({
-    // resolver: yupResolver(props.isEdit ? nonSchema : schema),
+  const { register, handleSubmit, setValue, getValues, formState } = useForm({
     mode: "onChange",
   });
-  // const onChangeContents = (value: string) => {
-  //   setValue("boardContents", value === "<p><br></p>" ? "" : value);
-  //   trigger("boardContents");
-  // };
 
   const onClickCancel = () => {
     router.back();
@@ -156,7 +144,16 @@ export default function CommonReviewWriteContainer(props) {
             },
           });
           alert("게시글 등록 완료");
-          if(subCategoryName === "REVIEW")
+          if (subCategoryName === "REVIEW") {
+            router.push(
+              `/reviews/commonReview/${result.data?.createBoard.boardId}`
+            );
+          } else if (subCategoryName === "TASTER") {
+            router.push(
+              `/reviews/testerReview/${result.data?.createBoard.boardId}`
+            );
+          }
+          console.log(result.data?.createBoard.boardId);
         } catch (error: any) {
           alert(error.message);
         }
@@ -180,6 +177,7 @@ export default function CommonReviewWriteContainer(props) {
           },
         });
         alert("게시글 등록 완료");
+        router.push(`/reviews/wish/${result.data?.createBoardReq.boardId}`);
       } catch (error: any) {
         alert(error.message);
       }
@@ -191,6 +189,7 @@ export default function CommonReviewWriteContainer(props) {
             createBoardInput: {
               boardTitle: data.boardTitle,
               boardSugar: data.boardSugar,
+
               boardSalt: data.boardSalt,
               boardContents,
               subCategoryName,
@@ -210,6 +209,10 @@ export default function CommonReviewWriteContainer(props) {
           },
         });
         alert("게시글 등록 완료");
+        router.push(
+          `/reviews/commonReview/${result.data?.createBoardRes.boardId}`
+        );
+        console.log(result);
       } catch (error: any) {
         alert(error.message);
       }

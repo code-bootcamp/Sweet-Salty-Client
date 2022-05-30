@@ -1,12 +1,8 @@
-// 좋아요한 단짠 게시글 queries ---김치훈
-
 import { gql } from "@apollo/client";
 
-
-// 좋아요한 게시글 목록
 export const FETCH_PICKED_BOARDS = gql`
-  query fetchPickedBoards{
-    fetchPickedBoards{
+  query fetchPickedBoards {
+    fetchPickedBoards {
       boardId
       boardTitle
       boardWriter
@@ -15,14 +11,14 @@ export const FETCH_PICKED_BOARDS = gql`
       thumbnail
       boardSubject
       createAt
-      user{
+      user {
         userImage
       }
-      place{
+      place {
         placeId
         placeName
         placeAddress
       }
     }
   }
-`
+`;

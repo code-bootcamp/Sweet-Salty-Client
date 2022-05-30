@@ -1,4 +1,3 @@
-// 공지사항 Event list Presenter --- 김치훈
 
 import { getDateDot } from "../../../../commons/libraries/date";
 import Paginations01 from "../../../../commons/paginations/paginations/01/Paginations01.container";

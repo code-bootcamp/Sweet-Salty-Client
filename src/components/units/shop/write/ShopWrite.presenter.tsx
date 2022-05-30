@@ -1,7 +1,7 @@
 import WriteMapPage from "../../../commons/writeMap/WriteMap.index";
 import * as S from "./ShopWrite.styled";
 
-export default function ShopWritePresenterPage(props) {
+export default function ShopWritePresenterPage(props:any) {
   return (
     <div>
       <div>이곳은 스토어 등록 페이지 입니다</div>

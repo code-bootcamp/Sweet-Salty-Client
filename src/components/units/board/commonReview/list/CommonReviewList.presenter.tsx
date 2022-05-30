@@ -1,5 +1,3 @@
-// 일반리뷰 List 페이지 presenter
-
 import * as S from "./CommonReviewList.styles";
 import InfiniteScroll from "react-infinite-scroller";
 import ReviewMenuPage from "../../../../commons/reviewMenu";
@@ -24,7 +22,6 @@ export default function CommonReviewPresenterPage(props: any) {
         <ReviewMenuPage />
 
         <S.CommonReviewInnerBox>
-          {/* filter 공동컴포넌트 */}
           <FilterContainer setSearch={props.setSearch} search={props.search} />
 
           <S.TopThreeBox>
@@ -34,7 +31,6 @@ export default function CommonReviewPresenterPage(props: any) {
             </S.TopThreeTitle>
 
             <S.ReviewSection>
-              {/* 베스트리뷰3개 */}
               {props.fetchBoardBestData?.fetchBoardBest.map(
                 (el: any, idx: any) => (
                   <BestReviewItemContainerPage
@@ -49,7 +45,6 @@ export default function CommonReviewPresenterPage(props: any) {
           </S.TopThreeBox>
 
           <S.CommonReviewHr />
-          {/* 리뷰리스트 */}
           {props.search?.length ? (
             <div style={{ height: "auto", overflow: "auto" }}>
               <InfiniteScroll

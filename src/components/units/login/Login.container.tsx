@@ -1,13 +1,12 @@
-// 여기는 로그인 페이지 입니다.
 import { useRouter } from "next/router";
 import LoginPresenterPage from "./Login.presenter";
 import { useRecoilState } from "recoil";
 import { accessTokenState } from "../../commons/store";
-import { OperationVariables, useMutation, useQuery } from "@apollo/client";
+import { OperationVariables, useMutation } from "@apollo/client";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
-import { LOGIN, FETCH_USER_LOGGED_IN } from "./Login.queries";
+import { LOGIN } from "./Login.queries";
 
 const schema = yup.object({
   userEmail: yup
@@ -32,14 +31,12 @@ const schema = yup.object({
 export default function LoginContainerPage() {
   const [, setAccessToken] = useRecoilState(accessTokenState);
   const router = useRouter();
-  const { data: loggedInData } = useQuery(FETCH_USER_LOGGED_IN);
   const [login] = useMutation(LOGIN);
   const { register, handleSubmit, formState } = useForm({
     resolver: yupResolver(schema),
     mode: "onChange",
   });
   const onClickLogin = async (data: OperationVariables | undefined) => {
-    // 로그인하기
     try {
       const result = await login({
         variables: {
@@ -48,10 +45,8 @@ export default function LoginContainerPage() {
       });
       const accessToken = result.data.login.accessToken;
       setAccessToken(accessToken);
-      console.log(accessToken);
-
+      console.log(result)
       router.push("/");
-      console.log(result, loggedInData);
     } catch (error: any) {
       alert(error.message);
     }
@@ -62,6 +57,9 @@ export default function LoginContainerPage() {
   };
   const onClickSocialKakao = () => {
     router.push("https://project08.site/login/kakao");
+  };
+  const onClickSocialNaver = () => {
+    router.push("https://project08.site/login/naver");
   };
 
   const onClickSignUp = () => {
@@ -77,6 +75,7 @@ export default function LoginContainerPage() {
       onClickSignUp={onClickSignUp}
       onClickSocialGoogle={onClickSocialGoogle}
       onClickSocialKakao={onClickSocialKakao}
+      onClickSocialNaver={onClickSocialNaver}
     />
   );
 }

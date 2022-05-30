@@ -1,4 +1,3 @@
-// 페이지네이션 types --- 김치훈
 
 import { ApolloQueryResult } from "@apollo/client";
 import { MouseEvent } from "react";

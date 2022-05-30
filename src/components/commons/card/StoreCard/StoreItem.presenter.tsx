@@ -1,6 +1,6 @@
 import * as S from "./StoreItem.styles";
 
-export default function StoreItemPresenterPage(props : any) {
+export default function StoreItemPresenterPage(props: any) {
   return (
     <S.ItemMainDiv onClick={props.onClickDetailPage} id={props.id}>
       <S.ImageTitle>일일 특가</S.ImageTitle>

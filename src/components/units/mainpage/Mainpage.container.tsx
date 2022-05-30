@@ -20,21 +20,19 @@ export default function MainPageList() {
     variables: { category: "TASTER" },
   });
 
-
   const { data: preferData } = useQuery(FETCH_PREFER_BOARDS);
   const { data: recentShopData } = useQuery(REAL_TIME_SHOP);
   const loggedInNickname = loggedInData?.fetchUserLoggedIn?.userNickname;
   const categoryData = [
-    { key: "0", id:"REVIEW",  title: "단짠 리뷰", checked: false, index: 0 },
-    { key: "1", id:"REQUEST", title: "가주세요!", checked: false, index: 1 },
-    { key: "2", id:"VISITED", title: "가봤어요!", checked: false, index: 2 },
-  ]
-  
-  const onChangeCategory = (checked, id) => {
-    if(checked) {
-      setCategory(id)
-    } 
+    { key: "0", id: "REVIEW", title: "단짠 리뷰", checked: false, index: 0 },
+    { key: "1", id: "REQUEST", title: "가주세요!", checked: false, index: 1 },
+    { key: "2", id: "VISITED", title: "가봤어요!", checked: false, index: 2 },
+  ];
 
+  const onChangeCategory = (checked: boolean, id: string) => {
+    if (checked) {
+      setCategory(id);
+    }
   };
   const onClickReview = () => {
     if (category === "REVIEW") router.push(`/reviews/commonReview`);
@@ -68,7 +66,6 @@ export default function MainPageList() {
       preferData={preferData}
       category={category}
       categoryData={categoryData}
-
     />
   );
 }

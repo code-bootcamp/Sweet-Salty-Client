@@ -1,5 +1,3 @@
-// 페이지네이션 presenter --- 김치훈
-
 import * as S from "./Paginations01.styles";
 import { IPaginations01UIProps } from "./Paginations01.types";
 

@@ -16,7 +16,7 @@ const Slick = styled(Slider)`
   .slick-track {
   }
   .slick-dots li.slick-active button:before {
-    width: 25px;
+    width: 13px;
     height: 13px;
     background: #fff;
     border-radius: 50px;

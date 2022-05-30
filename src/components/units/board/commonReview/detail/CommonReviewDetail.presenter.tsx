@@ -11,112 +11,126 @@ import CommentWriteContainerPage from "../../../comment/commentWrite/CommentWrit
 import * as S from "./CommonReviewDetail.styles";
 
 export default function ReviewDetailPresenter(props: any) {
-  console.log("6418948961", props.data);
   return (
     <S.Wrapper>
-      {props.data?.boardSubject === "REVIEW" ? (
+      {props.data?.boardSubject === "REVIEW" && (
         <S.Title>
           단짠 게시판 <S.RightOutline /> 단짠 리뷰
         </S.Title>
-      ) : (
+      )}
+      {props.data?.boardSubject === "TASTER" && (
         <S.Title>
           단짠 게시판 <S.RightOutline /> 시식단 리뷰
         </S.Title>
       )}
+      {props.data?.boardSubject === "VISITED" && (
+        <S.Title>
+          단짠 게시판 <S.RightOutline /> 가봤어요!
+        </S.Title>
+      )}
 
-      <S.ReviewBox>
-        <S.Header>
-          <S.HeaderBox>
-            <S.BoardTitleArticle>
-              {props.data?.boardSubject === "REVIEW" ? (
-                <S.BoardReviewCategory>단짠 리뷰</S.BoardReviewCategory>
+      <S.TotalBox>
+        <S.MemberProfile onClick={props.onClickProfile}></S.MemberProfile>
+        <S.ArrowImg src="/images/Polygon.png" />
+
+        <S.ReviewBox>
+          <S.Header>
+            <S.HeaderBox>
+              <S.BoardTitleArticle>
+                {props.data?.boardSubject === "REVIEW" && (
+                  <S.BoardReviewCategory>단짠 리뷰</S.BoardReviewCategory>
+                )}
+                {props.data?.boardSubject === "TASTER" && (
+                  <S.BoardTesterCategory>시식단 리뷰</S.BoardTesterCategory>
+                )}
+                {props.data?.boardSubject === "VISITED" && (
+                  <S.BoardTesterCategory>가봤어요!</S.BoardTesterCategory>
+                )}
+
+                <S.BoardTitle>{props.data?.boardTitle}</S.BoardTitle>
+              </S.BoardTitleArticle>
+              <S.RightBox>
+                <S.CountBox onClick={props.onClickLike}>
+                  <LikeButton />
+                  {props.data?.boardLikeCount}
+                </S.CountBox>
+                <S.CountBox>
+                  <Hits />
+                  {props.data?.boardHit}
+                </S.CountBox>
+              </S.RightBox>
+            </S.HeaderBox>
+
+            <S.UserNameBox>
+              <S.UserName onClick={props.onClickProfile}>{props.data?.boardWriter || "푸딩"}</S.UserName> 단짝님
+            </S.UserNameBox>
+            <S.P>|</S.P>
+            <S.CreateAt>{getDate(props.data?.createAt)}</S.CreateAt>
+          </S.Header>
+
+          <S.ReviewInfoSection>
+            <S.SectionLeft>
+              <S.ShopNameBox>
+                <S.ShopName>가게명</S.ShopName>
+                {props.data?.place?.placeName}
+              </S.ShopNameBox>
+              <S.MenuNameBox>
+                <S.MenuName>주소</S.MenuName>
+                {props.data?.place?.placeAddress}
+              </S.MenuNameBox>
+              <S.ProsBox>
+                <S.Pros>단맛</S.Pros>
+                {props.data?.boardSugar}
+              </S.ProsBox>
+              <S.ConsBox>
+                <S.Cons>짠맛</S.Cons>
+                {props.data?.boardSalt}
+              </S.ConsBox>
+            </S.SectionLeft>
+            <S.Tags>
+              {props.data?.boardSides.map((el, idx) => (
+                <S.Tag key={idx}>{el.boardTags.boardTagName}</S.Tag>
+              ))}
+            </S.Tags>
+          </S.ReviewInfoSection>
+
+          <S.Section>
+            <S.SectionRight>
+              <S.DetailedReview>세부 리뷰</S.DetailedReview>
+              <S.DetailedReviewText>
+                <ToastViewerPage contents={props.data?.boardContents} />
+              </S.DetailedReviewText>
+            </S.SectionRight>
+          </S.Section>
+
+          <S.MapSection>
+            <S.MapTitle>가게 위치</S.MapTitle>
+            <S.MapBox>
+              {props.data?.place.lat.length ? (
+                <DetailMapPage address={props.data} />
               ) : (
-                <S.BoardTesterCategory>시식단 리뷰</S.BoardTesterCategory>
+                <div>잠시만요</div>
               )}
+            </S.MapBox>
+          </S.MapSection>
 
-              <S.BoardTitle>{props.data?.boardTitle}</S.BoardTitle>
-            </S.BoardTitleArticle>
-            <S.RightBox>
-              <S.CountBox onClick={props.onClickLike}>
-                <LikeButton />
-                {props.data?.boardLikeCount}
-              </S.CountBox>
-              <S.CountBox>
-                <Hits />
-                {props.data?.boardHit}
-              </S.CountBox>
-            </S.RightBox>
-          </S.HeaderBox>
+          <S.Buttons>
+            <S.Button onClick={props.onClickCommonReviewList}>목록으로</S.Button>
+            <div>
+              <S.EditButton>수정하기</S.EditButton>
+              <S.Button onClick={props.onClickDelete}>삭제하기</S.Button>
+            </div>
+          </S.Buttons>
 
-          <S.UserNameBox>
-            <S.UserName>{props.data?.boardWriter || "푸딩"}</S.UserName> 단짝님
-          </S.UserNameBox>
-          <S.P>|</S.P>
-          <S.CreateAt>{getDate(props.data?.createAt)}</S.CreateAt>
-        </S.Header>
+          <S.ReviewHr />
 
-        <S.ReviewInfoSection>
-          <S.SectionLeft>
-            <S.ShopNameBox>
-              <S.ShopName>가게명</S.ShopName>
-              {props.data?.place?.placeName}
-            </S.ShopNameBox>
-            <S.MenuNameBox>
-              <S.MenuName>주소</S.MenuName>
-              {props.data?.place?.placeAddress}
-            </S.MenuNameBox>
-            <S.ProsBox>
-              <S.Pros>단맛</S.Pros>
-              {props.data?.boardSugar}
-            </S.ProsBox>
-            <S.ConsBox>
-              <S.Cons>짠맛</S.Cons>
-              {props.data?.boardSalt}
-            </S.ConsBox>
-          </S.SectionLeft>
-          <S.Tags>
-            {props.data?.boardSides.map((el, idx) => (
-              <S.Tag key={idx}>{el.boardTags.boardTagName}</S.Tag>
-            ))}
-          </S.Tags>
-        </S.ReviewInfoSection>
-
-        <S.Section>
-          <S.SectionRight>
-            <S.DetailedReview>세부 리뷰</S.DetailedReview>
-            <S.DetailedReviewText>
-              <ToastViewerPage contents={props.data?.boardContents} />
-            </S.DetailedReviewText>
-          </S.SectionRight>
-        </S.Section>
-
-        <S.MapSection>
-          <S.MapTitle>가게 위치</S.MapTitle>
-          <S.MapBox>
-            {props.data?.place.lat.length ? (
-              <DetailMapPage address={props.data} />
-            ) : (
-              <div>잠시만요</div>
-            )}
-          </S.MapBox>
-        </S.MapSection>
-
-        <S.Buttons>
-          <S.Button onClick={props.onClickCommonReviewList}>목록으로</S.Button>
-          <div>
-            <S.EditButton>수정하기</S.EditButton>
-            <S.Button onClick={props.onClickDelete}>삭제하기</S.Button>
-          </div>
-        </S.Buttons>
-
-        <S.ReviewHr />
-
-        <S.CommentBox>
-          <S.CommentTitle>댓글</S.CommentTitle>
-          <CommentWriteContainerPage />
-          <CommentListContainerPage />
-        </S.CommentBox>
-      </S.ReviewBox>
+          <S.CommentBox>
+            <S.CommentTitle>댓글</S.CommentTitle>
+            <CommentWriteContainerPage />
+            <CommentListContainerPage />
+          </S.CommentBox>
+        </S.ReviewBox>
+      </S.TotalBox>
 
       <S.TopButtonBox>
         <TopButton />

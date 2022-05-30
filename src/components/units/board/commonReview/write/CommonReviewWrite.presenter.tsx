@@ -1,7 +1,6 @@
 import dynamic from "next/dynamic";
 import WriteMapPage from "../../../../commons/writeMap/WriteMap.index";
 import * as S from "./CommonReviewWrite.styles";
-import { CheckOutlined } from "@ant-design/icons";
 
 const Editor = dynamic(() => import("../../../../commons/toast/editor"), {
   ssr: false,

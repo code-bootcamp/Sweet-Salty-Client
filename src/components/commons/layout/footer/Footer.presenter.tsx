@@ -1,5 +1,3 @@
-// Footer Presenter === 김치훈
-
 import * as S from "./Footer.styles";
 
 export default function LayoutFooterUI() {

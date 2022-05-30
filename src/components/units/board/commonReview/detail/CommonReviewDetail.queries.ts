@@ -28,9 +28,13 @@ export const FETCH_BOARD = gql`
           boardTagRefName
         }
       }
+      user {userId}
     }
   }
 `;
+
+
+
 export const DELETE_BOARD = gql`
   mutation deleteBoard($boardId: String!) {
     deleteBoard(boardId: $boardId)

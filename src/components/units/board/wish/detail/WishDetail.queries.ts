@@ -1,4 +1,3 @@
-// 가주세요! Detail queries -김치훈
 import { gql } from "@apollo/client";
 
 export const FETCH_BOARD = gql`

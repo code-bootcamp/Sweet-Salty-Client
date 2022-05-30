@@ -1,5 +1,3 @@
-// 단짠 게시판 페이지-필터-박스 styles === 김치훈
-
 import styled from "@emotion/styled";
 
 interface IRegisterButton {
@@ -22,7 +20,6 @@ export const FilterBox = styled.div`
   flex-direction: column;
 `;
 export const FilterBoxLine = styled.div`
-  /* width: 380px; */
   padding: 0px 190px 0px 30px;
   display: flex;
   flex-direction: column;

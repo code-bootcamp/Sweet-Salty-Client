@@ -1,5 +1,3 @@
-// 여기는 시식단 리뷰 List Presenter 입니다.
-
 import BestTasterItemContainerPage from "../../../../commons/card/BestTaesterCard/BestTasterItem.container";
 import ReviewMenuPage from "../../../../commons/reviewMenu";
 import TopButton from "../../../../commons/topbutton";
@@ -14,8 +12,6 @@ export default function TesterReviewPresenterPage(props: any) {
   const dataForCategory = props.fetchBoardsCategoryData?.fetchBoardCategoryPick;
   const dataForTags = props.fetchBoardWithTagData?.fetchBoardWithTags.hits.hits;
 
-  // checkPage
-
   return (
     <S.CommonReviewWrapper>
       <S.Title>시식단 게시판</S.Title>
@@ -27,7 +23,6 @@ export default function TesterReviewPresenterPage(props: any) {
         <ReviewMenuPage />
 
         <S.CommonReviewInnerBox>
-          {/* filter 공동컴포넌트 */}
           <FilterContainer setSearch={props.setSearch} search={props.search} />
 
           <S.TopThreeBox>
@@ -36,7 +31,6 @@ export default function TesterReviewPresenterPage(props: any) {
               <S.BottomDiv>Top 3</S.BottomDiv>
             </S.TopThreeTitle>
             <S.ReviewSection>
-              {/* 베스트리뷰3개 */}
               {props.fetchBoardBestData?.fetchBoardBest.map(
                 (el: any, idx: any) => (
                   <BestTasterItemContainerPage
@@ -51,7 +45,6 @@ export default function TesterReviewPresenterPage(props: any) {
           </S.TopThreeBox>
 
           <S.CommonReviewHr />
-          {/* 리뷰리스트 */}
           {props.search?.length ? (
             <div style={{ height: "auto", overflow: "auto" }}>
               <InfiniteScroll

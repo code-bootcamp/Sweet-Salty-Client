@@ -12,7 +12,7 @@ export const Wrapper = styled.div`
 export const LogoImg = styled.img`
   padding-top: 100px;
   width: 350px;
-`
+`;
 
 export const Title = styled.div`
   padding: 100px 0;
@@ -20,7 +20,7 @@ export const Title = styled.div`
   font-size: 40px;
   font-weight: 700;
   cursor: default;
-`
+`;
 
 export const SignupForm = styled.div`
   width: 800px;
@@ -35,7 +35,7 @@ export const Text = styled.div`
   font-weight: 700;
   font-size: 16px;
   cursor: default;
-`
+`;
 export const ErrorTxt = styled.div`
   color: #ff2900;
 `;
@@ -44,18 +44,18 @@ export const PasswordBox = styled.div`
   width: 720px;
   display: flex;
   justify-content: space-between;
-`
+`;
 export const ColumnBox = styled.div`
   display: flex;
   flex-direction: column;
-`
+`;
 export const RowBox = styled.div`
   display: flex;
   flex-direction: row;
   align-items: flex-end;
-`
+`;
 export const SelectDiv = styled.div`
-display: flex;
+  display: flex;
   flex-wrap: wrap;
   font-weight: 700;
   font-size: 16px;
@@ -158,20 +158,20 @@ display: flex;
 
 export const PhoneInputBox = styled.div`
   display: flex;
-`
+`;
 export const InputButton = styled.button`
   margin-left: 10px;
   width: 120px;
   height: 40px;
   background: #fff;
-  color: #FF9A31;
+  color: #ff9a31;
   font-weight: 600;
   font-size: 14px;
-  border: 2px solid #FF9A31;
+  border: 2px solid #ff9a31;
   border-radius: 10px;
   outline: none;
   cursor: pointer;
-`
+`;
 export const OutputButton = styled.button`
   margin-left: 10px;
   width: 120px;
@@ -180,12 +180,12 @@ export const OutputButton = styled.button`
   color: #fff;
   font-weight: 600;
   font-size: 14px;
-  background: #FF9A31;
+  background: #ff9a31;
   border-radius: 10px;
   outline: none;
   border: none;
   cursor: pointer;
-`
+`;
 
 export const WriteTitle = styled.div`
   padding: 40px 0 10px 0;
@@ -198,18 +198,18 @@ export const SubWriteTitle = styled.div`
   padding: 20px 0 10px 0;
   font-size: 12px;
   font-weight: 700;
-  color:#676767;
+  color: #676767;
   cursor: default;
 `;
 export const Span = styled.span`
   margin-left: 4px;
   font-size: 12px;
   font-weight: 500;
-`
+`;
 export const CategoryBox = styled.div`
   display: flex;
   flex-wrap: wrap;
-`
+`;
 export const Category = styled.div`
   margin: 7px 9px 0 0;
   padding: 10px 20px;
@@ -221,16 +221,16 @@ export const Category = styled.div`
   font-weight: 700;
   background: #dbdbdb;
   &:hover {
-    background: #FF9A31;
+    background: #ff9a31;
   }
-  `
+`;
 export const ButtonBox = styled.div`
-  padding: 80px 0 20px 0; 
+  padding: 80px 0 20px 0;
   width: 720px;
   display: flex;
   justify-content: center;
   align-items: center;
-`
+`;
 
 export const SubmitBtn = styled.button`
   background: linear-gradient(#ff6e30, #ffa230);
@@ -251,35 +251,35 @@ export const GoLoginTxt = styled.div`
   width: 100%;
   text-align: center;
   font-size: 14px;
-  color: #7B7B7B;
+  color: #7b7b7b;
   cursor: default;
 `;
 export const GoLoginA = styled.a`
-font-weight: 600;
-font-size: 14px;
-text-decoration: underline;
-color: black;
-margin-left: 10px;
-&:hover {
-  color: #FFA230;
+  font-weight: 600;
+  font-size: 14px;
   text-decoration: underline;
-}
+  color: black;
+  margin-left: 10px;
+  &:hover {
+    color: #ffa230;
+    text-decoration: underline;
+  }
 `;
 export const TimerBox = styled.div`
-display: flex;
-flex-direction: column;
-padding-left: 10px;
+  display: flex;
+  flex-direction: column;
+  padding-left: 10px;
 `;
 export const TimerDiv = styled.div`
-color: #7B7B7B;
-font-weight: 500;
-font-size: 12px;
-line-height: 12px;
-padding-bottom: 4px;
+  color: #7b7b7b;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 12px;
+  padding-bottom: 4px;
 `;
 export const TimerTxt = styled.div`
-color: #FF9A31;
-font-weight: 600;
-font-size: 16px;
-line-height: 16px;
+  color: #ff9a31;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 16px;
 `;

@@ -232,6 +232,25 @@ export const MapArticle = styled.div`
   background-color: red;
 `;
 
+export const ButtonDiv = styled.div`
+  padding: 40px 0px 0px 0px;
+  display: flex;
+`;
+
+export const Button = styled.div`
+  padding: 7px 40px;
+  font-size: 16px;
+  font-weight: 700;
+  border: 2px solid #dadada;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.2s;
+  &:hover {
+    border: 2px solid #ff9a31;
+    color: #ff9a31;
+  }
+`;
+
 export const RightTitleArticle = styled.div`
   font-size: 20px;
   font-weight: 700;

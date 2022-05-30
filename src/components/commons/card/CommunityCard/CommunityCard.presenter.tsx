@@ -1,6 +1,6 @@
 import * as S from "./CommunityCard.styles";
 
-export default function CommunityCardPresenterPage(props : any) {
+export default function CommunityCardPresenterPage(props: any) {
   return (
     <S.ItemMainDiv onClick={props.onClickDetailPage} id={props.id}>
       <S.ItemImg

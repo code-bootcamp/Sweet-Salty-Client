@@ -1,5 +1,3 @@
-// 가주세요! Detail Container -김치훈
-
 import { useMutation, useQuery } from "@apollo/client";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
@@ -19,6 +17,11 @@ export default function WishDetailContainerPage() {
   });
   const checkPage = "VISITED";
   const [wishId, setWishId] = useState("" || "hi");
+
+  
+  const onClickProfile =()=>{
+    router.push("/profile")
+  }
 
   useEffect(() => {
     setWishId(String(router.query.boardId));
@@ -56,6 +59,7 @@ export default function WishDetailContainerPage() {
     <WishDetailPresenterPage
       data={data?.fetchBoard}
       onClickWishList={onClickWishList}
+      onClickProfile={onClickProfile}
       onClickLike={onClickLike}
       onClickDelete={onClickDelete}
       checkPage={checkPage}

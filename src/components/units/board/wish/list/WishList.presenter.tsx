@@ -1,5 +1,3 @@
-// 여기는 가주세요 List Presenter 입니다.
-
 import ReviewMenuPage from "../../../../commons/reviewMenu";
 import TopButton from "../../../../commons/topbutton";
 import WriteBtnContainerPage from "../../../../commons/writeBtn/WriteBtn.container";
@@ -9,7 +7,7 @@ import InfiniteScroll from "react-infinite-scroller";
 import WishCardPage from "../../../../commons/card/WishCard/WishCard";
 import BestWishItemContainerPage from "../../../../commons/card/BestWishCard/BestWishCardItem.container";
 
-export default function WishPresenterPage(props) {
+export default function WishPresenterPage(props: any) {
   const dataForCategory = props.fetchBoardsCategoryData?.fetchBoardCategoryPick;
   return (
     <S.CommonReviewWrapper>
@@ -28,7 +26,6 @@ export default function WishPresenterPage(props) {
               <S.BottomDiv>Top 3</S.BottomDiv>
             </S.TopThreeTitle>
             <S.ReviewSection>
-              {/* 베스트리뷰3개 */}
               {props.fetchBoardBestData?.fetchBoardBest.map(
                 (el: any, idx: any) => (
                   <BestWishItemContainerPage

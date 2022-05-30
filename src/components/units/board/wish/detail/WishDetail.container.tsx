@@ -18,6 +18,11 @@ export default function WishDetailContainerPage() {
   const checkPage = "VISITED";
   const [wishId, setWishId] = useState("" || "hi");
 
+  
+  const onClickProfile =()=>{
+    router.push("/profile")
+  }
+
   useEffect(() => {
     setWishId(String(router.query.boardId));
   }, []);
@@ -54,6 +59,7 @@ export default function WishDetailContainerPage() {
     <WishDetailPresenterPage
       data={data?.fetchBoard}
       onClickWishList={onClickWishList}
+      onClickProfile={onClickProfile}
       onClickLike={onClickLike}
       onClickDelete={onClickDelete}
       checkPage={checkPage}

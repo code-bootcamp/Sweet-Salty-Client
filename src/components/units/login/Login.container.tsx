@@ -45,7 +45,7 @@ export default function LoginContainerPage() {
       });
       const accessToken = result.data.login.accessToken;
       setAccessToken(accessToken);
-
+      console.log(result)
       router.push("/");
     } catch (error: any) {
       alert(error.message);

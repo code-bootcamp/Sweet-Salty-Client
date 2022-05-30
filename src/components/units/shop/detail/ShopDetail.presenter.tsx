@@ -1,4 +1,5 @@
 import DetailMapPage from "../../../commons/detailMap/DetailMap.index";
+import { PointComma } from "../../../commons/libraries/point";
 import * as S from "./ShopDetail.styled";
 
 export default function ShopDetailPresenterPage(props: any) {
@@ -35,14 +36,14 @@ export default function ShopDetailPresenterPage(props: any) {
                   </S.ShopDescriptionArticle>
                   <S.PriceArticle>
                     <S.OriginalPriceArticle>
-                      {props.fetchShop?.fetchShop.shopOriginalPrice}원
+                      {PointComma(props.fetchShop?.fetchShop.shopOriginalPrice)}원
                     </S.OriginalPriceArticle>
                     <S.DiscountedPriceSection>
                       <S.DiscountedRate>
                         {props.fetchShop?.fetchShop.shopDisCount}%
                       </S.DiscountedRate>
                       <S.DiscountedPrice>
-                        {props.fetchShop?.fetchShop.shopDisCountPrice}
+                        {PointComma(props.fetchShop?.fetchShop.shopDisCountPrice)}
                       </S.DiscountedPrice>
                       <S.DiscountedPriceWon>원</S.DiscountedPriceWon>
                     </S.DiscountedPriceSection>
@@ -59,7 +60,7 @@ export default function ShopDetailPresenterPage(props: any) {
                   <S.StockArticle>
                     <S.StockText>재고 현황 : </S.StockText>
                     <S.StockText>
-                      {props.fetchShop?.fetchShop.shopStock}개
+                      {PointComma(props.fetchShop?.fetchShop.shopStock)}개
                     </S.StockText>
                   </S.StockArticle>
                   <S.GuideMessageSection>
@@ -167,18 +168,18 @@ export default function ShopDetailPresenterPage(props: any) {
                 <S.RightText>현재 보유 포인트</S.RightText>
               </div>
               <S.RightTextOrange>
-                {props.fetchUserLoggedIn?.fetchUserLoggedIn.userPoint}
+                {PointComma(props.fetchUserLoggedIn?.fetchUserLoggedIn.userPoint)}
               </S.RightTextOrange>
             </S.RightSection>
             <S.RightSection>
               <S.RightText>식사권 금액</S.RightText>
               <S.PriceText>
-                {props.fetchShop?.fetchShop.shopDisCountPrice}
+                {PointComma(props.fetchShop?.fetchShop.shopDisCountPrice)}
               </S.PriceText>
             </S.RightSection>
             <S.RightSection>
               <S.RightText>선택한 수량</S.RightText>
-              <S.AmountText>{props.buyAmount} 개</S.AmountText>
+              <S.AmountText>{PointComma(props.buyAmount)} 개</S.AmountText>
             </S.RightSection>
             <S.RightSection>
               <S.RightText>차감될 포인트</S.RightText>
@@ -188,7 +189,7 @@ export default function ShopDetailPresenterPage(props: any) {
                 ) : props.amountPoint === 0 ? (
                   <div>수량을 선택해주세요</div>
                 ) : (
-                  props.amountPoint
+                  PointComma(props.amountPoint)
                 )}
               </S.AmountPoint>
             </S.RightSection>
@@ -202,10 +203,10 @@ export default function ShopDetailPresenterPage(props: any) {
                 {props.buyAmount === 0 ? (
                   <div>수량을 선택해주세요</div>
                 ) : props.remainPoint > 0 ? (
-                  props.remainPoint
+                  PointComma(props.remainPoint)
                 ) : (
-                  props.amountPoint -
-                  props.fetchUserLoggedIn?.fetchUserLoggedIn.userPoint
+                  PointComma(props.amountPoint -
+                  props.fetchUserLoggedIn?.fetchUserLoggedIn.userPoint)
                 )}
               </S.RemainPoint>
             </S.RightSection>

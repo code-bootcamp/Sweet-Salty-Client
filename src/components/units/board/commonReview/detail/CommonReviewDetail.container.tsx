@@ -18,6 +18,10 @@ export default function ReviewDetailContainer() {
     router.push("/reviews/commonReview");
   };
 
+  const onClickProfile =()=>{
+    router.push("/profile")
+  }
+
   const onClickDelete = () => {
     try {
       deleteBoard({
@@ -70,6 +74,7 @@ export default function ReviewDetailContainer() {
       data={data?.fetchBoard}
       onClickCommonReviewList={onClickCommonReviewList}
       onClickDelete={onClickDelete}
+      onClickProfile={onClickProfile}
       onClickLike={onClickLike}
     />
   );

@@ -1,6 +1,6 @@
 import * as S from "./ReviewItem.styles";
 
-export default function MainReviewItemPresenterPage(props) {
+export default function MainReviewItemPresenterPage(props : any) {
   const url = "https://storage.googleapis.com/"
   return (
     <S.ItemMainDiv

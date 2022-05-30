@@ -3,7 +3,7 @@ import { useRouter } from "next/router";
 
 import BestTasterItemPresenterPage from "../BestTaesterCard/BestTasterItem.presenter";
 
-export default function BestWishItemContainerPage(props) {
+export default function BestWishItemContainerPage(props : any) {
   const router = useRouter();
 
   const onClickDetailPage = (event: MouseEvent<HTMLDivElement>) => {

@@ -1,6 +1,6 @@
 import * as S from "./LocationFilter.style";
 
-export default function LocationFilterPage(props) {
+export default function LocationFilterPage(props : any) {
   const locationData = [
     { key: "0", value: "강남구", checked: false, index: 0 },
     { key: "1", value: "강동구", checked: false, index: 1 },
@@ -29,16 +29,16 @@ export default function LocationFilterPage(props) {
     { key: "24", value: "중랑구", checked: false, index: 24 },
   ];
 
-  const onChangeLocation = (checked, item) => {
+  const onChangeLocation = (checked : any, item : any) => {
     if (checked) {
       props.setLocationTagCheckList([item]);
       props.setLocationHashTag([item]);
     } else if (!checked) {
       props.setLocationHashTag(
-        props.locationHashTag.filter((el) => el !== item)
+        props.locationHashTag.filter((el : any) => el !== item)
       );
       props.setLocationTagCheckList(
-        props.locationTagCheckList.filter((el) => el !== item)
+        props.locationTagCheckList.filter((el : any) => el !== item)
       );
     }
   };
@@ -54,7 +54,7 @@ export default function LocationFilterPage(props) {
               onChangeLocation(e.target.checked, e.target.value);
             }}
             checked={
-              props.locationTagCheckList.includes(el.value) ? true : false
+              props.locationTagCheckList.includes(el.value)
             }
           />
           <span className="checkbox_text">{el.value}</span>

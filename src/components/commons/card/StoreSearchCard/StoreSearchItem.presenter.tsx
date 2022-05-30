@@ -1,6 +1,6 @@
 import * as S from "./StoreSearchItem.styles";
 
-export default function StoreSearchItemPresenterPage(props) {
+export default function StoreSearchItemPresenterPage(props : any) {
   return (
     <S.ItemMainDiv onClick={props.onClickDetailPage} id={props.id}>
       <S.ItemImg

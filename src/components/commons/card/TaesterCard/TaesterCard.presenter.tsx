@@ -1,6 +1,6 @@
 import * as S from "./TaesterCard.styles";
 
-export default function TasterCardPresenterPage(props) {
+export default function TasterCardPresenterPage(props : any) {
   console.log("151", props.fetchBoardsData?.boardSubject);
   return (
     <S.ItemMainDiv

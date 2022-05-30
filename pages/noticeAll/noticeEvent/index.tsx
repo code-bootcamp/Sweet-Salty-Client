@@ -1,10 +1,5 @@
-// 공지사항 Event 목록 List 페이지 === 김치훈
-
 import NoticeEventListContainerPage from "../../../src/components/units/noticeAll/noticeEvent/list/NoticeEventList.container";
 
-
-
-
-export default function NoticePage(){
-  return <NoticeEventListContainerPage/>
+export default function NoticePage() {
+  return <NoticeEventListContainerPage />;
 }

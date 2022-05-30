@@ -2,7 +2,7 @@ import CommunityCardPresenterPage from "./CommunityCard.presenter";
 import { useRouter } from "next/router";
 import { MouseEvent } from "react";
 
-export default function CommunityCardContainerPage(props) {
+export default function CommunityCardContainerPage(props : any) {
   const router = useRouter();
   const onClickDetailPage = (event: MouseEvent<HTMLDivElement>) => {
     if (props.el.boardSubject === "TASTER") {

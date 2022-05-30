@@ -58,6 +58,9 @@ export default function LoginContainerPage() {
   const onClickSocialKakao = () => {
     router.push("https://project08.site/login/kakao");
   };
+  const onClickSocialNaver = () => {
+    router.push("https://project08.site/login/naver");
+  };
 
   const onClickSignUp = () => {
     router.push("/signup");
@@ -72,6 +75,7 @@ export default function LoginContainerPage() {
       onClickSignUp={onClickSignUp}
       onClickSocialGoogle={onClickSocialGoogle}
       onClickSocialKakao={onClickSocialKakao}
+      onClickSocialNaver={onClickSocialNaver}
     />
   );
 }

@@ -41,7 +41,10 @@ export default function ProfileInfoContainer(props: any) {
           },
         ],
       })
-      setIsFollow(prev=>(!prev))
+      if(result.data.follow === "팔로우"){setIsFollow(false)}
+      else if (result.data.follow === "언팔로우"){setIsFollow(true)}
+
+      
     }
     catch(error: any){
       alert(error.message)

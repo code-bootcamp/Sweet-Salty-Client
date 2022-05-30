@@ -1,10 +1,7 @@
 import styled from "@emotion/styled";
-// 리뷰 아이템 부분
-// 여러번 사용
 export const ItemInfoLeftDiv = styled.div`
   display: flex;
 `;
-// 여러번 사용 끝
 export const ItemMainDiv = styled.div`
   cursor: pointer;
   height: 342px;
@@ -30,10 +27,9 @@ export const ItemProfile = styled.div`
   width: 40px;
 `;
 export const ProfileImg = styled.img`
-border-radius: 100%;
+  border-radius: 100%;
   height: 40px;
   width: 40px;
-  
 `;
 export const ItemInfoDiv = styled.div`
   height: 92px;
@@ -107,4 +103,3 @@ export const IteminfoDateDiv = styled.div`
   font-size: 12px;
   line-height: 24px;
 `;
-// 리뷰 아이템 끝

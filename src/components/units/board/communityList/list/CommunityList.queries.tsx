@@ -1,5 +1,3 @@
-// 전체 List 페이지 queries
-
 import { gql } from "@apollo/client";
 
 export const FETCH_BOARDS = gql`

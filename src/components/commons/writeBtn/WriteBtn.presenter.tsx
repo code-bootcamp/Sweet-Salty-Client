@@ -1,6 +1,6 @@
 import * as S from "./WriteBtn.styles";
 
-export default function WriteBtnPresenterPage(props) {
+export default function WriteBtnPresenterPage(props:any) {
   return (
     <S.ReviewWriteBox>
       <S.ReviewWrite onClick={props.onClickWrite}>

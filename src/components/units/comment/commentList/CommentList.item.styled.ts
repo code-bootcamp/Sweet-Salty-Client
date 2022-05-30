@@ -1,6 +1,5 @@
 import styled from "@emotion/styled";
 
-// item 부분
 export const BoxDiv = styled.div`
   width: 920px;
   display: flex;
@@ -14,7 +13,6 @@ export const ProfileImg = styled.img`
   width: 40px;
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
 `;
-
 
 export const CommentBox = styled.div`
   width: 860px;
@@ -34,7 +32,7 @@ export const WriterDiv = styled.div`
   font-size: 14px;
   font-weight: 700;
 `;
-export const CreatedAtDiv= styled.div`
+export const CreatedAtDiv = styled.div`
   cursor: default;
   padding: 0 10px;
   line-height: 12px;
@@ -68,5 +66,5 @@ export const LikeCount = styled.span`
 export const LikeIcon = styled.img`
   cursor: pointer;
   height: 19px;
-  padding-right: 5px; 
+  padding-right: 5px;
 `;

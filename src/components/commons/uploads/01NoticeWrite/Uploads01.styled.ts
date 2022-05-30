@@ -1,8 +1,4 @@
-// 공지사항 이미지 업로드 styles --- 김치훈
-
 import styled from "@emotion/styled";
-
-
 
 export const UploadImage = styled.img`
   width: 300px;
@@ -15,7 +11,7 @@ export const UploadImage = styled.img`
 export const UploadButton = styled.button`
   width: 300px;
   height: 210px;
-  margin-right: 20px; 
+  margin-right: 20px;
   background: #dbdbdb;
   border-radius: 20px;
   outline: none;
@@ -24,9 +20,9 @@ export const UploadButton = styled.button`
   cursor: pointer;
   color: #fff;
   font-weight: 700;
-  transition: .2s;
+  transition: 0.2s;
   &:hover {
-    color: #FF9A31;
+    color: #ff9a31;
     font-size: 20px;
   }
 `;

@@ -1,7 +1,4 @@
-// mypage styled --- 김치훈
-
 import styled from "@emotion/styled";
-
 
 export const Wrapper = styled.div`
   width: 100%;
@@ -26,10 +23,6 @@ export const MypageSectionBox = styled.div`
   box-shadow: 10px 10px 10px #dbdbdb;
 `;
 
-
-
-
-
 export const TopButtonBox = styled.div`
-padding: 40px 0;
+  padding: 40px 0;
 `;

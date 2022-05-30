@@ -20,18 +20,17 @@ interface IProps {
   placeholder?: string | undefined;
   defaultValue?: string;
   onKeyUp?: KeyboardEventHandler<HTMLTextAreaElement> | undefined;
-  type: "text" | "password";
+  type?: "text" | "password";
   register?: UseFormRegisterReturn;
 }
 
 export default function WriteReviewTextarea(props: IProps) {
   return (
     <Textarea
-      type={props.type}
       {...props.register}
       placeholder={props.placeholder}
       defaultValue={props.defaultValue || ""}
-      onKeyUp={props.onKeyUp}
+      onKeyUp={props.onKeyUp }
     />
   );
 }

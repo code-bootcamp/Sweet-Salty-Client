@@ -1,9 +1,6 @@
-// NoticeAll Writer Presenter ---김치훈
-
 import * as S from "./NoticeAllWrite.styled";
 import { v4 as uuidv4 } from "uuid";
 import Uploads01 from "../../../commons/uploads/01NoticeWrite/Uploads01.containder";
-
 
 export default function NoticeWritePresenter(props: any) {
   return (
@@ -42,13 +39,12 @@ export default function NoticeWritePresenter(props: any) {
               </div>
             </S.TitleArticle>
 
-            <S.SectionHr/>
-
+            <S.SectionHr />
           </S.Header>
 
           <S.ImageWrapper>
             <S.ImageTitle>사진 첨부</S.ImageTitle>
-            {props.fileUrls.map((el:any, index:any) => (
+            {props.fileUrls.map((el: any, index: any) => (
               <Uploads01
                 key={uuidv4()}
                 index={index}
@@ -62,12 +58,17 @@ export default function NoticeWritePresenter(props: any) {
           <S.Section>
             <S.ContentBox>
               <S.WriteTitle>내용</S.WriteTitle>
-              <S.ContentTextArea register={props.register("noticeContents")} placeholder="내용 작성해주세요."></S.ContentTextArea>
+              <S.ContentTextArea
+                register={props.register("noticeContents")}
+                placeholder="내용 작성해주세요."
+              />
             </S.ContentBox>
 
             <S.ButtonBox>
               <S.Button type="submit">등록하기</S.Button>
-              <S.Button type="button" onClick={props.onClickCancel}>취소하기</S.Button>
+              <S.Button type="button" onClick={props.onClickCancel}>
+                취소하기
+              </S.Button>
             </S.ButtonBox>
           </S.Section>
         </S.ReviewWriteBox>

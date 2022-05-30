@@ -1,5 +1,3 @@
-// 가주세요! Detail Presenter -김치훈
-
 import DetailMapPage from "../../../../commons/detailMap/DetailMap.index";
 import Hits from "../../../../commons/hits";
 import { getDate } from "../../../../commons/libraries/date";
@@ -12,7 +10,6 @@ import CommentWriteContainerPage from "../../../comment/commentWrite/CommentWrit
 import * as S from "./WishDetail.styled";
 
 export default function WishDetailPresenterPage(props: any) {
-  console.log("아이디", props.data?.boardId);
   return (
     <S.Wrapper>
       <S.Title>

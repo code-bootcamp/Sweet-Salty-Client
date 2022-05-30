@@ -11,16 +11,16 @@ export const FETCH_RECENT_BOARDS = gql`
       boardSubject
       thumbnail
       createAt
-      user{
+      user {
         userNickname
         userImage
       }
-      place{
+      place {
         placeName
         placeAddress
       }
-      boardSides{
-        boardTags{
+      boardSides {
+        boardTags {
           boardTagName
         }
       }
@@ -28,34 +28,33 @@ export const FETCH_RECENT_BOARDS = gql`
   }
 `;
 
-
-export const FETCH_USER_LOGGED_IN =gql`
-query fetchUserLoggedIn{
-    fetchUserLoggedIn{
-        userImage
-        userNickname
+export const FETCH_USER_LOGGED_IN = gql`
+  query fetchUserLoggedIn {
+    fetchUserLoggedIn {
+      userImage
+      userNickname
     }
-}
+  }
 `;
 
 export const REAL_TIME_SHOP = gql`
-query realTimeShop{
-  realTimeShop{
-    shopId
-    shopProductName
-    shopSeller
-    shopDisCount
-    shopDisCountPrice
-    shopOriginalPrice
-    thumbnail
+  query realTimeShop {
+    realTimeShop {
+      shopId
+      shopProductName
+      shopSeller
+      shopDisCount
+      shopDisCountPrice
+      shopOriginalPrice
+      thumbnail
+    }
   }
-}
 `;
 
 export const FETCH_PREFER_BOARDS = gql`
-query fetchPreferBoards{
-  fetchPreferBoards{
-    boardId
+  query fetchPreferBoards {
+    fetchPreferBoards {
+      boardId
       boardTitle
       boardWriter
       boardLikeCount
@@ -63,15 +62,14 @@ query fetchPreferBoards{
       boardSubject
       thumbnail
       createAt
-      user{
+      user {
         userNickname
         userImage
       }
-      place{
+      place {
         placeName
         placeAddress
       }
-      
+    }
   }
-}
 `;

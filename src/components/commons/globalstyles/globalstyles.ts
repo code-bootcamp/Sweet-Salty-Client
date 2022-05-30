@@ -7,16 +7,14 @@ export const globalstyles = css`
     font-family: "pretendard";
     font-size: 20px;
   }
-  // 스크롤바 배경 === 김치훈
   &::-webkit-scrollbar {
     width: 10px;
     height: 10px;
     background: transparent;
   }
 
-  // 스크롤바 막대기 === 김치훈
   &::-webkit-scrollbar-thumb {
-    background-color: #D9D9D9;
+    background-color: #d9d9d9;
     border-radius: 50px;
   }
   @font-face {

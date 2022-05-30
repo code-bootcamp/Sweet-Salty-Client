@@ -1,7 +1,6 @@
 import * as S from "./CategorySearchReviewCard.styles";
 
-export default function SearchCategoryItemPresenterPage(props : any) {
-  console.log("ggg", props.fetchTagSearchData.boardsubject);
+export default function SearchCategoryItemPresenterPage(props: any) {
   return (
     <S.ItemMainDiv
       onClick={props.onClickDetailPage}

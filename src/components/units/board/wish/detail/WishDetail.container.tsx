@@ -1,5 +1,3 @@
-// 가주세요! Detail Container -김치훈
-
 import { useMutation, useQuery } from "@apollo/client";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";

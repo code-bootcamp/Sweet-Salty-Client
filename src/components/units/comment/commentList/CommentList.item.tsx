@@ -4,14 +4,13 @@ import { CREATE_COMMENT_LIKE, DELETE_COMMENT, FETCH_COMMENTS, FETCH_USER_LOGGED_
 import { timeForToday } from "../../../commons/libraries/date";
 import * as S from "./CommentList.item.styled"
 
-export default function CommentItemPage(props) {
+export default function CommentItemPage(props:any) {
   const [deleteComment] = useMutation(DELETE_COMMENT);
   const [createCommentLike] =useMutation(CREATE_COMMENT_LIKE);
   const router = useRouter();
-  // const [isEdit, setIsEdit] = useState(false);
   const {data : loggedInData} =useQuery(FETCH_USER_LOGGED_IN);
   const loggedInNickname = loggedInData?.fetchUserLoggedIn?.userNickname
-  const onClickDelete = (id)=> async ()=> {
+  const onClickDelete = (id:any)=> async ()=> {
     await deleteComment({
       variables: {
         commentId : String(id)
@@ -27,7 +26,7 @@ export default function CommentItemPage(props) {
     })
     alert("댓글삭제완료")
   }
-  const onClickLike = (id)=> async ()=>{
+  const onClickLike = (id:any)=> async ()=>{
    try{await createCommentLike({
       variables:{
         commentId : String(id),

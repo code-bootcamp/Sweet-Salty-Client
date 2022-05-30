@@ -18,15 +18,11 @@ export default function WishDetailContainerPage() {
     variables: { boardId: String(router.query.boardId) },
   });
   const checkPage = "VISITED";
-  const wishDetailID = router.query.boardId;
   const [wishId, setWishId] = useState("" || "hi");
 
   useEffect(() => {
     setWishId(String(router.query.boardId));
   }, []);
-
-  console.log("아이디요", wishDetailID);
-  console.log("아이디요1", wishId);
 
   const onClickWishList = () => {
     router.push("/reviews/wish");
@@ -63,7 +59,7 @@ export default function WishDetailContainerPage() {
       onClickLike={onClickLike}
       onClickDelete={onClickDelete}
       checkPage={checkPage}
-      wishDetailID={wishDetailID}
+      wishId={wishId}
     />
   );
 }

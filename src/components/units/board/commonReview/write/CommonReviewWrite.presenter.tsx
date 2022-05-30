@@ -14,7 +14,9 @@ export default function CommonReviewWritePresenter(props) {
         onSubmit={
           props.checkPage === "REQUEST"
             ? props.handleSubmit(props.onClickSubmitReq)
-            : props.handleSubmit(props.onClickSubmit)
+            : props.checkPage === "REVIEW" || props.checkPage === "TASTER"
+            ? props.handleSubmit(props.onClickSubmit)
+            : props.handleSubmit(props.onClickSubmitRes)
         }
       >
         <S.Title>단짠 게시판 글 등록</S.Title>

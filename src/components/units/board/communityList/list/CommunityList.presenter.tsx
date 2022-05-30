@@ -6,6 +6,7 @@ import TopButton from "../../../../commons/topbutton";
 import WriteBtnContainerPage from "../../../../commons/writeBtn/WriteBtn.container";
 
 export default function CommunityListPresenterPage(props) {
+  console.log("888888", props);
   return (
     <S.CommonReviewWrapper>
       <S.Title>전체 게시판</S.Title>

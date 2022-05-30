@@ -92,7 +92,7 @@ export const SectionBox = styled.div`
   flex-direction: column;
   padding: 60px 195px;
   width: 920px;
-  height: 600px;
+  height: auto;
   border: 2px solid #dadada;
   border-radius: 20px;
 `;

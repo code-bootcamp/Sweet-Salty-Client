@@ -74,7 +74,7 @@ export default function WishDetailPresenterPage(props: any) {
           <S.LeftButton>
             <WriteBtnContainerPage
               checkPage={props.checkPage}
-              wishDetailID={props.wishDetailID}
+              wishId={props.wishId}
             />
           </S.LeftButton>
         </S.ButtonBox>

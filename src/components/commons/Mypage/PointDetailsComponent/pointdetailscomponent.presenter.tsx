@@ -44,7 +44,7 @@ export default function PointComponentPresenter (props: any){
           </S.LeftBox>
           <S.RightBox>
             <S.RightTopBox>
-              <S.PaymentCancel onClick={props.onClickPaymentCancel}>결제 취소하기</S.PaymentCancel>
+              <S.PaymentCancel>결제 취소하기</S.PaymentCancel>
               <S.PaymentPoint>-{PointComma(props.el?.paymentAmount)} 포인트 </S.PaymentPoint>
             </S.RightTopBox>
               <Button type="text" shape="circle" size="small" onClick={() => setVisible(true)}>
@@ -109,7 +109,7 @@ export default function PointComponentPresenter (props: any){
             </S.LeftBox>
 
             <S.PointChargeRightBox>
-              <S.PaymentCancel>충전 취소하기</S.PaymentCancel>
+              <S.PaymentCancel onClick={props.onClickPointCancel}>충전 취소하기</S.PaymentCancel>
               <S.PointChargePoint>+{PointComma(props.el?.paymentAmount)} 포인트 </S.PointChargePoint>
             </S.PointChargeRightBox>
           </>

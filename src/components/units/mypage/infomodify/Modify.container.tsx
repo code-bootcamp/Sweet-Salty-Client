@@ -70,12 +70,13 @@ export default function ModifyContainerPage() {
     try {
       const result = await updateUser({
         variables: {
+          updateUserInput:{
           userPassword: data.userPassword,
           userPhone: data.userPhone,
           userNickname: data.userNickname,
           gender,
           ageGroup: age,
-          prefer: menu,
+          prefer: menu,}
         },
       });
       console.log(result);

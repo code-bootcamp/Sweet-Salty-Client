@@ -11,16 +11,21 @@ import CommentWriteContainerPage from "../../../comment/commentWrite/CommentWrit
 import * as S from "./CommonReviewDetail.styles";
 
 export default function ReviewDetailPresenter(props: any) {
-  console.log("6418948961", props.data);
   return (
     <S.Wrapper>
-      {props.data?.boardSubject === "REVIEW" ? (
+      {props.data?.boardSubject === "REVIEW" && (
         <S.Title>
           단짠 게시판 <S.RightOutline /> 단짠 리뷰
         </S.Title>
-      ) : (
+      )}
+      {props.data?.boardSubject === "TASTER" && (
         <S.Title>
           단짠 게시판 <S.RightOutline /> 시식단 리뷰
+        </S.Title>
+      )}
+      {props.data?.boardSubject === "VISITED" && (
+        <S.Title>
+          단짠 게시판 <S.RightOutline /> 가봤어요!
         </S.Title>
       )}
 
@@ -28,10 +33,14 @@ export default function ReviewDetailPresenter(props: any) {
         <S.Header>
           <S.HeaderBox>
             <S.BoardTitleArticle>
-              {props.data?.boardSubject === "REVIEW" ? (
+              {props.data?.boardSubject === "REVIEW" && (
                 <S.BoardReviewCategory>단짠 리뷰</S.BoardReviewCategory>
-              ) : (
+              )}
+              {props.data?.boardSubject === "TASTER" && (
                 <S.BoardTesterCategory>시식단 리뷰</S.BoardTesterCategory>
+              )}
+              {props.data?.boardSubject === "VISITED" && (
+                <S.BoardTesterCategory>가봤어요!</S.BoardTesterCategory>
               )}
 
               <S.BoardTitle>{props.data?.boardTitle}</S.BoardTitle>

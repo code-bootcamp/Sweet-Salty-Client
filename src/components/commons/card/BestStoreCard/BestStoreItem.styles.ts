@@ -10,9 +10,22 @@ export const ItemInfoWrapDiv = styled.div`
 export const ItemMainDiv = styled.div`
   cursor: pointer;
   height: 342px;
-  padding: 10px 0;
+  padding: 12px 0px 0px 10px;
   width: 338px;
+  position: relative;
 `;
+
+export const ImageTitle = styled.div`
+  position: absolute;
+  top: 20px;
+  left: 16px;
+`;
+
+export const ItemRanking = styled.img`
+  width: 30px;
+  height: 30px;
+`;
+
 export const ItemImg = styled.div`
   background-color: #f3f3f3;
   border-radius: 20px;

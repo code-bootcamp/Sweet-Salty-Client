@@ -156,7 +156,16 @@ export default function CommonReviewWriteContainer(props) {
             },
           });
           alert("게시글 등록 완료");
-          if(subCategoryName === "REVIEW")
+          if (subCategoryName === "REVIEW") {
+            router.push(
+              `/reviews/commonReview/${result.data?.createBoard.boardId}`
+            );
+          } else if (subCategoryName === "TASTER") {
+            router.push(
+              `/reviews/testerReview/${result.data?.createBoard.boardId}`
+            );
+          }
+          console.log(result.data?.createBoard.boardId);
         } catch (error: any) {
           alert(error.message);
         }
@@ -180,6 +189,7 @@ export default function CommonReviewWriteContainer(props) {
           },
         });
         alert("게시글 등록 완료");
+        router.push(`/reviews/wish/${result.data?.createBoardReq.boardId}`);
       } catch (error: any) {
         alert(error.message);
       }
@@ -191,6 +201,7 @@ export default function CommonReviewWriteContainer(props) {
             createBoardInput: {
               boardTitle: data.boardTitle,
               boardSugar: data.boardSugar,
+
               boardSalt: data.boardSalt,
               boardContents,
               subCategoryName,
@@ -210,6 +221,10 @@ export default function CommonReviewWriteContainer(props) {
           },
         });
         alert("게시글 등록 완료");
+        router.push(
+          `/reviews/commonReview/${result.data?.createBoardRes.boardId}`
+        );
+        console.log(result);
       } catch (error: any) {
         alert(error.message);
       }

@@ -33,6 +33,8 @@ export const ContentsSection = styled.div`
 `;
 
 export const BestContentsSection = styled.div`
+  display: flex;
+  justify-content: space-between;
   border-bottom: 1px solid #dadada;
   display: flex;
   padding: 30px 0px;

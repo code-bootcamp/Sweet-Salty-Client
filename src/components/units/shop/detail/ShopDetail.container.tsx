@@ -43,7 +43,6 @@ export default function ShopDetailContainerPage(props: any) {
     }
   };
 
-  useEffect(() => {});
 
   useEffect(() => {
     setAmountPoint(buyAmount * fetchShopData?.fetchShop.shopDisCountPrice);
@@ -64,6 +63,10 @@ export default function ShopDetailContainerPage(props: any) {
     setBuyAmount((prev) => prev - 1);
   };
 
+  const onClickList = () => {
+    router.push("/shop");
+  };
+
   return (
     <ShopDetailPresenterPage
       fetchUserLoggedIn={fetchUserLoggedInData}
@@ -75,6 +78,7 @@ export default function ShopDetailContainerPage(props: any) {
       remainPoint={remainPoint}
       chargePoint={chargePoint}
       onClickPay={onClickPay}
+      onClickList={onClickList}
     />
   );
 }

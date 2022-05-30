@@ -21,6 +21,9 @@ export const UploadImage = styled.img`
   display: flex;
   justify-content: end;
   align-items: end;
+  src {
+    width: 24px;
+  }
 `;
 export const ButtonBox = styled.div`
 position: absolute;

@@ -18,6 +18,7 @@ export const Title = styled.div`
 `;
 
 export const MypageSectionBox = styled.div`
+  position: relative;
   padding: 25px 25px 0 25px;
   width: 1120px;
   background: #fff;
@@ -25,7 +26,7 @@ export const MypageSectionBox = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  box-shadow: 10px 10px 10px #dbdbdb;
+  box-shadow: 10px 0px 10px #dbdbdb;
 `;
 
 

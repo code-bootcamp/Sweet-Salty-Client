@@ -27,12 +27,12 @@ export default function PointComponentPresenter (props: any){
 
             <S.StoreComments>
               <S.ContentsBox>
-                <S.Stock>{props.el?.stock}개 결제 완료</S.Stock>
+                <S.Stock>결제 완료</S.Stock>
                 <S.P></S.P> 
                 <S.CreateAt>{getDate_(props.el?.createdAt)}</S.CreateAt>
               </S.ContentsBox>
 
-              <S.PayStatus>{props.el?.payStatus}</S.PayStatus>
+              <S.PayStatus>{props.el?.payStatus} ({props.el?.stock}개)</S.PayStatus>
 
               <S.ContentsBox>
                 <S.ProductStatus>{props.el?.productStatus}</S.ProductStatus>

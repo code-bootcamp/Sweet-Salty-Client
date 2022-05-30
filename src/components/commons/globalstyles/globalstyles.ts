@@ -16,7 +16,7 @@ export const globalstyles = css`
 
   // 스크롤바 막대기 === 김치훈
   &::-webkit-scrollbar-thumb {
-    background-color: #ffa230;
+    background-color: #D9D9D9;
     border-radius: 50px;
   }
   @font-face {

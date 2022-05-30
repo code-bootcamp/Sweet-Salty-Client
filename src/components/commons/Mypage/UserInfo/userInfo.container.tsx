@@ -2,9 +2,10 @@
 
 import UserInfoPresenter from "./userInfo.presenter";
 import { useMutation, useQuery } from "@apollo/client";
-import { CREATE_POINT_TRANSACTION, FETCH_BOARD_COUNT, FETCH_RECEIVED_MESSAGES_COUNT, FETCH_UNREAD_MESSAGE_COUNT, FETCH_USER_LOGGED_IN, FOLLOW_COUNT, UPDATE_PROFILE } from "./userInfo.queries";
+import { CREATE_POINT_TRANSACTION, FETCH_BOARD_COUNT, FETCH_UNREAD_MESSAGE_COUNT, FETCH_USER_LOGGED_IN, FOLLOW_COUNT, UPDATE_PROFILE } from "./userInfo.queries";
 import { useRouter } from "next/router";
 import { useState } from "react";
+import { useForm } from "react-hook-form";
 
 // IMP 타입을 이렇게 지정해줍니다.
 declare const window: typeof globalThis & {
@@ -16,6 +17,11 @@ export default function UserInfoContainer(){
   const [isPoint, setIsPoint] =useState(true)
   const [changePoint, setChangePoint] =useState("")
 
+  
+  const { register, handleSubmit} = useForm({
+    mode: "onChange"
+  })
+
 
   const onClickPointCharge =()=>{
     setIsPoint(prev=>(!prev))
@@ -23,7 +29,45 @@ export default function UserInfoContainer(){
 
   const onChangePoint =(event: any)=>{
     setChangePoint(event.target.value)
-  }
+  }  
+
+  // 충전
+  const [createPointTransaction] = useMutation(CREATE_POINT_TRANSACTION);
+  // 충전
+  const onClickPoint = () => {
+    const IMP = window.IMP; // 생략 가능
+    IMP.init("imp12511287"); // 예: imp48430943
+    // IMP.request_pay(param, callback) // 결제창 호출
+    IMP.request_pay(
+      {
+        // param
+        pg: "html5_inicis",
+        pay_method: "card",
+        name: "포인트 충전",
+        amount: changePoint,
+        buyer_email: "rlaclgns321@naver.com",
+        buyer_name: `김민영`,
+        buyer_tel: "010-4242-4242",
+        buyer_addr: "서울특별시 강남구 신사동",
+        buyer_postcode: "01181",
+      }, (rsp:any) => {
+        // callback
+        if (rsp.success) {
+          createPointTransaction({
+            variables: {
+              impUid: rsp.imp_uid,
+              amount: 100,
+            }
+          })
+          console.log("충전 완료!");
+        } else {
+          // 결제 실패 시 로직
+          alert(rsp.error_msg);
+        }
+      }
+    );
+  };
+
 
   const router = useRouter()
 
@@ -73,8 +117,6 @@ const onChangeProfile =(event: any)=>{
   // 마이 단짠 숫자
   const {data: fetchBoardCountData} = useQuery(FETCH_BOARD_COUNT)
   // 쪽지함 안 읽은 쪽지 갯수
-  const {data: fetchReceivedMessagesCountData} = useQuery(FETCH_RECEIVED_MESSAGES_COUNT)
-  // 쪽지함 안 읽은 쪽지 갯수
   const {data: fetchUnreadMessageCountData} = useQuery(FETCH_UNREAD_MESSAGE_COUNT)
   // 팔로잉, 팔로워 숫자
   const {data: followCountData} = useQuery(FOLLOW_COUNT, {
@@ -96,44 +138,6 @@ const onChangeProfile =(event: any)=>{
   
   
 
-  
-  
-  // 충전
-  const [createPointTransaction] = useMutation(CREATE_POINT_TRANSACTION);
-  // 충전
-  const onClickPoint = () => {
-    const IMP = window.IMP; // 생략 가능
-    IMP.init("imp12511287"); // 예: imp48430943
-    // IMP.request_pay(param, callback) // 결제창 호출
-    IMP.request_pay(
-      {
-        // param
-        pg: "html5_inicis",
-        pay_method: "card",
-        name: "포인트 충전",
-        amount: changePoint,
-        buyer_email: "rlaclgns321@naver.com",
-        buyer_name: `김민영`,
-        buyer_tel: "010-4242-4242",
-        buyer_addr: "서울특별시 강남구 신사동",
-        buyer_postcode: "01181",
-      }, (rsp:any) => {
-        // callback
-        if (rsp.success) {
-          createPointTransaction({
-            variables: {
-              impUid: rsp.imp_uid,
-              amount: 100,
-            }
-          })
-          console.log("충전 완료!");
-        } else {
-          // 결제 실패 시 로직
-          alert(rsp.error_msg);
-        }
-      }
-    );
-  };
 
 
 
@@ -168,6 +172,8 @@ const onChangeProfile =(event: any)=>{
     onClickMyReview={onClickMyReview}
     onClickModify={onClickModify}
     onClickMessagePage={onClickMessagePage}
+    register={register}
+    handleSubmit={handleSubmit}
     onClickMyPoint={onClickMyPoint}
     // onClickFollow={onClickFollow}
     onChangePoint={onChangePoint}

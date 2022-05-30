@@ -10,7 +10,7 @@ export default function Uploads02UI(props: any) {
     ? (<S.UploadImage src={`https://storage.googleapis.com/${props.fileUrl}`} />) 
     : props.data?.fetchUserLoggedIn?.userImage 
       ? (<S.UploadImage src={`https://storage.googleapis.com/${props.data?.fetchUserLoggedIn?.userImage}`}/>) 
-      : (<S.UploadImage src="https://t1.daumcdn.net/cfile/tistory/24283C3858F778CA2E" />)}
+      : (<S.UploadImage src="/images/profile.png" />)}
 
       <S.ButtonBox>
         <S.UploadButton onClick={props.onClickUpload} type="button">

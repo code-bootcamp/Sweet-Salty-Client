@@ -1,3 +1,5 @@
+// 마이 단짠 게시글 카드 Styles ---김치훈
+
 import styled from "@emotion/styled";
 
 
@@ -29,12 +31,13 @@ export const BoardSubject = styled.div`
   font-size: 18px;
   font-weight: 700;
   color: #fff;
+  text-shadow: 0px 0px 4px rgba(0, 0, 0, 0.2);
 `
 // 포로필사진
 export const ItemProfile = styled.img`
   height: 40px;
   width: 40px;
-  background-color: #fff;
+  background-color: #D2D2D2;
   border-radius: 50%;
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
 `;

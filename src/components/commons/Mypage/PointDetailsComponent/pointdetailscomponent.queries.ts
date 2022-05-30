@@ -5,7 +5,9 @@ import { gql } from "@apollo/client";
 
 export const CANCEL_POINT_TRANSACTION=gql`
   mutation cancelPointTransaction ($impUid: String!, $amount: Int!, $reason: String!){
-    cancelPointTransaction(impUid: $impUid, amount: $amount, reason: $reason )
-
+    cancelPointTransaction(impUid: $impUid, amount: $amount, reason: $reason ){
+      id
+      createdAt
+    }
   }
 ` 

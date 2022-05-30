@@ -19,6 +19,9 @@ export default function TesterDetailContainer() {
     router.push("/reviews/testerReview");
   };
 
+  const onClickProfile =()=>{
+    router.push("/profile")
+  }
   const onClickDelete = () => {
     try {
       deleteBoard({
@@ -47,6 +50,7 @@ export default function TesterDetailContainer() {
     <TesterDetailPresenter
       data={data?.fetchBoard}
       onClickCommonReviewList={onClickCommonReviewList}
+      onClickProfile={onClickProfile}
       onClickDelete={onClickDelete}
       onClickLike={onClickLike}
     />

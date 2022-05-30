@@ -1,16 +1,17 @@
+import ProfileInfoContainer from "../../commons/Profile/ProfileInfo/profileInfo.container";
+import ProfileMenuContainer from "../../commons/Profile/ProfileMenu/profileMenu.container";
 import TopButton from "../../commons/topbutton";
 import * as S from "./Profile.styled";
-import UserInfoContainer from "../../commons/Mypage/UserInfo/userInfo.container";
-import UserMenuContainer from "../../commons/Mypage/UserMenu/userMenu.container";
 
 export default function ProfilePresenter(props: any) {
   return (
     <S.Wrapper>
-      <S.Title>누구누구 프로필</S.Title>
+      <S.Title>{props.data?.fetchUser?.userNickname} 프로필</S.Title>
+      
+      <ProfileInfoContainer data={props.data}/>
 
-      <UserInfoContainer />
+      <ProfileMenuContainer/>
 
-      <UserMenuContainer />
 
       <S.MypageSectionBox></S.MypageSectionBox>
       <S.TopButtonBox>

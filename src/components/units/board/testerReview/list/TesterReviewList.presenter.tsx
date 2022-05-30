@@ -37,13 +37,16 @@ export default function TesterReviewPresenterPage(props: any) {
             </S.TopThreeTitle>
             <S.ReviewSection>
               {/* 베스트리뷰3개 */}
-              {props.fetchBoardBestData?.fetchBoardBest.map((el: any) => (
-                <BestTasterItemContainerPage
-                  key={uuidv4()}
-                  el={el}
-                  id={el.boardId}
-                />
-              ))}
+              {props.fetchBoardBestData?.fetchBoardBest.map(
+                (el: any, idx: any) => (
+                  <BestTasterItemContainerPage
+                    key={uuidv4()}
+                    el={el}
+                    id={el.boardId}
+                    idx={idx}
+                  />
+                )
+              )}
             </S.ReviewSection>
           </S.TopThreeBox>
 

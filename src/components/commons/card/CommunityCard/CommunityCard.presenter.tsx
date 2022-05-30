@@ -1,7 +1,7 @@
 import * as S from "./CommunityCard.styles";
 
 export default function CommunityCardPresenterPage(props) {
-  console.log("here", props.fetchBoardsCategoryData?.boardWriter);
+  console.log("here", props.fetchBoardsCategoryData?.boardSubject);
   return (
     <S.ItemMainDiv onClick={props.onClickDetailPage} id={props.id}>
       <S.ItemImg
@@ -10,7 +10,20 @@ export default function CommunityCardPresenterPage(props) {
           backgroundSize: "cover",
           backgroundRepeat: "no-repeat",
         }}
-      ></S.ItemImg>
+      >
+        {props.fetchBoardsCategoryData?.boardSubject === "TASTER" && (
+          <S.ItemTitle>시식단 리뷰</S.ItemTitle>
+        )}
+        {props.fetchBoardsCategoryData?.boardSubject === "REVIEW" && (
+          <S.ItemTitle>단짠 리뷰</S.ItemTitle>
+        )}
+        {props.fetchBoardsCategoryData?.boardSubject === "REQUEST" && (
+          <S.ItemTitle>가주세요!</S.ItemTitle>
+        )}
+        {props.fetchBoardsCategoryData?.boardSubject === "VISITED" && (
+          <S.ItemTitle>가봤어요!</S.ItemTitle>
+        )}
+      </S.ItemImg>
       <S.ItemInfoDiv>
         <S.ItemInfoTopDiv>
           <S.ItemInfoLeftDiv>

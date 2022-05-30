@@ -13,7 +13,9 @@ export default function CommonReviewItemPresenterPage(props) {
             backgroundSize: "cover",
             backgroundRepeat: "no-repeat",
           }}
-        ></S.ItemImg>
+        >
+          <S.ItemTitle>단짠 리뷰</S.ItemTitle>
+        </S.ItemImg>
       </div>
       <S.ItemInfoDiv>
         <S.ItemInfoTopDiv>

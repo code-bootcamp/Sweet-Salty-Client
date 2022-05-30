@@ -17,15 +17,14 @@ export const ItemImg = styled.div`
   display: flex;
   flex-direction: row;
   height: 250px;
-  justify-content: flex-end;
+  justify-content: flex-start;
   padding: 15px;
   width: 300px;
 `;
-export const ItemProfile = styled.div`
-  background-color: #ffffff;
-  border-radius: 100%;
-  height: 40px;
-  width: 40px;
+export const ItemTitle = styled.div`
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 700;
 `;
 export const ItemInfoDiv = styled.div`
   height: 92px;

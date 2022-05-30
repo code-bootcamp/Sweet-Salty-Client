@@ -1,6 +1,7 @@
 import * as S from "./TaesterCard.styles";
 
 export default function TasterCardPresenterPage(props) {
+  console.log("151", props.fetchBoardsData?.boardSubject);
   return (
     <S.ItemMainDiv
       onClick={props.onClickDetailPage}
@@ -12,7 +13,14 @@ export default function TasterCardPresenterPage(props) {
           backgroundSize: "cover",
           backgroundRepeat: "no-repeat",
         }}
-      ></S.ItemImg>
+      >
+        {props.fetchBoardsData?.boardSubject === "TASTER" && (
+          <S.ItemTitle>시식단 리뷰</S.ItemTitle>
+        )}
+        {props.fetchBoardsData?.boardSubject === "REQUEST" && (
+          <S.ItemTitle>가주세요!</S.ItemTitle>
+        )}
+      </S.ItemImg>
       <S.ItemInfoDiv>
         <S.ItemInfoTopDiv>
           <S.ItemInfoLeftDiv>

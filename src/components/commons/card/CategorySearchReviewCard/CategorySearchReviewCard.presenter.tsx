@@ -1,7 +1,7 @@
 import * as S from "./CategorySearchReviewCard.styles";
 
 export default function SearchCategoryItemPresenterPage(props) {
-  console.log("ggg", props.fetchTagSearchData);
+  console.log("ggg", props.fetchTagSearchData.boardsubject);
   return (
     <S.ItemMainDiv
       onClick={props.onClickDetailPage}
@@ -13,7 +13,20 @@ export default function SearchCategoryItemPresenterPage(props) {
           backgroundSize: "cover",
           backgroundRepeat: "no-repeat",
         }}
-      ></S.ItemImg>
+      >
+        {props.fetchTagSearchData?.boardsubject === "TASTER" && (
+          <S.ItemTitle>시식단 리뷰</S.ItemTitle>
+        )}
+        {props.fetchTagSearchData?.boardsubject === "REVIEW" && (
+          <S.ItemTitle>단짠 리뷰</S.ItemTitle>
+        )}
+        {props.fetchTagSearchData?.boardsubject === "REQUEST" && (
+          <S.ItemTitle>가주세요!</S.ItemTitle>
+        )}
+        {props.fetchTagSearchData?.boardsubject === "VISITED" && (
+          <S.ItemTitle>가봤어요!</S.ItemTitle>
+        )}
+      </S.ItemImg>
       <S.ItemInfoDiv>
         <S.ItemInfoTopDiv>
           <S.ItemInfoLeftDiv>

@@ -1,17 +1,19 @@
 import { MouseEvent } from "react";
 import { useRouter } from "next/router";
-import BestReviewItemPresenterPage from "./BestReviewItem.presenter";
 
-export default function BestReviewItemContainerPage(props) {
+import BestTasterItemPresenterPage from "../BestTaesterCard/BestTasterItem.presenter";
+
+export default function BestWishItemContainerPage(props) {
   const router = useRouter();
 
   const onClickDetailPage = (event: MouseEvent<HTMLDivElement>) => {
     if (event.target instanceof Element) {
-      router.push(`/reviews/commonReview/${event.currentTarget.id}`);
+      router.push(`/reviews/wish/${event.currentTarget.id}`);
     }
   };
+
   return (
-    <BestReviewItemPresenterPage
+    <BestTasterItemPresenterPage
       id={props.id}
       onClickDetailPage={onClickDetailPage}
       fetchBestDetailData={props.el}

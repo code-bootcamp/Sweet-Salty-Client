@@ -7,6 +7,7 @@ import {
   FETCH_SHOPS,
   FETCH_SHOP_SELLER,
   FETCH_SHOP_TITLE,
+  FETCH_TOP_SHOP,
 } from "./ShopList.queries";
 
 export default function ShopContainerPage(props) {
@@ -32,6 +33,8 @@ export default function ShopContainerPage(props) {
         title: titleSearch,
       },
     });
+
+  const { data: bestShopListData } = useQuery(FETCH_TOP_SHOP);
 
   // 전체 shop 리스트 데이터 무한스크롤
   const shopListDataLoadMore = () => {
@@ -97,6 +100,7 @@ export default function ShopContainerPage(props) {
       titleSearchDataLoadMore={titleSearchDataLoadMore}
       titleSearch={titleSearch}
       titleSearchData={titleSearchData}
+      bestShopListData={bestShopListData}
     />
   );
 }

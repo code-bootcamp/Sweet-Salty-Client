@@ -27,3 +27,17 @@ export const FETCH_SHOP_TITLE = gql`
     fetchShopTitles(title: $title)
   }
 `;
+
+export const FETCH_TOP_SHOP = gql`
+  query fetchTopShop {
+    fetchTopShop {
+      shopId
+      shopProductName
+      shopSeller
+      shopDisCount
+      shopDisCountPrice
+      shopOriginalPrice
+      thumbnail
+    }
+  }
+`;

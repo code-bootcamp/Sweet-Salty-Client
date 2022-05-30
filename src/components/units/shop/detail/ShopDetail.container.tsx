@@ -31,10 +31,6 @@ export default function ShopDetailContainerPage(props) {
     router.push("/mypage");
   };
 
-  console.log("수량", buyAmount);
-  console.log("수량가격", amountPoint);
-  console.log("잔여포인트", remainPoint);
-
   const onClickPay = async () => {
     try {
       const result = await payShop({
@@ -48,8 +44,6 @@ export default function ShopDetailContainerPage(props) {
       alert(error.message);
     }
   };
-
-  useEffect(() => {});
 
   // 수량 * 가격
   useEffect(() => {
@@ -73,6 +67,10 @@ export default function ShopDetailContainerPage(props) {
     setBuyAmount((prev) => prev - 1);
   };
 
+  const onClickList = () => {
+    router.push("/shop");
+  };
+
   return (
     <ShopDetailPresenterPage
       fetchUserLoggedIn={fetchUserLoggedInData}
@@ -84,6 +82,7 @@ export default function ShopDetailContainerPage(props) {
       remainPoint={remainPoint}
       chargePoint={chargePoint}
       onClickPay={onClickPay}
+      onClickList={onClickList}
     />
   );
 }

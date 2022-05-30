@@ -167,6 +167,9 @@ export default function ShopDetailPresenterPage(props) {
                   )}
                 </S.MapArticle>
               </S.MapSection>
+              <S.ButtonDiv>
+                <S.Button onClick={props.onClickList}>목록으로</S.Button>
+              </S.ButtonDiv>
             </S.MainLeftSection>
             {/* 우측 */}
           </S.MainSection>

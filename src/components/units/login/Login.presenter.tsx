@@ -47,7 +47,9 @@ export default function LoginPresenterPage(props: any) {
               <S.Googleimg src="/images/GoogleLogo.png" />
               구글로 시작하기
             </S.GoogleLoginButton>
-
+            <S.NaverLoginButon onClick={props.onClickSocialNaver}>
+              네이버로 시작하기
+            </S.NaverLoginButon>
             <S.SubmitBtn type="submit">로그인</S.SubmitBtn>
           </S.ButtonBox>
 

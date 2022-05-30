@@ -12,7 +12,7 @@ export default function ModifyContainerPage() {
   const [menu, setMenu] = useState([]);
 
   const router = useRouter();
-  const { register, handleSubmit, setValue } = useForm({
+  const { register, handleSubmit } = useForm({
     mode: "onChange",
   });
 
@@ -39,7 +39,7 @@ export default function ModifyContainerPage() {
     { key: "6", value: "할랄", checked: false, index: 6 },
   ]);
 
-  const onChangeCheckGender = (el) => (event) => {
+  const onChangeCheckGender = (el: any) => (event: any) => {
     const select = genderData.map((el, idx) => {
       return { ...el, checked: idx === Number(event.target.id) };
     });
@@ -48,7 +48,7 @@ export default function ModifyContainerPage() {
     setGender(el.value);
   };
 
-  const onChangeCheckAge = (el) => (event) => {
+  const onChangeCheckAge = (el: any) => (event: any) => {
     const select = ageData.map((el, idx) => {
       return { ...el, checked: idx === Number(event.target.id) };
     });
@@ -57,7 +57,7 @@ export default function ModifyContainerPage() {
     setAge(el.value);
   };
 
-  const onChangeCheckMenu = (el) => (event) => {
+  const onChangeCheckMenu = (el: any) => (event: any) => {
     const select = menuData.map((el, idx) => {
       return { ...el, checked: idx === Number(event.target.id) };
     });
@@ -66,20 +66,21 @@ export default function ModifyContainerPage() {
     setMenu([el.value]);
   };
 
-  const onClickModify = async (data) => {
+  const onClickModify = async (data: any) => {
     try {
       await updateUser({
         variables: {
-          updateUserInput:{
-          userPassword: data.userPassword,
-          userPhone: data.userPhone,
-          userNickname: data.userNickname,
-          gender,
-          ageGroup: age,
-          prefer: menu,}
+          updateUserInput: {
+            userPassword: data.userPassword,
+            userPhone: data.userPhone,
+            userNickname: data.userNickname,
+            gender,
+            ageGroup: age,
+            prefer: menu,
+          },
         },
       });
-      alert("회원 정보가 수정되었습니다.")
+      alert("회원 정보가 수정되었습니다.");
     } catch (error: any) {
       alert(error.message);
     }

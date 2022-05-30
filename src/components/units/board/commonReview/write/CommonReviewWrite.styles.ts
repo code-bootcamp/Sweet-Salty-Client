@@ -1,6 +1,11 @@
 import styled from "@emotion/styled";
 import WriteReviewInput from "./CommonReviewWrite.input";
 
+interface IAny {
+  checkPage?: any;
+  subCategoryName?: any;
+}
+
 export const Wrapper = styled.div`
   padding-bottom: 100px;
   width: 100%;
@@ -63,7 +68,7 @@ export const WriteTitle = styled.div`
 
 export const SugarSaltArticle = styled.div`
   width: 100%;
-  display: ${(props) =>
+  display: ${(props: IAny) =>
     props.checkPage && props.subCategoryName === "REQUEST" ? "none" : "flex"};
   justify-content: space-between;
   padding: 20px 0px;
@@ -71,7 +76,7 @@ export const SugarSaltArticle = styled.div`
 `;
 
 export const MenuArticle = styled.div`
-  display: ${(props) =>
+  display: ${(props: IAny) =>
     props.checkPage && props.subCategoryName === "REQUEST" ? "none" : "flex"};
   flex-direction: column;
   width: 100%;
@@ -83,7 +88,7 @@ export const MoodArticle = styled.div`
   width: 100%;
   padding: 20px 0px;
   border-bottom: 1px solid #dadada;
-  display: ${(props) =>
+  display: ${(props: IAny) =>
     props.checkPage && props.subCategoryName === "REQUEST" ? "none" : "flex"};
   flex-direction: column;
 `;

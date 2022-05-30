@@ -1,6 +1,13 @@
 import styled from "@emotion/styled";
 import { useRouter } from "next/router";
 
+interface IAny {
+  isReviewList?: any;
+  isCommonReviewList?: any;
+  isTesterReview?: any;
+  isWishList?: any;
+}
+
 export const ReviewMenuBox = styled.div`
   margin: 0 auto;
   width: 1338px;
@@ -17,14 +24,14 @@ export const ReviewMenu = styled.div`
   border-radius: 20px 20px 0 0;
   font-weight: 700;
   font-size: 20px;
-  color: ${(props: any) =>
+  color: ${(props: IAny) =>
     props.isReviewList ||
     props.isCommonReviewList ||
     props.isTesterReview ||
     props.isWishList
       ? "#fff"
       : "#7b7b7b"};
-  background: ${(props: any) =>
+  background: ${(props: IAny) =>
     props.isReviewList ||
     props.isCommonReviewList ||
     props.isTesterReview ||

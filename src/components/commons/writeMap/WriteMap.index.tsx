@@ -45,7 +45,9 @@ export default function WriteMapPage(props: any) {
         });
 
         function searchPlaces() {
-          const keyword = document.getElementById("keyword").value;
+          const keyword = (
+            document.getElementById("keyword") as HTMLInputElement
+          ).value;
 
           if (!keyword.replace(/^\s+|\s+$/g, "")) {
             alert("키워드를 입력해주세요!");
@@ -224,7 +226,7 @@ export default function WriteMapPage(props: any) {
           for (let i = 1; i <= pagination.last; i++) {
             const el = document.createElement("a");
             el.href = "#";
-            el.innerHTML = i;
+            el.innerHTML = String(i);
 
             if (i === pagination.current) {
               el.className = "on";

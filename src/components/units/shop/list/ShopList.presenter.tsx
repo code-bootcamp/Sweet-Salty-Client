@@ -7,7 +7,7 @@ import InfiniteScroll from "react-infinite-scroller";
 import StoreSearchBarContainerPage from "../../../commons/shopSearchBar/shopSearchBar.container";
 import StoreSearchItemContainerPage from "../../../commons/card/StoreSearchCard/StoreSearchItem.container";
 
-export default function ShopPresenterPage(props:any) {
+export default function ShopPresenterPage(props: any) {
   const dataForSellerSearch = props.sellerSearchData?.fetchShopSeller.hits.hits;
   const dataForTitleSearch = props.titleSearchData?.fetchShopTitles.hits.hits;
   return (
@@ -34,7 +34,7 @@ export default function ShopPresenterPage(props:any) {
               <S.BestContentsTitleBottom>TOP 3</S.BestContentsTitleBottom>
             </S.BestContentsTitleArticle>
             {/* 베스트게시글 */}
-            {props.bestShopListData?.fetchTopShop.map((el, idx) => (
+            {props.bestShopListData?.fetchTopShop.map((el: any, idx: any) => (
               <BestStoreItemContainerPage
                 key={uuidv4()}
                 el={el}

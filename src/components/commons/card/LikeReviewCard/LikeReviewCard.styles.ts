@@ -1,6 +1,9 @@
 import { HeartFilled } from "@ant-design/icons";
 import styled from "@emotion/styled";
 
+interface IEl {
+  el: any;
+}
 
 export const ItemMainDiv = styled.div`
   margin-bottom: 15px;
@@ -12,11 +15,12 @@ export const ItemImg = styled.div`
   padding: 15px;
   width: 338px;
   height: 250px;
-  background-color: #D2D2D2;
-  background: no-repeat url(${(props: any) => props.el?.thumbnail 
-    ? `https://storage.googleapis.com/${props.el?.thumbnail}`
-    : "https://t1.daumcdn.net/cfile/tistory/24283C3858F778CA2E"
-  });
+  background-color: #d2d2d2;
+  background: no-repeat
+    ${(props: IEl) =>
+      props.el?.thumbnail
+        ? `url(https://storage.googleapis.com/${props.el?.thumbnail})`
+        : "url(https://t1.daumcdn.net/cfile/tistory/24283C3858F778CA2E)"};
   background-size: cover;
   background-position: center;
   cursor: pointer;
@@ -30,7 +34,7 @@ export const BoardSubject = styled.div`
   font-size: 18px;
   font-weight: 700;
   color: #fff;
-`
+`;
 // 포로필사진
 export const ItemProfile = styled.img`
   height: 40px;
@@ -74,19 +78,24 @@ export const ItemInfoMidDiv = styled.div`
 export const ItemInfoStoreName = styled.div`
   font-size: 14px;
   font-weight: 500;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 `;
 export const P = styled.div`
   margin: 0 5px;
   background: #676767;
   width: 1px;
   height: 14px;
-  `;
+`;
 export const ItemInfoLocationDiv = styled.div`
   color: #676767;
   font-size: 14px;
   font-weight: 500;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 `;
-
 
 export const ItemInfoBottomDiv = styled.div`
   display: flex;
@@ -94,7 +103,7 @@ export const ItemInfoBottomDiv = styled.div`
 `;
 export const LikeFillIcon = styled(HeartFilled)`
   font-size: 24px;
-  color: #FF9A31;
+  color: #ff9a31;
 `;
 export const ItemInfoImg = styled.img`
   height: 24px;

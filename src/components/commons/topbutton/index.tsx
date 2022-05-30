@@ -1,6 +1,10 @@
 import styled from "@emotion/styled";
 import { useRouter } from "next/router";
 
+interface IAny {
+  isReviewDetail?: any;
+}
+
 const TopBox = styled.div`
   width: 52px;
   height: 52px;
@@ -9,7 +13,7 @@ const TopBox = styled.div`
   border-radius: 50%;
   background: #fff;
   cursor: pointer;
-  box-shadow: ${(props: any) =>
+  box-shadow: ${(props: IAny) =>
     props.isReviewDetail ? "0 0 3px #fff" : "0px 0px 10px #dbdbdb"};
 
   transition: 0.2s;
@@ -17,7 +21,7 @@ const TopBox = styled.div`
     background: linear-gradient(#ff6e30, #ffa230);
     color: #fff;
     font-weight: 700;
-    box-shadow: ${(props: any) =>
+    box-shadow: ${(props: IAny) =>
       props.isReviewDetail ? "0 0 0" : "0px 0px 10px #dbdbdb"};
   }
 `;

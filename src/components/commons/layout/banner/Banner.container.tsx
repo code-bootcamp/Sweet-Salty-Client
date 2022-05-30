@@ -1,5 +1,3 @@
-// Banner Container === 김치훈
-
 import * as S from "./Banner.styles";
 import styled from "@emotion/styled";
 import Slider from "react-slick";

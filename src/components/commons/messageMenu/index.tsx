@@ -1,6 +1,13 @@
 import styled from "@emotion/styled";
 import { useRouter } from "next/router";
 
+interface IIs {
+  isReceived?: any;
+  isSend?: any;
+  isRecievedTap?: any;
+  isSendTap?: any;
+}
+
 export const MessageMenuBox = styled.div`
   margin: 0 auto;
   width: 1120px;
@@ -18,11 +25,11 @@ export const MessageMenu = styled.div`
   font-weight: 700;
   font-size: 20px;
   margin: 0 15px;
-  color: ${(props: any) =>
+  color: ${(props: IIs) =>
     props.isReceived || props.isSend || props.isRecievedTap || props.isSendTap
       ? "#fff"
       : "#7b7b7b"};
-  background: ${(props: any) =>
+  background: ${(props: IIs) =>
     props.isReceived || props.isSend || props.isRecievedTap || props.isSendTap
       ? "linear-gradient(#ff6e30, #ffa230)"
       : "#fff"};

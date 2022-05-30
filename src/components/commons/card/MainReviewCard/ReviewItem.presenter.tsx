@@ -13,6 +13,7 @@ export default function MainReviewItemPresenterPage(props) {
             backgroundImage: `url(https://storage.googleapis.com/${props.fetchBoardsData?.thumbnail})`,
             backgroundSize: "cover",
             backgroundRepeat: "no-repeat",
+            backgroundPosition: "center",
           }}
         >
           <S.ItemProfile><S.ProfileImg src ={url +props.fetchBoardsData.user?.userImage}/></S.ItemProfile>

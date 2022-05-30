@@ -57,6 +57,7 @@ export const ContentsDiv = styled.div`
   color: #2c2c2c;
   font-size: 14px;
   font-weight: 500;
+  white-space: normal;
 `;
 export const LikeBox = styled.div``;
 export const LikeCount = styled.span`

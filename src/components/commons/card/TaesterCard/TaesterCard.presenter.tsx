@@ -12,6 +12,7 @@ export default function TasterCardPresenterPage(props) {
           backgroundImage: `url(https://storage.googleapis.com/${props.fetchBoardsData?.thumbnail})`,
           backgroundSize: "cover",
           backgroundRepeat: "no-repeat",
+          backgroundPosition: "center",
         }}
       >
         {props.fetchBoardsData?.boardSubject === "TASTER" && (

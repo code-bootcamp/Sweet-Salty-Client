@@ -56,7 +56,7 @@ export default function UserInfoContainer(){
           createPointTransaction({
             variables: {
               impUid: rsp.imp_uid,
-              amount: 100,
+              amount: Number(changePoint),
             }
           })
           console.log("충전 완료!");

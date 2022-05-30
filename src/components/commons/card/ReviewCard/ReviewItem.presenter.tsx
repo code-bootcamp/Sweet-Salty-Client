@@ -12,6 +12,7 @@ export default function CommonReviewItemPresenterPage(props) {
             backgroundImage: `url(https://storage.googleapis.com/${props.fetchBoardsData?.thumbnail})`,
             backgroundSize: "cover",
             backgroundRepeat: "no-repeat",
+            backgroundPosition: "center",
           }}
         >
           <S.ItemTitle>단짠 리뷰</S.ItemTitle>

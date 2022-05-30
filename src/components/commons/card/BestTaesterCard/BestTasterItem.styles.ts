@@ -6,6 +6,7 @@ export const ItemInfoLeftDiv = styled.div`
 `;
 // 여러번 사용 끝
 export const ItemMainDiv = styled.div`
+  margin-right: 28px;
   cursor: pointer;
   height: 342px;
   width: 338px;

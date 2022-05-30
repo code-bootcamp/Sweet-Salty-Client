@@ -13,10 +13,14 @@ export const UserImage = styled.img`
   border-radius: 50%;
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
 `;
-export const Input = styled.input`
+export const Input = styled.textarea`
   padding: 11px;
-  width: 760px; 
+  width: 760px;
   height: 40px;
+  min-height: 40px;
+  max-height: 80px;
+  white-space: nomal;
+  word-break: break-all; 
   border-radius: 10px;
   border: 2px solid #dadada;
   color: #2C2C2C;

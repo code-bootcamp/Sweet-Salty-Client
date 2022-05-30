@@ -13,6 +13,7 @@ export default function StoreItemPresenterPage(props) {
               backgroundRepeat: "no-repeat",
               objectFit: "cover",
               overflow: "hidden",
+              backgroundPosition: "center",
             }}
           ></S.GifticonImg>
           <S.GifticonLogoDiv>

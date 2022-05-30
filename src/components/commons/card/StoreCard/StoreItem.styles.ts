@@ -2,12 +2,9 @@ import styled from "@emotion/styled";
 import FavoriteBorderRoundedIcon from "@material-ui/icons/FavoriteBorderRounded";
 import FavoriteRoundedIcon from "@material-ui/icons/FavoriteRounded";
 
-// 스토어 아이템 부분
-// 여러번 사용
 export const ItemInfoWrapDiv = styled.div`
   display: flex;
 `;
-// 여러번 사용 끝
 export const ItemMainDiv = styled.div`
   cursor: pointer;
   height: 342px;
@@ -68,7 +65,6 @@ export const ItemPick = styled(FavoriteRoundedIcon)`
     font-size: 40px;
   }
 `;
-// pick 여부 따라서 color  #FF6E30
 export const ItemInfoDiv = styled.div`
   height: 92px;
   margin: 10px 0;
@@ -150,4 +146,3 @@ export const ItemNoDCPriceDiv = styled.div`
   padding: 2px 5px 0;
   text-decoration: line-through;
 `;
-// 스토어 아이템 끝

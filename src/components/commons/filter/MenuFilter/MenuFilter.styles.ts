@@ -6,7 +6,6 @@ export const OpenTag = styled.div`
   font-weight: 700;
   font-size: 16px;
 
-  // 체크박스 인풋은 숨김처리
   .checkbox input {
     display: none;
   }
@@ -31,7 +30,6 @@ export const OpenTag = styled.div`
     }
   }
 
-  // 체크박스 테두리
   .checkbox_icon {
     display: flex;
     background-color: transparent;
@@ -42,7 +40,6 @@ export const OpenTag = styled.div`
     cursor: pointer;
   }
 
-  // 체크되었을 때 설정
   .checkbox input:checked + .checkbox_text {
     color: #ffffff;
     background-color: #ffa230;

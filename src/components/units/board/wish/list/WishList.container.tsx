@@ -1,5 +1,3 @@
-// 여기는 가주세요 List Container 입니다.
-
 import { useQuery } from "@apollo/client";
 import {
   FETCH_BOARD_BEST,
@@ -23,7 +21,6 @@ export default function WishContainerPage() {
     },
   });
 
-  // 전체 데이터 무한스크롤
   const categoryDataLoadMore = () => {
     if (!fetchBoardsCategoryData) return;
     categoryFetchMore({

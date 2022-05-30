@@ -1,5 +1,3 @@
-// 여기는 시식단 리뷰 List Container 입니다..
-
 import { useQuery } from "@apollo/client";
 
 import _ from "lodash";
@@ -38,7 +36,6 @@ export default function TesterReviewContainerPage() {
     },
   });
 
-  // 전체 데이터 무한스크롤
   const categoryDataLoadMore = () => {
     if (!fetchBoardsCategoryData) return;
     categoryFetchMore({
@@ -62,7 +59,6 @@ export default function TesterReviewContainerPage() {
   };
 
   const infiniteTagArr = fetchBoardWithTagData?.fetchBoardWithTags.hits;
-  // 필터 검색 데이터 무한스크롤
   const filterDataLoadMore = () => {
     if (!infiniteTagArr) return;
     tagFetchMore({

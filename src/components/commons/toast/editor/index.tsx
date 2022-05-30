@@ -4,7 +4,6 @@ import { useRef } from "react";
 import colorSyntax from "@toast-ui/editor-plugin-color-syntax";
 
 import { gql, useMutation } from "@apollo/client";
-// import { useState } from "react";
 
 const UPLOAD_FILE = gql`
   mutation uploadFile($file: Upload!) {
@@ -12,19 +11,19 @@ const UPLOAD_FILE = gql`
   }
 `;
 
-export default function WriteToast(props) {
+export default function WriteToast(props:any) {
   const [uploadFile] = useMutation(UPLOAD_FILE);
   const editorRef = useRef<Editor>(null);
 
   const onChangeContents = () => {
-    const editorInstance = editorRef.current.getInstance();
-    props.setBoardContents(editorInstance.getMarkdown());
+    const editorInstance = editorRef.current?.getInstance();
+    props.setBoardContents(editorInstance?.getMarkdown());
 
     if (props.defaultValue)
-      props.setBoardContents(editorInstance.getMarkdown());
+      props.setBoardContents(editorInstance?.getMarkdown());
   };
 
-  const onUploadImage = async (blob, callback) => {
+  const onUploadImage = async (blob:any, callback:any) => {
     const url = await uploadFile({
       variables: { file: blob },
     });

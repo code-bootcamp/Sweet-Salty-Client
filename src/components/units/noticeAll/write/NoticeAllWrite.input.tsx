@@ -12,8 +12,9 @@ export const Input = styled.input`
   font-size: 14px;
   font-weight: 700;
   outline-color: #676767;
-  ::placeholder {color: #dbdbdb;}
-
+  ::placeholder {
+    color: #dbdbdb;
+  }
 `;
 
 interface IProps {

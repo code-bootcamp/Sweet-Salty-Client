@@ -1,5 +1,5 @@
 import styled from "@emotion/styled";
-import { RightOutlined } from "@ant-design/icons"
+import { RightOutlined } from "@ant-design/icons";
 
 export const MessageBoxDiv = styled.div`
   width: 1120px;
@@ -20,24 +20,22 @@ export const Wrapper = styled.div`
   align-items: center;
 `;
 
-
 export const Title = styled.div`
   padding: 100px 0;
-  font-size: 40px; 
+  font-size: 40px;
   font-weight: 700;
   display: flex;
   align-items: center;
-  color: #2C2C2C;
-`
+  color: #2c2c2c;
+`;
 export const RightOutline = styled(RightOutlined)`
   padding: 0 15px;
-  color:
-`
+`;
 export const MenuTxt = styled.div`
-padding: 10px 0;
-font-size: 16px;
-font-weight: 700;
-cursor: default;
+  padding: 10px 0;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: default;
 `;
 
 export const ReceiveUserInput = styled.input`
@@ -46,31 +44,31 @@ export const ReceiveUserInput = styled.input`
   color: #676767;
   font-size: 14px;
   height: 46px;
-  line-height:22px;
-  padding : 16px;
+  line-height: 22px;
+  padding: 16px;
   width: 300px;
   outline: none;
 `;
 
 export const MessageHr = styled.div`
-    margin: 20px auto;
-    width: 1040px;
-    height: 2px;
-    border-radius: 50px;
-    background: #DADADA;
+  margin: 20px auto;
+  width: 1040px;
+  height: 2px;
+  border-radius: 50px;
+  background: #dadada;
 `;
 export const MessageTextarea = styled.textarea`
-background: #FFFFFF;
-border: 2px solid #DADADA;
-border-radius: 10px;
-color: #676767;
-font-size: 14px;
-font-weight: 500;
-height: 274px;
-line-height: 20px;
-padding:16px;
-width: 1040px;
-outline: none;
+  background: #ffffff;
+  border: 2px solid #dadada;
+  border-radius: 10px;
+  color: #676767;
+  font-size: 14px;
+  font-weight: 500;
+  height: 274px;
+  line-height: 20px;
+  padding: 16px;
+  width: 1040px;
+  outline: none;
 `;
 export const BtnBoxDiv = styled.div`
   margin-top: 40px;
@@ -80,7 +78,7 @@ export const BtnBoxDiv = styled.div`
 `;
 export const SendBtn = styled.button`
   margin: 0 20px;
-  background: #Ff9a31;
+  background: #ff9a31;
   border: none;
   border-radius: 10px;
   color: #ffffff;
@@ -92,8 +90,8 @@ export const SendBtn = styled.button`
   cursor: pointer;
 `;
 export const CancelBtn = styled.button`
-  background: #FFFFFF;
-  border: 2px solid #DADADA;
+  background: #ffffff;
+  border: 2px solid #dadada;
   border-radius: 10px;
   color: #676767;
   font-weight: 700;

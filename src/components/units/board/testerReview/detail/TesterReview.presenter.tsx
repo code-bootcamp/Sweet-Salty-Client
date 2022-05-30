@@ -1,5 +1,3 @@
-// 일반리뷰 상세보기 Presenter  - 김치훈
-
 import DetailMapPage from "../../../../commons/detailMap/DetailMap.index";
 import Hits from "../../../../commons/hits";
 import { getDate } from "../../../../commons/libraries/date";
@@ -74,7 +72,7 @@ export default function TesterDetailPresenter(props: any) {
             </S.ConsBox>
           </S.SectionLeft>
           <S.Tags>
-            {props.data?.boardSides.map((el, idx) => (
+            {props.data?.boardSides.map((el: any, idx: any) => (
               <S.Tag key={idx}>{el.boardTags.boardTagName}</S.Tag>
             ))}
           </S.Tags>

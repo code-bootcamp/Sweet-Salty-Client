@@ -1,5 +1,3 @@
-// NoticeAll Writer Styles ---김치훈
-
 import styled from "@emotion/styled";
 import WriteReviewInput from "./NoticeAllWrite.input";
 import WriteReviewTextarea from "./NoticeAllWrite.textarea";
@@ -105,8 +103,6 @@ export const SectionHr = styled.div`
   background: #dadada;
 `;
 
-
-
 export const ImageWrapper = styled.div`
   width: 920px;
   padding-top: 40px;
@@ -115,7 +111,6 @@ export const ImageTitle = styled.div`
   font-weight: 900;
   font-size: 20px;
 `;
-
 
 export const Section = styled.div`
   display: flex;
@@ -135,12 +130,11 @@ export const ContentTextArea = styled(WriteReviewTextarea)`
   outline: #dadada;
   border-radius: 20px;
   font-weight: 700;
-  color: #2C2C2C;
+  color: #2c2c2c;
   ::placeholder {
     color: #dbdbdb;
   }
-`
-
+`;
 
 export const ButtonBox = styled.div`
   padding: 20px 0;

@@ -1,8 +1,8 @@
 import SignupInput from "./Signup.input";
 import * as S from "./Signup2.styled";
 import Countdown from "react-countdown";
-export default function Signup2Presenter(props) {
-  const renderer = ({ minutes, seconds }) => {
+export default function Signup2Presenter(props: any) {
+  const renderer = ({ minutes, seconds }: any) => {
     return (
       <S.TimerTxt>
         {String(minutes).padStart(2, "0")}:{String(seconds).padStart(2, "0")}
@@ -20,7 +20,6 @@ export default function Signup2Presenter(props) {
           <SignupInput
             type="text"
             placeholder="이메일을 입력해주세요."
-            // {...props.register("userEmail")}
             register={props.register("userEmail")}
           />
           <S.InputButton type="button" onClick={props.onClickEmailCheck}>
@@ -34,7 +33,6 @@ export default function Signup2Presenter(props) {
                 type="password"
                 placeholder="비밀번호를 입력해주세요."
                 register={props.register("userPassword")}
-                // {...props.register("userPassword")}
               />
               <S.ErrorTxt>
                 {props.formState.errors.userPassword?.message}
@@ -47,7 +45,6 @@ export default function Signup2Presenter(props) {
                 type="password"
                 placeholder="비밀번호를 한 번 더 입력해주세요."
                 register={props.register("confirmUserPassword")}
-                // {...props.register("confirmUserPassword")}
               />
               <S.ErrorTxt>
                 {props.formState.errors.confirmUserPassword?.message}
@@ -60,7 +57,6 @@ export default function Signup2Presenter(props) {
             type="text"
             placeholder="닉네임을 입력해주세요."
             register={props.register("userNickname")}
-            // {...props.register("userNickname")}
           />
           <S.InputButton type="button" onClick={props.onClickNicknameCheck}>
             닉네임 중복확인
@@ -70,11 +66,7 @@ export default function Signup2Presenter(props) {
           </S.ErrorTxt>
           <S.Text>휴대전화</S.Text>
           <S.PhoneInputBox>
-            <SignupInput
-              type="text"
-              register={props.register("userPhone")}
-              // {...props.register("userPhone")}
-            />
+            <SignupInput type="text" register={props.register("userPhone")} />
 
             <S.InputButton type="button" onClick={props.onClickGetNumber}>
               인증번호받기
@@ -82,7 +74,10 @@ export default function Signup2Presenter(props) {
           </S.PhoneInputBox>
           <S.Text>인증번호</S.Text>
           <S.RowBox>
-            <SignupInput type="text" register={props.register("serialNumber")} />
+            <SignupInput
+              type="text"
+              register={props.register("serialNumber")}
+            />
 
             <S.OutputButton type="button" onClick={props.onClickCheckNumber}>
               인증확인
@@ -96,7 +91,7 @@ export default function Signup2Presenter(props) {
           </S.RowBox>
           <S.Text>성별</S.Text>
           <S.SelectDiv>
-            {props.genderData.map((el) => (
+            {props.genderData.map((el: any) => (
               <label className="checkbox" key={el.key}>
                 <input
                   type="checkbox"
@@ -112,7 +107,7 @@ export default function Signup2Presenter(props) {
           </S.SelectDiv>
           <S.Text>연령대</S.Text>
           <S.SelectDiv>
-            {props.ageData.map((el) => (
+            {props.ageData.map((el: any) => (
               <label className="checkbox" key={el.key}>
                 <input
                   type="checkbox"
@@ -131,7 +126,7 @@ export default function Signup2Presenter(props) {
           </S.WriteTitle>
           <S.SubWriteTitle>메뉴 유형</S.SubWriteTitle>
           <S.SelectDiv>
-            {props.menuData.map((el) => (
+            {props.menuData.map((el: any) => (
               <label className="checkbox" key={el.key}>
                 <input
                   type="checkbox"

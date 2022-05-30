@@ -1,5 +1,3 @@
-// 페이지네이션 Container --- 김치훈
-
 import { MouseEvent, useState } from "react";
 import Paginations01UI from "./Paginations01.presenter";
 import { IPaginations01Props } from "./Paginations01.types";

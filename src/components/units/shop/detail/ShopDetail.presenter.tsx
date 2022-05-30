@@ -1,14 +1,9 @@
 import DetailMapPage from "../../../commons/detailMap/DetailMap.index";
 import * as S from "./ShopDetail.styled";
 
-export default function ShopDetailPresenterPage(props) {
-  console.log(
-    "여기입니다",
-    props.fetchUserLoggedIn?.fetchUserLoggedIn.userNickname
-  );
+export default function ShopDetailPresenterPage(props: any) {
   return (
     <S.Page>
-      {/* 타이틀 */}
       <S.TitleSection>
         단짝 스토어 <S.RightOutline />{" "}
         {props.fetchShop?.fetchShop.shopProductName} ㅣ{" "}
@@ -16,13 +11,9 @@ export default function ShopDetailPresenterPage(props) {
       </S.TitleSection>
       <S.Main>
         <S.Padding>
-          {/* 메인페이지 */}
           <S.MainSection>
-            {/* 좌측 */}
             <S.MainLeftSection>
-              {/* 상단 사진, Info */}
               <S.LeftTopInfoArticle>
-                {/* 프로필 사진 */}
                 <S.Thumbnail
                   style={{
                     backgroundImage: `url(${props.fetchShop?.fetchShop.thumbnail})`,
@@ -34,24 +25,18 @@ export default function ShopDetailPresenterPage(props) {
                 >
                   <S.ThumbnailTitle>일일 특가</S.ThumbnailTitle>
                 </S.Thumbnail>
-                {/* Info */}
                 <S.InfoSection>
-                  {/* 식당명 */}
                   <S.ShopNameArticle>
                     {props.fetchShop?.fetchShop.shopProductName} ㅣ{" "}
                     {props.fetchShop?.fetchShop.shopSeller} 식사권
                   </S.ShopNameArticle>
-                  {/* 상품설명 */}
                   <S.ShopDescriptionArticle>
                     {props.fetchShop?.fetchShop.shopDescription}
                   </S.ShopDescriptionArticle>
-                  {/* 가격 */}
                   <S.PriceArticle>
-                    {/* 원가 */}
                     <S.OriginalPriceArticle>
                       {props.fetchShop?.fetchShop.shopOriginalPrice}원
                     </S.OriginalPriceArticle>
-                    {/* 할인 */}
                     <S.DiscountedPriceSection>
                       <S.DiscountedRate>
                         {props.fetchShop?.fetchShop.shopDisCount}%
@@ -63,7 +48,6 @@ export default function ShopDetailPresenterPage(props) {
                     </S.DiscountedPriceSection>
                   </S.PriceArticle>
                   <S.CountButtonArticle>
-                    {/* 수량 */}
                     <S.CountButton onClick={props.buyAmountMinus}>
                       -
                     </S.CountButton>
@@ -73,24 +57,19 @@ export default function ShopDetailPresenterPage(props) {
                     </S.CountButton>
                   </S.CountButtonArticle>
                   <S.StockArticle>
-                    {/* 재고 */}
                     <S.StockText>재고 현황 : </S.StockText>
                     <S.StockText>
                       {props.fetchShop?.fetchShop.shopStock}개
                     </S.StockText>
                   </S.StockArticle>
-                  {/* TMI */}
                   <S.GuideMessageSection>
                     본 식사권은 구매 후 마이페이지의 포인트 상세 내역에서
                     바코드를 받을 수 있습니다.
                   </S.GuideMessageSection>
                 </S.InfoSection>
               </S.LeftTopInfoArticle>
-              {/* 하단 설명 */}
               <S.LeftBottomInfoArticle>
                 <div>
-                  {/* 설명탭 */}
-                  {/* 이용 안내 */}
                   <S.ProductSmallSection>
                     <S.DetailProductTitleSection>
                       이용안내
@@ -156,7 +135,6 @@ export default function ShopDetailPresenterPage(props) {
                   </S.ProductSmallSection>
                 </div>
               </S.LeftBottomInfoArticle>
-              {/* 지도 */}
               <S.MapSection>
                 <S.MapTitleArticle>이용 식당 위치</S.MapTitleArticle>
                 <S.MapArticle>
@@ -168,16 +146,12 @@ export default function ShopDetailPresenterPage(props) {
                 </S.MapArticle>
               </S.MapSection>
             </S.MainLeftSection>
-            {/* 우측 */}
           </S.MainSection>
         </S.Padding>
 
         <S.MainRightSection>
-          {/* 타이틀 */}
           <S.RightTitleArticle>포인트 결제 상세</S.RightTitleArticle>
-          {/* 결제 상세 */}
           <div>
-            {/* 보유포인트 */}
             <S.RightSection>
               <div>
                 <S.UserNameSection>
@@ -193,19 +167,16 @@ export default function ShopDetailPresenterPage(props) {
                 {props.fetchUserLoggedIn?.fetchUserLoggedIn.userPoint}
               </S.RightTextOrange>
             </S.RightSection>
-            {/* 상품 금액 */}
             <S.RightSection>
               <S.RightText>식사권 금액</S.RightText>
               <S.PriceText>
                 {props.fetchShop?.fetchShop.shopDisCountPrice}
               </S.PriceText>
             </S.RightSection>
-            {/* 선택 수량 */}
             <S.RightSection>
               <S.RightText>선택한 수량</S.RightText>
               <S.AmountText>{props.buyAmount} 개</S.AmountText>
             </S.RightSection>
-            {/* 차감될 포인트 */}
             <S.RightSection>
               <S.RightText>차감될 포인트</S.RightText>
               <S.AmountPoint>
@@ -218,7 +189,6 @@ export default function ShopDetailPresenterPage(props) {
                 )}
               </S.AmountPoint>
             </S.RightSection>
-            {/* 잔여 포인트 */}
             <S.RightSection>
               {props.remainPoint < 0 ? (
                 <S.RightText>필요한 포인트</S.RightText>
@@ -237,7 +207,6 @@ export default function ShopDetailPresenterPage(props) {
               </S.RemainPoint>
             </S.RightSection>
 
-            {/* 구매하기 버튼 */}
             <S.BuyButonSection>
               {props.remainPoint >= 0 && props.buyAmount !== 0 ? (
                 <S.BuyButton

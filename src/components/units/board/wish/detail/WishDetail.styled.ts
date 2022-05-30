@@ -1,5 +1,3 @@
-// 가주세요! Detail styles -김치훈
-
 import styled from "@emotion/styled";
 import { RightOutlined, EditOutlined } from "@ant-design/icons";
 
@@ -77,14 +75,6 @@ export const UserName = styled.span`
 export const CreateAt = styled.span`
   font-size: 14px;
 `;
-
-// export const Section = styled.div`
-//   display: flex;
-//   justify-content: center;
-//   border: 2px solid #dadada;
-//   border-radius: 20px;
-//   padding: 60px 194px;
-// `;
 
 export const SectionBox = styled.div`
   display: flex;

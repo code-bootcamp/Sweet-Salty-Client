@@ -1,9 +1,9 @@
-import dynamic from 'next/dynamic'
+import dynamic from "next/dynamic";
 
-const ToastViewer = dynamic(() => import('./viewer'), {
+const ToastViewer = dynamic(() => import("./viewer"), {
   ssr: false,
-})
+});
 
-export default function ToastViewerPage(props) {
-  return <ToastViewer contents={props.contents} />
+export default function ToastViewerPage(props:any) {
+  return <ToastViewer contents={props.contents} />;
 }

@@ -1,5 +1,3 @@
-// 일반리뷰 상세보기 style  - 김치훈
-
 import styled from "@emotion/styled";
 import { RightOutlined } from "@ant-design/icons";
 

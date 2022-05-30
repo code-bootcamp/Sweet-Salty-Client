@@ -1,5 +1,3 @@
-// 여기는 스토어페이지입니다.
-
 import { useQuery } from "@apollo/client";
 import { useState } from "react";
 import ShopPresenterPage from "./ShopList.presenter";
@@ -9,15 +7,13 @@ import {
   FETCH_SHOP_TITLE,
 } from "./ShopList.queries";
 
-export default function ShopContainerPage(props) {
+export default function ShopContainerPage(props: any) {
   const [sellerSearch, setSellerSearch] = useState("");
   const [titleSearch, setTitleSearch] = useState("");
 
-  // 전체 리스트 데이터
   const { data: shopListData, fetchMore: shopFetchMoreData } =
     useQuery(FETCH_SHOPS);
 
-  // 가게이름 검색 데이터
   const { data: sellerSearchData, fetchMore: sellerSearchFetchMoreData } =
     useQuery(FETCH_SHOP_SELLER, {
       variables: {
@@ -25,7 +21,6 @@ export default function ShopContainerPage(props) {
       },
     });
 
-  // 메뉴 검색 데이터
   const { data: titleSearchData, fetchMore: titleSearchFetchMoreData } =
     useQuery(FETCH_SHOP_TITLE, {
       variables: {
@@ -33,7 +28,6 @@ export default function ShopContainerPage(props) {
       },
     });
 
-  // 전체 shop 리스트 데이터 무한스크롤
   const shopListDataLoadMore = () => {
     if (!shopListData) return;
     shopFetchMoreData({
@@ -50,7 +44,6 @@ export default function ShopContainerPage(props) {
     });
   };
 
-  // seller 검색 리스트 데이터 무한스크롤
   const infiniteSellerSearchArr = sellerSearchData?.fetchShopSeller.hits;
 
   const sellerSearchDataLoadMore = () => {
@@ -68,7 +61,6 @@ export default function ShopContainerPage(props) {
     });
   };
 
-  // title 검색 리스트 데이터 무한스크롤
   const infiniteTitleSearchArr = titleSearchData?.fetchShopTitles.hits;
 
   const titleSearchDataLoadMore = () => {

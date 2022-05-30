@@ -1,4 +1,3 @@
-// 전체 공지사항 list queries --- 김치훈
 
 import { gql } from "@apollo/client";
 

@@ -87,7 +87,7 @@ export const FETCH_USER = gql`
 
 // 포인트 충전
 export const CREATE_POINT_TRANSACTION = gql`
-  mutation createPointTransaction($impUid: String!, $amount: Float!){
+  mutation createPointTransaction($impUid: String!, $amount: Int!){
     createPointTransaction(impUid: $impUid, amount: $amount){
       id
   }

@@ -10,7 +10,7 @@ export default function ModifyPresenterPage(props: any) {
           <S.FlexBox>
             <S.InputBox
               type="text"
-              placeholder="비밀번호를 수정하세요."
+              placeholder="닉네임을 수정하세요."
               {...props.register("userNickname")}
             />
           </S.FlexBox>

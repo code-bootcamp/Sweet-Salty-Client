@@ -35,9 +35,10 @@ export default function LayoutBannerUI() {
     <S.BannerWrapper>
       <Slick {...settings}>
         <S.BannerSlick>
-          <S.BannerSlickTitle>단짠님 모집</S.BannerSlickTitle>
+          <S.BannerSlickTitle>단짠 맛집 포인트 이벤트</S.BannerSlickTitle>
           <S.BannerSlickContent>
-            단짠 맛집의 <br /> 리뷰를 써보세요!
+          단짠 게시판에 첫 단짠 리뷰를<br/>
+          게시하면 1,000 포인트를 드려요!
           </S.BannerSlickContent>
         </S.BannerSlick>
         <S.BannerSlick>

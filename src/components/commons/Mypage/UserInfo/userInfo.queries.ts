@@ -23,6 +23,25 @@ query fetchUserLoggedIn{
   }
 `;
 
+
+// 게시글 작성 유저 정보
+export const FETCH_USER = gql`
+  query fetchUser($userEmail: String!){
+    fetchUser(userEmail: $userEmail){
+      userId
+      userState
+      userEmail
+      userName
+      userNickname
+      userPhone
+      userPoint
+      ageGroup
+      gender
+      createAt
+    }
+  }
+`
+
 // 팔로워 버튼
 export const FOLLOW =gql`
   mutation follow ($followerNickname: String!){
@@ -65,24 +84,6 @@ export const UPDATE_PROFILE = gql`
 `
 
 
-
-// 게시글 작성 유저 정보
-export const FETCH_USER = gql`
-  query fetchUser($userEmail: String!){
-    fetchUser(userEmail: $userEmail){
-      userId
-      userState
-      userEmail
-      userName
-      userNickname
-      userPhone
-      userPoint
-      ageGroup
-      gender
-      createAt
-    }
-  }
-`
 
 
 // 포인트 충전

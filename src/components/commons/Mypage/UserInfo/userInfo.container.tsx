@@ -14,14 +14,64 @@ declare const window: typeof globalThis & {
 
 
 export default function UserInfoContainer(){
+  const router = useRouter()
+
+  const {data} = useQuery(FETCH_USER_LOGGED_IN)
+  
+
+  // 프로필 사진 수정
+  const [fileUrls, setFileUrls] = useState([""]);
+  
+  const onChangeFileUrls = (fileUrl: string, index: number) => {
+    const newFileUrls = [...fileUrls];
+    newFileUrls[index] = fileUrl;
+    setFileUrls(newFileUrls);
+  };
+
+
+  // 자기소개 수정
+  const [isUpdate, setIsUpdata] = useState(true)
+  const [profile, setProfile] = useState(true)
+  const onClickUpdate=()=>{
+    setIsUpdata(false);
+  }
+const onChangeProfile =(event: any)=>{
+  setProfile(event.target.value)
+  }
+  const [updateProfile]= useMutation(UPDATE_PROFILE)
+  const onClickUpdateProfile =async ()=>{
+    
+    if (!profile) {
+      alert("입력해라!"); 
+      setIsUpdata(true);
+      return
+    };
+    if(profile) {
+    try{
+      await updateProfile({
+        variables: {
+          profile
+        },
+        refetchQueries: [
+          {
+            query: FETCH_USER_LOGGED_IN,
+          }
+        ]
+      })
+      setIsUpdata(true);
+    }
+    catch(error: any){
+      alert(error.message)
+    }
+  }
+  }
+  
   const [isPoint, setIsPoint] =useState(true)
   const [changePoint, setChangePoint] =useState("")
 
-  
   const { register, handleSubmit} = useForm({
     mode: "onChange"
   })
-
 
   const onClickPointCharge =()=>{
     setIsPoint(prev=>(!prev))
@@ -68,52 +118,6 @@ export default function UserInfoContainer(){
     );
   };
 
-
-  const router = useRouter()
-
-  const {data} = useQuery(FETCH_USER_LOGGED_IN)
-  
-
-  // 프로필 사진 수정
-  const [fileUrls, setFileUrls] = useState([""]);
-  
-  const onChangeFileUrls = (fileUrl: string, index: number) => {
-    const newFileUrls = [...fileUrls];
-    newFileUrls[index] = fileUrl;
-    setFileUrls(newFileUrls);
-  };
-
-
-
-
-  // 자기소개 수정
-  const [isUpdate, setIsUpdata] = useState(true)
-  const [profile, setProfile] = useState(true)
-  const onClickUpdate=()=>{
-    setIsUpdata(false);
-  }
-const onChangeProfile =(event: any)=>{
-  setProfile(event.target.value)
-  }
-  const [updateProfile]= useMutation(UPDATE_PROFILE)
-  const onClickUpdateProfile =async ()=>{
-    try{
-      await updateProfile({
-        variables: {
-          profile
-        },
-        refetchQueries: [
-          {
-            query: FETCH_USER_LOGGED_IN,
-          }
-        ]
-      })
-      setIsUpdata(true);
-    }
-    catch(error: any){
-      alert(error.message)
-    }
-  }
   // 마이 단짠 숫자
   const {data: fetchBoardCountData} = useQuery(FETCH_BOARD_COUNT)
   // 쪽지함 안 읽은 쪽지 갯수

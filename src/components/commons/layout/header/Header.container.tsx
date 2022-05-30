@@ -76,6 +76,7 @@ export default function LayoutHeader() {
       logout();
       setAccessToken("");
       setIsClick(false);
+      router.push("/")
     } catch (error: any) {
       alert(error.message);
     }

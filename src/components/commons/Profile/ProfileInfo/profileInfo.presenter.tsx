@@ -16,10 +16,12 @@ export default function ProfileInfoPresenter(props: any) {
       <S.Wrapper>
         <S.MypageBox>
           <S.UserLeftBox>
-            
-        <S.UploadImage
-          src={`https://storage.googleapis.com/${props.data?.fetchUser?.userImage}`}
-        />
+        
+        {props.data?.fetchUser?.userImage 
+          ? <S.UploadImage src={`https://storage.googleapis.com/${props.data?.fetchUser?.userImage}`} />
+          : <S.UploadImage src="/images/defaultProfile.png" />
+        }
+        
 
             <S.UserInfo>
               <S.UserName>

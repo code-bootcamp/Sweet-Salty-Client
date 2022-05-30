@@ -4,9 +4,9 @@ import CommonReviewWriteContainer from "../../../../src/components/units/board/c
 
 export default function CommonReviewWritePage() {
   const router = useRouter();
-  console.log("gslksadoiioweng", router.query.wishDetailId);
   const checkPage = router.query.checkPage;
-  const wishDetailId = router.query.wishDetailId;
+  const wishDetailId = router.query?.wishDetailId;
+  console.log(" ", checkPage, wishDetailId);
 
   return (
     <CommonReviewWriteContainer

@@ -1,9 +1,5 @@
-// 렌딩페이지
+import MainPageList from "../src/components/units/mainpage/Mainpage.container";
 
-export default function Home() {
-  return (
-    <div>
-      <div>8조 main페이지</div>
-    </div>
-  );
+export default function MainPage() {
+  return <MainPageList />;
 }

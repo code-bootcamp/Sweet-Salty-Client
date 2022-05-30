@@ -110,22 +110,28 @@ export default function UserInfoPresenter(props: any){
           <S.ButtonBox>
             {props.isPoint 
             ? <S.PointButton>
-                <img onClick={props.onClickPointCharge} style={{width: "24px", marginRight: "6px"}} src="../images/pointicon.png"/>
-                <S.Input 
-                  type="number"
-                  step={100}
-                  placeholder="충전할 금액을 적으세요."
-                  min={100}
-                  max={50000}
-                  required
-                  onChange={props.onChangePoint}
-                />
-              </S.PointButton>
-            : <S.PointButton>
-                <S.PointImg onClick={props.onClickPointCharge} src="../images/pointicon.png"/>
-                <S.PointCharge onClick={props.onClickPoint}>{props.changePoint} 포인트 충전하기
+                <S.PointImg onClick={props.onClickPointCharge} style={{width: "24px", marginRight: "6px"}} src="../images/pointicon.png"/>
+                <S.Text onClick={props.onClickPointCharge}>충전할 포인트를 입력하세요.</S.Text>
+                <S.PointCharge onClick={props.onClickPoint}>충전
                 </S.PointCharge>
               </S.PointButton>
+            : <form onSubmit={props.handleSubmit(props.onClickPoint)}>
+                <S.PointButton>
+                  <S.PointImg onClick={props.onClickPointCharge} style={{width: "24px", marginRight: "6px"}} src="/images/pointicon.png"/>
+                  <S.Input 
+                    id="autoFocus"
+                    type="number"
+                    step={100}
+                    min={100}
+                    max={50000}
+                    required
+                    placeholder="ex) 100"
+                    onChange={props.onChangePoint}
+                  />
+                  <S.PointCharge onClick={props.onClickPoint}>충전
+                  </S.PointCharge>
+                </S.PointButton>
+              </form>
             }
             <S.Button onClick={props.onClickModify}><SettingOutlined style={{ marginRight: "6px"}}/>회원정보 수정하기</S.Button>
           </S.ButtonBox>

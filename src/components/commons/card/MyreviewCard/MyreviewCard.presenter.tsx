@@ -1,3 +1,5 @@
+// 마이 단짠 게시글 카드 Presenter ---김치훈
+
 import { getDateDot } from "../../libraries/date";
 import * as S from "./MyreviewCard.styles";
 

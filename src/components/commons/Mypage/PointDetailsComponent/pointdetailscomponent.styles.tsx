@@ -121,7 +121,7 @@ export const CreateAt = styled.div`
 export const PayStatus = styled.div`
   padding: 10px 0;
   color: #2C2C2C;
-  font-weight: 700;
+  font-weight: 600;
   cursor: default;
 `
 export const ProductStatus = styled.div`

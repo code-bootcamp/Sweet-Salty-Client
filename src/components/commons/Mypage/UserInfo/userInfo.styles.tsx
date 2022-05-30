@@ -146,35 +146,42 @@ export const ButtonBox = styled.div`
   justify-content: space-between;
   align-items: end;
 `
-export const PointCharge = styled.div`
-  font-size: 16px;
-  font-weight: 700;
-`
 export const PointButton = styled.div`
   cursor: default;
   padding: 10px 15px;
   transition: 0.2s;
   display: flex;
+  justify-content: space-between;
   align-items: center;
   font-weight: 700;
   font-size: 16px;
   border-radius: 50px;
   background: linear-gradient(#ff6e30, #ffa230);
-  cursor: pointer;
   color: #fff;
   &:hover {
   }
-`
+  `
+  export const PointCharge = styled.div`
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 700;
+  `
 export const PointImg = styled.img`
+cursor: pointer;
   margin-right: 6px;
   width: 24px;
   transition: 0.2s;
   &:hover {
-    width: 25px;
   }
 `
+export const Text = styled.div`
+  cursor: pointer;
+  margin: 0 10px 0 0;
+  font-weight: 700;
+  color: rgba(255,255,255, 0.9);
+  font-size: 16px;
+`
 export const Input = styled.input`
-  width: 160px;
   color: #2c2c2c;
   background: transparent;
   border: none;
@@ -185,9 +192,10 @@ export const Input = styled.input`
     -webkit-appearance: none;
   }
   ::placeholder {
-    color: #fff;
+    color: rgba(255,255,255,0.9)
   }
 `
+
 export const Button = styled.div`
   padding: 10px 15px;
   transition: 0.2s;
@@ -199,7 +207,9 @@ export const Button = styled.div`
   background: #C9C9C9;
   cursor: pointer;
   color: #fff;
+  transition: 0.2s;
   &:hover {
+    background: #B3B3B3;
   }
 `
 

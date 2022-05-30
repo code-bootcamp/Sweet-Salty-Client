@@ -3,7 +3,7 @@
 import { useQuery } from "@apollo/client";
 
 import _ from "lodash";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import {
   FETCH_BOARD_BEST,
   FETCH_BOARD_WITH_TAGS,

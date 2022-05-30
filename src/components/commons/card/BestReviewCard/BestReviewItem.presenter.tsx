@@ -2,6 +2,8 @@
 import * as S from "./BestReviewItem.styles";
 
 export default function BestReviewItemPresenterPage(props) {
+  console.log(typeof props.idx);
+
   return (
     <S.ItemMainDiv onClick={props.onClickDetailPage} id={props.id}>
       <S.ItemImg
@@ -10,7 +12,20 @@ export default function BestReviewItemPresenterPage(props) {
           backgroundSize: "cover",
           backgroundRepeat: "no-repeat",
         }}
-      ></S.ItemImg>
+      >
+        <S.ItemRankingDiv>
+          {props.idx === 0 && (
+            <S.ItemRanking src="/images/first.png"></S.ItemRanking>
+          )}
+          {props.idx === 1 && (
+            <S.ItemRanking src="/images/second.png"></S.ItemRanking>
+          )}
+          {props.idx === 2 && (
+            <S.ItemRanking src="/images/third.png"></S.ItemRanking>
+          )}
+          <S.ItemTitle>단짠 리뷰</S.ItemTitle>
+        </S.ItemRankingDiv>
+      </S.ItemImg>
       <S.ItemInfoDiv>
         <S.ItemInfoTopDiv>
           <S.ItemInfoLeftDiv>

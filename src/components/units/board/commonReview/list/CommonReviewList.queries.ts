@@ -12,6 +12,7 @@ export const FETCH_BOARD_CATEGORY_PICK = gql`
       boardSalt
       boardContents
       boardLikeCount
+      boardSubject
       boardHit
       createAt
       thumbnail
@@ -37,6 +38,7 @@ export const FETCH_BOARD_BEST = gql`
       thumbnail
       boardHit
       boardLikeCount
+      boardSubject
       boardWriter
       createAt
       place {

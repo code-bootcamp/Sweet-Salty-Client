@@ -11,7 +11,6 @@ import CommentWriteContainerPage from "../../../comment/commentWrite/CommentWrit
 import * as S from "./WishDetail.styled";
 
 export default function WishDetailPresenterPage(props: any) {
-  console.log("이거", props.data);
   return (
     <S.Wrapper>
       <S.Title>

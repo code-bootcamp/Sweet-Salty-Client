@@ -12,6 +12,7 @@ export const FETCH_BOARD_CATEGORY_PICK = gql`
       boardSalt
       boardContents
       boardLikeCount
+      boardSubject
       boardHit
       createAt
       thumbnail

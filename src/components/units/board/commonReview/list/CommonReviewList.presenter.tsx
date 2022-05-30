@@ -35,13 +35,16 @@ export default function CommonReviewPresenterPage(props: any) {
 
             <S.ReviewSection>
               {/* 베스트리뷰3개 */}
-              {props.fetchBoardBestData?.fetchBoardBest.map((el: any) => (
-                <BestReviewItemContainerPage
-                  key={uuidv4()}
-                  el={el}
-                  id={el.boardId}
-                />
-              ))}
+              {props.fetchBoardBestData?.fetchBoardBest.map(
+                (el: any, idx: any) => (
+                  <BestReviewItemContainerPage
+                    key={uuidv4()}
+                    el={el}
+                    id={el.boardId}
+                    idx={idx}
+                  />
+                )
+              )}
             </S.ReviewSection>
           </S.TopThreeBox>
 

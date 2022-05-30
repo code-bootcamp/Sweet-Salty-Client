@@ -20,9 +20,6 @@ export default function WishDetailContainerPage() {
   const onClickWishList = () => {
     router.push("/reviews/wish/list");
   };
-  const onClickWishReviewWrite = () => {
-    router.push("/reviews/wishreview/write");
-  };
 
   const onClickDelete = () => {
     try {
@@ -52,7 +49,6 @@ export default function WishDetailContainerPage() {
     <WishDetailPresenterPage
       data={data?.fetchBoard}
       onClickWishList={onClickWishList}
-      onClickWishReviewWrite={onClickWishReviewWrite}
       onClickLike={onClickLike}
       onClickDelete={onClickDelete}
     />

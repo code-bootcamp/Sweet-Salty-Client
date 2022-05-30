@@ -16,15 +16,23 @@ export const ItemImg = styled.div`
   display: flex;
   flex-direction: row;
   height: 250px;
-  justify-content: flex-end;
-  padding: 15px;
+  justify-content: flex-start;
+  padding: 12px 0px 0px 10px;
   width: 338px;
 `;
-export const ItemProfile = styled.div`
-  background-color: #ffffff;
-  border-radius: 100%;
-  height: 40px;
-  width: 40px;
+export const ItemRankingDiv = styled.div`
+  display: flex;
+  flex-direction: row;
+`;
+
+export const ItemRanking = styled.img`
+  width: 30px;
+  height: 30px;
+`;
+export const ItemTitle = styled.div`
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 700;
 `;
 export const ItemInfoDiv = styled.div`
   height: 92px;

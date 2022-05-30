@@ -17,6 +17,7 @@ export default function BestTasterItemContainerPage(props) {
       id={props.id}
       onClickDetailPage={onClickDetailPage}
       fetchBestDetailData={props.el}
+      idx={props.idx}
     />
   );
 }

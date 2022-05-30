@@ -1,12 +1,13 @@
 import dynamic from "next/dynamic";
 import WriteMapPage from "../../../../commons/writeMap/WriteMap.index";
-import * as S from "./CommonReviewWrite.styles";
+import * as S from "./CommonReviewEdit.styles";
+import { CheckOutlined } from "@ant-design/icons";
 
 const Editor = dynamic(() => import("../../../../commons/toast/editor"), {
   ssr: false,
 });
 
-export default function CommonReviewWritePresenter(props) {
+export default function CommonReviewEditPresenter(props) {
   return (
     <S.Wrapper>
       <form onSubmit={props.handleSubmit(props.onClickReg)}>

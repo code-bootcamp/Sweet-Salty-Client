@@ -2,7 +2,7 @@ import { useForm } from "react-hook-form";
 // import { yupResolver } from "@hookform/resolvers/yup";
 // import * as yup from "yup";
 import { useRouter } from "next/router";
-import CommonReviewWritePresenter from "./CommonReviewWrite.presenter";
+import CommonReviewEditPresenter from "./CommonReviewEdit.presenter";
 import { useState } from "react";
 import { useMutation } from "@apollo/client";
 import {
@@ -10,7 +10,7 @@ import {
   CREATE_BOARD_REQ,
   CREATE_BOARD_RES,
   UPDATE_BOARD,
-} from "./CommonReviewWrite.queries";
+} from "./CommonReviewEdit.queries";
 // const schema =yup.object({
 //   boardTitle: yup.string().required("제목을 입력해주세요."),
 //   boardSugar: yup.string().required("단맛(장점)을 입력해주세요."),
@@ -18,7 +18,7 @@ import {
 //   boardContents: yup.string().required("리뷰를 입력해주세요.")
 // })
 // const nonSchema = yup.object({});
-export default function CommonReviewWriteContainer(props) {
+export default function CommonReviewEditContainer(props) {
   console.log("커뮤니티체크", props.checkPage);
   // 모든 리뷰 작성 가능함
   const router = useRouter();
@@ -95,7 +95,6 @@ export default function CommonReviewWriteContainer(props) {
       setMoodHashTag(moodHashTag.filter((el) => el !== item));
     }
   };
-
   // 카테고리 태그 체크되었는지 확인
   const onChangeCheckCategory = (el) => (event) => {
     const select = categoryData.map((el, idx) => {
@@ -106,9 +105,22 @@ export default function CommonReviewWriteContainer(props) {
     setSubCategoryName(el.value);
   };
 
-  const { register, handleSubmit, setValue, getValues, formState } = useForm({
+  const {
+    register,
+    handleSubmit,
+    setValue,
+    trigger,
+    getValues,
+    formState,
+    reset,
+  } = useForm({
+    // resolver: yupResolver(props.isEdit ? nonSchema : schema),
     mode: "onChange",
   });
+  // const onChangeContents = (value: string) => {
+  //   setValue("boardContents", value === "<p><br></p>" ? "" : value);
+  //   trigger("boardContents");
+  // };
 
   const onClickCancel = () => {
     router.back();
@@ -222,7 +234,7 @@ export default function CommonReviewWriteContainer(props) {
   //
 
   return (
-    <CommonReviewWritePresenter
+    <CommonReviewEditPresenter
       onClickCancel={onClickCancel}
       moodHashTag={moodHashTag}
       setMoodHashTag={setMoodHashTag}

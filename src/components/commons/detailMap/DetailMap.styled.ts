@@ -14,7 +14,6 @@ export const MapSection = styled.div`
   #map {
     width: 920px;
     height: 600px;
-    /* position: absolute; */
     overflow: hidden;
     border-radius: 20px;
   }
@@ -32,7 +31,6 @@ export const MapSection = styled.div`
     position: relative;
     width: 400px;
     height: 580px;
-    /* padding: 10px; */
     overflow-y: auto;
     background: rgba(255, 255, 255, 0.7);
     display: ${(props: ISearchBarOpen) => (props.isOpen ? "" : "none")};

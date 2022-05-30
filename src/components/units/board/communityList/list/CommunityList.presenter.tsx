@@ -5,8 +5,7 @@ import CommunityCardContainerPage from "../../../../commons/card/CommunityCard/C
 import TopButton from "../../../../commons/topbutton";
 import WriteBtnContainerPage from "../../../../commons/writeBtn/WriteBtn.container";
 
-export default function CommunityListPresenterPage(props) {
-  console.log("888888", props.communityCheckPage);
+export default function CommunityListPresenterPage(props: any) {
   return (
     <S.CommonReviewWrapper>
       <S.Title>전체 게시판</S.Title>
@@ -20,7 +19,6 @@ export default function CommunityListPresenterPage(props) {
         <ReviewMenuPage />
 
         <S.CommonReviewInnerBox>
-          {/* 리뷰리스트 */}
           <div style={{ height: "auto", overflow: "auto" }}>
             <InfiniteScroll
               pageStart={0}

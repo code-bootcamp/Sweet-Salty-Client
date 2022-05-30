@@ -1,6 +1,6 @@
 import * as S from "./ReviewItem.styles";
 
-export default function CommonReviewItemPresenterPage(props : any) {
+export default function CommonReviewItemPresenterPage(props: any) {
   return (
     <S.ItemMainDiv
       onClick={props.onClickDetailPage}

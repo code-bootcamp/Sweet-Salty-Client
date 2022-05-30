@@ -41,7 +41,6 @@ export default function LikeButton() {
       ) : (
         <LikeIconFill onClick={onClickLike} />
       )}
-      
     </LikeCount>
   );
 }

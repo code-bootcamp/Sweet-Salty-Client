@@ -1,7 +1,7 @@
 import * as S from "./ReviewItem.styles";
 
-export default function MainReviewItemPresenterPage(props : any) {
-  const url = "https://storage.googleapis.com/"
+export default function MainReviewItemPresenterPage(props: any) {
+  const url = "https://storage.googleapis.com/";
   return (
     <S.ItemMainDiv
       onClick={props.onClickDetailPage}
@@ -16,7 +16,9 @@ export default function MainReviewItemPresenterPage(props : any) {
             backgroundPosition: "center",
           }}
         >
-          <S.ItemProfile><S.ProfileImg src ={url +props.fetchBoardsData.user?.userImage}/></S.ItemProfile>
+          <S.ItemProfile>
+            <S.ProfileImg src={url + props.fetchBoardsData.user?.userImage} />
+          </S.ItemProfile>
         </S.ItemImg>
       </div>
       <S.ItemInfoDiv>
@@ -30,11 +32,17 @@ export default function MainReviewItemPresenterPage(props : any) {
 
         <S.ItemInfoMidDiv>
           <S.MidStoreInfoDiv>
-            <S.ItemInfoStoreName>{props.fetchBoardsData?.place.placeName}</S.ItemInfoStoreName>
+            <S.ItemInfoStoreName>
+              {props.fetchBoardsData?.place.placeName}
+            </S.ItemInfoStoreName>
             <S.ItemInfoBarDiv>|</S.ItemInfoBarDiv>
-            <S.ItemInfoLocationDiv>{props.fetchBoardsData?.place.placeAddress.split(" ")[1]}</S.ItemInfoLocationDiv>
+            <S.ItemInfoLocationDiv>
+              {props.fetchBoardsData?.place.placeAddress.split(" ")[1]}
+            </S.ItemInfoLocationDiv>
           </S.MidStoreInfoDiv>
-          <S.ItemInfoUserDiv>{props.fetchBoardsData?.boardWriter} 단짝님</S.ItemInfoUserDiv>
+          <S.ItemInfoUserDiv>
+            {props.fetchBoardsData?.boardWriter} 단짝님
+          </S.ItemInfoUserDiv>
         </S.ItemInfoMidDiv>
 
         <S.ItemInfoBottomDiv>

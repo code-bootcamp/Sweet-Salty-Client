@@ -7,7 +7,7 @@ import InfiniteScroll from "react-infinite-scroller";
 import StoreSearchBarContainerPage from "../../../commons/shopSearchBar/shopSearchBar.container";
 import StoreSearchItemContainerPage from "../../../commons/card/StoreSearchCard/StoreSearchItem.container";
 
-export default function ShopPresenterPage(props) {
+export default function ShopPresenterPage(props:any) {
   const dataForSellerSearch = props.sellerSearchData?.fetchShopSeller.hits.hits;
   const dataForTitleSearch = props.titleSearchData?.fetchShopTitles.hits.hits;
   return (

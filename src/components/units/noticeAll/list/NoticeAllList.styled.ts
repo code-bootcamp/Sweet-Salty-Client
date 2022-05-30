@@ -1,5 +1,3 @@
-// 전체 공지사항 list Styles === 김치훈
-
 import styled from "@emotion/styled";
 
 export const Wrapper = styled.div`
@@ -18,10 +16,8 @@ export const SearchBarBox = styled.div`
   padding-bottom: 46px;
 `;
 
-
-
 export const ReviewMenuBox = styled.div`
-position: relative;
+  position: relative;
   margin: 0 auto;
   width: 1120px;
   height: 50px;
@@ -37,9 +33,10 @@ export const ReviewMenu = styled.div`
   border-radius: 20px 20px 0 0;
   font-weight: 700;
   font-size: 20px;
-  background: ${(props: any)=> props.isNotice ? "linear-gradient(#ff6e30, #ffa230)" : "#fff"};
-  color: ${(props: any)=> props.isNotice ? "#fff" : "#7B7B7B"};
-  
+  background: ${(props: any) =>
+    props.isNotice ? "linear-gradient(#ff6e30, #ffa230)" : "#fff"};
+  color: ${(props: any) => (props.isNotice ? "#fff" : "#7B7B7B")};
+
   cursor: pointer;
   transition: 0.2s;
   &:hover {
@@ -53,7 +50,7 @@ export const NoticeBox = styled.div`
   background: #fff;
   border-radius: 20px;
   display: flex;
-  z-index:1;
+  z-index: 1;
   flex-direction: column;
   align-items: center;
   box-shadow: 10px 0px 10px #dbdbdb;
@@ -92,13 +89,13 @@ export const NoticeThHr = styled.div`
   width: 1072px;
   height: 2px;
   border-radius: 50px;
-  background: #FF9A31;
-  `;
-  export const NoticeTdHr = styled.div`
+  background: #ff9a31;
+`;
+export const NoticeTdHr = styled.div`
   width: 1072px;
   height: 1px;
   border-radius: 50px;
-  background: #DADADA;
+  background: #dadada;
 `;
 
 export const Notice = styled.div``;
@@ -108,7 +105,7 @@ export const NoticeTd = styled.div`
   justify-content: space-between;
   align-items: center;
   text-align: center;
-  color: #2C2C2C;
+  color: #2c2c2c;
   font-weight: 700;
 `;
 export const NoticeTdCategory = styled.div`
@@ -128,13 +125,11 @@ export const NoticeTdCreateAt = styled.div`
   font-size: 16px;
 `;
 export const NoticeTdHits = styled.div`
-width: 140px;
+  width: 140px;
   cursor: default;
   font-size: 16px;
 `;
 
-
-
 export const PagenationBox = styled.div`
-  padding: 40px 0 ;
+  padding: 40px 0;
 `;

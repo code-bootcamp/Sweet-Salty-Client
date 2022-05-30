@@ -1,6 +1,6 @@
 import * as S from "./MoodFilter.styles";
 
-export default function MoodFilterPage(props : any) {
+export default function MoodFilterPage(props: any) {
   const moodData = [
     { key: "0", value: "가족들과", checked: false, index: 0 },
     { key: "1", value: "동창회자리로좋은", checked: false, index: 0 },
@@ -15,11 +15,11 @@ export default function MoodFilterPage(props : any) {
     { key: "10", value: "회식자리로좋은", checked: false, index: 0 },
   ];
 
-  const onChangeMood = (checked : any, item : any) => {
+  const onChangeMood = (checked: any, item: any) => {
     if (checked) {
       props.setMoodHashTag([...props.moodHashTag, item]);
     } else if (!checked) {
-      props.setMoodHashTag(props.moodHashTag.filter((el : any) => el !== item));
+      props.setMoodHashTag(props.moodHashTag.filter((el: any) => el !== item));
     }
   };
 

@@ -1,5 +1,3 @@
-// Mainpage 메인페이지 style - 김치훈
-
 import styled from "@emotion/styled";
 
 export const MainPageWrapper = styled.div`
@@ -9,7 +7,7 @@ export const MainPageWrapper = styled.div`
   align-items: center;
 `;
 export const MainPageOutBox = styled.div`
-position:relative;
+  position: relative;
   margin: 40px auto 0 auto;
   width: 1120px;
 `;
@@ -24,27 +22,27 @@ export const ReviewMenuBox = styled.div`
   .checkbox input {
     display: none;
   }
-  .checkbox_text{
+  .checkbox_text {
     width: 240px;
-  height: 50px;
-  padding: 15px 100px;
-  text-align: center;
-  line-height: 50px;
-  border-radius: 20px 20px 0 0;
-  font-weight: 700;
-  font-size: 20px;
-  color: #7b7b7b;
-  z-index:0;
-  position: relative;
-  background-color: #ffffff;
-  cursor: pointer;
-  transition: 0.2s;
-  &:hover {
-    background: linear-gradient(#ff6e30, #ffa230);
-    color: #fff;
+    height: 50px;
+    padding: 15px 100px;
+    text-align: center;
+    line-height: 50px;
+    border-radius: 20px 20px 0 0;
+    font-weight: 700;
+    font-size: 20px;
+    color: #7b7b7b;
+    z-index: 0;
+    position: relative;
+    background-color: #ffffff;
+    cursor: pointer;
+    transition: 0.2s;
+    &:hover {
+      background: linear-gradient(#ff6e30, #ffa230);
+      color: #fff;
+    }
   }
-  }
-  .checkbox input:checked + .checkbox_text{
+  .checkbox input:checked + .checkbox_text {
     color: #ffffff;
     background: linear-gradient(#ff6e30, #ffa230);
   }
@@ -58,7 +56,7 @@ export const ReviewMenu = styled.div`
   font-weight: 700;
   font-size: 20px;
   color: #7b7b7b;
-  
+
   background-color: #ffffff;
   cursor: pointer;
   transition: 0.2s;
@@ -76,7 +74,7 @@ export const MainPageInnerBox = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  z-index:1;
+  z-index: 1;
   position: relative;
   box-shadow: 10px 0px 10px #dbdbdb;
 `;
@@ -96,20 +94,14 @@ export const ReviewArrow = styled.div`
   text-align: center;
   border-radius: 50%;
   background: #fff;
-  color:${(props: any)=> 
-    props.isCommonReviewList ||
-    props.isVisited ||
-    props.isWishList 
-    ? "#fff"
-    : "#7b7b7b" 
-  };
-  background: ${(props: any)=> 
-    props.isCommonReviewList ||
-    props.isVisited ||
-    props.isWishList 
-    ? "linear-gradient(#ff6e30, #ffa230)"
-    : "#fff" 
-  };
+  color: ${(props: any) =>
+    props.isCommonReviewList || props.isVisited || props.isWishList
+      ? "#fff"
+      : "#7b7b7b"};
+  background: ${(props: any) =>
+    props.isCommonReviewList || props.isVisited || props.isWishList
+      ? "linear-gradient(#ff6e30, #ffa230)"
+      : "#fff"};
   cursor: pointer;
   transition: 0.2s;
   &:hover {
@@ -120,17 +112,17 @@ export const ReviewArrow = styled.div`
   }
 `;
 export const ReviewSection = styled.div`
-  margin: 0 0 0 30px ;
+  margin: 0 0 0 30px;
   display: flex;
   overflow-x: scroll;
   overflow-y: hidden;
 `;
-export const CardBoxDiv =styled.div`
-padding-right:30px;
+export const CardBoxDiv = styled.div`
+  padding-right: 30px;
 `;
 export const MainPageLoginOutBox = styled.div`
   position: absolute;
-  z-index:3;
+  z-index: 3;
   margin: 0 auto 40px auto;
   width: 1120px;
   height: 427px;
@@ -140,7 +132,6 @@ export const MainPageLoginOutBox = styled.div`
   border-radius: 20px;
   background: rgba(255, 255, 255, 0.8);
   transform: translate(000px, -426px);
-  /* display: none; */
 `;
 export const MainPageLoginInnerBox = styled.div`
   width: 480px;
@@ -152,8 +143,6 @@ export const MainPageLoginInnerBox = styled.div`
   border-radius: 20px;
   background: #fff;
   box-shadow: 0px 0px 15px #dbdbdb;
-  /* position: absolute;
-  z-index:2; */
 `;
 export const MainPageInnerText = styled.div`
   font-weight: 700;
@@ -174,7 +163,6 @@ export const P = styled.div`
 export const Signup = styled.div`
   cursor: pointer;
 `;
-
 
 export const TopButtonBox = styled.div`
   padding: 50px 0;

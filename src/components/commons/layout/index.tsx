@@ -1,5 +1,3 @@
-// layout === 김치훈
-
 import styled from "@emotion/styled";
 import { ReactNode } from "react";
 import LayoutHeader from "./header/Header.container";
@@ -18,21 +16,19 @@ interface ILayoutProps {
 
 export default function Layout(props: ILayoutProps) {
   const router = useRouter();
-  
+
   const LoginPage = ["/login"];
   const isLoginPage = LoginPage.includes(router.pathname);
   const SignupPage = ["/signup"];
   const isSignupPage = SignupPage.includes(router.pathname);
   const MainPage = ["/"];
   const isMainPage = MainPage.includes(router.pathname);
-  
+
   return (
     <Wrapper>
-      {!isLoginPage && !isSignupPage &&
-      <LayoutHeader />}
-      
-      {isMainPage &&
-      <LayoutBanner />}
+      {!isLoginPage && !isSignupPage && <LayoutHeader />}
+
+      {isMainPage && <LayoutBanner />}
 
       <Body>{props.children}</Body>
 

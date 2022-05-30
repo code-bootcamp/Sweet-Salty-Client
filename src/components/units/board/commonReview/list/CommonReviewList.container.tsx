@@ -1,4 +1,3 @@
-// 일반리뷰 List 페이지 container
 import { useQuery } from "@apollo/client";
 import _ from "lodash";
 import { useState } from "react";
@@ -36,7 +35,6 @@ export default function CommonReviewContainerPage() {
     },
   });
 
-  // 전체 데이터 무한스크롤
   const categoryDataLoadMore = () => {
     if (!fetchBoardsCategoryData) return;
     categoryFetchMore({
@@ -59,7 +57,6 @@ export default function CommonReviewContainerPage() {
     });
   };
   const infiniteTagArr = fetchBoardWithTagData?.fetchBoardWithTags.hits;
-  // 필터 검색 데이터 무한스크롤
   const filterDataLoadMore = () => {
     if (!infiniteTagArr) return;
     tagFetchMore({

@@ -1,5 +1,3 @@
-// 공지사항 이미지 업로드 Container --- 김치훈
-
 import { useMutation } from "@apollo/client";
 import { ChangeEvent, useRef } from "react";
 import { checkValidationImage } from "./Uploads01.validation";
@@ -26,8 +24,6 @@ export default function Uploads01(props: IUploads01Props) {
     } catch (error: any) {
       Modal.error({ content: error.message });
     }
-
-    
   };
 
   return (
@@ -40,12 +36,3 @@ export default function Uploads01(props: IUploads01Props) {
     />
   );
 }
-
-    // const onUploadImage = async (blob, callback) => {
-    //   const url = await uploadFile({
-    //     variables: { file: blob },
-    //   });
-    //   const urldata = url?.data.uploadFile;
-    //   const result = "https://storage.googleapis.com/" + urldata;
-    //   callback(result, "");
-    // };

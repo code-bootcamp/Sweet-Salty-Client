@@ -33,7 +33,7 @@ const schema = yup.object({
   confirmUserPassword: yup
     .string()
     .oneOf([yup.ref("userPassword"), null], "비밀번호가 일치하지 않습니다."),
- 
+
   userPhone: yup
     .string()
     .min(10, "휴대전화번호를 확인해주세요.")
@@ -49,8 +49,7 @@ const schema = yup.object({
 export default function Signup2Container() {
   const router = useRouter();
   const [createUser] = useMutation(CREATE_USER);
-  // const [userPhone, setUserPhone] = useState("");
-  // const [serialNumber, setSerialNumber] = useState("");
+
   const [numberChecked, setNumberChecked] = useState(false);
   const [emailChecked, setEmailChecked] = useState(false);
   const [nicknameChecked, setNicknameChecked] = useState(false);
@@ -71,7 +70,7 @@ export default function Signup2Container() {
     { key: "1", id: "FEMALE", title: "여성", checked: false, index: 1 },
     { key: "2", id: "PRIVATE", title: "선택 안함", checked: false, index: 2 },
   ];
-  function onChangeGender(checked, id) {
+  function onChangeGender(checked:any, id:any) {
     if (checked) {
       setGender(id);
     }
@@ -84,7 +83,7 @@ export default function Signup2Container() {
     { key: "4", id: "FIFTY", title: "50대 이상", checked: false, index: 4 },
     { key: "5", id: "NONE", title: "선택 안함", checked: false, index: 5 },
   ];
-  function onChangeAge(checked, id) {
+  function onChangeAge(checked:any, id:any) {
     if (checked) setAgeGroup(id);
   }
   const menuData = [
@@ -96,7 +95,7 @@ export default function Signup2Container() {
     { key: "5", id: "한식", checked: false, index: 5 },
     { key: "6", id: "할랄", checked: false, index: 6 },
   ];
-  function onChangeMenu(checked, id) {
+  function onChangeMenu(checked:any, id:any) {
     if (checked) setMenuPrefer(id);
   }
 
@@ -121,7 +120,6 @@ export default function Signup2Container() {
       return;
     }
     const { userPhone, serialNumber } = getValues();
-    // console.log(userPhone, serialNumber)
     const result = await checkNumber({
       variables: { phone: userPhone, token: serialNumber },
     });
@@ -130,17 +128,9 @@ export default function Signup2Container() {
       return;
     }
     setNumberChecked(true);
-    setTimer(false)
+    setTimer(false);
     alert("인증완료");
-
   };
-
-  // function onChangePhoneNumber(event) {
-  //   setUserPhone(event.target.value);
-  // // }
-  // function onChangeSerialNumber(event) {
-  //   setSerialNumber(event.target.value);
-  // }
   const onClickLogin = () => {
     router.push("/login");
   };
@@ -151,7 +141,6 @@ export default function Signup2Container() {
     const emailChecker = await overlapEmail({
       variables: { email: userEmail },
     });
-    // console.log(userEmail,emailChecker.data?.overlapEmail);
     if (emailChecker.data?.overlapEmail) {
       setEmailChecked(true);
       alert("사용 가능한 이메일입니다.");
@@ -172,7 +161,7 @@ export default function Signup2Container() {
       alert("이미 사용중인 닉네임입니다.");
     }
   };
-  const onClickSignup = async (signupData) => {
+  const onClickSignup = async (signupData:any) => {
     console.log(signupData);
     if (!emailChecked) {
       alert("이메일 중복확인이 되지 않았습니다.");
@@ -204,7 +193,7 @@ export default function Signup2Container() {
       });
       alert(`${signupData.userNickname}님 가입완료`);
       onClickLogin();
-    } catch (error) {
+    } catch (error:any) {
       alert(error.message);
     }
   };
@@ -215,8 +204,6 @@ export default function Signup2Container() {
       onClickGetNumber={onClickGetNumber}
       onClickCheckNumber={onClickCheckNumber}
       onClickLogin={onClickLogin}
-      // onChangePhoneNumber={onChangePhoneNumber}
-      // onChangeSerialNumber={onChangeSerialNumber}
       onChangeGender={onChangeGender}
       onChangeAge={onChangeAge}
       onChangeMenu={onChangeMenu}

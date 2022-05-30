@@ -1,5 +1,3 @@
-// 공지사항 이미지 업로드 presenter --- 김치훈
-
 import {
   UploadButton,
   UploadFileHidden,
@@ -21,7 +19,6 @@ export default function Uploads01UI(props: IUploads01UIProps) {
           <>Upload</>
         </UploadButton>
       )}
-      {/* display: none */}
       <UploadFileHidden
         type="file"
         ref={props.fileRef}

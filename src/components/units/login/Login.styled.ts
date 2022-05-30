@@ -1,6 +1,5 @@
 import styled from "@emotion/styled";
 
-
 export const Wrapper = styled.div`
   padding-bottom: 100px;
   width: 100%;
@@ -13,7 +12,7 @@ export const Wrapper = styled.div`
 export const LogoImg = styled.img`
   padding-top: 100px;
   width: 350px;
-`
+`;
 
 export const Title = styled.div`
   padding: 100px 0;
@@ -21,8 +20,7 @@ export const Title = styled.div`
   font-size: 40px;
   font-weight: 700;
   cursor: default;
-`
-
+`;
 
 export const LoginForm = styled.div`
   width: 430px;
@@ -36,17 +34,16 @@ export const Text = styled.div`
   font-weight: 700;
   font-size: 16px;
   cursor: default;
-`
+`;
 export const InputBox = styled.div`
   padding-bottom: 30px;
-`
+`;
 
 export const ErrorTxt = styled.div`
-  idth: 350px;
+  width: 350px;
   font-size: 14px;
   color: #ff2900;
   cursor: default;
-  
 `;
 export const ButtonBox = styled.div`
   display: flex;
@@ -55,7 +52,7 @@ export const ButtonBox = styled.div`
 `;
 export const OrText = styled.div`
   padding-bottom: 30px;
-  color: #7B7B7B;
+  color: #7b7b7b;
   font-weight: 700;
   font-size: 14px;
   text-align: center;
@@ -66,7 +63,7 @@ export const KakaoLoginButton = styled.div`
   height: 50px;
   font-size: 14px;
   font-weight: 700;
-  background: #FBE54D;
+  background: #fbe54d;
   border-radius: 10px;
   display: flex;
   justify-content: center;
@@ -87,8 +84,8 @@ export const GoogleLoginButton = styled.div`
   height: 50px;
   font-size: 14px;
   font-weight: 700;
-  color: #7B7B7B;
-  border: 2px solid #DADADA;
+  color: #7b7b7b;
+  border: 2px solid #dadada;
   border-radius: 10px;
   display: flex;
   justify-content: center;
@@ -96,9 +93,8 @@ export const GoogleLoginButton = styled.div`
   cursor: pointer;
 `;
 
-
 export const SubmitBtn = styled.button`
-  margin-top: 80px; 
+  margin-top: 80px;
   width: 350px;
   height: 50px;
   background: linear-gradient(#ff6e30, #ffa230);
@@ -118,7 +114,7 @@ export const GoSignupTxt = styled.div`
   margin-top: 25px;
   width: 100%;
   text-align: center;
-  color: #7B7B7B;
+  color: #7b7b7b;
   cursor: default;
 `;
 export const GoSignUpA = styled.a`
@@ -127,9 +123,9 @@ export const GoSignUpA = styled.a`
   text-decoration: underline;
   color: black;
   margin-left: 10px;
-  color: #2C2C2C;
+  color: #2c2c2c;
   &:hover {
-    color: #FFA230;
+    color: #ffa230;
     text-decoration: underline;
   }
 `;

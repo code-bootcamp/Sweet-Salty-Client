@@ -1,1 +1,0 @@
-// 가주세요! Detail types -김치훈

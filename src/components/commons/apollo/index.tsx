@@ -11,7 +11,7 @@ import { accessTokenState } from "../store";
 import { getAccessToken } from "../libraries/getAccessToken";
 import { onError } from "@apollo/client/link/error";
 
-export default function ApolloSetting(props) {
+export default function ApolloSetting(props : any) {
   const [accessToken, setAccessToken] = useRecoilState(accessTokenState);
 
   useEffect(() => {

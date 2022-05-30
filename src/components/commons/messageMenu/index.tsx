@@ -34,15 +34,12 @@ export const MessageMenu = styled.div`
   }
 `;
 
-export default function MessageMenuPage(props) {
+export default function MessageMenuPage(props: any) {
   const router = useRouter();
 
-
-  // 전체리뷰
   const Received = ["/message/received"];
   const isReceived = Received.includes(router.asPath);
 
-  // 단짠리뷰
   const Send = ["/message/send"];
   const isSend = Send.includes(router.asPath);
 

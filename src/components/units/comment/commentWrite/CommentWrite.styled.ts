@@ -20,10 +20,10 @@ export const Input = styled.textarea`
   min-height: 40px;
   max-height: 80px;
   white-space: nomal;
-  word-break: break-all; 
+  word-break: break-all;
   border-radius: 10px;
   border: 2px solid #dadada;
-  color: #2C2C2C;
+  color: #2c2c2c;
   font-size: 14px;
   outline: none;
   ::placeholder {
@@ -35,17 +35,17 @@ export const Input = styled.textarea`
 export const Button = styled.button`
   width: 100px;
   height: 40px;
-  border: 2px solid #FF9A31;
+  border: 2px solid #ff9a31;
   border-radius: 10px;
   font-size: 14px;
-  color: #FF9A31;
+  color: #ff9a31;
   font-weight: 700;
   background: #fff;
   outline: none;
   cursor: pointer;
   transition: 0.2s;
-  &:hover{
-    background: #FF9A31;
+  &:hover {
+    background: #ff9a31;
     color: #fff;
   }
-`
+`;

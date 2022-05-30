@@ -1,5 +1,9 @@
 import styled from "@emotion/styled";
 
+interface IAny {
+  isNotice?: any;
+}
+
 export const Wrapper = styled.div`
   padding: 100px 0;
   width: 100%;
@@ -33,9 +37,9 @@ export const ReviewMenu = styled.div`
   border-radius: 20px 20px 0 0;
   font-weight: 700;
   font-size: 20px;
-  background: ${(props: any) =>
+  background: ${(props: IAny) =>
     props.isNotice ? "linear-gradient(#ff6e30, #ffa230)" : "#fff"};
-  color: ${(props: any) => (props.isNotice ? "#fff" : "#7B7B7B")};
+  color: ${(props: IAny) => (props.isNotice ? "#fff" : "#7B7B7B")};
 
   cursor: pointer;
   transition: 0.2s;

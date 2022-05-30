@@ -62,7 +62,10 @@ export default function ReviewDetailPresenter(props: any) {
             </S.HeaderBox>
 
             <S.UserNameBox>
-              <S.UserName onClick={props.onClickProfile}>{props.data?.boardWriter || "푸딩"}</S.UserName> 단짝님
+              <S.UserName onClick={props.onClickProfile}>
+                {props.data?.boardWriter || "푸딩"}
+              </S.UserName>{" "}
+              단짝님
             </S.UserNameBox>
             <S.P>|</S.P>
             <S.CreateAt>{getDate(props.data?.createAt)}</S.CreateAt>
@@ -88,7 +91,7 @@ export default function ReviewDetailPresenter(props: any) {
               </S.ConsBox>
             </S.SectionLeft>
             <S.Tags>
-              {props.data?.boardSides.map((el, idx) => (
+              {props.data?.boardSides.map((el: any, idx: any) => (
                 <S.Tag key={idx}>{el.boardTags.boardTagName}</S.Tag>
               ))}
             </S.Tags>
@@ -115,7 +118,9 @@ export default function ReviewDetailPresenter(props: any) {
           </S.MapSection>
 
           <S.Buttons>
-            <S.Button onClick={props.onClickCommonReviewList}>목록으로</S.Button>
+            <S.Button onClick={props.onClickCommonReviewList}>
+              목록으로
+            </S.Button>
             <div>
               <S.EditButton>수정하기</S.EditButton>
               <S.Button onClick={props.onClickDelete}>삭제하기</S.Button>

@@ -6,7 +6,7 @@ const Editor = dynamic(() => import("../../../../commons/toast/editor"), {
   ssr: false,
 });
 
-export default function CommonReviewWritePresenter(props) {
+export default function CommonReviewWritePresenter(props: any) {
   return (
     <S.Wrapper>
       <form onSubmit={props.handleSubmit(props.onClickReg)}>
@@ -27,7 +27,7 @@ export default function CommonReviewWritePresenter(props) {
                 <S.WriteTitle>카테고리</S.WriteTitle>
                 {props.communityCheckPage === "community" && (
                   <S.CategoryBox>
-                    {props.categoryData.map((el, idx) => (
+                    {props.categoryData.map((el: any, idx: any) => (
                       <label className="checkbox" key={el.key}>
                         <input
                           type="checkbox"
@@ -116,7 +116,7 @@ export default function CommonReviewWritePresenter(props) {
               </S.WriteTitle>
 
               <S.MenuBox>
-                {props.menuTagData.map((el, idx) => (
+                {props.menuTagData.map((el: any, idx: any) => (
                   <label className="checkbox" key={el.key}>
                     <input
                       type="checkbox"
@@ -138,8 +138,8 @@ export default function CommonReviewWritePresenter(props) {
                 분위기 선택<S.Span>(3개까지 선택 가능)</S.Span>
               </S.WriteTitle>
 
-              <S.MoodBox moodTagData={props.moodTagData}>
-                {props.moodTagData.map((el, idx) => (
+              <S.MoodBox>
+                {props.moodTagData.map((el: any, idx: any) => (
                   <label className="checkbox" key={el.key}>
                     <input
                       type="checkbox"

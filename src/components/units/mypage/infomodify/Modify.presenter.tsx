@@ -34,7 +34,7 @@ export default function ModifyPresenterPage(props: any) {
           <S.WriteTitle>성별</S.WriteTitle>
           <S.FlexBox>
             <S.Category>
-              {props.genderData.map((el, idx) => (
+              {props.genderData.map((el: any, idx: any) => (
                 <label className="checkbox" key={el.key}>
                   <input
                     type="checkbox"
@@ -51,7 +51,7 @@ export default function ModifyPresenterPage(props: any) {
           <S.WriteTitle>연령대</S.WriteTitle>
           <S.FlexBox>
             <S.Category>
-              {props.ageData.map((el, idx) => (
+              {props.ageData.map((el: any, idx: any) => (
                 <label className="checkbox" key={el.key}>
                   <input
                     type="checkbox"
@@ -70,7 +70,7 @@ export default function ModifyPresenterPage(props: any) {
           </S.WriteTitle>
           <S.FlexBox>
             <S.Category>
-              {props.menuData.map((el, idx) => (
+              {props.menuData.map((el: any, idx: any) => (
                 <label className="checkbox" key={el.key}>
                   <input
                     type="checkbox"

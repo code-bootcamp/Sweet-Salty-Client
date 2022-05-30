@@ -1,6 +1,4 @@
 import { useForm } from "react-hook-form";
-// import { yupResolver } from "@hookform/resolvers/yup";
-// import * as yup from "yup";
 import { useRouter } from "next/router";
 import CommonReviewWritePresenter from "./CommonReviewWrite.presenter";
 import { useState } from "react";
@@ -9,32 +7,26 @@ import {
   CREATE_BOARD,
   CREATE_BOARD_REQ,
   CREATE_BOARD_RES,
-  UPDATE_BOARD,
 } from "./CommonReviewWrite.queries";
-// const schema =yup.object({
-//   boardTitle: yup.string().required("제목을 입력해주세요."),
-//   boardSugar: yup.string().required("단맛(장점)을 입력해주세요."),
-//   boardSalt: yup.string().required("짠맛(단점)을 입력해주세요."),
-//   boardContents: yup.string().required("리뷰를 입력해주세요.")
-// })
-// const nonSchema = yup.object({});
-export default function CommonReviewWriteContainer(props) {
-  console.log("커뮤니티체크", props.checkPage);
-  // 모든 리뷰 작성 가능함
+export default function CommonReviewWriteContainer(props: any) {
   const router = useRouter();
   const [createBoard] = useMutation(CREATE_BOARD);
   const [createBoardReq] = useMutation(CREATE_BOARD_REQ);
   const [createBoardRes] = useMutation(CREATE_BOARD_RES);
-  const [updateBoard] = useMutation(UPDATE_BOARD);
   const [subCategoryName, setSubCategoryName] = useState(
     String(props.checkPage)
   );
-  const [boardTagMenu, setBoardTagMenu] = useState();
+  const [boardTagMenu, setBoardTagMenu] = useState([]);
   const [moodHashTag, setMoodHashTag] = useState([]);
   const [boardContents, setBoardContents] = useState("");
-  const [address, setAddress] = useState();
+  const [address, setAddress] = useState({
+    place_name: "",
+    road_address_name: "",
+    place_url: "",
+    x: "",
+    y: "",
+  });
 
-  // 메뉴 태그 데이터 테이블
   const [menuTagData, setMenuTagData] = useState([
     { key: "0", value: "비건", checked: false, index: 0 },
     { key: "1", value: "아시안푸드", checked: false, index: 1 },
@@ -44,7 +36,6 @@ export default function CommonReviewWriteContainer(props) {
     { key: "5", value: "한식", checked: false, index: 5 },
     { key: "6", value: "할랄", checked: false, index: 6 },
   ]);
-  // 분위기 태그 데이터 테이블
   const [moodTagData, setMoodTagData] = useState([
     { key: "0", value: "가족들과", checked: false, index: 0 },
     { key: "1", value: "동창회자리로좋은", checked: false, index: 0 },
@@ -59,7 +50,6 @@ export default function CommonReviewWriteContainer(props) {
     { key: "10", value: "회식자리로좋은", checked: false, index: 0 },
   ]);
 
-  // 상단 카테고리 데이터 테이블
   const [categoryData, setCategoryData] = useState([
     { key: "0", value: "REVIEW", name: "단짠리뷰", checked: false, index: 0 },
     {
@@ -78,8 +68,7 @@ export default function CommonReviewWriteContainer(props) {
     },
   ]);
 
-  // 메뉴 태그 체크되었는지 확인
-  const onChangeCheckMenu = (el) => (event) => {
+  const onChangeCheckMenu = (el: any) => (event: any) => {
     const select = menuTagData.map((el, idx) => {
       return { ...el, checked: idx === Number(event.target.id) };
     });
@@ -87,8 +76,7 @@ export default function CommonReviewWriteContainer(props) {
 
     setBoardTagMenu([el.value]);
   };
-  // 분위기 태그 체크되었는지 확인
-  const onChangeCheckMood = (checked, item) => (event) => {
+  const onChangeCheckMood = (checked: any, item: any) => (event: any) => {
     if (checked) {
       setMoodHashTag([...moodHashTag, item]);
     } else if (!checked) {
@@ -96,8 +84,7 @@ export default function CommonReviewWriteContainer(props) {
     }
   };
 
-  // 카테고리 태그 체크되었는지 확인
-  const onChangeCheckCategory = (el) => (event) => {
+  const onChangeCheckCategory = (el: any) => (event: any) => {
     const select = categoryData.map((el, idx) => {
       return { ...el, checked: idx === Number(event.target.id) };
     });
@@ -114,7 +101,7 @@ export default function CommonReviewWriteContainer(props) {
     router.back();
   };
 
-  const onClickReg = async (data) => {
+  const onClickReg = async (data: any) => {
     if (subCategoryName === "REVIEW" || subCategoryName === "TASTER") {
       if (moodHashTag.length > 3) {
         alert("분위기는 3개까지 선택이 가능합니다.");

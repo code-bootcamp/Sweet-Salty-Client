@@ -1,5 +1,18 @@
 import styled from "@emotion/styled";
 
+interface IIntroPage {
+  isIntroPage: any;
+}
+interface IIntroReview {
+  isReviewPage: any;
+}
+interface IIntroStore {
+  isStorePage: any;
+}
+interface IIntroNotice {
+  isNoticePage: any;
+}
+
 export const HeaderWrapper = styled.div`
   width: 100%;
   background: #fff;
@@ -25,7 +38,7 @@ export const HeaderMenuBox = styled.div`
 
 export const IntroductionMenu = styled.div`
   font-size: 18px;
-  font-weight: ${(props: any) => (props.isIntroPage ? "900" : "500")};
+  font-weight: ${(props: IIntroPage) => (props.isIntroPage ? "900" : "500")};
   margin: 0 20px;
   cursor: pointer;
   transition: 0.2s;
@@ -36,12 +49,12 @@ export const IntroductionMenu = styled.div`
   &:active {
     font-size: 18.5px;
   }
-  border-bottom: ${(props: any) =>
+  border-bottom: ${(props: IIntroPage) =>
     props.isIntroPage ? "8px solid #ffa230" : "none"};
 `;
 export const ReviewMenu = styled.div`
   font-size: 18px;
-  font-weight: ${(props: any) => (props.isReviewPage ? "900" : "500")};
+  font-weight: ${(props: IIntroReview) => (props.isReviewPage ? "900" : "500")};
   margin: 0 20px;
   cursor: pointer;
   transition: 0.2s;
@@ -52,12 +65,12 @@ export const ReviewMenu = styled.div`
   &:active {
     font-size: 18.5px;
   }
-  border-bottom: ${(props: any) =>
+  border-bottom: ${(props: IIntroReview) =>
     props.isReviewPage ? "8px solid #ffa230" : "none"};
 `;
 export const StoreMenu = styled.div`
   font-size: 18px;
-  font-weight: ${(props: any) => (props.isStorePage ? "900" : "500")};
+  font-weight: ${(props: IIntroStore) => (props.isStorePage ? "900" : "500")};
   margin: 0 20px;
   cursor: pointer;
   transition: 0.2s;
@@ -68,12 +81,12 @@ export const StoreMenu = styled.div`
   &:active {
     font-size: 18.5px;
   }
-  border-bottom: ${(props: any) =>
+  border-bottom: ${(props: IIntroStore) =>
     props.isStorePage ? "8px solid #ffa230" : "none"};
 `;
 export const NoticeMenu = styled.div`
   font-size: 18px;
-  font-weight: ${(props: any) => (props.isNoticePage ? "900" : "500")};
+  font-weight: ${(props: IIntroNotice) => (props.isNoticePage ? "900" : "500")};
   margin: 0 20px;
   cursor: pointer;
   transition: 0.2s;
@@ -84,7 +97,7 @@ export const NoticeMenu = styled.div`
   &:active {
     font-size: 18.5px;
   }
-  border-bottom: ${(props: any) =>
+  border-bottom: ${(props: IIntroNotice) =>
     props.isNoticePage ? "8px solid #ffa230" : "none"};
 `;
 export const QuestionMenu = styled.div`

@@ -52,7 +52,6 @@ export default function CommentWriteContainerPage(props: any) {
             }
           />
           <S.Input
-            type="text"
             placeholder="댓글을 입력하세요."
             {...register("contents")}
             maxLength={100}

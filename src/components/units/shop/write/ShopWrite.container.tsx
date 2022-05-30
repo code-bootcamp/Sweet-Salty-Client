@@ -9,16 +9,22 @@ export default function ShopWriteContainerPage() {
   const router = useRouter();
   const [createShop] = useMutation(CREATE_SHOP);
   const [uploadFile] = useMutation(UPLOAD_FILE);
-  const [address, setAddress] = useState();
+  const [address, setAddress] = useState({
+    place_name: "",
+    road_address_name: "",
+    place_url: "",
+    x: "",
+    y: "",
+  });
 
-  const { register, handleSubmit, setValue, getValues, reset } = useForm({
+  const { register, handleSubmit } = useForm({
     mode: "onChange",
   });
-  const [fileUrls, setFileUrls] = useState();
+  const [fileUrls, setFileUrls] = useState("");
 
-  const onClickSubmit = async (data) => {
+  const onClickSubmit = async (data: any) => {
     try {
-      const result = await createShop({
+      await createShop({
         variables: {
           createShopInput: {
             shopProductName: data.menu,
@@ -46,20 +52,17 @@ export default function ShopWriteContainerPage() {
     }
   };
 
-  const onChangeFile = async (event) => {
+  const onChangeFile = async (event: any) => {
     const file = event.target.files?.[0];
     if (!file) return;
     try {
       const result = await uploadFile({ variables: { file } });
-      console.log("시발련", result);
       const urldata = `https://storage.googleapis.com/${result?.data.uploadFile}`;
       setFileUrls(urldata);
     } catch (error: any) {
       alert(error.message);
     }
   };
-
-  console.log("file", typeof fileUrls);
 
   return (
     <ShopWritePresenterPage

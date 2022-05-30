@@ -15,7 +15,7 @@ export default function ProfileMenuPresenter(props: any) {
         </S.MypageMenu>
         <S.MypageMenu
           onClick={props.onClickMypagePoint}
-          ismypageLike={props.ismypagePoint}
+          ismypagePoint={props.ismypagePoint}
         >
           포인트 상세내역
         </S.MypageMenu>

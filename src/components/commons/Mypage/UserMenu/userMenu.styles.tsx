@@ -1,5 +1,11 @@
 import styled from "@emotion/styled";
 
+interface IAny {
+  ismypageLike?: any;
+  ismypage?: any;
+  ismypagePoint?: any;
+}
+
 export const Wrapper = styled.div`
   width: 100%;
   display: flex;
@@ -23,11 +29,11 @@ export const MypageMenu = styled.div`
   border-radius: 20px 20px 0 0;
   font-weight: 700;
   font-size: 20px;
-  color: ${(props: any) =>
+  color: ${(props: IAny) =>
     props.ismypage || props.ismypageLike || props.ismypagePoint
       ? "#fff"
       : "#7b7b7b"};
-  background: ${(props: any) =>
+  background: ${(props: IAny) =>
     props.ismypage || props.ismypageLike || props.ismypagePoint
       ? "linear-gradient(#ff6e30, #ffa230)"
       : "#fff"};

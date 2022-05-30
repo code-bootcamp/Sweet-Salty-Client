@@ -1,5 +1,9 @@
 import styled from "@emotion/styled";
 
+interface IAny {
+  isRead?: any;
+}
+
 export const MsgWrapper = styled.div`
   margin: 0 auto;
   width: 1120px;
@@ -126,7 +130,7 @@ export const MessageContents = styled.div`
   align-items: center;
   font-weight: 600;
   font-size: 16px;
-  color: ${(props: any) => (props.isRead ? "#bbbbbb" : "#2c2c2c")};
+  color: ${(props: IAny) => (props.isRead ? "#bbbbbb" : "#2c2c2c")};
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;

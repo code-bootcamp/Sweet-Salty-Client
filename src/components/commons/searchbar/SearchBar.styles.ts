@@ -1,10 +1,20 @@
-// searchbar styles === 김치훈
-
 import styled from "@emotion/styled";
 import { SearchOutlined, EditOutlined } from "@ant-design/icons";
 
+interface IAny {
+  isReviewList?: any;
+  isNoticeAllList?: any;
+  isNoticeList?: any;
+  isNoticeEventList?: any;
+  isNoticePromoionList?: any;
+  isNoticeTasterList?: any;
+  isCommonReviewList?: any;
+  isTesterReview?: any;
+  isWishList?: any;
+}
+
 export const Wrapper = styled.div`
-  width: ${(props: any) =>
+  width: ${(props: IAny) =>
     props.isNoticeAllList ||
     props.isNoticeList ||
     props.isNoticeEventList ||
@@ -13,30 +23,29 @@ export const Wrapper = styled.div`
       ? "1120px"
       : "1338px"};
   display: flex;
-  justify-content: ${(props: any) =>
+  justify-content: ${(props: IAny) =>
     props.isReviewList ||
     props.isCommonReviewList ||
     props.isTesterReview ||
-    props.isWishList 
+    props.isWishList
       ? "end"
-      : props.isNoticeAllList 
-        ? "space-between"
-        : "start"
-    };
-    align-items: center;
-    background: #f3f3f3;
+      : props.isNoticeAllList
+      ? "space-between"
+      : "start"};
+  align-items: center;
+  background: #f3f3f3;
 `;
 export const SearchbarNoticeCount = styled.div`
-    margin-right: 99px;
-    font-size: 16px;
-    font-weight: 600;
-    color: #676767;
-`
+  margin-right: 99px;
+  font-size: 16px;
+  font-weight: 600;
+  color: #676767;
+`;
 export const Span = styled.span`
-    font-size: 16px;
-    font-weight: 700;
-    color: #FF9A31;
-`
+  font-size: 16px;
+  font-weight: 700;
+  color: #ff9a31;
+`;
 export const SearchBox = styled.div`
   width: 500px;
   height: 50px;
@@ -67,13 +76,10 @@ export const Select = styled.select`
   height: 32px;
   outline: 2px solid #dadada;
   border-radius: 10px;
-  font-size: 16px; 
+  font-size: 16px;
   font-weight: 700;
-  color: #676767
-  ::-webkit-appearance: none; /* 네이티브 외형 감추기 */
-  ::-moz-appearance: none;
-`
-
+  color: #676767;
+`;
 
 export const SearchBar = styled.input`
   padding: 0 20px;
@@ -92,11 +98,7 @@ export const SearchIcon = styled(SearchOutlined)`
 
 export const ReviewWriteBox = styled.div`
   position: relative;
-  margin-left: ${(props: any) =>
-    props.isNoticeAllList
-      ? "120px"
-      : "236px"};
-  // margin-left: 120px;
+  margin-left: ${(props: IAny) => (props.isNoticeAllList ? "120px" : "236px")};
   width: 180px;
   height: 50px;
   border-radius: 50px;
@@ -119,7 +121,7 @@ export const ReviewWrite = styled.div`
   background: linear-gradient(#ff6e30, #ffa230);
   color: #fff;
   &:hover {
-    background: linear-gradient(#E8662D, #EF982E);
+    background: linear-gradient(#e8662d, #ef982e);
   }
 `;
 
@@ -127,9 +129,6 @@ export const WriteIcon = styled(EditOutlined)`
   font-size: 16px;
   margin-right: 5px;
 `;
-
-
-
 
 export const UserProfileBox = styled.div`
   position: absolute;
@@ -163,19 +162,19 @@ export const UserProfile = styled.div`
 `;
 
 export const TotalReviewWrite = styled.div`
-width: 180px;
-height: 50px;
-display: flex;
-justify-content: center;
-align-items: center;
-border-radius: 50px;
-cursor: pointer;
-font-size: 16px;
-font-weight: 700;
-background: linear-gradient(#ff6e30, #ffa230);
-color: #fff;
-transition: 1s;
+  width: 180px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 700;
+  background: linear-gradient(#ff6e30, #ffa230);
+  color: #fff;
+  transition: 1s;
   &:hover {
-    background: linear-gradient(#E8662D, #EF982E);
+    background: linear-gradient(#e8662d, #ef982e);
   }
 `;

@@ -68,7 +68,7 @@ export default function ModifyContainerPage() {
 
   const onClickModify = async (data) => {
     try {
-      const result = await updateUser({
+      await updateUser({
         variables: {
           updateUserInput:{
           userPassword: data.userPassword,
@@ -79,7 +79,7 @@ export default function ModifyContainerPage() {
           prefer: menu,}
         },
       });
-      console.log(result);
+      alert("회원 정보가 수정되었습니다.")
     } catch (error: any) {
       alert(error.message);
     }

@@ -17,6 +17,9 @@ export default function WriteBtnPresenterPage(props) {
         {props.checkPage === "REQUEST" && (
           <S.WriteText>가주세요 작성하기</S.WriteText>
         )}
+        {props.checkPage === "VISITED" && (
+          <S.WriteText>가봤어요 작성하기</S.WriteText>
+        )}
       </S.ReviewWrite>
     </S.ReviewWriteBox>
   );

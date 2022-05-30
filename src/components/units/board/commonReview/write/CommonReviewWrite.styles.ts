@@ -33,6 +33,8 @@ export const Header = styled.div`
 
 export const TitleArticle = styled.div`
   display: flex;
+  align-items: center;
+  justify-content: flex-start;
   border-bottom: 1px solid #dadada;
   padding-bottom: 20px;
 `;
@@ -69,6 +71,7 @@ export const SugarSaltArticle = styled.div`
 
 export const MenuArticle = styled.div`
   display: ${(props) => (props.checkPage === "REQUEST" ? "none" : "flex")};
+  flex-direction: column;
   width: 100%;
   border-bottom: 1px solid #dadada;
   padding: 0px 0px 20px 0px;
@@ -79,6 +82,7 @@ export const MoodArticle = styled.div`
   padding: 20px 0px;
   border-bottom: 1px solid #dadada;
   display: ${(props) => (props.checkPage === "REQUEST" ? "none" : "flex")};
+  flex-direction: column;
 `;
 
 export const EditorArticle = styled.div`
@@ -136,8 +140,8 @@ export const CategoryPick = styled.div`
   font-weight: 600;
   background-color: #ff9a31;
   color: #ffffff;
-  padding: 7px 20px;
-  font-size: 16px;
+  padding: 7px 15px;
+  font-size: 14px;
   border-radius: 50px;
   margin-right: 20px;
 `;
@@ -149,9 +153,9 @@ export const CategoryUnPick = styled.div`
   font-weight: 600;
   background-color: #d2d2d2;
   color: #ffffff;
-  padding: 7px 20px;
+  padding: 7px 15px;
   border-radius: 50px;
-  font-size: 16px;
+  font-size: 14px;
   margin-right: 20px;
 `;
 

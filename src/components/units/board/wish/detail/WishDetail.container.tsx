@@ -16,9 +16,11 @@ export default function WishDetailContainerPage() {
   const { data } = useQuery(FETCH_BOARD, {
     variables: { boardId: String(router.query.boardId) },
   });
-
+  const checkPage = "VISITED";
+  const wishDetailID = router.query.boardId;
+  console.log("아이디요", wishDetailID);
   const onClickWishList = () => {
-    router.push("/reviews/wish/list");
+    router.push("/reviews/wish");
   };
 
   const onClickDelete = () => {
@@ -51,6 +53,8 @@ export default function WishDetailContainerPage() {
       onClickWishList={onClickWishList}
       onClickLike={onClickLike}
       onClickDelete={onClickDelete}
+      checkPage={checkPage}
+      wishDetailID={wishDetailID}
     />
   );
 }

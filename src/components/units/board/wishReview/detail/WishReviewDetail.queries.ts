@@ -1,1 +1,0 @@
-// 가봤어요! Detail queries -김치훈

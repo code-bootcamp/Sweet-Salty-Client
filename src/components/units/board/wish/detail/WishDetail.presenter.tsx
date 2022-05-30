@@ -6,11 +6,13 @@ import { getDate } from "../../../../commons/libraries/date";
 import LikeButton from "../../../../commons/like";
 import ToastViewerPage from "../../../../commons/toast/viewer";
 import TopButton from "../../../../commons/topbutton";
+import WriteBtnContainerPage from "../../../../commons/writeBtn/WriteBtn.container";
 import CommentListContainerPage from "../../../comment/commentList/CommentList.container";
 import CommentWriteContainerPage from "../../../comment/commentWrite/CommentWrite.presenter";
 import * as S from "./WishDetail.styled";
 
 export default function WishDetailPresenterPage(props: any) {
+  console.log("아이디", props.data?.boardId);
   return (
     <S.Wrapper>
       <S.Title>
@@ -64,10 +66,16 @@ export default function WishDetailPresenterPage(props: any) {
         </S.KakaoMap>
 
         <S.ButtonBox>
-          <S.Button onClick={props.onClickWishList}>목록으로</S.Button>
           <S.LeftButton>
+            <S.Button onClick={props.onClickWishList}>목록으로</S.Button>
             <S.EditButton>수정하기</S.EditButton>
             <S.Button onClick={props.onClickDelete}>삭제하기</S.Button>
+          </S.LeftButton>
+          <S.LeftButton>
+            <WriteBtnContainerPage
+              checkPage={props.checkPage}
+              wishDetailID={props.wishDetailID}
+            />
           </S.LeftButton>
         </S.ButtonBox>
 

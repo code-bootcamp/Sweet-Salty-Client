@@ -8,6 +8,7 @@ import { useMutation } from "@apollo/client";
 import {
   CREATE_BOARD,
   CREATE_BOARD_REQ,
+  CREATE_BOARD_RES,
   UPDATE_BOARD,
 } from "./CommonReviewWrite.queries";
 // const schema =yup.object({
@@ -18,10 +19,12 @@ import {
 // })
 // const nonSchema = yup.object({});
 export default function CommonReviewWriteContainer(props) {
+  console.log("여기에요여기", props);
   // 모든 리뷰 작성 가능함
   const router = useRouter();
   const [createBoard] = useMutation(CREATE_BOARD);
   const [createBoardReq] = useMutation(CREATE_BOARD_REQ);
+  const [createBoardRes] = useMutation(CREATE_BOARD_RES);
   const [updateBoard] = useMutation(UPDATE_BOARD);
   const [subCategoryName, setSubCategoryName] = useState(
     String(props.checkPage)
@@ -30,9 +33,6 @@ export default function CommonReviewWriteContainer(props) {
   const [moodHashTag, setMoodHashTag] = useState([]);
   const [boardContents, setBoardContents] = useState("");
   const [address, setAddress] = useState();
-  console.log("gsadgsgadgsdsdga", props.checkPage);
-
-  console.log("ㅎㅇ", subCategoryName);
 
   // 메뉴 태그 데이터 테이블
   const [menuTagData, setMenuTagData] = useState([
@@ -156,13 +156,11 @@ export default function CommonReviewWriteContainer(props) {
         });
         alert("등록 완료");
       } catch (error: any) {
-        // alert(error.message);
-        alert("ㅄ");
+        alert(error.message);
       }
     }
   };
   const onClickSubmitReq = async (data) => {
-    console.log("야호", data);
     try {
       const result = await createBoardReq({
         variables: {
@@ -182,10 +180,19 @@ export default function CommonReviewWriteContainer(props) {
       });
       alert("등록 완료");
     } catch (error: any) {
-      // alert(error.message);
-      alert("ㅎㅎ");
+      alert(error.message);
     }
   };
+
+  // const onClickSubmitRes = async (data) => {
+  //   try{
+  //     const result = await createBoardRes({
+  //       variables:{
+  //         reqBoardId:
+  //       }
+  //     })
+  //   }
+  // };
 
   return (
     <CommonReviewWritePresenter

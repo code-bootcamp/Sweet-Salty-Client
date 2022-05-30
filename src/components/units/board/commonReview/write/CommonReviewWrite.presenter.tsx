@@ -52,6 +52,7 @@ export default function CommonReviewWritePresenter(props) {
                     <S.CategoryPick>단짠리뷰</S.CategoryPick>
                     <S.CategoryUnPick>시식단 리뷰</S.CategoryUnPick>
                     <S.CategoryUnPick>가주세요</S.CategoryUnPick>
+                    <S.CategoryUnPick>가봤어요</S.CategoryUnPick>
                   </S.CategoryPickSection>
                 )}
                 {props.checkPage === "TASTER" && (
@@ -59,6 +60,7 @@ export default function CommonReviewWritePresenter(props) {
                     <S.CategoryUnPick>단짠리뷰</S.CategoryUnPick>
                     <S.CategoryPick>시식단 리뷰</S.CategoryPick>
                     <S.CategoryUnPick>가주세요</S.CategoryUnPick>
+                    <S.CategoryUnPick>가봤어요</S.CategoryUnPick>
                   </S.CategoryPickSection>
                 )}
                 {props.checkPage === "REQUEST" && (
@@ -66,6 +68,15 @@ export default function CommonReviewWritePresenter(props) {
                     <S.CategoryUnPick>단짠리뷰</S.CategoryUnPick>
                     <S.CategoryUnPick>시식단 리뷰</S.CategoryUnPick>
                     <S.CategoryPick>가주세요</S.CategoryPick>
+                    <S.CategoryUnPick>가봤어요</S.CategoryUnPick>
+                  </S.CategoryPickSection>
+                )}
+                {props.checkPage === "VISITED" && (
+                  <S.CategoryPickSection>
+                    <S.CategoryUnPick>단짠리뷰</S.CategoryUnPick>
+                    <S.CategoryUnPick>시식단 리뷰</S.CategoryUnPick>
+                    <S.CategoryUnPick>가주세요</S.CategoryUnPick>
+                    <S.CategoryPick>가봤어요</S.CategoryPick>
                   </S.CategoryPickSection>
                 )}
               </div>
@@ -122,7 +133,7 @@ export default function CommonReviewWritePresenter(props) {
 
             <S.MoodArticle checkPage={props.checkPage}>
               <S.WriteTitle>
-                분위기 선택<S.Span>(여러개 선택 가능)</S.Span>
+                분위기 선택<S.Span>(3개까지 선택 가능)</S.Span>
               </S.WriteTitle>
 
               <S.MoodBox moodTagData={props.moodTagData}>

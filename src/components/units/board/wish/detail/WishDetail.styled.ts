@@ -158,7 +158,7 @@ export const Button = styled.div`
   }
 `;
 export const EditButton = styled.div`
-  margin-right: 10px;
+  margin: 0px 10px;
   padding: 7px 40px;
   font-size: 16px;
   font-weight: 700;

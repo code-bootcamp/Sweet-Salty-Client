@@ -4,7 +4,15 @@ import CommonReviewWriteContainer from "../../../../src/components/units/board/c
 
 export default function CommonReviewWritePage() {
   const router = useRouter();
+  console.log("gslksadoiioweng", router.query.wishDetailId);
   const checkPage = router.query.checkPage;
+  const wishDetailId = router.query.wishDetailId;
 
-  return <CommonReviewWriteContainer isEdit={false} checkPage={checkPage} />;
+  return (
+    <CommonReviewWriteContainer
+      isEdit={false}
+      checkPage={checkPage}
+      wishDetailId={wishDetailId}
+    />
+  );
 }

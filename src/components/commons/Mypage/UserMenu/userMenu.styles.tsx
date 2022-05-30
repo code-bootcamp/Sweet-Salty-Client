@@ -1,7 +1,4 @@
-// 마이페이지 게시글 박스 Styles --- 김치훈
-
 import styled from "@emotion/styled";
-
 
 export const Wrapper = styled.div`
   width: 100%;
@@ -26,20 +23,14 @@ export const MypageMenu = styled.div`
   border-radius: 20px 20px 0 0;
   font-weight: 700;
   font-size: 20px;
-  color:${(props: any)=> 
-    props.ismypage ||
-    props.ismypageLike ||
-    props.ismypagePoint
-    ? "#fff"
-    : "#7b7b7b" 
-  };
-  background: ${(props: any)=> 
-    props.ismypage ||
-    props.ismypageLike ||
-    props.ismypagePoint
-    ? "linear-gradient(#ff6e30, #ffa230)"
-    : "#fff" 
-  };
+  color: ${(props: any) =>
+    props.ismypage || props.ismypageLike || props.ismypagePoint
+      ? "#fff"
+      : "#7b7b7b"};
+  background: ${(props: any) =>
+    props.ismypage || props.ismypageLike || props.ismypagePoint
+      ? "linear-gradient(#ff6e30, #ffa230)"
+      : "#fff"};
   cursor: pointer;
   transition: 0.2s;
   &:hover {
@@ -47,4 +38,3 @@ export const MypageMenu = styled.div`
     color: #fff;
   }
 `;
-

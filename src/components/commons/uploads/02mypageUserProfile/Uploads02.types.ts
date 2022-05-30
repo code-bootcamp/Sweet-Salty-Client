@@ -1,5 +1,3 @@
-// 마이페이지 이미지 업로드 types --- 김치훈
-
 import { ChangeEvent, RefObject } from "react";
 
 export interface IUploads02Props {

@@ -1,6 +1,6 @@
 import * as S from "./MenuFilter.styles";
 
-export default function MenuFilterPage(props : any) {
+export default function MenuFilterPage(props: any) {
   const menuData = [
     { key: "0", value: "비건", checked: false, index: 0 },
     { key: "1", value: "아시안푸드", checked: false, index: 1 },
@@ -11,42 +11,19 @@ export default function MenuFilterPage(props : any) {
     { key: "6", value: "할랄", checked: false, index: 6 },
   ];
 
-  // const onChangeCheck = (el) => (event) => {
-  //   const temp = isSelect.map((el, idx) => {
-  //     return { ...el, checked: idx === Number(event.target.id) };
-  //   });
-  //   setIsSelect(temp);
-  //   props.setMenuHashTag([el.value]);
-  // };
-
-  // const [checkedList, setCheckedList] = useState([]);
-
-  const onChangeMenu = (checked : any, item : any) => {
+  const onChangeMenu = (checked: any, item: any) => {
     if (checked) {
       props.setMenuTagCheckList([item]);
       props.setMenuHashTag([item]);
     } else if (!checked) {
-      props.setMenuHashTag(props.menuHashTag.filter((el : any) => el !== item));
+      props.setMenuHashTag(props.menuHashTag.filter((el: any) => el !== item));
       props.setMenuTagCheckList(
-        props.menuTagCheckList.filter((el : any) => el !== item)
+        props.menuTagCheckList.filter((el: any) => el !== item)
       );
     }
   };
   return (
     <S.OpenTag>
-      {/* {isSelect.map((el, idx) => (
-        <label className="checkbox" key={el.key}>
-          <input
-            type="checkbox"
-            id={String(idx)}
-            value={el.value}
-            onChange={onChangeCheck(el)}
-            checked={el.checked}
-          />
-          <span className="checkbox_text">{el.value}</span>
-        </label>
-      ))} */}
-
       {menuData.map((el) => (
         <label className="checkbox" key={el.key}>
           <input

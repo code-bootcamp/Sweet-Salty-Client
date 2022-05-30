@@ -1,7 +1,5 @@
-// 가주세요! 등록 Styles --- 김치훈
-
 import styled from "@emotion/styled";
-import { RightOutlined } from "@ant-design/icons"
+import { RightOutlined } from "@ant-design/icons";
 
 export const Wrapper = styled.div`
   padding-bottom: 100px;
@@ -10,7 +8,7 @@ export const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-`
+`;
 export const Title = styled.div`
   padding: 100px 0;
   font-size: 40px;
@@ -19,12 +17,12 @@ export const Title = styled.div`
   cursor: default;
   display: flex;
   align-items: center;
-`
+`;
 export const RightOutline = styled(RightOutlined)`
   padding: 0 15px;
   color: #fff;
   cursor: default;
-`
+`;
 
 export const ReviewWriteBox = styled.div`
   padding: 40px;
@@ -37,8 +35,8 @@ export const ReviewWriteBoxHr = styled.div`
   width: 920px;
   height: 1.5px;
   border-radius: 50px;
-  background: #DADADA;
-`
+  background: #dadada;
+`;
 
 export const Header = styled.div`
   display: flex;
@@ -64,17 +62,19 @@ export const InputBox = styled.input`
   font-size: 14px;
   font-weight: 700;
   outline-color: #676767;
-  ::placeholder {color: #dbdbdb;}
-`
+  ::placeholder {
+    color: #dbdbdb;
+  }
+`;
 export const RightBox = styled.div`
   width: 445px;
   display: flex;
   flex-direction: column;
-`
+`;
 export const CategoryBox = styled.div`
   display: flex;
   flex-wrap: wrap;
-`
+`;
 export const Category = styled.div`
   padding: 7px 30px;
   color: #fff;
@@ -83,15 +83,15 @@ export const Category = styled.div`
   border-radius: 50px;
   font-size: 16px;
   font-weight: 700;
-  background: #FF9A31;
-`
+  background: #ff9a31;
+`;
 export const RightBoxHr = styled.div`
   margin: 20px 0;
   width: 446px;
   height: 1.5px;
   border-radius: 50px;
-  background: #DADADA;
-`
+  background: #dadada;
+`;
 
 export const Map = styled.div`
   width: 920px;
@@ -100,9 +100,9 @@ export const Map = styled.div`
   line-height: 545px;
   background: #999;
   border-radius: 20px;
-`
+`;
 
-export const ImageBox =styled.div`
+export const ImageBox = styled.div`
   width: 300px;
   height: 250px;
   background: #dadada;
@@ -111,59 +111,59 @@ export const ImageBox =styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-`
+`;
 export const ImageText = styled.div`
   font-size: 14px;
   color: #fff;
   font-weight: 700;
-  transition: .2s;
+  transition: 0.2s;
   cursor: pointer;
   &:hover {
     font-size: 16px;
   }
+`;
 
-`
-  
-  
-  export const Section = styled.div`
-    display: flex;
-    flex-direction: column;
-    align-items: start;
-  `
-  export const TextAreaBox = styled.textarea`
-    padding: 12px 16px;
-    max-width: 920px;
-    min-width: 920px;
-    height: 492px;
-    max-height: 492px;
-    border: 2px solid #dadada;
-    border-radius: 10px;
-    color: #676767;
-    font-size: 14px;
-    font-weight: 700;
-    outline-color: #676767;
-    ::placeholder {color: #dbdbdb;}
-  `
+export const Section = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+`;
+export const TextAreaBox = styled.textarea`
+  padding: 12px 16px;
+  max-width: 920px;
+  min-width: 920px;
+  height: 492px;
+  max-height: 492px;
+  border: 2px solid #dadada;
+  border-radius: 10px;
+  color: #676767;
+  font-size: 14px;
+  font-weight: 700;
+  outline-color: #676767;
+  ::placeholder {
+    color: #dbdbdb;
+  }
+`;
 
-  export const ButtonBox = styled.div`
-    padding: 40px 0;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-  `
-  export const Button = styled.button`
-    margin: 0 9px;
-    padding: 7px 42px;
-    background: #fff;
-    border: 2px solid #DADADA;
-    border-radius: 10px;
-    color: #676767;
-    font-weight: 700;
-    font-size: 16px;
-    cursor: pointer;
-    transition: 0.2s;
-    &:hover {
-      color: #FF9A31;
-      border: 2px solid #FF9A31;
-    }
-  `
+export const ButtonBox = styled.div`
+  padding: 40px 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+`;
+export const Button = styled.button`
+  margin: 0 9px;
+  padding: 7px 42px;
+  background: #fff;
+  border: 2px solid #dadada;
+  border-radius: 10px;
+  color: #676767;
+  font-weight: 700;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.2s;
+  &:hover {
+    color: #ff9a31;
+    border: 2px solid #ff9a31;
+  }
+`;

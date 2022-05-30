@@ -1,7 +1,7 @@
 import { messageDate } from "../../../commons/libraries/date";
 import MessageMenuPage from "../../../commons/messageMenu";
 import * as S from "./receivedMessageDetail.styled";
-export default function ReceivedMessageDetailPresenterPage(props) {
+export default function ReceivedMessageDetailPresenterPage(props: any) {
   const propsdata = props.data?.fetchReceivedMessage;
   const profileUrl = "https://storage.googleapis.com/";
   return (

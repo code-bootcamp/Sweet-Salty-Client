@@ -1,5 +1,3 @@
-// Header Styles === 김치훈
-
 import styled from "@emotion/styled";
 
 export const HeaderWrapper = styled.div`
@@ -27,8 +25,7 @@ export const HeaderMenuBox = styled.div`
 
 export const IntroductionMenu = styled.div`
   font-size: 18px;
-  font-weight: ${(props: any) =>
-    props.isIntroPage ? "900" : "500"};
+  font-weight: ${(props: any) => (props.isIntroPage ? "900" : "500")};
   margin: 0 20px;
   cursor: pointer;
   transition: 0.2s;
@@ -44,8 +41,7 @@ export const IntroductionMenu = styled.div`
 `;
 export const ReviewMenu = styled.div`
   font-size: 18px;
-  font-weight: ${(props: any) =>
-    props.isReviewPage ? "900" : "500"};
+  font-weight: ${(props: any) => (props.isReviewPage ? "900" : "500")};
   margin: 0 20px;
   cursor: pointer;
   transition: 0.2s;
@@ -61,8 +57,7 @@ export const ReviewMenu = styled.div`
 `;
 export const StoreMenu = styled.div`
   font-size: 18px;
-  font-weight: ${(props: any) =>
-    props.isStorePage ? "900" : "500"};
+  font-weight: ${(props: any) => (props.isStorePage ? "900" : "500")};
   margin: 0 20px;
   cursor: pointer;
   transition: 0.2s;
@@ -78,8 +73,7 @@ export const StoreMenu = styled.div`
 `;
 export const NoticeMenu = styled.div`
   font-size: 18px;
-  font-weight: ${(props: any) =>
-    props.isNoticePage ? "900" : "500"};
+  font-weight: ${(props: any) => (props.isNoticePage ? "900" : "500")};
   margin: 0 20px;
   cursor: pointer;
   transition: 0.2s;
@@ -143,7 +137,7 @@ export const HeaderMemberRightBox = styled.div`
 export const PhotoBox = styled.div`
   display: flex;
   align-items: start;
-`
+`;
 export const Photo = styled.img`
   width: 40px;
   height: 40px;
@@ -236,7 +230,7 @@ export const Note = styled.div`
 `;
 export const SignalIcon = styled.img`
   width: 6px;
-`
+`;
 
 export const Logout = styled.div`
   font-size: 16px;

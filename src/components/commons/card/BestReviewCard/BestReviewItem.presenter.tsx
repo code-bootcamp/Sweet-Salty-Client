@@ -1,7 +1,6 @@
-// 일반리뷰 top3랑 연결되있음
 import * as S from "./BestReviewItem.styles";
 
-export default function BestReviewItemPresenterPage(props : any) {
+export default function BestReviewItemPresenterPage(props: any) {
   console.log(typeof props.idx);
 
   return (

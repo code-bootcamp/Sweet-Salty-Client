@@ -1,7 +1,4 @@
-// 좋아요한 단짠 게시글 styled --- 김치훈
-
 import styled from "@emotion/styled";
-
 
 export const Wrapper = styled.div`
   width: 100%;
@@ -33,15 +30,12 @@ export const TableTop = styled.div`
   margin: 0 auto;
   display: grid;
   justify-content: space-between;
-  grid-template-columns: 338px 338px 338px; 
+  grid-template-columns: 338px 338px 338px;
 `;
 export const MypageBoardsOfUser = styled.div`
   width: 1120px;
 `;
 
-
-
-
 export const TopButtonBox = styled.div`
-padding: 40px 0;
+  padding: 40px 0;
 `;

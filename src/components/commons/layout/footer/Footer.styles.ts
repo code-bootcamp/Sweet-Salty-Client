@@ -1,5 +1,3 @@
-// Footerd Styles === 김치훈
-
 import styled from "@emotion/styled";
 
 export const FooterWrapper = styled.div`

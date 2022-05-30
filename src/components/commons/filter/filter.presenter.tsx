@@ -1,5 +1,3 @@
-// 단짠 게시판 페이지-필터-박스 Presenter === 김치훈
-
 import * as S from "./filter.styles";
 import LocationFilterPage from "./LocationFilter/LocationFilter";
 import MenuFilterPage from "./MenuFilter/MenuFilter";
@@ -30,12 +28,10 @@ export default function FilterPresenter(props: any) {
           />
         </S.Wrapper>
       ) : (
-        // filter 선택하는 박스
         <S.OpenFilter>
           <S.OpenFilterBox>
             <S.FilterTitle>지역</S.FilterTitle>
             <S.OpenTagBox>
-              {/* 지역 태그 올리는 곳 */}
               <LocationFilterPage
                 locationHashTag={props.locationHashTag}
                 setLocationHashTag={props.setLocationHashTag}
@@ -50,7 +46,6 @@ export default function FilterPresenter(props: any) {
           <S.OpenFilterBox>
             <S.FilterTitle>메뉴</S.FilterTitle>
             <S.OpenTagBox>
-              {/* 메뉴 태그 올리는 곳 */}
               <MenuFilterPage
                 menuHashTag={props.menuHashTag}
                 setMenuHashTag={props.setMenuHashTag}
@@ -65,7 +60,6 @@ export default function FilterPresenter(props: any) {
           <S.OpenFilterBox>
             <S.FilterTitle>분위기</S.FilterTitle>
             <S.OpenTagBox>
-              {/* 분위기 태그 올리는 곳 */}
               <MoodFilterPage
                 moodHashTag={props.moodHashTag}
                 setMoodHashTag={props.setMoodHashTag}

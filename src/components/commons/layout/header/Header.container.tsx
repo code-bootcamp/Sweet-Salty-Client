@@ -1,29 +1,31 @@
-// Header container === 김치훈
-
 import { useMutation, useQuery } from "@apollo/client";
 import { useRouter } from "next/router";
 import { useState } from "react";
 import { useRecoilState } from "recoil";
 import { accessTokenState } from "../../store";
 import LayoutHeaderPresenter from "./Header.presenter";
-import { LOGOUT, FETCH_USER_LOGGED_IN, FETCH_UNREAD_MESSAGE_COUNT } from "./Header.queries";
+import {
+  LOGOUT,
+  FETCH_USER_LOGGED_IN,
+  FETCH_UNREAD_MESSAGE_COUNT,
+} from "./Header.queries";
 
 export default function LayoutHeader() {
   const router = useRouter();
   const [isClick, setIsClick] = useState(false);
   const [logout] = useMutation(LOGOUT);
   const { data } = useQuery(FETCH_USER_LOGGED_IN);
-  console.log(data)
+  console.log(data);
   const [, setAccessToken] = useRecoilState(accessTokenState);
 
-  // 쪽지함 안 읽은 쪽지 갯수
-  const {data: fetchUnreadMessageCountData} = useQuery(FETCH_UNREAD_MESSAGE_COUNT)
+  const { data: fetchUnreadMessageCountData } = useQuery(
+    FETCH_UNREAD_MESSAGE_COUNT
+  );
 
   const onClickHome = () => {
     router.push("/");
   };
 
-  // 단짠 맛집 소개
   const onClickIntro = () => {
     router.push("/Intro");
   };
@@ -76,7 +78,7 @@ export default function LayoutHeader() {
       logout();
       setAccessToken("");
       setIsClick(false);
-      router.push("/")
+      router.push("/");
     } catch (error: any) {
       alert(error.message);
     }

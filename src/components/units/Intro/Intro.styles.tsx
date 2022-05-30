@@ -1,4 +1,3 @@
-// 단짠 맛집 소개 Styles ---김치훈
 
 import styled from "@emotion/styled";
 
@@ -22,7 +21,7 @@ export const Title30px = styled.div`
 export const LogoX3 = styled.img`
 padding: 100px 0 140px 0;
 width: 600px;
-heigt: 128px;
+height: 128px;
 object-fit: contain;
 cursor: default;
 `

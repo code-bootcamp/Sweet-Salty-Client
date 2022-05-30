@@ -1,5 +1,3 @@
-// 단짠 게시판 페이지-필터-박스 Container === 김치훈
-
 import { useQuery } from "@apollo/client";
 import _ from "lodash";
 import { useEffect, useState } from "react";
@@ -7,7 +5,7 @@ import { useEffect, useState } from "react";
 import FilterPresenter from "./filter.presenter";
 import { FETCH_TAGS } from "./filter.queries";
 
-export default function FilterContainer(props : any) {
+export default function FilterContainer(props: any) {
   const [isOpen, setIsOpen] = useState(true);
   const [menuHashTag, setMenuHashTag] = useState([]);
   const [menuTagCheckList, setMenuTagCheckList] = useState([]);
@@ -17,7 +15,6 @@ export default function FilterContainer(props : any) {
 
   const searchTags = _.concat(moodHashTag, menuHashTag, locationHashTag);
 
-  // 태그 클릭시 자동 검색 일반리뷰만 일단 적용됨
   useEffect(() => {
     props.setSearch(searchTags);
   }, [moodHashTag, locationHashTag, menuHashTag]);

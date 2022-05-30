@@ -33,9 +33,7 @@ export default function TesterDetailContainer() {
   const onClickLike = () => {
     createBoardLike({
       variables: {
-        boardId:
-          // String(router.query.boardId)
-          String(router.query.boardId),
+        boardId: String(router.query.boardId),
       },
       refetchQueries: [
         {
@@ -43,27 +41,6 @@ export default function TesterDetailContainer() {
           variables: { boardId: String(router.query.boardId) },
         },
       ],
-      // optimisticResponse:{
-      //   createBoardLike : (data?.fetchBoard?.boardLikeCount || 0) +1,
-      // },
-      // update(cache, {data}){
-      //   cache.writeQuery({
-      //     query:FETCH_BOARD,
-      //     variables: { boardId:
-      //       "2"
-      //       // String(router.query.boardId)
-      //     },
-      //     data : {
-      //       fetchBoard : {
-      //         boardId :
-      //         // router.query.boardId
-      //         "2",
-      //         __typename: "Board",
-      //         boardLikeCount :data.fetchBoard.boardLikeCount
-      //       }
-      //     }
-      //   })
-      // }
     });
   };
   return (

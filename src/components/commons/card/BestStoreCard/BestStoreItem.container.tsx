@@ -3,6 +3,7 @@ import BestStoreItemPresenterPage from "./BestStoreItem.presenter";
 import { MouseEvent } from "react";
 
 export default function BestStoreItemContainerPage(props: any) {
+
   const router = useRouter();
 
   const onClickDetailPage = (event: MouseEvent<HTMLDivElement>) => {
@@ -19,4 +20,5 @@ export default function BestStoreItemContainerPage(props: any) {
       idx={props.idx}
     />
   );
+
 }

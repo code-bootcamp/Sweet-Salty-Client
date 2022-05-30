@@ -1,9 +1,5 @@
-// 마이페이지 이미지 업로드 styles --- 김치훈
-
 import { CheckCircleOutlined } from "@ant-design/icons";
 import styled from "@emotion/styled";
-
-
 
 export const ImgBox = styled.div`
   width: 106px;
@@ -17,10 +13,10 @@ export const UploadImage = styled.img`
   cursor: default;
   object-fit: cover;
   border-radius: 50%;
-  background: ${(props: any) => props.data?.fetchUserLoggedIn?.userId 
-    ? "linear-gradient(#ff6e30, #ffa230)"
-    : "#D2D2D2"
-  }
+  background: ${(props: any) =>
+    props.data?.fetchUserLoggedIn?.userId
+      ? "linear-gradient(#ff6e30, #ffa230)"
+      : "#D2D2D2"};
   display: flex;
   justify-content: end;
   align-items: end;
@@ -29,20 +25,19 @@ export const UploadImage = styled.img`
   }
 `;
 export const ButtonBox = styled.div`
-position: absolute;
-width: 106px;
+  position: absolute;
+  width: 106px;
   height: 106px;
   display: flex;
   justify-content: space-between;
   align-items: end;
-
-`
+`;
 export const UploadButton = styled.button`
   border: none;
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  background: #C9C9C9;
+  background: #c9c9c9;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -63,7 +58,7 @@ export const UploadButtonLeft = styled.button`
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  background: #C9C9C9;
+  background: #c9c9c9;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -76,7 +71,7 @@ export const UploadButtonLeft = styled.button`
 `;
 export const CheckCircle = styled(CheckCircleOutlined)`
   color: #fff;
-`
+`;
 
 export const UploadFileHidden = styled.input`
   display: none;

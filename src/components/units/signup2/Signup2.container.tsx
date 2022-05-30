@@ -33,15 +33,12 @@ const schema = yup.object({
   confirmUserPassword: yup
     .string()
     .oneOf([yup.ref("userPassword"), null], "비밀번호가 일치하지 않습니다."),
-  userName: yup
+ 
+  userPhone: yup
     .string()
-    .min(2, "이름은 2자리 이상 입력해 주세요.")
-    .required("이름은 필수 입력 사항입니다."),
-  userPhone : yup
-  .string()
-  .min(10,"휴대전화번호를 확인해주세요.")
-  .max(11,"휴대전화번호를 확인해주세요.")
-  .required("휴대전화번호를 입력해주세요."),
+    .min(10, "휴대전화번호를 확인해주세요.")
+    .max(11, "휴대전화번호를 확인해주세요.")
+    .required("휴대전화번호를 입력해주세요."),
   userNickname: yup
     .string()
     .min(2, "2~6자리 닉네임을 입력해 주세요.")
@@ -53,10 +50,11 @@ export default function Signup2Container() {
   const router = useRouter();
   const [createUser] = useMutation(CREATE_USER);
   // const [userPhone, setUserPhone] = useState("");
-  const [serialNumber, setSerialNumber] = useState("");
+  // const [serialNumber, setSerialNumber] = useState("");
   const [numberChecked, setNumberChecked] = useState(false);
   const [emailChecked, setEmailChecked] = useState(false);
   const [nicknameChecked, setNicknameChecked] = useState(false);
+  const [timer, setTimer] = useState(false);
   const [getNumber] = useMutation(SIGNUP_GET_TOKEN);
   const [checkNumber] = useMutation(SIGNUP_CHECK_TOKEN);
   const [overlapEmail] = useMutation(OVERLAP_EMAIL);
@@ -103,26 +101,27 @@ export default function Signup2Container() {
   }
 
   const onClickGetNumber = async () => {
-    const {userPhone} =getValues();
-   
-      try {
-        await getNumber({
-          variables: {
-            phone: userPhone,
-          },
-        });
-        alert("인증번호가 발송되었습니다.");
-      } catch (error: any) {
-        alert(error.message);
-      }
-   
+    const { userPhone } = getValues();
+    setTimer(false);
+    try {
+      await getNumber({
+        variables: {
+          phone: userPhone,
+        },
+      });
+      setTimer(true);
+      alert("인증번호가 발송되었습니다.");
+    } catch (error: any) {
+      alert(error.message);
+    }
   };
   const onClickCheckNumber = async () => {
     if (numberChecked) {
       alert("이미 인증이 완료되었습니다.");
       return;
     }
-    const {userPhone} =getValues();
+    const { userPhone, serialNumber } = getValues();
+    // console.log(userPhone, serialNumber)
     const result = await checkNumber({
       variables: { phone: userPhone, token: serialNumber },
     });
@@ -131,22 +130,24 @@ export default function Signup2Container() {
       return;
     }
     setNumberChecked(true);
+    setTimer(false)
     alert("인증완료");
+
   };
 
   // function onChangePhoneNumber(event) {
   //   setUserPhone(event.target.value);
+  // // }
+  // function onChangeSerialNumber(event) {
+  //   setSerialNumber(event.target.value);
   // }
-  function onChangeSerialNumber(event) {
-    setSerialNumber(event.target.value);
-  }
   const onClickLogin = () => {
     router.push("/login");
   };
   const onClickEmailCheck = async () => {
     setEmailChecked(false);
     const { userEmail } = getValues();
-    
+
     const emailChecker = await overlapEmail({
       variables: { email: userEmail },
     });
@@ -172,7 +173,6 @@ export default function Signup2Container() {
     }
   };
   const onClickSignup = async (signupData) => {
-    const { confirmUserPassword, ...data } = signupData;
     console.log(signupData);
     if (!emailChecked) {
       alert("이메일 중복확인이 되지 않았습니다.");
@@ -194,14 +194,16 @@ export default function Signup2Container() {
           createUserInput: {
             userEmail: signupData.userEmail,
             userPassword: signupData.userPassword,
-            userPhone : signupData.userPhone,
+            userPhone: signupData.userPhone,
             userNickname: signupData.userNickname,
-            gender: "MALE",
-            ageGroup: "TEN",
-            prefer: ["비건"],
+            gender,
+            ageGroup,
+            prefer: [menuPrefer],
           },
         },
       });
+      alert(`${signupData.userNickname}님 가입완료`);
+      onClickLogin();
     } catch (error) {
       alert(error.message);
     }
@@ -214,7 +216,7 @@ export default function Signup2Container() {
       onClickCheckNumber={onClickCheckNumber}
       onClickLogin={onClickLogin}
       // onChangePhoneNumber={onChangePhoneNumber}
-      onChangeSerialNumber={onChangeSerialNumber}
+      // onChangeSerialNumber={onChangeSerialNumber}
       onChangeGender={onChangeGender}
       onChangeAge={onChangeAge}
       onChangeMenu={onChangeMenu}
@@ -224,6 +226,7 @@ export default function Signup2Container() {
       ageGroup={ageGroup}
       ageData={ageData}
       menuData={menuData}
+      timer={timer}
       register={register}
       handleSubmit={handleSubmit}
       formState={formState}

@@ -49,6 +49,11 @@ export const ColumnBox = styled.div`
   display: flex;
   flex-direction: column;
 `
+export const RowBox = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+`
 export const SelectDiv = styled.div`
 display: flex;
   flex-wrap: wrap;
@@ -259,4 +264,22 @@ margin-left: 10px;
   color: #FFA230;
   text-decoration: underline;
 }
+`;
+export const TimerBox = styled.div`
+display: flex;
+flex-direction: column;
+padding-left: 10px;
+`;
+export const TimerDiv = styled.div`
+color: #7B7B7B;
+font-weight: 500;
+font-size: 12px;
+line-height: 12px;
+padding-bottom: 4px;
+`;
+export const TimerTxt = styled.div`
+color: #FF9A31;
+font-weight: 600;
+font-size: 16px;
+line-height: 16px;
 `;

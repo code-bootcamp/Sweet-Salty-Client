@@ -19,7 +19,6 @@ query fetchUserLoggedIn{
     fetchUserLoggedIn{
         userImage
         userNickname
-        
     }
 }
 `;

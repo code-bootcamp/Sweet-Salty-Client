@@ -13,6 +13,7 @@ export default function LayoutHeader() {
   const [isClick, setIsClick] = useState(false);
   const [logout] = useMutation(LOGOUT);
   const { data } = useQuery(FETCH_USER_LOGGED_IN);
+  console.log(data)
   const [, setAccessToken] = useRecoilState(accessTokenState);
 
   // 쪽지함 안 읽은 쪽지 갯수

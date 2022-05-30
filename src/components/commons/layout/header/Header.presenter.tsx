@@ -4,7 +4,6 @@ import { PointComma } from "../../libraries/point";
 import * as S from "./Header.styles";
 
 export default function LayoutHeaderPresenter(props: any) {
-  console.log(Number(props.fetchUnreadMessageCountData?.fetchUnreadMessageCount))
   return (
     <S.HeaderWrapper>
       <S.HeaderBox>

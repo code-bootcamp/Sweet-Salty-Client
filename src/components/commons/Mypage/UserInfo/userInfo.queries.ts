@@ -10,7 +10,6 @@ query fetchUserLoggedIn{
       userId
       userState
       userEmail
-      userName
       userNickname
       userImage
       userProfile

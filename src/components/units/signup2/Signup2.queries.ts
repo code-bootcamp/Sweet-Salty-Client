@@ -1,12 +1,10 @@
-import { gql } from "@apollo/client";
+import {gql} from '@apollo/client'
 
-export const CREATE_USER = gql`
-mutation createUser($createUserInput: CreateUserInput!) {
-  createUser(createUserInput: $createUserInput) {
-    userId
-    userEmail
-      
-  }
+export const CREATE_USER= gql`
+mutation createUser($createUserInput: CreateUserInput!){
+    createUser(createUserInput:$createUserInput){
+        userNickname
+    }
 }
 `;
 export const SIGNUP_GET_TOKEN=gql`
@@ -19,6 +17,7 @@ mutation signUpCheckToken($phone: String!, $token:String!){
   signUpCheckToken(phone: $phone, token: $token)
 }
 `;
+
 export const OVERLAP_EMAIL = gql`
 mutation overlapEmail($email:String!){
   overlapEmail(email:$email)

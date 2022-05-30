@@ -11,6 +11,7 @@ query fetchPaymentHistory {
     productStatus
     supplier
     paymentAmount
+    impUid
     stock
     barcode
     createdAt

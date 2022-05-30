@@ -14,7 +14,6 @@ export default function DetailMapPage(props) {
   // console.log("2번", isLoad);
 
   useEffect(() => {
-    console.log("여기", props);
     // if (!isLoad) return;
     const script = document.createElement("script");
     script.src =

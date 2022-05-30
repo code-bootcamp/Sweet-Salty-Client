@@ -40,3 +40,19 @@ export const CREATE_BOARD_REQ = gql`
     }
   }
 `;
+
+export const CREATE_BOARD_RES = gql`
+  mutation createBoardRes(
+    $reqBoardId: String!
+    $createBoardInput: CreateBoardInput!
+    $boardTagsInput: BoardTagsInput!
+  ) {
+    createBoardRes(
+      reqBoardId: $reqBoardId
+      createBoardInput: $createBoardInput
+      boardTagsInput: $boardTagsInput
+    ) {
+      boadId
+    }
+  }
+`;

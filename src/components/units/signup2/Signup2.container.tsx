@@ -33,10 +33,7 @@ const schema = yup.object({
   confirmUserPassword: yup
     .string()
     .oneOf([yup.ref("userPassword"), null], "비밀번호가 일치하지 않습니다."),
-  userName: yup
-    .string()
-    .min(2, "이름은 2자리 이상 입력해 주세요.")
-    .required("이름은 필수 입력 사항입니다."),
+ 
   userPhone: yup
     .string()
     .min(10, "휴대전화번호를 확인해주세요.")
@@ -53,7 +50,7 @@ export default function Signup2Container() {
   const router = useRouter();
   const [createUser] = useMutation(CREATE_USER);
   // const [userPhone, setUserPhone] = useState("");
-  const [serialNumber, setSerialNumber] = useState("");
+  // const [serialNumber, setSerialNumber] = useState("");
   const [numberChecked, setNumberChecked] = useState(false);
   const [emailChecked, setEmailChecked] = useState(false);
   const [nicknameChecked, setNicknameChecked] = useState(false);
@@ -66,7 +63,7 @@ export default function Signup2Container() {
   const [ageGroup, setAgeGroup] = useState("");
   const [menuPrefer, setMenuPrefer] = useState("");
   const { register, handleSubmit, formState, getValues } = useForm({
-    // resolver: yupResolver(schema),
+    resolver: yupResolver(schema),
     mode: "onChange",
   });
   const genderData = [
@@ -123,7 +120,8 @@ export default function Signup2Container() {
       alert("이미 인증이 완료되었습니다.");
       return;
     }
-    const { userPhone } = getValues();
+    const { userPhone, serialNumber } = getValues();
+    // console.log(userPhone, serialNumber)
     const result = await checkNumber({
       variables: { phone: userPhone, token: serialNumber },
     });
@@ -132,15 +130,17 @@ export default function Signup2Container() {
       return;
     }
     setNumberChecked(true);
+    setTimer(false)
     alert("인증완료");
+
   };
 
   // function onChangePhoneNumber(event) {
   //   setUserPhone(event.target.value);
+  // // }
+  // function onChangeSerialNumber(event) {
+  //   setSerialNumber(event.target.value);
   // }
-  function onChangeSerialNumber(event) {
-    setSerialNumber(event.target.value);
-  }
   const onClickLogin = () => {
     router.push("/login");
   };
@@ -216,7 +216,7 @@ export default function Signup2Container() {
       onClickCheckNumber={onClickCheckNumber}
       onClickLogin={onClickLogin}
       // onChangePhoneNumber={onChangePhoneNumber}
-      onChangeSerialNumber={onChangeSerialNumber}
+      // onChangeSerialNumber={onChangeSerialNumber}
       onChangeGender={onChangeGender}
       onChangeAge={onChangeAge}
       onChangeMenu={onChangeMenu}

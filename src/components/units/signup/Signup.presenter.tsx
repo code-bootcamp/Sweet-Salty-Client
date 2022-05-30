@@ -3,6 +3,7 @@ import SignupInput from "./Signup.input";
 import * as S from "./Signup.styled";
 
 export default function SignUpPresenterPage(props: any) {
+  const test =(data)=>{console.log(data);}
   return (
     <S.Wrapper>
     <S.LogoImg src="/images/whitelogo.png"/>

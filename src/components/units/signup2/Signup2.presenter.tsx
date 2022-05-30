@@ -82,7 +82,7 @@ export default function Signup2Presenter(props) {
           </S.PhoneInputBox>
           <S.Text>인증번호</S.Text>
           <S.RowBox>
-            <SignupInput type="text" onChange={props.onChangeSerialNumber} />
+            <SignupInput type="text" register={props.register("serialNumber")} />
 
             <S.OutputButton type="button" onClick={props.onClickCheckNumber}>
               인증확인

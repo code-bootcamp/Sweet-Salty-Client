@@ -2,7 +2,7 @@ import { useRouter } from "next/router";
 import WriteBtnPresenterPage from "./WriteBtn.presenter";
 
 export default function WriteBtnContainerPage(props) {
-  console.log("gsadgsdg31414", props);
+  console.log("버튼", props.wishDetailID);
   const router = useRouter();
 
   const onClickWrite = () => {

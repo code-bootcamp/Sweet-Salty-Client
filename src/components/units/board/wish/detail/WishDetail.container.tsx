@@ -2,6 +2,7 @@
 
 import { useMutation, useQuery } from "@apollo/client";
 import { useRouter } from "next/router";
+import { useEffect, useState } from "react";
 import {
   CREATE_BOARD_LIKE,
   DELETE_BOARD,
@@ -18,7 +19,15 @@ export default function WishDetailContainerPage() {
   });
   const checkPage = "VISITED";
   const wishDetailID = router.query.boardId;
+  const [wishId, setWishId] = useState("" || "hi");
+
+  useEffect(() => {
+    setWishId(String(router.query.boardId));
+  }, []);
+
   console.log("아이디요", wishDetailID);
+  console.log("아이디요1", wishId);
+
   const onClickWishList = () => {
     router.push("/reviews/wish");
   };

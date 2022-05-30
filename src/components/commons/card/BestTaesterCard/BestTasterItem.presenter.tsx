@@ -10,6 +10,7 @@ export default function BestTasterItemPresenterPage(props) {
           backgroundImage: `url(https://storage.googleapis.com/${props.fetchBestDetailData?.thumbnail})`,
           backgroundSize: "cover",
           backgroundRepeat: "no-repeat",
+          backgroundPosition: "center",
         }}
       >
         <S.ItemRankingDiv>

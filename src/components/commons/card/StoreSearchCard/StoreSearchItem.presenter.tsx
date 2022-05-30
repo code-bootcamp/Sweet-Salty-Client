@@ -10,6 +10,7 @@ export default function StoreSearchItemPresenterPage(props) {
           backgroundRepeat: "no-repeat",
           objectFit: "cover",
           overflow: "hidden",
+          backgroundPosition: "center",
         }}
       >
         <S.ImageTitle>일일특가</S.ImageTitle>

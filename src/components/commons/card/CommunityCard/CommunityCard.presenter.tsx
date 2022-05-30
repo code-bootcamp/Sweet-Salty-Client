@@ -9,6 +9,7 @@ export default function CommunityCardPresenterPage(props) {
           backgroundImage: `url(https://storage.googleapis.com/${props.fetchBoardsCategoryData?.thumbnail})`,
           backgroundSize: "cover",
           backgroundRepeat: "no-repeat",
+          backgroundPosition: "center",
         }}
       >
         {props.fetchBoardsCategoryData?.boardSubject === "TASTER" && (

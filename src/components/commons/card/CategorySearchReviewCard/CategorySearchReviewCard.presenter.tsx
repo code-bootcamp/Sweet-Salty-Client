@@ -12,6 +12,7 @@ export default function SearchCategoryItemPresenterPage(props) {
           backgroundImage: `url(https://storage.googleapis.com/${props.fetchTagSearchData?.thumbnail})`,
           backgroundSize: "cover",
           backgroundRepeat: "no-repeat",
+          backgroundPosition: "center",
         }}
       >
         {props.fetchTagSearchData?.boardsubject === "TASTER" && (

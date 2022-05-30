@@ -40,20 +40,12 @@ export const IntroPresenter = () => {
           <S.Member style={{ marginRight: 30 }}>
             <S.MemberImg src="/images/8team/ehrms.png" />
             <S.MemberTitle>팀장: 유도근</S.MemberTitle>
-            <S.MemberInfo>
-              Contact: (이메일) |{" "}
-              <S.MailImg src="https://blog.kakaocdn.net/dn/cdwZvZ/btqGmPkoVp9/HxrPkjQPEjeeNLXDloyNGK/img.png" />
-              (깃허브){" "}
-            </S.MemberInfo>
+            <S.MemberInfo>Contact: (이메일) | </S.MemberInfo>
           </S.Member>
           <S.Member>
             <S.MemberImg src="/images/8team/qhdls.png" />
             <S.MemberTitle>팀원: 김보인</S.MemberTitle>
-            <S.MemberInfo>
-              Contact: (이메일) |{" "}
-              <S.MailImg src="https://blog.kakaocdn.net/dn/cdwZvZ/btqGmPkoVp9/HxrPkjQPEjeeNLXDloyNGK/img.png" />
-              (깃허브){" "}
-            </S.MemberInfo>
+            <S.MemberInfo>Contact: (이메일) | </S.MemberInfo>
           </S.Member>
         </S.MemberBox>
       </S.DeveloperBox>
@@ -67,31 +59,17 @@ export const IntroPresenter = () => {
           <S.Member>
             <S.MemberImg src="/images/8team/tpwls.png" />
             <S.MemberTitle>팀원: 임세진</S.MemberTitle>
-            <S.MemberInfo>
-              Contact: (이메일) |{" "}
-              <S.MailImg src="https://blog.kakaocdn.net/dn/cdwZvZ/btqGmPkoVp9/HxrPkjQPEjeeNLXDloyNGK/img.png" />
-              (깃허브){" "}
-            </S.MemberInfo>
+            <S.MemberInfo>Contact: (이메일) | </S.MemberInfo>
           </S.Member>
           <S.Member style={{ marginLeft: 30, marginRight: 30 }}>
             <S.MemberImg src="/images/8team/alsdud.png" />
             <S.MemberTitle>팀원: 김민영</S.MemberTitle>
-            <S.MemberInfo>
-              Contact: (이메일) |{" "}
-              <S.MailImg src="https://blog.kakaocdn.net/dn/cdwZvZ/btqGmPkoVp9/HxrPkjQPEjeeNLXDloyNGK/img.png" />{" "}
-              (깃허브){" "}
-            </S.MemberInfo>
+            <S.MemberInfo>Contact: (이메일) | </S.MemberInfo>
           </S.Member>
           <S.Member>
             <S.MemberImg src="/images/8team/clgns.png" />
             <S.MemberTitle>팀원: 김치훈</S.MemberTitle>
-            <S.MemberInfo>
-              Contact:
-              <S.MailImg src="https://play-lh.googleusercontent.com/YuB811yIABwkqgTr82XnG79VtfTwJ5dPUUSIs8Oe9q5-aJv6dk-z3BirQEyo5a59Nw" />{" "}
-              rlaclgns321@naver.com |{" "}
-              <S.MailImg src="https://blog.kakaocdn.net/dn/cdwZvZ/btqGmPkoVp9/HxrPkjQPEjeeNLXDloyNGK/img.png" />{" "}
-              rlaclgns321@naver.com{" "}
-            </S.MemberInfo>
+            <S.MemberInfo>Contact:</S.MemberInfo>
           </S.Member>
         </S.MemberBox>
       </S.DeveloperBox>
@@ -102,9 +80,7 @@ export const IntroPresenter = () => {
         <S.Member>
           <S.MemberImg src="/images/8team/wngP.png" />
           <S.MemberTitle>팀원: 박주혜</S.MemberTitle>
-          <S.MemberInfo>
-            Contact: qkrwngp4648@naver.com | @joohye__park{" "}
-          </S.MemberInfo>
+          <S.MemberInfo></S.MemberInfo>
         </S.Member>
       </S.DeveloperBox>
 

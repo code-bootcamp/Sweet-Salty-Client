@@ -36,16 +36,12 @@ export default function LoginPresenterPage(props: any) {
 
           <S.ButtonBox>
             <S.KakaoLoginButton
-              value="kakao"
-              type="button"
               onClick={props.onClickSocialKakao}
             >
               <S.Kakaoimg src="/images/KakaoLogo.png" />
               카카오로 시작하기
             </S.KakaoLoginButton>
             <S.GoogleLoginButton
-              value="google"
-              type="button"
               onClick={props.onClickSocialGoogle}
             >
               <S.Googleimg src="/images/GoogleLogo.png" />

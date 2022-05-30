@@ -88,17 +88,34 @@ export const CategoryBox = styled.div`
   flex-wrap: wrap;
 `;
 export const Category = styled.div`
-  margin: 7px 9px 0 0;
-  padding: 7px 20px;
-  color: #fff;
-  transition: 0.2s;
-  cursor: pointer;
-  border-radius: 50px;
-  font-size: 16px;
-  font-weight: 700;
-  background: #dbdbdb;
-  &:hover {
-    background: #ff9a31;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  font-weight: 600;
+  .checkbox input {
+    display: none;
+  }
+  .checkbox {
+    display: flex;
+    margin-right: 20px;
+  }
+  .checkbox_text {
+    display: flex;
+    background-color: #d2d2d2;
+
+    font-size: 16px;
+    color: #ffffff;
+    padding: 7px 20px;
+    border-radius: 50px;
+    cursor: pointer;
+    &:hover {
+      background-color: #ff9a31;
+      color: #ffffff;
+    }
+  }
+  .checkbox input:checked + .checkbox_text {
+    color: #ffffff;
+    background-color: #ffa230;
   }
 `;
 export const SectionHr = styled.div`
@@ -122,8 +139,10 @@ export const ButtonBox = styled.div`
 export const CompleteButton = styled.button`
   margin: 0 9px 0px 9px;
   padding: 7px 40px;
-  color: #fff;
-  background: #ff9a31;
+  &:hover {
+    color: #fff;
+    background: #ff9a31;
+  }
   border: none;
   border-radius: 10px;
   font-weight: 700;

@@ -95,6 +95,7 @@ export default function CommonReviewWriteContainer(props) {
       setMoodHashTag(moodHashTag.filter((el) => el !== item));
     }
   };
+
   // 카테고리 태그 체크되었는지 확인
   const onChangeCheckCategory = (el) => (event) => {
     const select = categoryData.map((el, idx) => {
@@ -105,22 +106,9 @@ export default function CommonReviewWriteContainer(props) {
     setSubCategoryName(el.value);
   };
 
-  const {
-    register,
-    handleSubmit,
-    setValue,
-    trigger,
-    getValues,
-    formState,
-    reset,
-  } = useForm({
-    // resolver: yupResolver(props.isEdit ? nonSchema : schema),
+  const { register, handleSubmit, setValue, getValues, formState } = useForm({
     mode: "onChange",
   });
-  // const onChangeContents = (value: string) => {
-  //   setValue("boardContents", value === "<p><br></p>" ? "" : value);
-  //   trigger("boardContents");
-  // };
 
   const onClickCancel = () => {
     router.back();

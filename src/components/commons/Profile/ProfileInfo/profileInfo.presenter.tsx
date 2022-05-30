@@ -53,8 +53,6 @@ export default function ProfileInfoPresenter(props: any) {
                     {props.followCountData?.followCount[1]}
                   </S.UserCount>
                 </S.UserBox>
-
-                <S.VerticalLine />
               </S.UserSection>
             </S.UserInfo>
           </S.UserLeftBox>

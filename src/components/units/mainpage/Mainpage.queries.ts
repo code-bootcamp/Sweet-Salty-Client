@@ -19,11 +19,7 @@ export const FETCH_RECENT_BOARDS = gql`
         placeName
         placeAddress
       }
-      boardSides {
-        boardTags {
-          boardTagName
-        }
-      }
+      
     }
   }
 `;

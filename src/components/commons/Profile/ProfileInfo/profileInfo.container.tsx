@@ -9,7 +9,8 @@ import { useRouter } from "next/router";
 import { useState } from "react";
 
 export default function ProfileInfoContainer(props: any) {
-  const [isFollow, setIsFollow] = useState(false)
+  const [isFollow, setIsFollow] = useState(true)
+  console.log(isFollow)
 
   const router = useRouter();
   
@@ -41,7 +42,8 @@ export default function ProfileInfoContainer(props: any) {
           },
         ],
       })
-      setIsFollow(prev=>(!prev))
+      if(result.data.follow === "팔로우"){return setIsFollow(false)} else if (result.data.follow === "언팔로우"){return setIsFollow(true)}
+      
     }
     catch(error: any){
       alert(error.message)

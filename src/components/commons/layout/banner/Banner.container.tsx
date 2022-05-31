@@ -48,13 +48,13 @@ export default function LayoutBanner() {
   return (
     <S.BannerWrapper>
       <Slick {...settings}>
-        <img src="/images/banner/Banner_1.png" />
+        <img src="/images/Banner/Banner_1.png" />
 
-        <img src="/images/banner/Banner_2.png" />
+        <img src="/images/Banner/Banner_2.png" />
 
-        <img src="/images/banner/Banner_3.png" />
+        <img src="/images/Banner/Banner_3.png" />
 
-        <img src="/images/banner/Banner_4.png" />
+        <img src="/images/Banner/Banner_4.png" />
       </Slick>
     </S.BannerWrapper>
   );

@@ -1,6 +1,7 @@
 import * as S from "./CategorySearchReviewCard.styles";
 
 export default function SearchCategoryItemPresenterPage(props: any) {
+  console.log(props.fetchTagSearchData?.placename);
   return (
     <S.ItemMainDiv
       onClick={props.onClickDetailPage}
@@ -38,9 +39,13 @@ export default function SearchCategoryItemPresenterPage(props: any) {
 
         <S.ItemInfoMidDiv>
           <S.MidStoreInfoDiv>
-            <S.ItemInfoStoreName>식당명</S.ItemInfoStoreName>
+            <S.ItemInfoStoreName>
+              {props.fetchTagSearchData?.placename}
+            </S.ItemInfoStoreName>
             <S.ItemInfoBarDiv>|</S.ItemInfoBarDiv>
-            <S.ItemInfoLocationDiv>구로구</S.ItemInfoLocationDiv>
+            <S.ItemInfoLocationDiv>
+              {props.fetchTagSearchData?.placeaddress.split(" ")[1]}
+            </S.ItemInfoLocationDiv>
           </S.MidStoreInfoDiv>
           <S.ItemInfoUserDiv>
             {props.fetchTagSearchData?.boardwriter} 단짝님

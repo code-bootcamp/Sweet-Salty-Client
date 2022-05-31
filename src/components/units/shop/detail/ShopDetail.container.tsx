@@ -31,7 +31,7 @@ export default function ShopDetailContainerPage(props: any) {
 
   const onClickPay = async () => {
     try {
-      const result = await payShop({
+      await payShop({
         variables: {
           stock: buyAmount,
           shopId: String(router.query.shopId),

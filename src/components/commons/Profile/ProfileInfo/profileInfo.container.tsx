@@ -1,26 +1,21 @@
 import ProfileInfoPresenter from "./profileInfo.presenter";
 import { useMutation, useQuery } from "@apollo/client";
-import {
-  FETCH_BOARD_COUNT,
-  FOLLOW,
-  FOLLOW_COUNT,
-} from "./profileInfo.queries";
+import { FETCH_BOARD_COUNT, FOLLOW, FOLLOW_COUNT } from "./profileInfo.queries";
 import { useRouter } from "next/router";
 import { useState } from "react";
 
 export default function ProfileInfoContainer(props: any) {
-  const [isFollow, setIsFollow] = useState(true)
+  const [isFollow, setIsFollow] = useState(true);
 
   const router = useRouter();
-  
+
   const { data: followCountData } = useQuery(FOLLOW_COUNT, {
     variables: {
       followerNickname: String(props.data?.fetchUser?.userNickname),
     },
   });
 
-  const [follow] = useMutation(FOLLOW)
-
+  const [follow] = useMutation(FOLLOW);
 
   const { data: fetchBoardCountData } = useQuery(FETCH_BOARD_COUNT);
 
@@ -29,27 +24,29 @@ export default function ProfileInfoContainer(props: any) {
   };
 
   const onClickFollow = async () => {
-    try{
+    try {
       const result = await follow({
         variables: {
-          followerNickname: "뚜루뚜"
+          followerNickname: "뚜루뚜",
         },
         refetchQueries: [
           {
             query: FOLLOW_COUNT,
-            variables: { followerNickname: String(props.data?.fetchUser?.userNickname) },
+            variables: {
+              followerNickname: String(props.data?.fetchUser?.userNickname),
+            },
           },
         ],
-      })
-      if(result.data.follow === "팔로우"){setIsFollow(false)} 
-      else if (result.data.follow === "언팔로우"){setIsFollow(true)}
-      console.log(isFollow)
-      
+      });
+      if (result.data.follow === "팔로우") {
+        setIsFollow(false);
+      } else if (result.data.follow === "언팔로우") {
+        setIsFollow(true);
+      }
+    } catch (error: any) {
+      alert(error.message);
     }
-    catch(error: any){
-      alert(error.message)
-    }
-  }
+  };
 
   return (
     <ProfileInfoPresenter

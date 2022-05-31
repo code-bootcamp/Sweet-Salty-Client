@@ -102,7 +102,7 @@ export default function UserInfoContainer() {
               amount: Number(changePoint),
             },
           });
-          console.log("충전 완료!");
+          alert("충전 완료!");
         } else {
           alert(rsp.error_msg);
         }

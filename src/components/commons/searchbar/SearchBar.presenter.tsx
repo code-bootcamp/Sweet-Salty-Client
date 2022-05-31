@@ -13,7 +13,6 @@ export default function SearchBarPresenter(props: any) {
       isNoticePromoionList={props.isNoticePromoionList}
       isNoticeTasterList={props.isNoticeTasterList}
     >
-      {/* 전체 게시판, 가주세요! 게시판에서 보여줘 */}
       {(props.isReviewList || props.isWishList) && (
         <S.SearchBox>
           <S.SearchInnerBox>
@@ -31,7 +30,6 @@ export default function SearchBarPresenter(props: any) {
         </S.SearchBox>
       )}
 
-      {/* 공지사항 전체 페이지 검색창 */}
       {props.isNoticeAllList && (
         <>
           <S.SearchbarNoticeCount>
@@ -40,7 +38,6 @@ export default function SearchBarPresenter(props: any) {
           </S.SearchbarNoticeCount>
         </>
       )}
-      {/* 공지사항 단짠리뷰 페이지 검색창 */}
       {props.isNoticeList && (
         <>
           <S.SearchbarNoticeCount>
@@ -49,7 +46,6 @@ export default function SearchBarPresenter(props: any) {
           </S.SearchbarNoticeCount>
         </>
       )}
-      {/* 공지사항 이벤트 페이지 검색창 */}
       {props.isNoticeEventList && (
         <>
           <S.SearchbarNoticeCount>
@@ -59,7 +55,6 @@ export default function SearchBarPresenter(props: any) {
           </S.SearchbarNoticeCount>
         </>
       )}
-      {/* 공지사항 프로모션 페이지 검색창 */}
       {props.isNoticePromoionList && (
         <>
           <S.SearchbarNoticeCount>
@@ -71,7 +66,6 @@ export default function SearchBarPresenter(props: any) {
           </S.SearchbarNoticeCount>
         </>
       )}
-      {/* 공지사항 시식단 모집 페이지 검색창 */}
       {props.isNoticeTasterList && (
         <>
           <S.SearchbarNoticeCount>
@@ -83,7 +77,6 @@ export default function SearchBarPresenter(props: any) {
           </S.SearchbarNoticeCount>
         </>
       )}
-      {/* 공지사항 페이지 검색창 */}
       {(props.isNoticeAllList ||
         props.isNoticeList ||
         props.isNoticeEventList ||

@@ -1,7 +1,6 @@
 import * as S from "./BestStoreItem.styles";
 
 export default function BestStoreItemPresenterPage(props: any) {
-  console.log("gdsaga", props.fetchShopBestData);
   return (
     <S.ItemMainDiv onClick={props.onClickDetailPage} id={props.id}>
       <S.ImageTitle>

@@ -1,7 +1,6 @@
 import * as S from "./CategorySearchReviewCard.styles";
 
 export default function SearchCategoryItemPresenterPage(props: any) {
-  console.log(props.fetchTagSearchData?.placename);
   return (
     <S.ItemMainDiv
       onClick={props.onClickDetailPage}

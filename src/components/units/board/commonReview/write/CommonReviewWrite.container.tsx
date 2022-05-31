@@ -140,7 +140,6 @@ export default function CommonReviewWriteContainer(props: any) {
               `/reviews/testerReview/${result.data?.createBoard.boardId}`
             );
           }
-          console.log(result.data?.createBoard.boardId);
         } catch (error: any) {
           alert(error.message);
         }
@@ -199,7 +198,6 @@ export default function CommonReviewWriteContainer(props: any) {
         router.push(
           `/reviews/commonReview/${result.data?.createBoardRes.boardId}`
         );
-        console.log(result);
       } catch (error: any) {
         alert(error.message);
       }

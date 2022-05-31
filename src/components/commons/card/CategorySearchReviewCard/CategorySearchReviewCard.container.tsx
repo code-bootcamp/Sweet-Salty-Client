@@ -6,7 +6,6 @@ export default function SearchCategoryItemContainerPage(props: any) {
   const router = useRouter();
 
   const onClickDetailPage = (event: MouseEvent<HTMLDivElement>) => {
-    console.log(event.currentTarget);
     if (props.el.boardsubject === "TASTER") {
       router.push(`/reviews/testerReview/${event.currentTarget.id}`);
     }

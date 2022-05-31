@@ -15,7 +15,6 @@ export default function CommentWriteContainerPage(props: any) {
   const router = useRouter();
   const [createComment] = useMutation(CREATE_COMMENT);
   const { data } = useQuery(FETCH_USER_LOGGED_IN);
-  console.log(data?.fetchUserLoggedIn?.userImage);
 
   const onClickSubmit = async (data: any) => {
     if (!data.contents) return alert("댓글을 입력해주세요.");

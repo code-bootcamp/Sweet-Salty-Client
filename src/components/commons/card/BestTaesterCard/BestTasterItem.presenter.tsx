@@ -1,7 +1,6 @@
 import * as S from "./BestTasterItem.styles";
 
 export default function BestTasterItemPresenterPage(props: any) {
-  console.log("000", props.fetchBestDetailData);
   return (
     <S.ItemMainDiv onClick={props.onClickDetailPage} id={props.id}>
       <S.ItemImg

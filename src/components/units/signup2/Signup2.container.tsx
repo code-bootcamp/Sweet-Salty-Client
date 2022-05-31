@@ -70,7 +70,7 @@ export default function Signup2Container() {
     { key: "1", id: "FEMALE", title: "여성", checked: false, index: 1 },
     { key: "2", id: "PRIVATE", title: "선택 안함", checked: false, index: 2 },
   ];
-  function onChangeGender(checked:any, id:any) {
+  function onChangeGender(checked: any, id: any) {
     if (checked) {
       setGender(id);
     }
@@ -83,7 +83,7 @@ export default function Signup2Container() {
     { key: "4", id: "FIFTY", title: "50대 이상", checked: false, index: 4 },
     { key: "5", id: "NONE", title: "선택 안함", checked: false, index: 5 },
   ];
-  function onChangeAge(checked:any, id:any) {
+  function onChangeAge(checked: any, id: any) {
     if (checked) setAgeGroup(id);
   }
   const menuData = [
@@ -95,7 +95,7 @@ export default function Signup2Container() {
     { key: "5", id: "한식", checked: false, index: 5 },
     { key: "6", id: "할랄", checked: false, index: 6 },
   ];
-  function onChangeMenu(checked:any, id:any) {
+  function onChangeMenu(checked: any, id: any) {
     if (checked) setMenuPrefer(id);
   }
 
@@ -161,8 +161,7 @@ export default function Signup2Container() {
       alert("이미 사용중인 닉네임입니다.");
     }
   };
-  const onClickSignup = async (signupData:any) => {
-    console.log(signupData);
+  const onClickSignup = async (signupData: any) => {
     if (!emailChecked) {
       alert("이메일 중복확인이 되지 않았습니다.");
       return;
@@ -193,7 +192,7 @@ export default function Signup2Container() {
       });
       alert(`${signupData.userNickname}님 가입완료`);
       onClickLogin();
-    } catch (error:any) {
+    } catch (error: any) {
       alert(error.message);
     }
   };

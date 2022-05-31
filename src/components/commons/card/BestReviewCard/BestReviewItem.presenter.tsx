@@ -1,8 +1,6 @@
 import * as S from "./BestReviewItem.styles";
 
 export default function BestReviewItemPresenterPage(props: any) {
-  console.log(typeof props.idx);
-
   return (
     <S.ItemMainDiv onClick={props.onClickDetailPage} id={props.id}>
       <S.ItemImg

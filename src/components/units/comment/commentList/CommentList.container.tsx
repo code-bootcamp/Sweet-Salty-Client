@@ -10,7 +10,6 @@ export default function CommentListContainerPage() {
       boardId: String(router.query.boardId),
     },
   });
-  console.log(fetchCommentsData?.fetchComments);
   const loadMore = () => {
     if (!fetchCommentsData) return;
 

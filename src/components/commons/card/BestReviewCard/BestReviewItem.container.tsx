@@ -3,11 +3,18 @@ import { useRouter } from "next/router";
 import BestReviewItemPresenterPage from "./BestReviewItem.presenter";
 
 export default function BestReviewItemContainerPage(props: any) {
+  console.log(props.el.boardSubject);
   const router = useRouter();
 
   const onClickDetailPage = (event: MouseEvent<HTMLDivElement>) => {
-    if (event.target instanceof Element) {
+    if (props.el.boardSubject === "TASTER") {
+      router.push(`/reviews/testerReview/${event.currentTarget.id}`);
+    }
+    if (props.el.boardSubject === "REVIEW") {
       router.push(`/reviews/commonReview/${event.currentTarget.id}`);
+    }
+    if (props.el.boardSubject === "REQUEST") {
+      router.push(`/reviews/wish/${event.currentTarget.id}`);
     }
   };
   return (

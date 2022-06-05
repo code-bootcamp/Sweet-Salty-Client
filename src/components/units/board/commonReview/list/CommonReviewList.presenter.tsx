@@ -4,10 +4,10 @@ import ReviewMenuPage from "../../../../commons/reviewMenu";
 import FilterContainer from "../../../../commons/filter/filter.container";
 import BestReviewItemContainerPage from "../../../../commons/card/BestReviewCard/BestReviewItem.container";
 import TopButton from "../../../../commons/topbutton";
-import CommonReviewItemContainerPage from "../../../../commons/card/ReviewCard/ReviewItem.container";
 import { v4 as uuidv4 } from "uuid";
 import SearchCategoryItemContainerPage from "../../../../commons/card/CategorySearchReviewCard/CategorySearchReviewCard.container";
 import WriteBtnContainerPage from "../../../../commons/writeBtn/WriteBtn.container";
+import CardItemContainerPage from "../../../../commons/card/CardItem/CardItem.container";
 export default function CommonReviewPresenterPage(props: any) {
   const dataForCategory = props.fetchBoardsCategoryData?.fetchBoardCategoryPick;
   const dataForTags = props.fetchBoardWithTagData?.fetchBoardWithTags.hits.hits;
@@ -32,7 +32,7 @@ export default function CommonReviewPresenterPage(props: any) {
 
             <S.ReviewSection>
               {props.fetchBoardBestData?.fetchBoardBest.map(
-                (el: any, idx: any) => (
+                (el: any, idx: number) => (
                   <BestReviewItemContainerPage
                     key={uuidv4()}
                     el={el}
@@ -74,7 +74,7 @@ export default function CommonReviewPresenterPage(props: any) {
               >
                 <S.ReviewList>
                   {dataForCategory?.map((el: any) => (
-                    <CommonReviewItemContainerPage
+                    <CardItemContainerPage
                       el={el}
                       key={uuidv4()}
                       id={el.boardId}

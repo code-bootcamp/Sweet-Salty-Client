@@ -1,8 +1,8 @@
-import CommunityCardPresenterPage from "./CommunityCard.presenter";
 import { useRouter } from "next/router";
 import { MouseEvent } from "react";
+import CardItemPresenterPage from "./CardItem.presenter";
 
-export default function CommunityCardContainerPage(props: any) {
+export default function CardItemContainerPage(props: any) {
   const router = useRouter();
   const onClickDetailPage = (event: MouseEvent<HTMLDivElement>) => {
     if (props.el.boardSubject === "TASTER") {
@@ -20,7 +20,7 @@ export default function CommunityCardContainerPage(props: any) {
   };
 
   return (
-    <CommunityCardPresenterPage
+    <CardItemPresenterPage
       fetchBoardsCategoryData={props.el}
       id={props.id}
       onClickDetailPage={onClickDetailPage}

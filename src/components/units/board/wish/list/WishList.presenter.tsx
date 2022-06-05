@@ -4,8 +4,8 @@ import WriteBtnContainerPage from "../../../../commons/writeBtn/WriteBtn.contain
 import * as S from "./WishList.styled";
 import { v4 as uuidv4 } from "uuid";
 import InfiniteScroll from "react-infinite-scroller";
-import WishCardPage from "../../../../commons/card/WishCard/WishCard";
-import BestWishItemContainerPage from "../../../../commons/card/BestWishCard/BestWishCardItem.container";
+import CardItemContainerPage from "../../../../commons/card/CardItem/CardItem.container";
+import BestReviewItemContainerPage from "../../../../commons/card/BestReviewCard/BestReviewItem.container";
 
 export default function WishPresenterPage(props: any) {
   const dataForCategory = props.fetchBoardsCategoryData?.fetchBoardCategoryPick;
@@ -28,7 +28,7 @@ export default function WishPresenterPage(props: any) {
             <S.ReviewSection>
               {props.fetchBoardBestData?.fetchBoardBest.map(
                 (el: any, idx: any) => (
-                  <BestWishItemContainerPage
+                  <BestReviewItemContainerPage
                     key={uuidv4()}
                     el={el}
                     id={el.boardId}
@@ -48,7 +48,11 @@ export default function WishPresenterPage(props: any) {
             >
               <S.ReviewList>
                 {dataForCategory?.map((el: any) => (
-                  <WishCardPage key={uuidv4()} el={el} id={el.boardId} />
+                  <CardItemContainerPage
+                    key={uuidv4()}
+                    el={el}
+                    id={el.boardId}
+                  />
                 ))}
               </S.ReviewList>
             </InfiniteScroll>

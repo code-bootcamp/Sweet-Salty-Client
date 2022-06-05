@@ -1,9 +1,9 @@
 import * as S from "./CommunityList.styled";
 import InfiniteScroll from "react-infinite-scroller";
 import ReviewMenuPage from "../../../../commons/reviewMenu";
-import CommunityCardContainerPage from "../../../../commons/card/CommunityCard/CommunityCard.container";
 import TopButton from "../../../../commons/topbutton";
 import WriteBtnContainerPage from "../../../../commons/writeBtn/WriteBtn.container";
+import CardItemContainerPage from "../../../../commons/card/CardItem/CardItem.container";
 
 export default function CommunityListPresenterPage(props: any) {
   return (
@@ -28,7 +28,7 @@ export default function CommunityListPresenterPage(props: any) {
             >
               <S.ReviewList>
                 {props.fetchBoardsData?.fetchBoards.map((el: any) => (
-                  <CommunityCardContainerPage
+                  <CardItemContainerPage
                     key={el.boardId}
                     el={el}
                     id={el.boardId}

@@ -54,19 +54,19 @@ export default function SearchBarPage(props: any) {
   };
 
   // 전체리뷰
-  const ReviewList = ["/reviews"];
+  const ReviewList = ["/reviews/"];
   const isReviewList = ReviewList.includes(router.asPath);
   // 단짠리뷰
-  const CommonReviewList = ["/reviews/commonReview"];
+  const CommonReviewList = ["/reviews/commonReview/"];
   const isCommonReviewList = CommonReviewList.includes(router.asPath);
   // 시식단리뷰
-  const TesterReview = ["/reviews/testerReview"];
+  const TesterReview = ["/reviews/testerReview/"];
   const isTesterReview = TesterReview.includes(router.asPath);
   // 거주세요! 리뷰
-  const WishList = ["/reviews/wish"];
+  const WishList = ["/reviews/wish/"];
   const isWishList = WishList.includes(router.asPath);
   // 공지사항 전체
-  const NoticeAllList = ["/noticeAll"];
+  const NoticeAllList = ["/noticeAll/"];
   const isNoticeAllList = NoticeAllList.includes(router.asPath);
   // 공지사항 단짠 공지 공지사항
   const NoticeList = ["/noticeAll/notice"];

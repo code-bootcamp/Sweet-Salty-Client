@@ -108,7 +108,7 @@ export default function UserInfoPresenter(props: any) {
                   <S.UserBox>
                     <S.UserTitle>포인트</S.UserTitle>
                     <S.UserCount onClick={props.onClickMyPoint}>
-                      {PointComma(props.data?.fetchUser?.userPoint)}
+                      {PointComma(props.loginUser?.fetchUserLoggedIn?.userPoint)}
                     </S.UserCount>
                   </S.UserBox>
                 </S.UserSection>

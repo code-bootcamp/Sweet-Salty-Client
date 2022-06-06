@@ -12,6 +12,7 @@ import { useRouter } from "next/router";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { FETCH_USER_LOGGED_IN } from "../../../units/mypage/Mypage.queries";
+import { Modal } from 'antd';
 
 declare const window: typeof globalThis & {
   IMP: any;
@@ -51,11 +52,10 @@ export default function UserInfoContainer(props: any) {
           variables: {
             profile,
           },
-          refetchQueries: [
-            {
-              query: FETCH_USER_LOGGED_IN,
-            },
-          ],
+          refetchQueries: [{ query: FETCH_USER_LOGGED_IN }],
+        });
+        Modal.success({
+          content: '수정 완료!',
         });
         setIsUpdata(true);
       } catch (error: any) {
@@ -150,11 +150,11 @@ export default function UserInfoContainer(props: any) {
         pay_method: "card",
         name: "포인트 충전",
         amount: changePoint,
-        buyer_email: "rlaclgns321@naver.com",
-        buyer_name: `김민영`,
-        buyer_tel: "010-4242-4242",
-        buyer_addr: "서울특별시 강남구 신사동",
-        buyer_postcode: "01181",
+        buyer_email: props.loginUser?.fetchUserLoggedIn?.userEmail,
+        buyer_name: props.loginUser?.fetchUserLoggedIn?.userNickname,
+        buyer_tel: props.loginUser?.fetchUserLoggedIn?.userPhone,
+        buyer_addr: "",
+        buyer_postcode: "",
       },
       (rsp: any) => {
         if (rsp.success) {
@@ -163,14 +163,18 @@ export default function UserInfoContainer(props: any) {
               impUid: rsp.imp_uid,
               amount: Number(changePoint),
             },
+            refetchQueries: [{ query: FETCH_USER_LOGGED_IN }],
           });
-          alert("충전 완료!");
+          Modal.success({
+            content: '충전 완료!',
+          });
         } else {
           alert(rsp.error_msg);
         }
       }
     );
   };
+  
 
   return (
     <UserInfoPresenter

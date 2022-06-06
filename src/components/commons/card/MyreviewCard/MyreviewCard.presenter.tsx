@@ -9,20 +9,23 @@ export default function MyreviewCardPresenter(props: any) {
         onClick={props.onClickMoveMyReviewDetail}
         el={props.el}
       >
-        <S.BoardSubject>
-          {props.el?.boardSubject === "REQUEST" && "가주세요!"}
-          {props.el?.boardSubject === "VISITED" && "가봤어요!"}
-          {props.el?.boardSubject === "REVIEW" && "단짠 리뷰"}
-          {props.el?.boardSubject === "TASTER" && "시식단 리뷰"}
-        </S.BoardSubject>
+        <S.HeaderBox>
+          <S.BoardSubject>
+            {props.el?.boardSubject === "REQUEST" && "가주세요!"}
+            {props.el?.boardSubject === "VISITED" && "가봤어요!"}
+            {props.el?.boardSubject === "REVIEW" && "단짠 리뷰"}
+            {props.el?.boardSubject === "TASTER" && "시식단 리뷰"}
+          </S.BoardSubject>
+        </S.HeaderBox>
         {props.el?.user?.userImage ? (
           <S.ItemProfile
-            src={`https://storage.googleapis.com/${props.el?.user?.userImage}`}
+            src={`https://storage.googleapis.com/${props.loginUser?.userImage}`}
           />
         ) : (
           <S.ItemProfile src="https://t1.daumcdn.net/cfile/tistory/24283C3858F778CA2E" />
         )}
       </S.ItemImg>
+
       <S.ItemInfoDiv>
         <S.FlexBox>
           <S.ItemInfoTitleDiv>{props.el?.boardTitle}</S.ItemInfoTitleDiv>

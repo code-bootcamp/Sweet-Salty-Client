@@ -13,11 +13,3 @@ export const CREATE_COMMENT = gql`
     }
   }
 `;
-export const FETCH_USER_LOGGED_IN = gql`
-  query fetchUserLoggedIn {
-    fetchUserLoggedIn {
-      userImage
-      userNickname
-    }
-  }
-`;

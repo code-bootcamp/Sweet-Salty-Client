@@ -42,27 +42,27 @@ export default function UserInfoPresenter(props: any) {
                   {props.isUpdate ? (
                     <>
                       <S.userProfile>
-                        {props.data?.fetchUser?.userProfile}
+                        {props.loginUser?.fetchUserLoggedIn?.userProfile}
                       </S.userProfile>
                       <S.userProfileUpdate onClick={props.onClickUpdate}>
                         수정
                       </S.userProfileUpdate>
                     </>
                   ) : (
-                    <>
+                    <form onSubmit={props.handleSubmit(props.onClickUpdateProfile)}>
                       <S.userProfileInput
                         type="text"
                         maxLength={40}
-                        defaultValue={props.data?.fetchUser?.userProfile}
+                        defaultValue={props.loginUser?.fetchUserLoggedIn?.userProfile}
                         placeholder={
                           "간단한 소개글을 작성해주세요. (40자 내외로 작성하세요.)"
                         }
                         onChange={props.onChangeProfile}
-                      ></S.userProfileInput>
+                      />
                       <S.userProfileComplete onClick={props.onClickUpdateProfile}>
                         완료
                       </S.userProfileComplete>
-                    </>
+                    </form>
                   )}
                 </S.userProfileBox>
 

@@ -101,7 +101,7 @@ export const userProfile = styled.div`
   cursor: default;
 `;
 export const userProfileInput = styled.input`
-  width: 330px;
+  display: inline-block;
   outline: none;
   border: none;
   font-size: 14px;
@@ -121,6 +121,7 @@ export const userProfileUpdate = styled.div`
   text-decoration: underline;
 `;
 export const userProfileComplete = styled.div`
+display: inline-block;
   cursor: pointer;
   margin-left: 5px;
   font-size: 14px;

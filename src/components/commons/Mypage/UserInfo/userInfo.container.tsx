@@ -43,7 +43,6 @@ export default function UserInfoContainer(props: any) {
   const onClickUpdateProfile = async () => {
     if (!profile) {
       alert("입력해라!");
-      setIsUpdata(true);
       return;
     }
     if (profile) {

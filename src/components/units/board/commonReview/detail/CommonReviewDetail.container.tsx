@@ -5,13 +5,18 @@ import {
   CREATE_BOARD_LIKE,
   DELETE_BOARD,
   FETCH_BOARD,
+  FETCH_USER_LOGGED_IN,
 } from "./CommonReviewDetail.queries";
 
 export default function ReviewDetailContainer() {
   const router = useRouter();
+  
   const { data } = useQuery(FETCH_BOARD, {
     variables: { boardId: String(router.query.boardId) },
   });
+  const { data: loginUser } = useQuery(FETCH_USER_LOGGED_IN);
+
+
   const [createBoardLike] = useMutation(CREATE_BOARD_LIKE);
   const [deleteBoard] = useMutation(DELETE_BOARD);
   const onClickCommonReviewList = () => {
@@ -19,7 +24,7 @@ export default function ReviewDetailContainer() {
   };
 
   const onClickProfile =()=>{
-    router.push("/profile")
+    router.push(`/${data?.fetchBoard?.user?.userEmail}`)
   }
 
   const onClickDelete = () => {
@@ -72,6 +77,7 @@ export default function ReviewDetailContainer() {
   return (
     <ReviewDetailPresenter
       data={data?.fetchBoard}
+      loginUser={loginUser?.fetchUserLoggedIn}
       onClickCommonReviewList={onClickCommonReviewList}
       onClickDelete={onClickDelete}
       onClickProfile={onClickProfile}

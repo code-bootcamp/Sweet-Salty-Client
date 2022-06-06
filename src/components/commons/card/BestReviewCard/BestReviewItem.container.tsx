@@ -3,7 +3,6 @@ import { useRouter } from "next/router";
 import BestReviewItemPresenterPage from "./BestReviewItem.presenter";
 
 export default function BestReviewItemContainerPage(props: any) {
-  console.log(props.el.boardSubject);
   const router = useRouter();
 
   const onClickDetailPage = (event: MouseEvent<HTMLDivElement>) => {

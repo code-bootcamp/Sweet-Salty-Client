@@ -15,7 +15,6 @@ export default function LayoutHeader() {
   const [isClick, setIsClick] = useState(false);
   const [logout] = useMutation(LOGOUT);
   const { data } = useQuery(FETCH_USER_LOGGED_IN);
-  console.log(data);
   const [, setAccessToken] = useRecoilState(accessTokenState);
 
   const { data: fetchUnreadMessageCountData } = useQuery(
@@ -62,7 +61,7 @@ export default function LayoutHeader() {
     setIsClick(false);
   };
   const onClickMypage = () => {
-    router.push("/mypage");
+    router.push(`/${data.fetchUserLoggedIn.userEmail}`);
     setIsClick(false);
   };
   const onClickMessage = () => {

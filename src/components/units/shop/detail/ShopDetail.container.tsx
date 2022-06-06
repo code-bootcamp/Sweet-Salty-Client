@@ -10,7 +10,6 @@ import {
 
 export default function ShopDetailContainerPage(props: any) {
   const router = useRouter();
-  console.log(router)
   const [buyAmount, setBuyAmount] = useState(0);
   const [payShop] = useMutation(PAY_SHOP);
   const { data: fetchUserLoggedInData } = useQuery(FETCH_USER_LOGGED_IN);
@@ -32,7 +31,7 @@ export default function ShopDetailContainerPage(props: any) {
 
   const onClickPay = async () => {
     try {
-      const result = await payShop({
+      await payShop({
         variables: {
           stock: buyAmount,
           shopId: String(router.query.shopId),
@@ -43,14 +42,12 @@ export default function ShopDetailContainerPage(props: any) {
           },
         ],
       });
-      console.log(result);
-      alert("결제 완료")
-      router.push("/mypage/mypagepoint")
+      alert("결제 완료");
+      router.push("/mypage/mypagepoint");
     } catch (error: any) {
       alert(error.message);
     }
   };
-
 
   useEffect(() => {
     setAmountPoint(buyAmount * fetchShopData?.fetchShop.shopDisCountPrice);

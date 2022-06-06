@@ -2,7 +2,6 @@ import styled from "@emotion/styled";
 export const ItemInfoLeftDiv = styled.div`
   display: flex;
 `;
-
 export const ItemMainDiv = styled.div`
   cursor: pointer;
   height: 342px;
@@ -19,6 +18,7 @@ export const ItemImg = styled.div`
   padding: 15px;
   width: 300px;
 `;
+
 export const ItemTitle = styled.div`
   color: #ffffff;
   font-size: 16px;
@@ -31,8 +31,7 @@ export const ItemInfoDiv = styled.div`
 `;
 export const ItemInfoTopDiv = styled.div`
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+  width: 100%;
 `;
 
 export const ItemInfoMidDiv = styled.div`
@@ -50,31 +49,44 @@ export const ItemInfoStoreName = styled.div`
   color: #676767;
   font-size: 14px;
   line-height: 16px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 `;
 
 export const ItemInfoTitleDiv = styled.div`
   color: #2c2c2c;
   font-size: 18px;
-  line-height: 22px;
-  text-align: center;
   font-weight: 600;
+  width: 300px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 `;
 export const ItemInfoBarDiv = styled.div`
   color: #676767;
   font-size: 18px;
   line-height: 16px;
   padding: 0 5px;
+  text-align: center;
 `;
 export const ItemInfoLocationDiv = styled.div`
   color: #676767;
   font-size: 14px;
   line-height: 16px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 `;
+
 export const ItemInfoUserDiv = styled.div`
   color: #2c2c2c;
   font-size: 14px;
   font-weight: 600;
   line-height: 16px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 `;
 
 export const ItemInfoBottomDiv = styled.div`

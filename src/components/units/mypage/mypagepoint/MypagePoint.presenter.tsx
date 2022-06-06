@@ -1,5 +1,5 @@
-import MyPageMenuContainer from "../../../commons/Mypage/UserMenu/userMenu.container";
-import MypageUserInfoContainer from "../../../commons/Mypage/UserInfo/userInfo.container";
+import UserInfoContainer from "../../../commons/Mypage/UserInfo/userInfo.container";
+import UserMenuContainer from "../../../commons/Mypage/UserMenu/userMenu.container";
 import TopButton from "../../../commons/topbutton";
 import * as S from "./MypagePoint.styled";
 import PointComponentContainer from "../../../commons/Mypage/PointDetailsComponent/pointdetailscomponent.container";
@@ -10,9 +10,15 @@ export default function MypagePointPresenter(props: any) {
     <S.Wrapper>
       <S.Title>마이페이지</S.Title>
 
-      <MypageUserInfoContainer />
+      <UserInfoContainer 
+        User={props.User}
+        loginUser={props.loginUser}
+      />
 
-      <MyPageMenuContainer />
+      <UserMenuContainer 
+        User={props.User}
+        loginUser={props.loginUser}
+      />
 
       <S.MypageSectionBox>
         {props.data?.fetchPaymentHistory.map((el: any) => (

@@ -3,7 +3,7 @@ import * as S from "./MainPage.styles";
 import { v4 as uuidv4 } from "uuid";
 import StoreItemContainerPage from "../../commons/card/StoreCard/StoreItem.container";
 import MainReviewItemContainerPage from "../../commons/card/MainReviewCard/ReviewItem.container";
-import CommonReviewItemPresenterPage from "../../commons/card/ReviewCard/ReviewItem.presenter";
+import CardItemPresenterPage from "../../commons/card/CardItem/CardItem.presenter";
 export default function MainpagePresenter(props: any) {
   return (
     <S.MainPageWrapper>
@@ -75,7 +75,7 @@ export default function MainpagePresenter(props: any) {
               <S.ReviewArrow></S.ReviewArrow>
             </S.ReviewHeader>
             <S.ReviewSection>
-              {!props.loggedInNickname && <CommonReviewItemPresenterPage />}
+              {!props.loggedInNickname && <CardItemPresenterPage />}
               {props.preferData?.fetchPreferBoards.map((el: any) => (
                 <S.CardBoxDiv key={uuidv4()}>
                   <MainReviewItemContainerPage

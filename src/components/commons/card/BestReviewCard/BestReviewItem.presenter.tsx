@@ -1,8 +1,6 @@
 import * as S from "./BestReviewItem.styles";
 
 export default function BestReviewItemPresenterPage(props: any) {
-  console.log(typeof props.idx);
-
   return (
     <S.ItemMainDiv onClick={props.onClickDetailPage} id={props.id}>
       <S.ItemImg
@@ -23,7 +21,15 @@ export default function BestReviewItemPresenterPage(props: any) {
           {props.idx === 2 && (
             <S.ItemRanking src="/images/third.png"></S.ItemRanking>
           )}
-          <S.ItemTitle>단짠 리뷰</S.ItemTitle>
+          {props.fetchBestDetailData?.boardSubject === "TASTER" && (
+            <S.ItemTitle>시식단 리뷰</S.ItemTitle>
+          )}
+          {props.fetchBestDetailData?.boardSubject === "REVIEW" && (
+            <S.ItemTitle>단짠 리뷰</S.ItemTitle>
+          )}
+          {props.fetchBestDetailData?.boardSubject === "REQUEST" && (
+            <S.ItemTitle>가주세요!</S.ItemTitle>
+          )}
         </S.ItemRankingDiv>
       </S.ItemImg>
       <S.ItemInfoDiv>

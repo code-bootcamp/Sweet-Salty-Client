@@ -19,6 +19,25 @@ export const FETCH_USER_LOGGED_IN = gql`
   }
 `;
 
+export const FETCH_USER = gql`
+  query fetchUser($userEmail: String!) {
+    fetchUser(userEmail: $userEmail) {
+      userId
+      userState
+      userEmail
+      userNickname
+      userImage
+      userProfile
+      userPhone
+      userPoint
+      ageGroup
+      gender
+      createAt
+      updateAt
+    }
+  }
+`;
+
 export const FETCH_BOARDS_OF_USER = gql`
   query fetchBoardsOfUser($userNickname: String!) {
     fetchBoardsOfUser(userNickname: $userNickname) {

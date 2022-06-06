@@ -50,7 +50,7 @@ export default function NoticeListContainerPage() {
     router.push("/noticeAll/noticeTaster");
   };
 
-  const Notice = ["/noticeAll/notice"];
+  const Notice = ["/noticeAll/notice/"];
   const isNotice = Notice.includes(router.asPath);
 
   const onClickMoveNoticeDetail = (event: any) => {

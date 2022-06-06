@@ -33,25 +33,23 @@ export const IntroPresenter = () => {
       <S.Title30px style={{ paddingTop: 200, paddingBottom: 100 }}>
         프로젝트 팀원 소개
       </S.Title30px>
-      <S.DeveloperBox style={{ width: 890 }}>
+      <S.DeveloperBox style={{ width: 900 }}>
         <S.DeveloperTitle>Back-end Developoer</S.DeveloperTitle>
 
         <S.MemberBox>
           <S.Member style={{ marginRight: 30 }}>
             <S.MemberImg src="/images/8team/ehrms.png" />
             <S.MemberTitle>팀장: 유도근</S.MemberTitle>
-            <S.MemberInfo>Contact: (이메일) | </S.MemberInfo>
           </S.Member>
           <S.Member>
             <S.MemberImg src="/images/8team/qhdls.png" />
             <S.MemberTitle>팀원: 김보인</S.MemberTitle>
-            <S.MemberInfo>Contact: (이메일) | </S.MemberInfo>
           </S.Member>
         </S.MemberBox>
       </S.DeveloperBox>
 
       <S.DeveloperBox
-        style={{ width: 1394, marginTop: 100, marginBottom: 100 }}
+        style={{ width: 1334, marginTop: 100, marginBottom: 100 }}
       >
         <S.DeveloperTitle>Front-end Developoer</S.DeveloperTitle>
 
@@ -59,28 +57,24 @@ export const IntroPresenter = () => {
           <S.Member>
             <S.MemberImg src="/images/8team/tpwls.png" />
             <S.MemberTitle>팀원: 임세진</S.MemberTitle>
-            <S.MemberInfo>Contact: (이메일) | </S.MemberInfo>
           </S.Member>
           <S.Member style={{ marginLeft: 30, marginRight: 30 }}>
             <S.MemberImg src="/images/8team/alsdud.png" />
             <S.MemberTitle>팀원: 김민영</S.MemberTitle>
-            <S.MemberInfo>Contact: (이메일) | </S.MemberInfo>
           </S.Member>
           <S.Member>
             <S.MemberImg src="/images/8team/clgns.png" />
             <S.MemberTitle>팀원: 김치훈</S.MemberTitle>
-            <S.MemberInfo>Contact:</S.MemberInfo>
           </S.Member>
         </S.MemberBox>
       </S.DeveloperBox>
 
-      <S.DeveloperBox style={{ width: 453 }}>
+      <S.DeveloperBox style={{ width: 470 }}>
         <S.DeveloperTitle>UX/UI Designer</S.DeveloperTitle>
 
         <S.Member>
           <S.MemberImg src="/images/8team/wngP.png" />
           <S.MemberTitle>팀원: 박주혜</S.MemberTitle>
-          <S.MemberInfo></S.MemberInfo>
         </S.Member>
       </S.DeveloperBox>
 

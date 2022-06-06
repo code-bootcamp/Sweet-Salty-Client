@@ -1,13 +1,13 @@
-import BestTasterItemContainerPage from "../../../../commons/card/BestTaesterCard/BestTasterItem.container";
 import ReviewMenuPage from "../../../../commons/reviewMenu";
 import TopButton from "../../../../commons/topbutton";
 import * as S from "./TesterReviewList.styled";
 import InfiniteScroll from "react-infinite-scroller";
-import TasterCardContainerPage from "../../../../commons/card/TaesterCard/TaesterCard.container";
 import { v4 as uuidv4 } from "uuid";
 import SearchCategoryItemContainerPage from "../../../../commons/card/CategorySearchReviewCard/CategorySearchReviewCard.container";
 import FilterContainer from "../../../../commons/filter/filter.container";
 import WriteBtnContainerPage from "../../../../commons/writeBtn/WriteBtn.container";
+import CardItemContainerPage from "../../../../commons/card/CardItem/CardItem.container";
+import BestReviewItemContainerPage from "../../../../commons/card/BestReviewCard/BestReviewItem.container";
 export default function TesterReviewPresenterPage(props: any) {
   const dataForCategory = props.fetchBoardsCategoryData?.fetchBoardCategoryPick;
   const dataForTags = props.fetchBoardWithTagData?.fetchBoardWithTags.hits.hits;
@@ -33,7 +33,7 @@ export default function TesterReviewPresenterPage(props: any) {
             <S.ReviewSection>
               {props.fetchBoardBestData?.fetchBoardBest.map(
                 (el: any, idx: any) => (
-                  <BestTasterItemContainerPage
+                  <BestReviewItemContainerPage
                     key={uuidv4()}
                     el={el}
                     id={el.boardId}
@@ -74,7 +74,7 @@ export default function TesterReviewPresenterPage(props: any) {
               >
                 <S.ReviewList>
                   {dataForCategory?.map((el: any) => (
-                    <TasterCardContainerPage
+                    <CardItemContainerPage
                       key={uuidv4()}
                       el={el}
                       id={el.boardId}

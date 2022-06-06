@@ -26,7 +26,7 @@ export default function NoticePromitionListContainerPage() {
     router.push("/noticeAll/noticeTaster");
   };
 
-  const Notice = ["/noticeAll/noticePromotion"];
+  const Notice = ["/noticeAll/noticePromotion/"];
   const isNotice = Notice.includes(router.asPath);
 
   const { data, refetch } = useQuery(FETCH_NOTICE_CATEGORY_PICK, {

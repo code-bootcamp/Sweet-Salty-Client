@@ -2,7 +2,6 @@ import * as S from "./WriteBtn.styles";
 
 export default function WriteBtnPresenterPage(props:any) {
   return (
-    <S.ReviewWriteBox>
       <S.ReviewWrite onClick={props.onClickWrite}>
         <S.WriteIcon />
         {props.communityCheckPage === "community" && (
@@ -21,6 +20,5 @@ export default function WriteBtnPresenterPage(props:any) {
           <S.WriteText>가봤어요 작성하기</S.WriteText>
         )}
       </S.ReviewWrite>
-    </S.ReviewWriteBox>
   );
 }

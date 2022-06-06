@@ -8,7 +8,14 @@ import LikeReviewCardContainer from "../../../commons/card/LikeReviewCard/LikeRe
 export default function MypageLikePresenter(props: any) {
   return (
     <S.Wrapper>
+    {/* 마이페이지 */}
+    {props.User?.fetchUser?.userEmail === props.loginUser?.fetchUserLoggedIn?.userEmail 
+      ?
       <S.Title>마이페이지</S.Title>
+      :
+      <S.Title>{props.User?.fetchUser?.userNickname} 단짝님 프로필</S.Title>
+    }
+
 
       <UserInfoContainer 
         User={props.User}

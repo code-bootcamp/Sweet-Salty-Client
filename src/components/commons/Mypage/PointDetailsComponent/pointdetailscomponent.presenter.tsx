@@ -56,11 +56,11 @@ export default function PointComponentPresenter (props: any){
           </S.RightBox>
           </>
         }
-        {props.el?.payStatus ==="포인트 환불" &&
+        {props.el?.payStatus ==="충전 취소" &&
           <>
             <S.LeftBox>
               <S.PointCancelImg>
-                <S.PointIcon src="/images/pointicon.png"/>+ 취소{/* 취소, 충전 글자 */}
+                <S.PointIcon src="/images/pointicon.png"/>- 취소{/* 취소, 충전 글자 */}
               </S.PointCancelImg>
 
               <S.StoreComments>

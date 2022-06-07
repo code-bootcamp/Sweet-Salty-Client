@@ -32,7 +32,7 @@ export default function MyPagePresenter(props: any) {
             <S.MypageBoardsOfUser key={uuidv4()}>
               <MyreviewCardContainer
                 el={el}
-                data={props.data}
+                loginUser={props.loginUser?.fetchUserLoggedIn}
                 onClickMoveMyReviewDetail={props.onClickMoveMyReviewDetail}
               />
             </S.MypageBoardsOfUser>

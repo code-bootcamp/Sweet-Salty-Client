@@ -16,7 +16,7 @@ export default function CommonReviewWriteContainer(props: any) {
   const [subCategoryName, setSubCategoryName] = useState(
     String(props.checkPage)
   );
-  const [boardTagMenu, setBoardTagMenu] = useState([]);
+  const [boardTagMenu, setBoardTagMenu] = useState();
   const [moodHashTag, setMoodHashTag] = useState([]);
   const [boardContents, setBoardContents] = useState("");
   const [address, setAddress] = useState({
@@ -74,7 +74,7 @@ export default function CommonReviewWriteContainer(props: any) {
     });
     setMenuTagData(select);
 
-    setBoardTagMenu([el.value]);
+    setBoardTagMenu(el.value);
   };
   const onChangeCheckMood = (checked: any, item: any) => (event: any) => {
     if (checked) {
@@ -126,12 +126,13 @@ export default function CommonReviewWriteContainer(props: any) {
                   lat: address.x,
                   lng: address.y,
                 },
+                tags:[boardTagMenu, ...moodHashTag,address.road_address_name.split(" ")[1]]
               },
-              boardTagsInput: {
-                boardTagMenu,
-                boardTagMood: moodHashTag,
-                boardTagRegion: [address.road_address_name.split(" ")[1]],
-              },
+              // boardTagsInput: {
+              //   boardTagMenu,
+              //   boardTagMood: moodHashTag,
+              //   boardTagRegion: [address.road_address_name.split(" ")[1]],
+              // },
             },
           });
           alert("게시글 등록 완료");

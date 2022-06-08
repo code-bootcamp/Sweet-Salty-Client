@@ -102,10 +102,14 @@ export default function CommonReviewWriteContainer(props: any) {
   };
 
   const onClickReg = async (data: any) => {
+    if(!address.road_address_name.split(" ")[0].includes('서울')){alert("서울에 있는 음식점의 리뷰만 등록이 가능합니다. 지역 업데이트를 기대해주세요!")
+  return}
+  if (moodHashTag.length > 3) {
+    alert("분위기는 3개까지 선택이 가능합니다.");
+    return
+  }
     if (subCategoryName === "REVIEW" || subCategoryName === "TASTER") {
-      if (moodHashTag.length > 3) {
-        alert("분위기는 3개까지 선택이 가능합니다.");
-      } else {
+       
         try {
           const result = await createBoard({
             variables: {
@@ -143,7 +147,7 @@ export default function CommonReviewWriteContainer(props: any) {
         } catch (error: any) {
           alert(error.message);
         }
-      }
+      
     } else if (subCategoryName === "REQUEST") {
       try {
         const result = await createBoardReq({

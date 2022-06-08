@@ -10,8 +10,8 @@ export default function MypageLikeContainer() {
   // 유저 정보
   const { data: User } = useQuery(FETCH_USER, {
     variables: {
-      userEmail: router.query.userNickname
-    }
+      userNickname: router.query.userNickname,
+    },
   });
 
   // 로그링한 유저 정보

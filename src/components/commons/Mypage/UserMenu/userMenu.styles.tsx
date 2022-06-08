@@ -29,6 +29,8 @@ export const MypageMenu = styled.div`
   border-radius: 20px 20px 0 0;
   font-weight: 700;
   font-size: 20px;
+  cursor: pointer;
+  transition: 0.2s;
   color: ${(props: IAny) =>
     props.ismypage || props.ismypageLike || props.ismypagePoint
       ? "#fff"
@@ -37,14 +39,11 @@ export const MypageMenu = styled.div`
     props.ismypage || props.ismypageLike || props.ismypagePoint
       ? "linear-gradient(#ff6e30, #ffa230)"
       : "#fff"};
-  cursor: pointer;
-  transition: 0.2s;
   &:hover {
     background: linear-gradient(#ff6e30, #ffa230);
     color: #fff;
   }
 `;
-
 
 export const MyprofileMenuBox = styled.div`
   margin: 46px auto 0 auto;
@@ -64,9 +63,7 @@ export const MyprofileMenu = styled.div`
   font-weight: 700;
   font-size: 20px;
   color: ${(props: IAny) =>
-    props.ismypage || props.ismypageLike
-      ? "#fff"
-      : "#7b7b7b"};
+    props.ismypage || props.ismypageLike ? "#fff" : "#7b7b7b"};
   background: ${(props: IAny) =>
     props.ismypage || props.ismypageLike
       ? "linear-gradient(#ff6e30, #ffa230)"

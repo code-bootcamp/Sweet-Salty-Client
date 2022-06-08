@@ -20,8 +20,8 @@ export const FETCH_USER_LOGGED_IN = gql`
 `;
 
 export const FETCH_USER = gql`
-  query fetchUser($userEmail: String!) {
-    fetchUser(userEmail: $userEmail) {
+  query fetchUser($userNickname: String!) {
+    fetchUser(userNickname: $userNickname) {
       userId
       userState
       userEmail
@@ -40,7 +40,7 @@ export const FETCH_USER = gql`
 
 export const FETCH_PAYMENT_HISTORY = gql`
   query fetchPaymentHistory {
-    fetchPaymentHistory{
+    fetchPaymentHistory {
       paymentHistoryId
       payStatus
       productStatus

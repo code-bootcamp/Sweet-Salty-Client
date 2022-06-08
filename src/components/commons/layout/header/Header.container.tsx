@@ -61,7 +61,7 @@ export default function LayoutHeader() {
     setIsClick(false);
   };
   const onClickMypage = () => {
-    router.push(`/${data.fetchUserLoggedIn.userEmail}`);
+    router.push(`/${data.fetchUserLoggedIn.userNickname}`);
     setIsClick(false);
   };
   const onClickMessage = () => {

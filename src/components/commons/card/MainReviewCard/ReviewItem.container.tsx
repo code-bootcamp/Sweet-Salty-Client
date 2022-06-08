@@ -8,8 +8,6 @@ export default function MainReviewItemContainerPage(props: any) {
       router.push(`/reviews/commonReview/${event.currentTarget.id}`);
     if (props.subject === "REQUEST")
       router.push(`/reviews/wish/${event.currentTarget.id}`);
-    // if (props.subject === "VISITED")
-    //   router.push(`/reviews/commonReview/${event.currentTarget.id}`);
     if (props.subject === "TASTER")
       router.push(`/reviews/testerReview/${event.currentTarget.id}`);
   };

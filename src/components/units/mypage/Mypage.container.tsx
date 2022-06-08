@@ -1,7 +1,11 @@
 import { useQuery } from "@apollo/client";
 import { useRouter } from "next/router";
 import MyPagePresenter from "./Mypage.presenter";
-import { FETCH_BOARDS_OF_USER, FETCH_USER, FETCH_USER_LOGGED_IN } from "./Mypage.queries";
+import {
+  FETCH_BOARDS_OF_USER,
+  FETCH_USER,
+  FETCH_USER_LOGGED_IN,
+} from "./Mypage.queries";
 
 export default function MyPageContainer() {
   const router = useRouter();
@@ -9,18 +13,17 @@ export default function MyPageContainer() {
   // 유저 정보
   const { data: User } = useQuery(FETCH_USER, {
     variables: {
-      userEmail: String(router.query.userNickname)
-    }
+      userNickname: String(router.query.userNickname),
+    },
   });
 
   // 로그링한 유저 정보
   const { data: loginUser } = useQuery(FETCH_USER_LOGGED_IN);
-  
 
-  const { 
-    data, 
-    refetch, 
-    // fetchMore 
+  const {
+    data,
+    refetch,
+    // fetchMore
   } = useQuery(FETCH_BOARDS_OF_USER, {
     variables: {
       userNickname: String(User?.fetchUser?.userNickname),

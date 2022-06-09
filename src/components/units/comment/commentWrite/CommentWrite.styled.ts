@@ -14,7 +14,7 @@ export const UserImage = styled.img`
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
 `;
 export const Input = styled.textarea`
-  padding: 11px;
+  padding: 8px 11px;
   width: 760px;
   height: 40px;
   min-height: 40px;
@@ -26,6 +26,7 @@ export const Input = styled.textarea`
   color: #2c2c2c;
   font-size: 14px;
   outline: none;
+  overflow: hidden;
   ::placeholder {
     font-size: 14px;
     color: #d2d2d2;

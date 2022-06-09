@@ -18,17 +18,26 @@ export const TotalBox = styled.div`
   justify-content: space-between;
   align-items: start;
 `
-export const MemberProfile = styled.div`
+export const MemberProfile = styled.img`
   width: 70px;
   height: 70px;
   border-radius: 50px;
-  background: #d2d2d2;
+  background: ${(props: any) =>
+    props.data?.user?.userEmail === props.loginUser?.userEmail 
+    ? "#FFC277"
+    : "#D2D2D2"
+  };
   cursor: pointer;
   transform: translate(0px, 25px);
+  object-fit: cover;
 `
 export const ArrowImg = styled.img`
   width: 44px;
-  transform: translate(10px, 40px);
+  transform: ${(props: any) =>
+    props.data?.user?.userEmail === props.loginUser?.userEmail 
+    ? "translate(-10px, 40px) rotate(0.5turn)"
+    : "translate(10px, 40px)"
+  };
 `
 export const Title = styled.div`
   padding: 100px 0;

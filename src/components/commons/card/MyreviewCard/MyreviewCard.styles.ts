@@ -11,6 +11,15 @@ export const ItemMainDiv = styled.div`
   height: 341px;
   width: 338px;
 `;
+
+export const HeaderBox = styled.div`
+  display: flex;
+  align-items: center;
+`
+export const Img = styled.img`
+  height: 25px;
+`
+
 // 썸네일 사진
 export const ItemImg = styled.div`
   padding: 15px;

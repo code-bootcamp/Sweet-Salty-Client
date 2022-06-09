@@ -22,6 +22,27 @@ export const UserLeftBox = styled.div`
   display: flex;
   align-items: center;
 `;
+
+export const UploadImage = styled.img`
+  position: relative;
+  width: 106px;
+  height: 106px;
+  cursor: default;
+  object-fit: cover;
+  border-radius: 50%;
+  background: ${(props: any) =>
+    props.data?.fetchUserLoggedIn?.userId
+      ? "linear-gradient(#ff6e30, #ffa230)"
+      : "#D2D2D2"};
+  display: flex;
+  justify-content: end;
+  align-items: end;
+  src {
+    width: 24px;
+  }
+`;
+
+
 export const ImgBox = styled.div`
   width: 146px;
   height: 106px;
@@ -80,7 +101,7 @@ export const userProfile = styled.div`
   cursor: default;
 `;
 export const userProfileInput = styled.input`
-  width: 330px;
+  display: inline-block;
   outline: none;
   border: none;
   font-size: 14px;
@@ -100,6 +121,7 @@ export const userProfileUpdate = styled.div`
   text-decoration: underline;
 `;
 export const userProfileComplete = styled.div`
+display: inline-block;
   cursor: pointer;
   margin-left: 5px;
   font-size: 14px;
@@ -155,6 +177,19 @@ export const PointButton = styled.div`
   &:hover {
   }
 `;
+export const MessageButton = styled.div`
+  cursor: pointer;
+  padding: 10px 15px;
+  font-weight: 700;
+  font-size: 16px;
+  border-radius: 50px;
+  color: #fff;
+  transition: 0.2s;
+  background: linear-gradient(#ff6e30, #ffa230);
+  &:hover {
+    background: linear-gradient(#E8662D, #EF982E);
+  }
+`;
 export const PointCharge = styled.div`
   cursor: pointer;
   font-size: 16px;
@@ -167,6 +202,10 @@ export const PointImg = styled.img`
   transition: 0.2s;
   &:hover {
   }
+`;
+export const MessageImg = styled.img`
+  margin-right: 6px;
+  width: 24px;
 `;
 export const Text = styled.div`
   cursor: pointer;
@@ -205,4 +244,16 @@ export const Button = styled.div`
   &:hover {
     background: #b3b3b3;
   }
+`;
+
+export const FollowingButton = styled.div`
+  padding: 10px 15px;
+  display: flex;
+  align-items: center;
+  font-weight: 700;
+  font-size: 16px;
+  border-radius: 50px;
+  background: #FF6E30;
+  cursor: pointer;
+  color: #fff;
 `;

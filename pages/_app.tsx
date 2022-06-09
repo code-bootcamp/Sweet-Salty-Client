@@ -7,17 +7,24 @@ import Layout from "../src/components/commons/layout";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import "antd/dist/antd.css";
+import Head from "next/head";
 
-function MyApp({ Component, pageProps } : any) {
+function MyApp({ Component, pageProps }: any) {
   return (
-    <RecoilRoot>
-      <ApolloSetting>
-        <Global styles={globalstyles} />
-        <Layout>
-          <Component {...pageProps} />
-        </Layout>
-      </ApolloSetting>
-    </RecoilRoot>
+    <>
+      <Head>
+        <title>단짠맛집</title>
+        <link rel="icon" href="/images/squarelogo.jpg" />
+      </Head>
+      <RecoilRoot>
+        <ApolloSetting>
+          <Global styles={globalstyles} />
+          <Layout>
+            <Component {...pageProps} />
+          </Layout>
+        </ApolloSetting>
+      </RecoilRoot>
+    </>
   );
 }
 

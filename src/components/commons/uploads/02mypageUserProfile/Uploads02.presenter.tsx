@@ -7,11 +7,11 @@ export default function Uploads02UI(props: any) {
         <S.UploadImage
           src={`https://storage.googleapis.com/${props.fileUrl}`}
         />
-      ) : props.data?.fetchUserLoggedIn?.userImage ? (
+      ) : props.data?.fetchUser?.userImage ? (
         <S.UploadImage
-          src={`https://storage.googleapis.com/${props.data?.fetchUserLoggedIn?.userImage}`}
+          src={`https://storage.googleapis.com/${props.data?.fetchUser?.userImage}`}
         />
-      ) : props.data?.fetchUserLoggedIn?.userId ? (
+      ) : props.data?.fetchUser?.userId ? (
         <S.UploadImage
           style={{ backgroundColor: "linear-gradient(#ff6e30, #ffa230" }}
         />
@@ -21,7 +21,7 @@ export default function Uploads02UI(props: any) {
 
       <S.ButtonBox>
         <S.UploadButton onClick={props.onClickUpload} type="button">
-          <img src="../images/gallery.png" />
+          <img src="/images/gallery.png" />
         </S.UploadButton>
         <S.UploadButtonLeft onClick={props.onClickFileUpdate} type="button">
           <S.CheckCircle />

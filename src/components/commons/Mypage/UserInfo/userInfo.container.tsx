@@ -1,26 +1,27 @@
 import UserInfoPresenter from "./userInfo.presenter";
 import { useMutation, useQuery } from "@apollo/client";
 import {
-  CREATE_POINT_TRANSACTION,
+  FOLLOW,
+  FOLLOW_COUNT,
   FETCH_BOARD_COUNT,
   FETCH_UNREAD_MESSAGE_COUNT,
-  FETCH_USER_LOGGED_IN,
-  FOLLOW_COUNT,
   UPDATE_PROFILE,
+  CREATE_POINT_TRANSACTION,
 } from "./userInfo.queries";
 import { useRouter } from "next/router";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
+import { FETCH_USER_LOGGED_IN } from "../../../units/mypage/Mypage.queries";
+import { Modal } from 'antd';
 
 declare const window: typeof globalThis & {
   IMP: any;
 };
 
-export default function UserInfoContainer() {
+export default function UserInfoContainer(props: any) {
   const router = useRouter();
-
-  const { data } = useQuery(FETCH_USER_LOGGED_IN);
-
+  
+  // 프로필 이미지 업로드
   const [fileUrls, setFileUrls] = useState([""]);
 
   const onChangeFileUrls = (fileUrl: string, index: number) => {
@@ -34,6 +35,8 @@ export default function UserInfoContainer() {
   const onClickUpdate = () => {
     setIsUpdata(false);
   };
+
+  // 자기소개 업로드
   const onChangeProfile = (event: any) => {
     setProfile(event.target.value);
   };
@@ -41,7 +44,6 @@ export default function UserInfoContainer() {
   const onClickUpdateProfile = async () => {
     if (!profile) {
       alert("입력해라!");
-      setIsUpdata(true);
       return;
     }
     if (profile) {
@@ -50,11 +52,10 @@ export default function UserInfoContainer() {
           variables: {
             profile,
           },
-          refetchQueries: [
-            {
-              query: FETCH_USER_LOGGED_IN,
-            },
-          ],
+          refetchQueries: [{ query: FETCH_USER_LOGGED_IN }],
+        });
+        Modal.success({
+          content: '수정 완료!',
         });
         setIsUpdata(true);
       } catch (error: any) {
@@ -62,7 +63,68 @@ export default function UserInfoContainer() {
       }
     }
   };
+  
+  // 팔로워, 팔로우
+  const [isFollow] = useState(true);
+  const [follow] = useMutation(FOLLOW);
 
+  const onClickFollow = async () => {
+    try {
+      await follow({
+        variables: {
+          followerNickname: props.User?.fetchUser?.userNickname,
+        },
+        refetchQueries: [
+          {
+            query: FOLLOW_COUNT,
+            variables: {
+              followerNickname: String(props.User?.fetchUser?.userNickname),
+            },
+          },
+        ],
+      });
+      
+      // if (result.data.follow === "팔로우") {
+      //   setIsFollow(false);
+      // } else if (result.data.follow === "언팔로우") {
+      //   setIsFollow(true);
+      // }
+    } catch (error: any) {
+      alert(error.message);
+    }
+  };
+  
+  const { data: fetchBoardCountData } = useQuery(FETCH_BOARD_COUNT);
+  const { data: fetchUnreadMessageCountData } = useQuery(
+    FETCH_UNREAD_MESSAGE_COUNT
+  );
+
+  const { data: followCountData } = useQuery(FOLLOW_COUNT, {
+    variables: {
+      followerNickname: String(props.User?.fetchUser?.userNickname),
+    },
+  });
+  const onClickMyReview = () => {
+    router.push(`/${router.query.userNickname}`);
+  };
+  const onClickMyPoint = () => {
+    router.push(`/${router.query.userNickname}/point`);
+  };
+  const onClickModify = () => {
+    router.push(`/${router.query.userNickname}/infomodify`);
+  };
+
+  // 쪽지 보내기
+  const onClickMessageWrite = () => {
+    router.push("/message/write");
+  };
+  // 쪽지함 이동
+  const onClickMessagePage = () => {
+    router.push("/message/received");
+  };
+  
+
+  // 포인트 충전하기
   const [isPoint, setIsPoint] = useState(true);
   const [changePoint, setChangePoint] = useState("");
 
@@ -88,11 +150,11 @@ export default function UserInfoContainer() {
         pay_method: "card",
         name: "포인트 충전",
         amount: changePoint,
-        buyer_email: "rlaclgns321@naver.com",
-        buyer_name: `김민영`,
-        buyer_tel: "010-4242-4242",
-        buyer_addr: "서울특별시 강남구 신사동",
-        buyer_postcode: "01181",
+        buyer_email: props.loginUser?.fetchUserLoggedIn?.userEmail,
+        buyer_name: props.loginUser?.fetchUserLoggedIn?.userNickname,
+        buyer_tel: props.loginUser?.fetchUserLoggedIn?.userPhone,
+        buyer_addr: "",
+        buyer_postcode: "",
       },
       (rsp: any) => {
         if (rsp.success) {
@@ -101,60 +163,63 @@ export default function UserInfoContainer() {
               impUid: rsp.imp_uid,
               amount: Number(changePoint),
             },
+            refetchQueries: [{ query: FETCH_USER_LOGGED_IN }],
           });
-          alert("충전 완료!");
+          Modal.success({
+            content: '충전 완료!',
+          });
         } else {
           alert(rsp.error_msg);
         }
       }
     );
   };
-
-  const { data: fetchBoardCountData } = useQuery(FETCH_BOARD_COUNT);
-  const { data: fetchUnreadMessageCountData } = useQuery(
-    FETCH_UNREAD_MESSAGE_COUNT
-  );
-  const { data: followCountData } = useQuery(FOLLOW_COUNT, {
-    variables: {
-      followerNickname: String(data?.fetchUserLoggedIn?.userNickname),
-    },
-  });
-  const onClickMyReview = () => {
-    router.push("/mypage");
-  };
-  const onClickMessagePage = () => {
-    router.push("/message/received");
-  };
-  const onClickMyPoint = () => {
-    router.push("/mypage/mypagepoint");
-  };
-  const onClickModify = () => {
-    router.push("/mypage/infomodify");
-  };
+  
 
   return (
     <UserInfoPresenter
-      data={data}
-      followCountData={followCountData}
-      fetchBoardCountData={fetchBoardCountData}
-      fetchUnreadMessageCountData={fetchUnreadMessageCountData}
+      data={props.User}
+      loginUser={props.loginUser}
       isUpdate={isUpdate}
+      isFollow={isFollow}
+
+      // 프사 체인지
       fileUrls={fileUrls}
       onChangeFileUrls={onChangeFileUrls}
       onChangeProfile={onChangeProfile}
       onClickUpdate={onClickUpdate}
       onClickUpdateProfile={onClickUpdateProfile}
+
+      // 마이단짠 숫자
+      fetchBoardCountData={fetchBoardCountData}
+      // 마이단짠 게시글 이동
       onClickMyReview={onClickMyReview}
+
+      // 팔로우, 팔로잉 숫자
+      followCountData={followCountData}
+      // 쪽지함 숫자
+      fetchUnreadMessageCountData={fetchUnreadMessageCountData}
+
+      // 회원정보 수정 이동
       onClickModify={onClickModify}
-      onClickMessagePage={onClickMessagePage}
+
+      // 쪽지보내기 이동
+      onClickMessageWrite={onClickMessageWrite}
+
+      // 포인트 충전하기
+      isPoint={isPoint}
+      changePoint={changePoint}
       register={register}
       handleSubmit={handleSubmit}
       onClickMyPoint={onClickMyPoint}
       onChangePoint={onChangePoint}
-      changePoint={changePoint}
-      isPoint={isPoint}
       onClickPointCharge={onClickPointCharge}
       onClickPoint={onClickPoint}
+
+      // 쪽지함 이동
+      onClickMessagePage={onClickMessagePage}
+      // 팔로워, 팔로우 버튼
+      onClickFollow={onClickFollow}
     />
   );
 }

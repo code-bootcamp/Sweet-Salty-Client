@@ -1,46 +1,13 @@
 import { gql } from "@apollo/client";
 
-export const FETCH_USER_LOGGED_IN = gql`
-  query fetchUserLoggedIn {
-    fetchUserLoggedIn {
-      userId
-      userState
-      userEmail
-      userNickname
-      userImage
-      userProfile
-      userPhone
-      userPoint
-      ageGroup
-      gender
-      createAt
-      updateAt
-    }
-  }
-`;
-
-export const FETCH_USER = gql`
-  query fetchUser($userEmail: String!) {
-    fetchUser(userEmail: $userEmail) {
-      userId
-      userState
-      userEmail
-      userName
-      userNickname
-      userPhone
-      userPoint
-      ageGroup
-      gender
-      createAt
-    }
-  }
-`;
-
+// 팔로잉 팔로워
 export const FOLLOW = gql`
   mutation follow($followerNickname: String!) {
-    followCount(followerNickname: $followerNickname)
+    follow(followerNickname: $followerNickname)
   }
 `;
+
+// 팔로잉, 팔로워 카운트
 export const FOLLOW_COUNT = gql`
   query followCount($followerNickname: String!) {
     followCount(followerNickname: $followerNickname)
@@ -49,11 +16,6 @@ export const FOLLOW_COUNT = gql`
 export const FETCH_BOARD_COUNT = gql`
   query fetchBoardCount {
     fetchBoardCount
-  }
-`;
-export const FETCH_RECEIVED_MESSAGES_COUNT = gql`
-  query fetchReceivedMessagesCount {
-    fetchReceivedMessagesCount
   }
 `;
 export const FETCH_UNREAD_MESSAGE_COUNT = gql`

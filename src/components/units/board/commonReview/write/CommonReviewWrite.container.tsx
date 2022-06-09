@@ -16,7 +16,7 @@ export default function CommonReviewWriteContainer(props: any) {
   const [subCategoryName, setSubCategoryName] = useState(
     String(props.checkPage)
   );
-  const [boardTagMenu, setBoardTagMenu] = useState([]);
+  const [boardTagMenu, setBoardTagMenu] = useState();
   const [moodHashTag, setMoodHashTag] = useState([]);
   const [boardContents, setBoardContents] = useState("");
   const [address, setAddress] = useState({
@@ -74,7 +74,7 @@ export default function CommonReviewWriteContainer(props: any) {
     });
     setMenuTagData(select);
 
-    setBoardTagMenu([el.value]);
+    setBoardTagMenu(el.value);
   };
   const onChangeCheckMood = (checked: any, item: any) => (event: any) => {
     if (checked) {
@@ -102,10 +102,14 @@ export default function CommonReviewWriteContainer(props: any) {
   };
 
   const onClickReg = async (data: any) => {
+    if(!address.road_address_name.split(" ")[0].includes('서울')){alert("서울에 있는 음식점의 리뷰만 등록이 가능합니다. 지역 업데이트를 기대해주세요!")
+  return}
+  if (moodHashTag.length > 3) {
+    alert("분위기는 3개까지 선택이 가능합니다.");
+    return
+  }
     if (subCategoryName === "REVIEW" || subCategoryName === "TASTER") {
-      if (moodHashTag.length > 3) {
-        alert("분위기는 3개까지 선택이 가능합니다.");
-      } else {
+       
         try {
           const result = await createBoard({
             variables: {
@@ -122,12 +126,13 @@ export default function CommonReviewWriteContainer(props: any) {
                   lat: address.x,
                   lng: address.y,
                 },
+                tags:[boardTagMenu, ...moodHashTag,address.road_address_name.split(" ")[1]]
               },
-              boardTagsInput: {
-                boardTagMenu,
-                boardTagMood: moodHashTag,
-                boardTagRegion: [address.road_address_name.split(" ")[1]],
-              },
+              // boardTagsInput: {
+              //   boardTagMenu,
+              //   boardTagMood: moodHashTag,
+              //   boardTagRegion: [address.road_address_name.split(" ")[1]],
+              // },
             },
           });
           alert("게시글 등록 완료");
@@ -143,7 +148,7 @@ export default function CommonReviewWriteContainer(props: any) {
         } catch (error: any) {
           alert(error.message);
         }
-      }
+      
     } else if (subCategoryName === "REQUEST") {
       try {
         const result = await createBoardReq({

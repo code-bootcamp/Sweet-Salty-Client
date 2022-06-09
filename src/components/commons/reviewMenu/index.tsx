@@ -49,13 +49,13 @@ export const ReviewMenu = styled.div`
 export default function ReviewMenuPage() {
   const router = useRouter();
 
-  const ReviewList = ["/reviews"];
+  const ReviewList = ["/reviews/"];
   const isReviewList = ReviewList.includes(router.asPath);
-  const CommonReviewList = ["/reviews/commonReview"];
+  const CommonReviewList = ["/reviews/commonReview/"];
   const isCommonReviewList = CommonReviewList.includes(router.asPath);
-  const TesterReview = ["/reviews/testerReview"];
+  const TesterReview = ["/reviews/testerReview/"];
   const isTesterReview = TesterReview.includes(router.asPath);
-  const WishList = ["/reviews/wish"];
+  const WishList = ["/reviews/wish/"];
   const isWishList = WishList.includes(router.asPath);
 
   const onClickCommunityList = () => {

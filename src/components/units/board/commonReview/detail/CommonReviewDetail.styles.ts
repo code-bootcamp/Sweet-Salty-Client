@@ -1,7 +1,11 @@
 // 일반리뷰 상세보기 style  - 김치훈
-
 import styled from "@emotion/styled";
 import { RightOutlined } from "@ant-design/icons";
+
+interface IAny {
+  data?: any;
+  loginUser?: any;
+}
 
 export const Wrapper = styled.div`
   padding: 40px 0 0 0;
@@ -17,28 +21,26 @@ export const TotalBox = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: start;
-`
+`;
 export const MemberProfile = styled.img`
   width: 70px;
   height: 70px;
   border-radius: 50px;
-  background: ${(props: any) =>
-    props.data?.user?.userEmail === props.loginUser?.userEmail 
-    ? "#FFC277"
-    : "#D2D2D2"
-  };
+  background: ${(props: IAny) =>
+    props.data?.user?.userEmail === props.loginUser?.userEmail
+      ? "#FFC277"
+      : "#D2D2D2"};
   cursor: pointer;
   transform: translate(0px, 25px);
   object-fit: cover;
-`
+`;
 export const ArrowImg = styled.img`
   width: 44px;
-  transform: ${(props: any) =>
-    props.data?.user?.userEmail === props.loginUser?.userEmail 
-    ? "translate(-10px, 40px) rotate(0.5turn)"
-    : "translate(10px, 40px)"
-  };
-`
+  transform: ${(props: IAny) =>
+    props.data?.user?.userEmail === props.loginUser?.userEmail
+      ? "translate(-10px, 40px) rotate(0.5turn)"
+      : "translate(10px, 40px)"};
+`;
 export const Title = styled.div`
   padding: 100px 0;
   font-size: 40px;

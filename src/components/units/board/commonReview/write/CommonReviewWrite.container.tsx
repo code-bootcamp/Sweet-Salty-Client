@@ -241,7 +241,13 @@ export default function CommonReviewWriteContainer(props: any) {
               : props.updateData?.boardContents,
             subCategoryName: props.updateData?.subCategoryName,
             tags: props.updateData?.tags,
-            place: data.place ? data.place : props.updateData?.place,
+            place: {
+              placeName: props.updateData?.place.placeName,
+              placeAddress: props.updateData?.place.placeAddress,
+              placeUrl: props.updateData?.place.placeUrl,
+              lat: props.updateData?.place.lat,
+              lng: props.updateData?.place.lng,
+                          }
           },
         },
       });

@@ -62,12 +62,9 @@ export const MyprofileMenu = styled.div`
   border-radius: 20px 20px 0 0;
   font-weight: 700;
   font-size: 20px;
-  color: ${(props: IAny) =>
-    props.ismypage || props.ismypageLike ? "#fff" : "#7b7b7b"};
+  color: ${(props: IAny) => (props.ismypage ? "#fff" : "#7b7b7b")};
   background: ${(props: IAny) =>
-    props.ismypage || props.ismypageLike
-      ? "linear-gradient(#ff6e30, #ffa230)"
-      : "#fff"};
+    props.ismypage ? "linear-gradient(#ff6e30, #ffa230)" : "#fff"};
   cursor: pointer;
   transition: 0.2s;
   &:hover {

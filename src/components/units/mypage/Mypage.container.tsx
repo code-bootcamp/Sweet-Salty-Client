@@ -65,9 +65,9 @@ export default function MyPageContainer() {
 
   return (
     <MyPagePresenter
-      data={data}
-      User={User}
-      loginUser={loginUser}
+      data={data?.fetchBoardsOfUser}
+      User={User?.fetchUser}
+      loginUser={loginUser?.fetchUserLoggedIn}
       refetch={refetch}
       // onLoadMore={onLoadMore}
       onClickMoveMyReviewDetail={onClickMoveMyReviewDetail}

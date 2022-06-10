@@ -17,12 +17,14 @@ export default function MyreviewCardPresenter(props: any) {
             {props.el?.boardSubject === "TASTER" && "시식단 리뷰"}
           </S.BoardSubject>
         </S.HeaderBox>
-        {props.el?.user?.userImage ? (
+        {props.loginUser.userNickname === props.User.userNickname ? (
           <S.ItemProfile
             src={`https://storage.googleapis.com/${props.loginUser?.userImage}`}
           />
         ) : (
-          <S.ItemProfile src="https://t1.daumcdn.net/cfile/tistory/24283C3858F778CA2E" />
+          <S.ItemProfile
+            src={`https://storage.googleapis.com/${props.User?.userImage}`}
+          />
         )}
       </S.ItemImg>
 
@@ -31,7 +33,7 @@ export default function MyreviewCardPresenter(props: any) {
           <S.ItemInfoTitleDiv>{props.el?.boardTitle}</S.ItemInfoTitleDiv>
 
           <S.ItemInfoUserDiv>
-            <S.Span>{props.el?.boardWriter}</S.Span> 단짝님
+            <S.Span>{props.User?.userNickname}</S.Span> 단짝님
           </S.ItemInfoUserDiv>
         </S.FlexBox>
 

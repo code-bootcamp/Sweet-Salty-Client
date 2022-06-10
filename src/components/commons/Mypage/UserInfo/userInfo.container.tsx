@@ -12,7 +12,7 @@ import { useRouter } from "next/router";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { FETCH_USER_LOGGED_IN } from "../../../units/mypage/Mypage.queries";
-import { Modal } from 'antd';
+import { Modal } from "antd";
 
 declare const window: typeof globalThis & {
   IMP: any;
@@ -20,7 +20,7 @@ declare const window: typeof globalThis & {
 
 export default function UserInfoContainer(props: any) {
   const router = useRouter();
-  
+
   // 프로필 이미지 업로드
   const [fileUrls, setFileUrls] = useState([""]);
 
@@ -32,6 +32,7 @@ export default function UserInfoContainer(props: any) {
 
   const [isUpdate, setIsUpdata] = useState(true);
   const [profile, setProfile] = useState(true);
+
   const onClickUpdate = () => {
     setIsUpdata(false);
   };
@@ -55,7 +56,7 @@ export default function UserInfoContainer(props: any) {
           refetchQueries: [{ query: FETCH_USER_LOGGED_IN }],
         });
         Modal.success({
-          content: '수정 완료!',
+          content: "수정 완료!",
         });
         setIsUpdata(true);
       } catch (error: any) {
@@ -63,7 +64,7 @@ export default function UserInfoContainer(props: any) {
       }
     }
   };
-  
+
   // 팔로워, 팔로우
   const [isFollow] = useState(true);
   const [follow] = useMutation(FOLLOW);
@@ -72,18 +73,18 @@ export default function UserInfoContainer(props: any) {
     try {
       await follow({
         variables: {
-          followerNickname: props.User?.fetchUser?.userNickname,
+          followerNickname: props.User?.userNickname,
         },
         refetchQueries: [
           {
             query: FOLLOW_COUNT,
             variables: {
-              followerNickname: String(props.User?.fetchUser?.userNickname),
+              followerNickname: String(props.User?.userNickname),
             },
           },
         ],
       });
-      
+
       // if (result.data.follow === "팔로우") {
       //   setIsFollow(false);
       // } else if (result.data.follow === "언팔로우") {
@@ -93,7 +94,7 @@ export default function UserInfoContainer(props: any) {
       alert(error.message);
     }
   };
-  
+
   const { data: fetchBoardCountData } = useQuery(FETCH_BOARD_COUNT);
   const { data: fetchUnreadMessageCountData } = useQuery(
     FETCH_UNREAD_MESSAGE_COUNT
@@ -101,17 +102,21 @@ export default function UserInfoContainer(props: any) {
 
   const { data: followCountData } = useQuery(FOLLOW_COUNT, {
     variables: {
-      followerNickname: String(props.User?.fetchUser?.userNickname),
+      followerNickname: String(props.User?.userNickname),
     },
   });
+
+  // 마이단짠 이동
   const onClickMyReview = () => {
     router.push(`/${router.query.userNickname}`);
   };
+  // 포인트 상세내역 이동
   const onClickMyPoint = () => {
     router.push(`/${router.query.userNickname}/point`);
   };
+  // 회원정보 수정 이동
   const onClickModify = () => {
-    router.push(`/${router.query.userNickname}/infomodify`);
+    router.push(`/infomodify`);
   };
 
   // 쪽지 보내기
@@ -122,7 +127,6 @@ export default function UserInfoContainer(props: any) {
   const onClickMessagePage = () => {
     router.push("/message/received");
   };
-  
 
   // 포인트 충전하기
   const [isPoint, setIsPoint] = useState(true);
@@ -150,9 +154,9 @@ export default function UserInfoContainer(props: any) {
         pay_method: "card",
         name: "포인트 충전",
         amount: changePoint,
-        buyer_email: props.loginUser?.fetchUserLoggedIn?.userEmail,
-        buyer_name: props.loginUser?.fetchUserLoggedIn?.userNickname,
-        buyer_tel: props.loginUser?.fetchUserLoggedIn?.userPhone,
+        buyer_email: props.loginUser?.userEmail,
+        buyer_name: props.loginUser?.userNickname,
+        buyer_tel: props.loginUser?.userPhone,
         buyer_addr: "",
         buyer_postcode: "",
       },
@@ -166,7 +170,7 @@ export default function UserInfoContainer(props: any) {
             refetchQueries: [{ query: FETCH_USER_LOGGED_IN }],
           });
           Modal.success({
-            content: '충전 완료!',
+            content: "충전 완료!",
           });
         } else {
           alert(rsp.error_msg);
@@ -174,38 +178,31 @@ export default function UserInfoContainer(props: any) {
       }
     );
   };
-  
 
   return (
     <UserInfoPresenter
-      data={props.User}
+      User={props.User}
       loginUser={props.loginUser}
       isUpdate={isUpdate}
       isFollow={isFollow}
-
       // 프사 체인지
       fileUrls={fileUrls}
       onChangeFileUrls={onChangeFileUrls}
       onChangeProfile={onChangeProfile}
       onClickUpdate={onClickUpdate}
       onClickUpdateProfile={onClickUpdateProfile}
-
       // 마이단짠 숫자
       fetchBoardCountData={fetchBoardCountData}
       // 마이단짠 게시글 이동
       onClickMyReview={onClickMyReview}
-
       // 팔로우, 팔로잉 숫자
       followCountData={followCountData}
       // 쪽지함 숫자
       fetchUnreadMessageCountData={fetchUnreadMessageCountData}
-
       // 회원정보 수정 이동
       onClickModify={onClickModify}
-
       // 쪽지보내기 이동
       onClickMessageWrite={onClickMessageWrite}
-
       // 포인트 충전하기
       isPoint={isPoint}
       changePoint={changePoint}
@@ -215,7 +212,6 @@ export default function UserInfoContainer(props: any) {
       onChangePoint={onChangePoint}
       onClickPointCharge={onClickPointCharge}
       onClickPoint={onClickPoint}
-
       // 쪽지함 이동
       onClickMessagePage={onClickMessagePage}
       // 팔로워, 팔로우 버튼

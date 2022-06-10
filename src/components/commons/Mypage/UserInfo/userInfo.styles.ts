@@ -31,17 +31,11 @@ export const UploadImage = styled.img`
   object-fit: cover;
   border-radius: 50%;
   background: ${(props: any) =>
-    props.data?.fetchUserLoggedIn?.userId
-      ? "linear-gradient(#ff6e30, #ffa230)"
-      : "#D2D2D2"};
+    props?.loginUser?.userId ? "linear-gradient(#ff6e30, #ffa230)" : "#D2D2D2"};
   display: flex;
   justify-content: end;
   align-items: end;
-  src {
-    width: 24px;
-  }
 `;
-
 
 export const ImgBox = styled.div`
   width: 146px;
@@ -121,7 +115,7 @@ export const userProfileUpdate = styled.div`
   text-decoration: underline;
 `;
 export const userProfileComplete = styled.div`
-display: inline-block;
+  display: inline-block;
   cursor: pointer;
   margin-left: 5px;
   font-size: 14px;
@@ -187,7 +181,7 @@ export const MessageButton = styled.div`
   transition: 0.2s;
   background: linear-gradient(#ff6e30, #ffa230);
   &:hover {
-    background: linear-gradient(#E8662D, #EF982E);
+    background: linear-gradient(#e8662d, #ef982e);
   }
 `;
 export const PointCharge = styled.div`
@@ -253,7 +247,7 @@ export const FollowingButton = styled.div`
   font-weight: 700;
   font-size: 16px;
   border-radius: 50px;
-  background: #FF6E30;
+  background: #ff6e30;
   cursor: pointer;
   color: #fff;
 `;

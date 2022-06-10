@@ -10,12 +10,11 @@ import {
 
 export default function ReviewDetailContainer() {
   const router = useRouter();
-  
+
   const { data } = useQuery(FETCH_BOARD, {
     variables: { boardId: String(router.query.boardId) },
   });
   const { data: loginUser } = useQuery(FETCH_USER_LOGGED_IN);
-
 
   const [createBoardLike] = useMutation(CREATE_BOARD_LIKE);
   const [deleteBoard] = useMutation(DELETE_BOARD);
@@ -23,9 +22,9 @@ export default function ReviewDetailContainer() {
     router.push("/reviews/commonReview");
   };
 
-  const onClickProfile =()=>{
-    router.push(`/${data?.fetchBoard?.user?.userEmail}`)
-  }
+  const onClickProfile = () => {
+    router.push(`/${data?.fetchBoard?.user?.userNickname}`);
+  };
 
   const onClickDelete = () => {
     try {

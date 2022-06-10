@@ -5,7 +5,11 @@ import { ChangeEvent, useRef } from "react";
 import { checkValidationImage } from "./Uploads02.validation";
 import Uploads02UI from "./Uploads02.presenter";
 import { IUploads02Props } from "./Uploads02.types";
-import { FETCH_USER_LOGGED_IN, UPDATE_IMAGE, UPLOAD_FILE } from "./Uploads02.queries";
+import {
+  FETCH_USER_LOGGED_IN,
+  UPDATE_IMAGE,
+  UPLOAD_FILE,
+} from "./Uploads02.queries";
 import { Modal } from "antd";
 
 export default function Uploads02(props: IUploads02Props) {
@@ -28,27 +32,26 @@ export default function Uploads02(props: IUploads02Props) {
     }
   };
 
-  const onClickFileUpdate =async () =>{
+  const onClickFileUpdate = async () => {
     try {
       await updateImage({
-          variables: {
-            image: `${props.fileUrl}`
+        variables: {
+          image: `${props.fileUrl}`,
+        },
+        refetchQueries: [
+          {
+            query: FETCH_USER_LOGGED_IN,
           },
-          refetchQueries: [
-            {
-              query: FETCH_USER_LOGGED_IN,
-            }
-          ]
-        })
-      } catch (error: any) {
-        Modal.error({ content: error.message });
-      }
-  }
-
+        ],
+      });
+    } catch (error: any) {
+      Modal.error({ content: error.message });
+    }
+  };
 
   return (
     <Uploads02UI
-      data={props.data}
+      User={props.User}
       fileRef={fileRef}
       fileUrl={props.fileUrl}
       defaultFileUrl={props.defaultFileUrl}

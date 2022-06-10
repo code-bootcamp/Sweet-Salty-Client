@@ -31,7 +31,6 @@ export default function WriteToast(props:any) {
     const result = "https://storage.googleapis.com/" + urldata;
     callback(result, "");
   };
-console.log(props.updateData?.boardContents,"데이타?");
   return (
     <>
       <Editor

@@ -1,11 +1,19 @@
 import WriteMapPage from "../../../commons/writeMap/WriteMap.index";
 import * as S from "./ShopWrite.styled";
 
-export default function ShopWritePresenterPage(props:any) {
+export default function ShopWritePresenterPage(props: any) {
   return (
     <div>
-      <div>이곳은 스토어 등록 페이지 입니다</div>
-      <form onSubmit={props.handleSubmit(props.onClickSubmit)}>
+      {props.isEdit ? (
+        <div>이곳은 스토어 수정 페이지 입니다</div>
+      ) : (
+        <div>이곳은 스토어 등록 페이지 입니다</div>
+      )}
+      <form
+        onSubmit={props.handleSubmit(
+          props.isEdit ? props.onClickUpdate : props.onClickSubmit
+        )}
+      >
         <div>상품명</div>
         <S.InputBox type="text" register={props.register("menu")} />
         <div>판매자</div>
@@ -26,7 +34,11 @@ export default function ShopWritePresenterPage(props:any) {
         <S.InputBox type="text" register={props.register("pageUrl")} />
 
         <WriteMapPage setAddress={props.setAddress} />
-        <button type="submit">등록</button>
+        {props.isEdit ? (
+          <button type="submit">수정</button>
+        ) : (
+          <button type="submit">등록</button>
+        )}
       </form>
     </div>
   );

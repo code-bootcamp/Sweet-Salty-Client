@@ -14,6 +14,7 @@ export default function ReviewDetailContainer() {
   const { data } = useQuery(FETCH_BOARD, {
     variables: { boardId: String(router.query.boardId) },
   });
+  console.log(data?.fetchBoard,"데이타")
   const { data: loginUser } = useQuery(FETCH_USER_LOGGED_IN);
 
 
@@ -26,7 +27,9 @@ export default function ReviewDetailContainer() {
   const onClickProfile =()=>{
     router.push(`/${data?.fetchBoard?.user?.userEmail}`)
   }
-
+  const onClickUpdate = ()=>{
+    router.push(`/reviews/commonReview/${router.query.boardId}/edit`)
+  }
   const onClickDelete = () => {
     try {
       deleteBoard({
@@ -42,7 +45,6 @@ export default function ReviewDetailContainer() {
     createBoardLike({
       variables: {
         boardId:
-          // String(router.query.boardId)
           String(router.query.boardId),
       },
       refetchQueries: [
@@ -82,6 +84,7 @@ export default function ReviewDetailContainer() {
       onClickDelete={onClickDelete}
       onClickProfile={onClickProfile}
       onClickLike={onClickLike}
+      onClickUpdate={onClickUpdate}
     />
   );
 }

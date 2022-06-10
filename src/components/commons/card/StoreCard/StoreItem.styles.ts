@@ -2,9 +2,6 @@ import styled from "@emotion/styled";
 import FavoriteBorderRoundedIcon from "@material-ui/icons/FavoriteBorderRounded";
 import FavoriteRoundedIcon from "@material-ui/icons/FavoriteRounded";
 
-export const ItemInfoWrapDiv = styled.div`
-  display: flex;
-`;
 export const ItemMainDiv = styled.div`
   cursor: pointer;
   height: 342px;
@@ -73,18 +70,30 @@ export const ItemInfoDiv = styled.div`
 export const ItemInfoTopDiv = styled.div`
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
   padding: 16px 0px 10px 0px;
 `;
 
 export const ItemInfoTxtDiv = styled.div`
   color: #676767;
   display: flex;
+  justify-content: flex-start;
   font-size: 18px;
   font-weight: 600;
   line-height: 22px;
-  text-align: center;
+  width: 100%;
 `;
+
+export const ItemInfoTitle = styled.div`
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+`;
+export const ItemInfoSeller = styled.div`
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+`;
+
 export const ItemInfoBarDiv = styled.div`
   color: #676767;
   font-size: 18px;

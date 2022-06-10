@@ -3,20 +3,31 @@ import { useRouter } from "next/router";
 import CommonReviewWritePresenter from "./CommonReviewWrite.presenter";
 import { useState } from "react";
 import { useMutation } from "@apollo/client";
+// import { yupResolver } from "@hookform/resolvers/yup";
+// import * as yup from "yup";
 import {
   CREATE_BOARD,
   CREATE_BOARD_REQ,
   CREATE_BOARD_RES,
+  UPDATE_BOARD,
 } from "./CommonReviewWrite.queries";
+// const schema = yup.object({
+//   boardTitle: yup.string().max(20).required(),
+//   boardSugar: yup.string().max(30).required(),
+//   boardSalt: yup.string().max(30).required(),
+// });
+
+// const nonSchema = yup.object({});
 export default function CommonReviewWriteContainer(props: any) {
   const router = useRouter();
   const [createBoard] = useMutation(CREATE_BOARD);
   const [createBoardReq] = useMutation(CREATE_BOARD_REQ);
   const [createBoardRes] = useMutation(CREATE_BOARD_RES);
+  const [updateBoard] = useMutation(UPDATE_BOARD);
   const [subCategoryName, setSubCategoryName] = useState(
     String(props.checkPage)
   );
-  const [boardTagMenu, setBoardTagMenu] = useState([]);
+  const [boardTagMenu, setBoardTagMenu] = useState();
   const [moodHashTag, setMoodHashTag] = useState([]);
   const [boardContents, setBoardContents] = useState("");
   const [address, setAddress] = useState({
@@ -74,7 +85,7 @@ export default function CommonReviewWriteContainer(props: any) {
     });
     setMenuTagData(select);
 
-    setBoardTagMenu([el.value]);
+    setBoardTagMenu(el.value);
   };
   const onChangeCheckMood = (checked: any, item: any) => (event: any) => {
     if (checked) {
@@ -93,7 +104,8 @@ export default function CommonReviewWriteContainer(props: any) {
     setSubCategoryName(el.value);
   };
 
-  const { register, handleSubmit, setValue, getValues, formState } = useForm({
+  const { register, handleSubmit, setValue, getValues, formState,trigger } = useForm({
+    // resolver: yupResolver(props.isEdit ? nonSchema : schema),
     mode: "onChange",
   });
 
@@ -122,11 +134,11 @@ export default function CommonReviewWriteContainer(props: any) {
                   lat: address.x,
                   lng: address.y,
                 },
-              },
-              boardTagsInput: {
-                boardTagMenu,
-                boardTagMood: moodHashTag,
-                boardTagRegion: [address.road_address_name.split(" ")[1]],
+                tags: [
+                  boardTagMenu,
+                  ...moodHashTag,
+                  address.road_address_name.split(" ")[1],
+                ],
               },
             },
           });
@@ -175,7 +187,6 @@ export default function CommonReviewWriteContainer(props: any) {
             createBoardInput: {
               boardTitle: data.boardTitle,
               boardSugar: data.boardSugar,
-
               boardSalt: data.boardSalt,
               boardContents,
               subCategoryName,
@@ -204,8 +215,48 @@ export default function CommonReviewWriteContainer(props: any) {
     }
   };
 
-  //
+  // const onChangeContents = (value: string) => {
+  //   setValue("boardContents", value === "사진을 드래그&드롭 해보세요." ? "" : value);
+  //   trigger("boardContents");
+  // };
 
+  //
+  const onClickUpdate = async (data:any) => {
+    try {
+      await updateBoard({
+        variables: {
+          boardId: String(router.query.boardId),
+          updateBoardInput: {
+            boardTitle: data.boardTitle
+              ? data.boardTitle
+              : props.updateData?.boardTitle,
+            boardSugar: data.boardSugar
+              ? data.boardSugar
+              : props.updateData?.boardSugar,
+            boardSalt: data.boardSalt
+              ? data.boardSalt
+              : props.updateData?.boardSalt,
+            boardContents: data.boardContents
+              ? data.boardContents
+              : props.updateData?.boardContents,
+            subCategoryName: props.updateData?.subCategoryName,
+            tags: props.updateData?.tags,
+            place: {
+              placeName: props.updateData?.place.placeName,
+              placeAddress: props.updateData?.place.placeAddress,
+              placeUrl: props.updateData?.place.placeUrl,
+              lat: props.updateData?.place.lat,
+              lng: props.updateData?.place.lng,
+                          }
+          },
+        },
+      });
+      alert("수정 완료");
+      router.push(`/reviews/commonReview/${router.query.boardId}`);
+    } catch (error: any) {
+      alert(error.message);
+    }
+  };
   return (
     <CommonReviewWritePresenter
       onClickCancel={onClickCancel}
@@ -216,6 +267,7 @@ export default function CommonReviewWriteContainer(props: any) {
       register={register}
       handleSubmit={handleSubmit}
       formState={formState}
+      // onChangeContents={onChangeContents}
       setBoardContents={setBoardContents}
       setAddress={setAddress}
       menuTagData={menuTagData}
@@ -230,7 +282,10 @@ export default function CommonReviewWriteContainer(props: any) {
       checkPage={props.checkPage}
       communityCheckPage={props.communityCheckPage}
       onClickReg={onClickReg}
+      onClickUpdate={onClickUpdate}
       subCategoryName={subCategoryName}
+      updateData={props.updateData}
+      isEdit={props.isEdit}
     />
   );
 }

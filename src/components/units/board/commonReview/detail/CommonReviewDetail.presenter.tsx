@@ -137,12 +137,12 @@ export default function ReviewDetailPresenter(props: any) {
             <S.Button onClick={props.onClickCommonReviewList}>
               목록으로
             </S.Button>
-            {props.loginUser?.userEmail === props.data?.user?.userEmail && (
-              <div>
-                <S.EditButton>수정하기</S.EditButton>
-                <S.Button onClick={props.onClickDelete}>삭제하기</S.Button>
-              </div>
-            )}
+            {props.loginUser?.userEmail === props.data?.user?.userEmail && 
+            <div>
+              <S.EditButton onClick={props.onClickUpdate}>수정하기</S.EditButton>
+              <S.Button onClick={props.onClickDelete}>삭제하기</S.Button>
+            </div>
+              }
           </S.Buttons>
 
           <S.ReviewHr />

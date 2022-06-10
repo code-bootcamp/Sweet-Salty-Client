@@ -72,6 +72,10 @@ export default function ShopDetailContainerPage(props: any) {
     router.push("/shop");
   };
 
+  const onClickEdit = () => {
+    router.push(`/shop/${router.query.shopId}/edit`);
+  };
+
   return (
     <ShopDetailPresenterPage
       fetchUserLoggedIn={fetchUserLoggedInData}
@@ -84,6 +88,7 @@ export default function ShopDetailContainerPage(props: any) {
       chargePoint={chargePoint}
       onClickPay={onClickPay}
       onClickList={onClickList}
+      onClickEdit={onClickEdit}
     />
   );
 }

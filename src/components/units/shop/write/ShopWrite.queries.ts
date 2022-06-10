@@ -11,3 +11,11 @@ export const UPLOAD_FILE = gql`
     uploadFile(file: $file)
   }
 `;
+
+export const UPDATE_SHOP = gql`
+  mutation updateShop($shopId: String!, $updateShopInput: updateShopInput!) {
+    updateShop(shopId: $shopId, updateShopInput: $updateShopInput) {
+      shopId
+    }
+  }
+`;

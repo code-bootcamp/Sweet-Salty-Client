@@ -42,6 +42,7 @@ export const FETCH_BOARD = gql`
         placeAddress
         lat
         lng
+        placeUrl
       }
       boardSides {
         boardTags {

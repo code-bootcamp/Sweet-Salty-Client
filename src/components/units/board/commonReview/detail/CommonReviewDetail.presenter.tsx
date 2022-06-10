@@ -30,25 +30,24 @@ export default function ReviewDetailPresenter(props: any) {
       )}
 
       <S.TotalBox>
-
         {/* 다른 유저가 작성한 글일때 */}
-        {props.data?.user?.userEmail !== props.loginUser?.userEmail && 
+        {props.data?.user?.userNickname !== props.loginUser?.userNickname && (
           <>
-            <S.MemberProfile 
-              onClick={props.onClickProfile} 
-              src= {props.data?.user?.userImage 
-                ? `https://storage.googleapis.com/${props.data?.user?.userImage}`
-                : "/images/logo.png"
+            <S.MemberProfile
+              onClick={props.onClickProfile}
+              src={
+                props.data?.user?.userImage
+                  ? `https://storage.googleapis.com/${props.data?.user?.userImage}`
+                  : "/images/logo.png"
               }
             />
-            <S.ArrowImg 
-              src="/images/Polygon.png" 
+            <S.ArrowImg
+              src="/images/Polygon.png"
               data={props.data}
               loginUser={props.loginUser}
             />
           </>
-        }
-
+        )}
 
         <S.ReviewBox>
           <S.Header>
@@ -150,7 +149,7 @@ export default function ReviewDetailPresenter(props: any) {
 
           <S.CommentBox>
             <S.CommentTitle>댓글</S.CommentTitle>
-            <CommentWriteContainerPage 
+            <CommentWriteContainerPage
               data={props.data}
               loginUser={props.loginUser}
             />
@@ -159,22 +158,23 @@ export default function ReviewDetailPresenter(props: any) {
         </S.ReviewBox>
 
         {/* 내가 작성한 글일때 */}
-        {props.loginUser?.userEmail === props.data?.user?.userEmail && 
+        {props.loginUser?.userEmail === props.data?.user?.userEmail && (
           <>
-            <S.ArrowImg 
-              src="/images/Polygon.png" 
+            <S.ArrowImg
+              src="/images/Polygon.png"
               data={props.data}
               loginUser={props.loginUser}
             />
-            <S.MemberProfile 
-              onClick={props.onClickProfile} 
-              src= {props.data?.user?.userImage 
-                ? `https://storage.googleapis.com/${props.data?.user?.userImage}`
-                : "/images/logo.png"
+            <S.MemberProfile
+              onClick={props.onClickProfile}
+              src={
+                props.data?.user?.userImage
+                  ? `https://storage.googleapis.com/${props.data?.user?.userImage}`
+                  : "/images/logo.png"
               }
             />
           </>
-        }
+        )}
       </S.TotalBox>
 
       <S.TopButtonBox>

@@ -59,6 +59,10 @@ export const ItemInfoTitleDiv = styled.div`
   color: #676767;
   font-size: 18px;
   font-weight: 700;
+  width: 270px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 `;
 export const ItemInfoUserDiv = styled.div`
   color: #2c2c2c;

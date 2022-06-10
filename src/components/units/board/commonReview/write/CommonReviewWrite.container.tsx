@@ -236,9 +236,7 @@ export default function CommonReviewWriteContainer(props: any) {
             boardSalt: data.boardSalt
               ? data.boardSalt
               : props.updateData?.boardSalt,
-            boardContents: data.boardContents
-              ? data.boardContents
-              : props.updateData?.boardContents,
+            boardContents: boardContents || props.updateData?.boardContents,
             subCategoryName: props.updateData?.subCategoryName,
             tags: props.updateData?.tags,
             place: {

@@ -31,7 +31,6 @@ export default function WriteToast(props:any) {
     const result = "https://storage.googleapis.com/" + urldata;
     callback(result, "");
   };
-
   return (
     <>
       <Editor
@@ -48,7 +47,7 @@ export default function WriteToast(props:any) {
         previewStyle="tab"
         plugins={[colorSyntax]}
         onChange={onChangeContents}
-        initialValue="사진을 드래그&드롭 해보세요."
+        initialValue={props.updateData?.boardContents ||"사진을 드래그&드롭 해보세요."}
         ref={editorRef}
       />
     </>

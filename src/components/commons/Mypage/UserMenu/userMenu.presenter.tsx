@@ -4,8 +4,7 @@ export default function UserMenuPresenter(props: any) {
   return (
     <>
       {/* 마이페이지 */}
-      {props.data?.fetchUser?.userEmail ===
-        props.loginUser?.fetchUserLoggedIn?.userEmail && (
+      {props.User?.userEmail === props.loginUser?.userEmail && (
         <S.MypageMenuBox>
           <S.MypageMenu onClick={props.onClickMypage} ismypage={props.ismypage}>
             마이 단짠 게시글
@@ -26,8 +25,7 @@ export default function UserMenuPresenter(props: any) {
       )}
 
       {/* 다른 유저 프로필 */}
-      {props.data?.fetchUser?.userEmail !==
-        props.loginUser?.fetchUserLoggedIn?.userEmail && (
+      {props.User?.userEmail !== props.loginUser?.userEmail && (
         <S.MyprofileMenuBox>
           <S.MyprofileMenu
             onClick={props.onClickMyProfile}

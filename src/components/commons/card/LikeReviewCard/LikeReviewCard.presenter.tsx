@@ -29,7 +29,7 @@ export default function LikeReviewCardPresenter(props: any) {
           <S.ItemInfoTitleDiv>{props.el?.boardTitle}</S.ItemInfoTitleDiv>
 
           <S.ItemInfoUserDiv>
-            <S.Span>{props.el?.boardWriter}</S.Span> 단짝님
+            <S.Span>{props.User?.userNickname}</S.Span> 단짝님
           </S.ItemInfoUserDiv>
         </S.FlexBox>
 

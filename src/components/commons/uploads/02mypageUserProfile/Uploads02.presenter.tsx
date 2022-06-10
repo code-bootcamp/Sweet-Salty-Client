@@ -7,11 +7,11 @@ export default function Uploads02UI(props: any) {
         <S.UploadImage
           src={`https://storage.googleapis.com/${props.fileUrl}`}
         />
-      ) : props.data?.fetchUser?.userImage ? (
+      ) : props.User?.userImage ? (
         <S.UploadImage
-          src={`https://storage.googleapis.com/${props.data?.fetchUser?.userImage}`}
+          src={`https://storage.googleapis.com/${props.User?.userImage}`}
         />
-      ) : props.data?.fetchUser?.userId ? (
+      ) : props.User?.userId ? (
         <S.UploadImage
           style={{ backgroundColor: "linear-gradient(#ff6e30, #ffa230" }}
         />

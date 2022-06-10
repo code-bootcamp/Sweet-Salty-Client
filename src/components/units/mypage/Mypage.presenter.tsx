@@ -9,11 +9,10 @@ export default function MyPagePresenter(props: any) {
   return (
     <S.Wrapper>
       {/* 마이페이지 */}
-      {props.User?.fetchUser?.userNickname ===
-      props.loginUser?.fetchUserLoggedIn?.userNickname ? (
+      {props.User?.userNickname === props.loginUser?.userNickname ? (
         <S.Title>마이페이지</S.Title>
       ) : (
-        <S.Title>{props.User?.fetchUser?.userNickname} 단짝님 프로필</S.Title>
+        <S.Title>{props.User?.userNickname} 단짝님 프로필</S.Title>
       )}
 
       <UserInfoContainer User={props.User} loginUser={props.loginUser} />
@@ -22,11 +21,12 @@ export default function MyPagePresenter(props: any) {
 
       <S.MypageSectionBox>
         <S.TableTop>
-          {props?.data?.fetchBoardsOfUser.map((el: any) => (
+          {props?.data?.map((el: any) => (
             <S.MypageBoardsOfUser key={uuidv4()}>
               <MyreviewCardContainer
                 el={el}
-                loginUser={props.loginUser?.fetchUserLoggedIn}
+                loginUser={props?.loginUser}
+                User={props?.User}
                 onClickMoveMyReviewDetail={props.onClickMoveMyReviewDetail}
               />
             </S.MypageBoardsOfUser>

@@ -4,6 +4,7 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import ModifyPresenterPage from "./Modify.presenter";
 import { UPDATE_USER } from "./Modify.queries";
+import { Modal } from "antd";
 
 export default function ModifyContainerPage() {
   const [updateUser] = useMutation(UPDATE_USER);
@@ -68,7 +69,7 @@ export default function ModifyContainerPage() {
 
   const onClickModify = async (data: any) => {
     try {
-      await updateUser({
+      const result = await updateUser({
         variables: {
           updateUserInput: {
             userPassword: data.userPassword,
@@ -80,7 +81,10 @@ export default function ModifyContainerPage() {
           },
         },
       });
-      alert("회원 정보가 수정되었습니다.");
+      router.push(`/${result?.data?.updateUser?.userNickname}`);
+      Modal.success({
+        content: "회원 정보가 수정되었습니다.",
+      });
     } catch (error: any) {
       alert(error.message);
     }

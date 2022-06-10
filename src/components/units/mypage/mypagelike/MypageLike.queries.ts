@@ -39,8 +39,8 @@ export const FETCH_USER = gql`
 `;
 
 export const FETCH_PICKED_BOARDS = gql`
-  query fetchPickedBoards {
-    fetchPickedBoards {
+  query fetchPickedBoards($userNickname: String!) {
+    fetchPickedBoards(userNickname: $userNickname) {
       boardId
       boardTitle
       boardWriter

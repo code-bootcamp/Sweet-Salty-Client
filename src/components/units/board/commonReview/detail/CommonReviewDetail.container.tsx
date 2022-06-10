@@ -14,7 +14,6 @@ export default function ReviewDetailContainer() {
   const { data } = useQuery(FETCH_BOARD, {
     variables: { boardId: String(router.query.boardId) },
   });
-  console.log(data?.fetchBoard,"데이타")
   const { data: loginUser } = useQuery(FETCH_USER_LOGGED_IN);
 
 

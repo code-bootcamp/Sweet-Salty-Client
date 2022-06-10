@@ -3,12 +3,21 @@ import { useRouter } from "next/router";
 import CommonReviewWritePresenter from "./CommonReviewWrite.presenter";
 import { useState } from "react";
 import { useMutation } from "@apollo/client";
+// import { yupResolver } from "@hookform/resolvers/yup";
+// import * as yup from "yup";
 import {
   CREATE_BOARD,
   CREATE_BOARD_REQ,
   CREATE_BOARD_RES,
-  UPDATE_BOARD
+  UPDATE_BOARD,
 } from "./CommonReviewWrite.queries";
+// const schema = yup.object({
+//   boardTitle: yup.string().max(20).required(),
+//   boardSugar: yup.string().max(30).required(),
+//   boardSalt: yup.string().max(30).required(),
+// });
+
+// const nonSchema = yup.object({});
 export default function CommonReviewWriteContainer(props: any) {
   const router = useRouter();
   const [createBoard] = useMutation(CREATE_BOARD);
@@ -95,7 +104,8 @@ export default function CommonReviewWriteContainer(props: any) {
     setSubCategoryName(el.value);
   };
 
-  const { register, handleSubmit, setValue, getValues, formState } = useForm({
+  const { register, handleSubmit, setValue, getValues, formState,trigger } = useForm({
+    // resolver: yupResolver(props.isEdit ? nonSchema : schema),
     mode: "onChange",
   });
 
@@ -205,30 +215,42 @@ export default function CommonReviewWriteContainer(props: any) {
     }
   };
 
+  // const onChangeContents = (value: string) => {
+  //   setValue("boardContents", value === "사진을 드래그&드롭 해보세요." ? "" : value);
+  //   trigger("boardContents");
+  // };
+
   //
-  const onClickUpdate = async (data)=>{
-    try{
+  const onClickUpdate = async (data:any) => {
+    try {
       await updateBoard({
         variables: {
           boardId: String(router.query.boardId),
-          updateBoardInput : {
-            boardTitle: data.boardTitle? data.boardTitle: props.updateData?.boardTitle,
-            boardSugar: data.boardSugar?data.boardSugar: props.updateData?.boardSugar,
-            boardSalt: data.boardSalt?data.boardSalt: props.updateData?.boardSalt,
-            boardContents: data.boardContents?data.boardContents: props.updateData?.boardContents,
+          updateBoardInput: {
+            boardTitle: data.boardTitle
+              ? data.boardTitle
+              : props.updateData?.boardTitle,
+            boardSugar: data.boardSugar
+              ? data.boardSugar
+              : props.updateData?.boardSugar,
+            boardSalt: data.boardSalt
+              ? data.boardSalt
+              : props.updateData?.boardSalt,
+            boardContents: data.boardContents
+              ? data.boardContents
+              : props.updateData?.boardContents,
             subCategoryName: props.updateData?.subCategoryName,
-            tags : props.updateData?.tags,
-            place : data.place? data.place : props.updateData?.place
-          }
-        }
-      })
-      alert("수정 완료")
-      router.push(`/reviews/commonReview/${router.query.boardId}`)
+            tags: props.updateData?.tags,
+            place: data.place ? data.place : props.updateData?.place,
+          },
+        },
+      });
+      alert("수정 완료");
+      router.push(`/reviews/commonReview/${router.query.boardId}`);
+    } catch (error: any) {
+      alert(error.message);
     }
-    catch (error :any) {
-      alert(error.message)
-    }
-  }
+  };
   return (
     <CommonReviewWritePresenter
       onClickCancel={onClickCancel}
@@ -239,6 +261,7 @@ export default function CommonReviewWriteContainer(props: any) {
       register={register}
       handleSubmit={handleSubmit}
       formState={formState}
+      // onChangeContents={onChangeContents}
       setBoardContents={setBoardContents}
       setAddress={setAddress}
       menuTagData={menuTagData}
@@ -255,6 +278,8 @@ export default function CommonReviewWriteContainer(props: any) {
       onClickReg={onClickReg}
       onClickUpdate={onClickUpdate}
       subCategoryName={subCategoryName}
+      updateData={props.updateData}
+      isEdit={props.isEdit}
     />
   );
 }

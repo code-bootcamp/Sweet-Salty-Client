@@ -5,12 +5,14 @@ import * as S from "./CommonReviewWrite.styles";
 const Editor = dynamic(() => import("../../../../commons/toast/editor"), {
   ssr: false,
 });
-
 export default function CommonReviewWritePresenter(props: any) {
+  console.log(props.isEdit,"업데")
   return (
     <S.Wrapper>
       <form onSubmit={props.handleSubmit(props.onClickReg)}>
-        <S.Title>단짠 게시판 글 등록</S.Title>
+        <S.Title>
+          {props.isEdit ? "단짠 게시판 글 수정" : "단짠 게시판 글 등록"}
+        </S.Title>
 
         <S.ReviewWriteBox>
           <S.Header>
@@ -21,58 +23,101 @@ export default function CommonReviewWritePresenter(props: any) {
                   type="text"
                   placeholder="20자 이내로 작성하세요."
                   register={props.register("boardTitle")}
+                  defaultValue={props.updateData?.boardTitle}
                 />
               </S.TitleSection>
-              <div>
-                <S.WriteTitle>카테고리</S.WriteTitle>
-                {props.communityCheckPage === "community" && (
-                  <S.CategoryBox>
-                    {props.categoryData.map((el: any, idx: any) => (
-                      <label className="checkbox" key={el.key}>
-                        <input
-                          type="checkbox"
-                          id={String(idx)}
-                          onChange={props.onChangeCheckCategory(el)}
-                          checked={Boolean(el.checked)}
-                        />
-                        <span className="checkbox_text">{el.name}</span>
-                      </label>
-                    ))}
-                  </S.CategoryBox>
-                )}
-                {props.checkPage === "REVIEW" && (
-                  <S.CategoryPickSection>
-                    <S.CategoryPick>단짠리뷰</S.CategoryPick>
-                    <S.CategoryUnPick>시식단 리뷰</S.CategoryUnPick>
-                    <S.CategoryUnPick>가주세요</S.CategoryUnPick>
-                    <S.CategoryUnPick>가봤어요</S.CategoryUnPick>
-                  </S.CategoryPickSection>
-                )}
-                {props.checkPage === "TASTER" && (
-                  <S.CategoryPickSection>
-                    <S.CategoryUnPick>단짠리뷰</S.CategoryUnPick>
-                    <S.CategoryPick>시식단 리뷰</S.CategoryPick>
-                    <S.CategoryUnPick>가주세요</S.CategoryUnPick>
-                    <S.CategoryUnPick>가봤어요</S.CategoryUnPick>
-                  </S.CategoryPickSection>
-                )}
-                {props.checkPage === "REQUEST" && (
-                  <S.CategoryPickSection>
-                    <S.CategoryUnPick>단짠리뷰</S.CategoryUnPick>
-                    <S.CategoryUnPick>시식단 리뷰</S.CategoryUnPick>
-                    <S.CategoryPick>가주세요</S.CategoryPick>
-                    <S.CategoryUnPick>가봤어요</S.CategoryUnPick>
-                  </S.CategoryPickSection>
-                )}
-                {props.checkPage === "VISITED" && (
-                  <S.CategoryPickSection>
-                    <S.CategoryUnPick>단짠리뷰</S.CategoryUnPick>
-                    <S.CategoryUnPick>시식단 리뷰</S.CategoryUnPick>
-                    <S.CategoryUnPick>가주세요</S.CategoryUnPick>
-                    <S.CategoryPick>가봤어요</S.CategoryPick>
-                  </S.CategoryPickSection>
-                )}
-              </div>
+              {props.isEdit ? (
+                <div>
+                  <S.WriteTitle>카테고리</S.WriteTitle>
+                  {props.updateData?.subCategory?.subCategoryName ===
+                    "REVIEW" && (
+                    <S.CategoryPickSection>
+                      <S.CategoryPick>단짠리뷰</S.CategoryPick>
+                      <S.CategoryUnPick>시식단 리뷰</S.CategoryUnPick>
+                      <S.CategoryUnPick>가주세요</S.CategoryUnPick>
+                      <S.CategoryUnPick>가봤어요</S.CategoryUnPick>
+                    </S.CategoryPickSection>
+                  )}
+                  {props.updateData?.subCategory?.subCategoryName ===
+                    "TASTER" && (
+                    <S.CategoryPickSection>
+                      <S.CategoryUnPick>단짠리뷰</S.CategoryUnPick>
+                      <S.CategoryPick>시식단 리뷰</S.CategoryPick>
+                      <S.CategoryUnPick>가주세요</S.CategoryUnPick>
+                      <S.CategoryUnPick>가봤어요</S.CategoryUnPick>
+                    </S.CategoryPickSection>
+                  )}
+                  {props.updateData?.subCategory?.subCategoryName ===
+                    "REQUEST" && (
+                    <S.CategoryPickSection>
+                      <S.CategoryUnPick>단짠리뷰</S.CategoryUnPick>
+                      <S.CategoryUnPick>시식단 리뷰</S.CategoryUnPick>
+                      <S.CategoryPick>가주세요</S.CategoryPick>
+                      <S.CategoryUnPick>가봤어요</S.CategoryUnPick>
+                    </S.CategoryPickSection>
+                  )}
+                  {props.updateData?.subCategory?.subCategoryName ===
+                    "VISITED" && (
+                    <S.CategoryPickSection>
+                      <S.CategoryUnPick>단짠리뷰</S.CategoryUnPick>
+                      <S.CategoryUnPick>시식단 리뷰</S.CategoryUnPick>
+                      <S.CategoryUnPick>가주세요</S.CategoryUnPick>
+                      <S.CategoryPick>가봤어요</S.CategoryPick>
+                    </S.CategoryPickSection>
+                  )}
+                </div>
+              ) : (
+                <div>
+                  <S.WriteTitle>카테고리</S.WriteTitle>
+                  {props.communityCheckPage === "community" && (
+                    <S.CategoryBox>
+                      {props.categoryData.map((el: any, idx: any) => (
+                        <label className="checkbox" key={el.key}>
+                          <input
+                            type="checkbox"
+                            id={String(idx)}
+                            onChange={props.onChangeCheckCategory(el)}
+                            checked={Boolean(el.checked)}
+                          />
+                          <span className="checkbox_text">{el.name}</span>
+                        </label>
+                      ))}
+                    </S.CategoryBox>
+                  )}
+                  {props.checkPage === "REVIEW" && (
+                    <S.CategoryPickSection>
+                      <S.CategoryPick>단짠리뷰</S.CategoryPick>
+                      <S.CategoryUnPick>시식단 리뷰</S.CategoryUnPick>
+                      <S.CategoryUnPick>가주세요</S.CategoryUnPick>
+                      <S.CategoryUnPick>가봤어요</S.CategoryUnPick>
+                    </S.CategoryPickSection>
+                  )}
+                  {props.checkPage === "TASTER" && (
+                    <S.CategoryPickSection>
+                      <S.CategoryUnPick>단짠리뷰</S.CategoryUnPick>
+                      <S.CategoryPick>시식단 리뷰</S.CategoryPick>
+                      <S.CategoryUnPick>가주세요</S.CategoryUnPick>
+                      <S.CategoryUnPick>가봤어요</S.CategoryUnPick>
+                    </S.CategoryPickSection>
+                  )}
+                  {props.checkPage === "REQUEST" && (
+                    <S.CategoryPickSection>
+                      <S.CategoryUnPick>단짠리뷰</S.CategoryUnPick>
+                      <S.CategoryUnPick>시식단 리뷰</S.CategoryUnPick>
+                      <S.CategoryPick>가주세요</S.CategoryPick>
+                      <S.CategoryUnPick>가봤어요</S.CategoryUnPick>
+                    </S.CategoryPickSection>
+                  )}
+                  {props.checkPage === "VISITED" && (
+                    <S.CategoryPickSection>
+                      <S.CategoryUnPick>단짠리뷰</S.CategoryUnPick>
+                      <S.CategoryUnPick>시식단 리뷰</S.CategoryUnPick>
+                      <S.CategoryUnPick>가주세요</S.CategoryUnPick>
+                      <S.CategoryPick>가봤어요</S.CategoryPick>
+                    </S.CategoryPickSection>
+                  )}
+                </div>
+              )}
             </S.TitleArticle>
 
             <S.MapArticle>
@@ -92,6 +137,7 @@ export default function CommonReviewWritePresenter(props: any) {
                   type="text"
                   placeholder="30자 이내로 작성하세요."
                   register={props.register("boardSugar")}
+                  defaultValue={props.updateData?.boardSugar}
                 />
               </div>
 
@@ -101,6 +147,7 @@ export default function CommonReviewWritePresenter(props: any) {
                   type="text"
                   placeholder="30자 이내로 작성하세요."
                   register={props.register("boardSalt")}
+                  defaultValue={props.updateData?.boardSalt}
                 />
               </div>
             </S.SugarSaltArticle>
@@ -116,17 +163,25 @@ export default function CommonReviewWritePresenter(props: any) {
               </S.WriteTitle>
 
               <S.MenuBox>
-                {props.menuTagData.map((el: any, idx: any) => (
-                  <label className="checkbox" key={el.key}>
-                    <input
-                      type="checkbox"
-                      id={String(idx)}
-                      onChange={props.onChangeCheckMenu(el)}
-                      checked={Boolean(el.checked)}
-                    />
-                    <span className="checkbox_text">{el.value}</span>
-                  </label>
-                ))}
+                {/* {props.isEdit ? (
+                  <S.CategoryPick>
+                    {props.updateData?.boardSides[0]?.boardTagName}
+                  </S.CategoryPick>
+                ) : (
+                  <div> */}
+                    {props.menuTagData.map((el: any, idx: any) => (
+                      <label className="checkbox" key={el.key}>
+                        <input
+                          type="checkbox"
+                          id={String(idx)}
+                          onChange={props.onChangeCheckMenu(el)}
+                          checked={Boolean(el.checked)}
+                        />
+                        <span className="checkbox_text">{el.value}</span>
+                      </label>
+                    ))}
+                  {/* </div>
+                )} */}
               </S.MenuBox>
             </S.MenuArticle>
 
@@ -163,7 +218,8 @@ export default function CommonReviewWritePresenter(props: any) {
 
             <S.EditorArticle>
               <S.WriteTitle>내용</S.WriteTitle>
-              <Editor setBoardContents={props.setBoardContents} />
+              <Editor setBoardContents={props.setBoardContents} 
+              defaultValue={props.updateData?.boardContents}/>
             </S.EditorArticle>
 
             <S.ButtonBox>

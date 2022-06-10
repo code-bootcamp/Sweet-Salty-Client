@@ -6,10 +6,9 @@ const Editor = dynamic(() => import("../../../../commons/toast/editor"), {
   ssr: false,
 });
 export default function CommonReviewWritePresenter(props: any) {
-  console.log(props.isEdit,"업데")
   return (
     <S.Wrapper>
-      <form onSubmit={props.handleSubmit(props.onClickReg)}>
+      <form onSubmit={props.handleSubmit(props.isEdit ? props.onClickUpdate:props.onClickReg)}>
         <S.Title>
           {props.isEdit ? "단짠 게시판 글 수정" : "단짠 게시판 글 등록"}
         </S.Title>
@@ -218,12 +217,14 @@ export default function CommonReviewWritePresenter(props: any) {
 
             <S.EditorArticle>
               <S.WriteTitle>내용</S.WriteTitle>
-              <Editor setBoardContents={props.setBoardContents} 
+              <Editor 
+              // setBoardContents={props.setBoardContents}
+              onChange={props.onChangeContents} 
               defaultValue={props.updateData?.boardContents}/>
             </S.EditorArticle>
 
             <S.ButtonBox>
-              <S.Button type="submit">등록하기</S.Button>
+              <S.Button type="submit">{props.isEdit ?"수정하기":"등록하기"}</S.Button>
               <S.Button onClick={props.onClickCancel}>취소하기</S.Button>
             </S.ButtonBox>
           </S.Section>

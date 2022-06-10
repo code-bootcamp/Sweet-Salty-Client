@@ -47,12 +47,13 @@ Youtube에 의하여 정보매체가 주가 되어버린 현재, 최근 들어 <
 
 ![소개](https://user-images.githubusercontent.com/89783182/172988049-d1621e0f-628c-4c71-95c4-0bb46397f8b5.gif)
 
-> 로그인 후 메인페이지에 접속하였을 경우 최신글들과 함께 회원가입시 선호하는 카테고리 선택한 태그에 의해서 추천
+> 로그인 후 메인페이지에 접속하면 최신글들과 함께 회원가입시 선호하는 카테고리에 의해서 추천글들이 보여집니다.
 - 각각의 item을 클릭 시 상세보기로 이동이 가능합니다.
 
 ![로그인시 메인](https://user-images.githubusercontent.com/89783182/172988593-b6e1a839-c119-4c43-a32e-f41c4e6cb036.gif)
 
 > 로그인을 하지 않았을 경우
+- 추천 탭에 정보가 표시되지 않습니다. 회원가입을 진행해주세요.
 
 ![비로그인시 메인](https://user-images.githubusercontent.com/89783182/172988614-ccd699ae-f553-4aa8-bf93-af44f1ff2bb3.gif)
 
@@ -60,12 +61,14 @@ Youtube에 의하여 정보매체가 주가 되어버린 현재, 최근 들어 <
 
 ![회원가입](https://user-images.githubusercontent.com/89783182/172988663-adfbcc95-a1b6-4625-b827-567ba17f174a.gif)
 
-> 페이지 자체 로그인과 소셜로그인 적용한 로그인 페이지 입니다.
+> 로그인 페이지
+- 자체 로그인 및 소셜로그인이 가능합니다.
 
 ![로그인](https://user-images.githubusercontent.com/89783182/172988673-5a79df39-7f10-4ae7-a3cc-363b3ae240e3.gif)
 
 > 리뷰를 작성할 수 있습니다.
 - 버튼 하나로 단짠리뷰(일반리뷰), 가주세요(요청), 시식단리뷰를 선택할 수 있습니다.
+- 당신의 멋진 리뷰를 보여주기 위해 반드시 하나 이상의 사진을 올려주세요.
 
 ![글쓰기](https://user-images.githubusercontent.com/89783182/172997387-9ead8607-f300-45c2-acde-b2466f046a5c.gif)
 
@@ -102,8 +105,13 @@ Youtube에 의하여 정보매체가 주가 되어버린 현재, 최근 들어 <
 
 ![마이페이지, 좋아요목록, 포인트](https://user-images.githubusercontent.com/89783182/172991743-1828c1f0-9cd2-4d4d-87c7-166fd0bf0c1d.gif)
 
-> 리뷰를 쓴 사람의 글들을 보고 싶으면 팔로우를 할 수 있습니다.
+> 리뷰를 작성한 사람들을 팔로우 해보세요. 유저를 팔로우 할 수 있습니다.
+ 
+![팔로우](https://user-images.githubusercontent.com/89783182/172997731-9e82cf58-82c6-462a-b19a-550d2b42a7c5.gif)
 
 > 쪽지를 보낼 수 있습니다. 유저에게 쪽지를 보내 보세요
+- 쪽지 보내기
+![쪽지발신](https://user-images.githubusercontent.com/89783182/172997952-c1e3ce94-b55c-4c5a-90f0-df83746c4a4a.gif)
 
-총 7개의 큰 페이지와 여러개의 하위 페이지로 구성이 되어있습니다.
+- 받은 쪽지함
+![쪽지수신](https://user-images.githubusercontent.com/89783182/172997975-a42ca952-2137-4330-b4b7-0df3dbe89315.gif)

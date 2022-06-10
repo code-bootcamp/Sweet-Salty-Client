@@ -6,7 +6,7 @@ const Editor = dynamic(() => import("../../../../commons/toast/editor"), {
   ssr: false,
 });
 export default function CommonReviewWritePresenter(props: any) {
-  console.log(props.updateData?.boardContents)
+  
   return (
     <S.Wrapper>
       <form onSubmit={props.handleSubmit(props.isEdit ? props.onClickUpdate:props.onClickReg)}>
@@ -222,7 +222,7 @@ export default function CommonReviewWritePresenter(props: any) {
               <Editor 
               setBoardContents={props.setBoardContents}
               updateData={props.updateData}
-              // onChange={props.onChangeContents} 
+              // initialValue={props.updateData?.boardContents||"사진을 드래그&드롭 해보세요."}
               />
             </S.EditorArticle>
 

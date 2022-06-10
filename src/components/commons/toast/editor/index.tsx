@@ -19,7 +19,7 @@ export default function WriteToast(props:any) {
     const editorInstance = editorRef.current?.getInstance();
     props.setBoardContents(editorInstance?.getMarkdown());
 
-    if (props.defaultValue)
+    if (props.defaultValue===props.updateData?.boardContents)
       props.setBoardContents(editorInstance?.getMarkdown());
   };
 

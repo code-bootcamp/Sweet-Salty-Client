@@ -13,7 +13,6 @@ export default function CommonReviewWritePage() {
       boardId: String(router.query.boardId)
     }
   })
-  console.log(updateData,"22")
   return (
     <CommonReviewWriteContainer
       isEdit={true}

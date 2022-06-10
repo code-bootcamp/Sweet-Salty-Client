@@ -3,7 +3,6 @@ import UserMenuPresenter from "./userMenu.presenter";
 
 export default function UserMenuContainer(props: any) {
   const router = useRouter();
-  console.log(router);
 
   const mypage = [`/${router.query.userNickname}/`];
   const ismypage = mypage.includes(router.asPath);

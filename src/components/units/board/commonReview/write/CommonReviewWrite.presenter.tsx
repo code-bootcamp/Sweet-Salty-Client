@@ -121,7 +121,7 @@ export default function CommonReviewWritePresenter(props: any) {
             </S.TitleArticle>
 
             <S.MapArticle>
-              <S.WriteTitle>가게선택</S.WriteTitle>
+              <S.WriteTitle>{props.isEdit?"가게이름":"가게선택"}</S.WriteTitle>
               {props.isEdit?<div>{props.updateData?.place.placeName}</div> :<S.Map>
                 <WriteMapPage setAddress={props.setAddress} />
               </S.Map>}

@@ -17,7 +17,11 @@ export default function MypageLikeContainer() {
   // 로그링한 유저 정보
   const { data: loginUser } = useQuery(FETCH_USER_LOGGED_IN);
 
-  const { data, refetch, fetchMore } = useQuery(FETCH_PICKED_BOARDS);
+  const { data, refetch, fetchMore } = useQuery(FETCH_PICKED_BOARDS, {
+    variables: {
+      userNickname: User?.fetchUser?.userNickname,
+    },
+  });
 
   const onLoadMore = () => {
     if (!data) return;
@@ -55,8 +59,8 @@ export default function MypageLikeContainer() {
   return (
     <MypageLikePresenter
       data={data}
-      User={User}
-      loginUser={loginUser}
+      User={User?.fetchUser}
+      loginUser={loginUser?.fetchUserLoggedIn}
       refetch={refetch}
       onLoadMore={onLoadMore}
       onClickMoveLikeReviewDetail={onClickMoveLikeReviewDetail}

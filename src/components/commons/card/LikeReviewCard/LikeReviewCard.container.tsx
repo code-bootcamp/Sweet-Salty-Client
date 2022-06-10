@@ -5,6 +5,7 @@ export default function LikeReviewCardContainer(props: any) {
     <LikeReviewCardPresenter
       el={props.el}
       data={props.data}
+      User={props.User}
       onClickMoveLikeReviewDetail={props.onClickMoveLikeReviewDetail}
     />
   );

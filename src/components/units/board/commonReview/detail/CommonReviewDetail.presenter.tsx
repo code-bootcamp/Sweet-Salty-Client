@@ -140,7 +140,7 @@ export default function ReviewDetailPresenter(props: any) {
             </S.Button>
             {props.loginUser?.userEmail === props.data?.user?.userEmail && 
             <div>
-              <S.EditButton>수정하기</S.EditButton>
+              <S.EditButton onClick={props.onClickUpdate}>수정하기</S.EditButton>
               <S.Button onClick={props.onClickDelete}>삭제하기</S.Button>
             </div>
               }

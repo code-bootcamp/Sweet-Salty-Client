@@ -3,9 +3,7 @@ import FavoriteBorderRoundedIcon from "@material-ui/icons/FavoriteBorderRounded"
 import FavoriteRoundedIcon from "@material-ui/icons/FavoriteRounded";
 // 스토어 아이템 부분
 // 여러번 사용
-export const ItemInfoWrapDiv = styled.div`
-  display: flex;
-`;
+
 // 여러번 사용 끝
 export const ItemMainDiv = styled.div`
   cursor: pointer;
@@ -80,18 +78,30 @@ export const ItemInfoDiv = styled.div`
 export const ItemInfoTopDiv = styled.div`
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
 `;
 
 export const ItemInfoTxtDiv = styled.div`
   color: #676767;
   display: flex;
+  justify-content: flex-start;
   font-size: 18px;
   font-weight: 600;
   line-height: 22px;
-  text-align: center;
   padding: 0px 0px 10px 0px;
+  width: 100%;
 `;
+
+export const ItemInfoTitle = styled.div`
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+`;
+export const ItemInfoSeller = styled.div`
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+`;
+
 export const ItemInfoBarDiv = styled.div`
   color: #676767;
   font-size: 18px;

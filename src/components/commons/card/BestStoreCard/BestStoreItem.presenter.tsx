@@ -33,13 +33,15 @@ export default function BestStoreItemPresenterPage(props: any) {
       </S.ItemImg>
       <S.ItemInfoDiv>
         <S.ItemInfoTopDiv>
-          <S.ItemInfoWrapDiv>
-            <S.ItemInfoTxtDiv>
+          <S.ItemInfoTxtDiv>
+            <S.ItemInfoTitle>
               {props.fetchShopBestData?.shopProductName}
-              <S.ItemInfoBarDiv>|</S.ItemInfoBarDiv>
+            </S.ItemInfoTitle>
+            <S.ItemInfoBarDiv>|</S.ItemInfoBarDiv>
+            <S.ItemInfoSeller>
               {props.fetchShopBestData?.shopSeller}
-            </S.ItemInfoTxtDiv>
-          </S.ItemInfoWrapDiv>
+            </S.ItemInfoSeller>
+          </S.ItemInfoTxtDiv>
         </S.ItemInfoTopDiv>
         <S.ItemInfoBottomDiv>
           <S.ItemDCRateDiv>

@@ -36,14 +36,17 @@ export default function ShopDetailPresenterPage(props: any) {
                   </S.ShopDescriptionArticle>
                   <S.PriceArticle>
                     <S.OriginalPriceArticle>
-                      {PointComma(props.fetchShop?.fetchShop.shopOriginalPrice)}원
+                      {PointComma(props.fetchShop?.fetchShop.shopOriginalPrice)}
+                      원
                     </S.OriginalPriceArticle>
                     <S.DiscountedPriceSection>
                       <S.DiscountedRate>
                         {props.fetchShop?.fetchShop.shopDisCount}%
                       </S.DiscountedRate>
                       <S.DiscountedPrice>
-                        {PointComma(props.fetchShop?.fetchShop.shopDisCountPrice)}
+                        {PointComma(
+                          props.fetchShop?.fetchShop.shopDisCountPrice
+                        )}
                       </S.DiscountedPrice>
                       <S.DiscountedPriceWon>원</S.DiscountedPriceWon>
                     </S.DiscountedPriceSection>
@@ -148,6 +151,7 @@ export default function ShopDetailPresenterPage(props: any) {
               </S.MapSection>
               <S.ButtonDiv>
                 <S.Button onClick={props.onClickList}>목록으로</S.Button>
+                <S.Button onClick={props.onClickEdit}>수정하기</S.Button>
               </S.ButtonDiv>
             </S.MainLeftSection>
           </S.MainSection>
@@ -168,7 +172,9 @@ export default function ShopDetailPresenterPage(props: any) {
                 <S.RightText>현재 보유 포인트</S.RightText>
               </div>
               <S.RightTextOrange>
-                {PointComma(props.fetchUserLoggedIn?.fetchUserLoggedIn.userPoint)}
+                {PointComma(
+                  props.fetchUserLoggedIn?.fetchUserLoggedIn.userPoint
+                )}
               </S.RightTextOrange>
             </S.RightSection>
             <S.RightSection>
@@ -205,8 +211,10 @@ export default function ShopDetailPresenterPage(props: any) {
                 ) : props.remainPoint > 0 ? (
                   PointComma(props.remainPoint)
                 ) : (
-                  PointComma(props.amountPoint -
-                  props.fetchUserLoggedIn?.fetchUserLoggedIn.userPoint)
+                  PointComma(
+                    props.amountPoint -
+                      props.fetchUserLoggedIn?.fetchUserLoggedIn.userPoint
+                  )
                 )}
               </S.RemainPoint>
             </S.RightSection>

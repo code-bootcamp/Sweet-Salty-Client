@@ -110,6 +110,8 @@ Youtube에 의하여 정보매체가 주가 되어버린 현재, 최근 들어 <
 ![팔로우](https://user-images.githubusercontent.com/89783182/172997731-9e82cf58-82c6-462a-b19a-550d2b42a7c5.gif)
 
 > 쪽지를 보낼 수 있습니다. 유저에게 쪽지를 보내 보세요
+- 쪽지를 읽지 않았을 경우 프로필에 표시가 됩니다.
+
 - 쪽지 보내기
 
 ![쪽지발신](https://user-images.githubusercontent.com/89783182/172997952-c1e3ce94-b55c-4c5a-90f0-df83746c4a4a.gif)

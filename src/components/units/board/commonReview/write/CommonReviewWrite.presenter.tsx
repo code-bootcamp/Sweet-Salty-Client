@@ -6,6 +6,7 @@ const Editor = dynamic(() => import("../../../../commons/toast/editor"), {
   ssr: false,
 });
 export default function CommonReviewWritePresenter(props: any) {
+  
   return (
     <S.Wrapper>
       <form onSubmit={props.handleSubmit(props.isEdit ? props.onClickUpdate:props.onClickReg)}>
@@ -121,9 +122,9 @@ export default function CommonReviewWritePresenter(props: any) {
 
             <S.MapArticle>
               <S.WriteTitle>가게선택</S.WriteTitle>
-              <S.Map>
+              {props.isEdit?<div>{props.updateData?.place.placeName}</div> :<S.Map>
                 <WriteMapPage setAddress={props.setAddress} />
-              </S.Map>
+              </S.Map>}
             </S.MapArticle>
 
             <S.SugarSaltArticle
@@ -162,12 +163,12 @@ export default function CommonReviewWritePresenter(props: any) {
               </S.WriteTitle>
 
               <S.MenuBox>
-                {/* {props.isEdit ? (
+                {props.isEdit ? (
                   <S.CategoryPick>
-                    {props.updateData?.boardSides[0]?.boardTagName}
+                    {props.updateData?.boardSides[0]?.boardTags.boardTagName}
                   </S.CategoryPick>
                 ) : (
-                  <div> */}
+                  <div>
                     {props.menuTagData.map((el: any, idx: any) => (
                       <label className="checkbox" key={el.key}>
                         <input
@@ -179,8 +180,8 @@ export default function CommonReviewWritePresenter(props: any) {
                         <span className="checkbox_text">{el.value}</span>
                       </label>
                     ))}
-                  {/* </div>
-                )} */}
+                  </div>
+                )}
               </S.MenuBox>
             </S.MenuArticle>
 
@@ -193,6 +194,7 @@ export default function CommonReviewWritePresenter(props: any) {
               </S.WriteTitle>
 
               <S.MoodBox>
+                
                 {props.moodTagData.map((el: any, idx: any) => (
                   <label className="checkbox" key={el.key}>
                     <input
@@ -218,8 +220,8 @@ export default function CommonReviewWritePresenter(props: any) {
             <S.EditorArticle>
               <S.WriteTitle>내용</S.WriteTitle>
               <Editor 
-              // setBoardContents={props.setBoardContents}
-              onChange={props.onChangeContents} 
+              setBoardContents={props.setBoardContents}
+              // onChange={props.onChangeContents} 
               defaultValue={props.updateData?.boardContents}/>
             </S.EditorArticle>
 

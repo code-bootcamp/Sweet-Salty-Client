@@ -3,22 +3,21 @@ import { useRouter } from "next/router";
 import CommonReviewWritePresenter from "./CommonReviewWrite.presenter";
 import { useState } from "react";
 import { useMutation } from "@apollo/client";
-import { yupResolver } from "@hookform/resolvers/yup";
-import * as yup from "yup";
+// import { yupResolver } from "@hookform/resolvers/yup";
+// import * as yup from "yup";
 import {
   CREATE_BOARD,
   CREATE_BOARD_REQ,
   CREATE_BOARD_RES,
   UPDATE_BOARD,
 } from "./CommonReviewWrite.queries";
-const schema = yup.object({
-  boardTitle: yup.string().max(20).required(),
-  boardSugar: yup.string().max(30).required(),
-  boardSalt: yup.string().max(30).required(),
-  boardContents: yup.string().required(),
-});
+// const schema = yup.object({
+//   boardTitle: yup.string().max(20).required(),
+//   boardSugar: yup.string().max(30).required(),
+//   boardSalt: yup.string().max(30).required(),
+// });
 
-const nonSchema = yup.object({});
+// const nonSchema = yup.object({});
 export default function CommonReviewWriteContainer(props: any) {
   const router = useRouter();
   const [createBoard] = useMutation(CREATE_BOARD);
@@ -105,8 +104,8 @@ export default function CommonReviewWriteContainer(props: any) {
     setSubCategoryName(el.value);
   };
 
-  const { register, handleSubmit, setValue, getValues, formState } = useForm({
-    resolver: yupResolver(props.isEdit ? nonSchema : schema),
+  const { register, handleSubmit, setValue, getValues, formState,trigger } = useForm({
+    // resolver: yupResolver(props.isEdit ? nonSchema : schema),
     mode: "onChange",
   });
 
@@ -216,8 +215,13 @@ export default function CommonReviewWriteContainer(props: any) {
     }
   };
 
+  // const onChangeContents = (value: string) => {
+  //   setValue("boardContents", value === "사진을 드래그&드롭 해보세요." ? "" : value);
+  //   trigger("boardContents");
+  // };
+
   //
-  const onClickUpdate = async (data) => {
+  const onClickUpdate = async (data:any) => {
     try {
       await updateBoard({
         variables: {
@@ -257,6 +261,7 @@ export default function CommonReviewWriteContainer(props: any) {
       register={register}
       handleSubmit={handleSubmit}
       formState={formState}
+      // onChangeContents={onChangeContents}
       setBoardContents={setBoardContents}
       setAddress={setAddress}
       menuTagData={menuTagData}

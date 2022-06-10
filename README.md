@@ -111,7 +111,9 @@ Youtube에 의하여 정보매체가 주가 되어버린 현재, 최근 들어 <
 
 > 쪽지를 보낼 수 있습니다. 유저에게 쪽지를 보내 보세요
 - 쪽지 보내기
+
 ![쪽지발신](https://user-images.githubusercontent.com/89783182/172997952-c1e3ce94-b55c-4c5a-90f0-df83746c4a4a.gif)
 
 - 받은 쪽지함
+
 ![쪽지수신](https://user-images.githubusercontent.com/89783182/172997975-a42ca952-2137-4330-b4b7-0df3dbe89315.gif)
